@@ -1,0 +1,28 @@
+{
+  "name": "Tilted Rows",
+  "category": "scroll",
+  "description": "A header over three rows of cards on a tilted plane that straightens as you scroll while the rows slide apart.",
+  "preview": { "layout": "fill", "height": 600, "iframe": true },
+  "props": [
+    {
+      "component": "TiltedRows",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ title: string; src: string; href?: string }[]",
+          "description": "Fifteen cards, five to a row. A card with href is a link; the title shows on a chip when the card is hovered or focused."
+        },
+        {
+          "name": "header",
+          "type": "ReactNode",
+          "description": "Headline and supporting line shown over the top of the plane. Bring your own heading element."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the outer section. It clips the rows that slide past its edges."
+        }
+      ]
+    }
+  ]
+}

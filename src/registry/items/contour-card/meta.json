@@ -1,0 +1,56 @@
+{
+  "name": "Contour Card",
+  "category": "cards",
+  "original": true,
+  "description": "A card drawn over a living contour map: a low hill follows the pointer, the lines flow around it, and a small label reads the elevation underneath.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "ContourCard",
+      "props": [
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "\"contour\"",
+          "description": "Picks the terrain. The same seed gives the same map."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "20",
+          "description": "Elevation between neighbouring lines. Every fifth line is an index line, drawn heavier."
+        },
+        {
+          "name": "range",
+          "type": "[number, number]",
+          "default": "[0, 400]",
+          "description": "Lowest and highest elevation on the map, in metres. Sets the numbers in the label and, with interval, how many lines there are."
+        },
+        {
+          "name": "lineColor",
+          "type": "string",
+          "default": "\"var(--border-strong)\"",
+          "description": "Colour of the ordinary contour lines."
+        },
+        {
+          "name": "indexColor",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the index lines."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "Raise a low hill under the pointer, let the map drift with it, and show the elevation label. Off, the map only drifts slowly."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card, which is rounded, bordered and padded by default. The map fades out towards the top and bottom edges so text placed there reads. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "The card's content, drawn above the map." }
+      ]
+    }
+  ]
+}

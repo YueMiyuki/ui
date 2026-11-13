@@ -1,0 +1,39 @@
+{
+  "name": "Sleet",
+  "category": "backgrounds",
+  "description": "Thin diagonal streaks with a bright head and a fading tail, crossing a card or a section.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "Sleet",
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "18",
+          "description": "Number of streaks. Each crosses once per loop and then waits."
+        },
+        {
+          "name": "angle",
+          "type": "number",
+          "default": "215",
+          "description": "Direction of travel in degrees, clockwise from straight up. Streaks start on the edges they travel away from."
+        },
+        { "name": "minDuration", "type": "number", "default": "3", "description": "Shortest loop in seconds." },
+        { "name": "maxDuration", "type": "number", "default": "9", "description": "Longest loop in seconds." },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Tail colour. The head is mixed from it: ice white in the dark theme, ink in the light theme."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the streaks. Style it as the card or section. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the streaks." }
+      ]
+    }
+  ]
+}

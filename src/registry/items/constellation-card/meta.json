@@ -1,0 +1,37 @@
+{
+  "name": "Constellation Card",
+  "category": "backgrounds",
+  "description": "A card with a field of dots where a constellation lights up and joins on hover or focus.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "ConstellationCard",
+      "props": [
+        { "name": "columns", "type": "number", "default": "18", "description": "Dots across the field." },
+        { "name": "rows", "type": "number", "default": "6", "description": "Dots down the field." },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "1",
+          "description": "Picks the constellation and which dots twinkle. The same seed always gives the same sky."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "7",
+          "description": "Stars in the constellation. From five up, the stars form a ring with one more inside it on a spur; fewer make an open chain."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Card content shown under the field: a title, a line of text, an action."
+        }
+      ]
+    }
+  ]
+}

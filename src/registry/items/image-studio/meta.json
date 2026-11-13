@@ -1,0 +1,51 @@
+{
+  "name": "Image Studio",
+  "category": "templates",
+  "description": "A prompt thread that generates images in a frame, with like, regenerate and download, and a panel with a masonry gallery and named styles.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "ImageStudio",
+      "props": [
+        {
+          "name": "variants",
+          "type": "{ id: string; src: string; alt: string; ratio?: number }[]",
+          "description": "Results the frame generates, in turn: the first on load, the next on Generate again or a new prompt. ratio is width over height."
+        },
+        {
+          "name": "gallery",
+          "type": "{ id: string; src: string; alt: string; prompt?: string; ratio?: number }[]",
+          "description": "Earlier images shown as a masonry in the Gallery tab. Choosing one shows it in the latest frame. Finished images are added to the top."
+        },
+        {
+          "name": "styles",
+          "type": "{ id: string; name: string; description?: string; src: string }[]",
+          "description": "Named styles shown as tiles in the Styles tab. The chosen style appears as context on the composer."
+        },
+        {
+          "name": "prompt",
+          "type": "string",
+          "default": "Lake Tōya at dusk…",
+          "description": "The first prompt in the thread."
+        },
+        {
+          "name": "defaultStyle",
+          "type": "string",
+          "default": "the first style",
+          "description": "Id of the style chosen at first."
+        },
+        {
+          "name": "user",
+          "type": "{ name: string; email: string; avatar?: string }",
+          "default": "Mei Watanabe",
+          "description": "The signed-in person shown at the foot of the sidebar."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It fills the viewport height. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

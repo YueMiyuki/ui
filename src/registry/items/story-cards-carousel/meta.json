@@ -1,0 +1,40 @@
+{
+  "name": "Story Cards Carousel",
+  "category": "media",
+  "description": "A row of tall cards you scroll sideways; opening one unfolds it into an article.",
+  "preview": { "layout": "fill", "height": 560, "iframe": true },
+  "props": [
+    {
+      "component": "StoryCardsCarousel",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ category: string; title: string; src: string; content: ReactNode }[]",
+          "description": "The stories. content is the article shown under the image when a card is open; consecutive paragraphs are spaced for you."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Stories\"",
+          "description": "Names the carousel for assistive technology."
+        },
+        {
+          "name": "labels",
+          "type": "{ previous?: string; next?: string; close?: string; position?: (first, last, count) => string }",
+          "description": "Text for assistive technology, for translation. position is announced when the row comes to rest."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default: the browser redraws the blur on every frame while anything behind it changes, which stalls on large pages, most of all in Firefox."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Set --miyuki-story-cards-inset to change the padding at the ends of the row (default 1.5rem). Also accepts every other prop of a section."
+        }
+      ]
+    }
+  ]
+}

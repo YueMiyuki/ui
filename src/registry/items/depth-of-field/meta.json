@@ -1,0 +1,29 @@
+{
+  "name": "Depth of Field",
+  "category": "cards",
+  "description": "A grid of image cards where the one under the pointer stays sharp and the rest blur with distance, like depth of field.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "DepthOfField",
+      "props": [
+        {
+          "name": "cards",
+          "type": "{ title: string; subtitle?: string; src: string; alt?: string; href?: string }[]",
+          "description": "The cards. A card with href is a link; one without is a focusable figure so keyboard users can reach its caption."
+        },
+        {
+          "name": "columns",
+          "type": "2 | 3 | 4",
+          "default": "3",
+          "description": "Columns at full width. The grid follows its container's width and uses fewer columns when narrow."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the outer element, which is a size container."
+        }
+      ]
+    }
+  ]
+}

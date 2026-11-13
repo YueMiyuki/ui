@@ -1,0 +1,39 @@
+{
+  "name": "Ice Button",
+  "category": "buttons",
+  "original": true,
+  "description": "A button made of ice: pressing sends fine cracks out from the press point, and they heal as the surface refreezes.",
+  "preview": { "layout": "center", "height": 280 },
+  "props": [
+    {
+      "component": "IceButton",
+      "props": [
+        {
+          "name": "tone",
+          "type": "\"ice\" | \"deep\"",
+          "default": "\"ice\"",
+          "description": "Pale clear ice, or deep blue glacier ice for the main action."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels, as Button."
+        },
+        { "name": "iconStart", "type": "ReactNode", "description": "Icon before the label. Sized to 16 pixels." },
+        { "name": "iconEnd", "type": "ReactNode", "description": "Icon after the label." },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the button." },
+        {
+          "name": "onPress",
+          "type": "(event: PressEvent) => void",
+          "description": "Called when the button is pressed by mouse, touch or keyboard."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components Button."
+        }
+      ]
+    }
+  ]
+}

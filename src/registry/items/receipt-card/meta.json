@@ -1,0 +1,43 @@
+{
+  "name": "Receipt Card",
+  "category": "cards",
+  "original": true,
+  "description": "A paper receipt that feeds out of a printer slot line by line, with dotted leaders, a barcode and a serrated edge.",
+  "preview": { "layout": "center", "height": 720 },
+  "props": [
+    {
+      "component": "ReceiptCard",
+      "props": [
+        {
+          "name": "lines",
+          "type": "{ label: ReactNode; value?: ReactNode; bold?: boolean; rule?: boolean }[]",
+          "description": "The body of the receipt, top to bottom. A line with a value gets a dotted leader and a right-aligned figure in mono; bold sets it heavier, as for a total; rule draws a dashed rule above it."
+        },
+        { "name": "title", "type": "ReactNode", "description": "The header, centred above the lines." },
+        { "name": "footer", "type": "ReactNode", "description": "A closing line under the barcode." },
+        {
+          "name": "code",
+          "type": "string",
+          "default": "\"490123456789\"",
+          "description": "The number under the barcode. Twelve or thirteen digits are drawn as a real EAN-13 with its check digit; anything else as a plain bar pattern."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Feed speed multiplier. The paper prints itself the first time it scrolls into view."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<{ print: () => void }>",
+          "description": "print() tears off the receipt that is out and prints it again."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is 300px wide by default and a figure; give it an aria-label."
+        }
+      ]
+    }
+  ]
+}

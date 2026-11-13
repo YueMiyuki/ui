@@ -1,0 +1,41 @@
+{
+  "name": "Shrinking Header",
+  "category": "navigation",
+  "description": "A full-width header that draws in to a floating glass pill once the page starts to scroll.",
+  "preview": { "layout": "fill", "height": 520, "iframe": true },
+  "props": [
+    {
+      "component": "ShrinkingHeader",
+      "props": [
+        { "name": "logo", "type": "ReactNode", "description": "The brand at the left end, usually a link home." },
+        {
+          "name": "items",
+          "type": "{ name: string; href: string; current?: boolean }[]",
+          "description": "The links, centred in the bar. The current one gets aria-current=\"page\" and a water dot."
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "description": "Buttons or links at the right end. Below 1024 pixels they move into the menu panel and share its width."
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "60",
+          "description": "Scroll distance in pixels after which the bar draws in to a pill."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Main\"",
+          "description": "Names the navigation landmark."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the sticky header element. Also accepts every other header attribute."
+        }
+      ]
+    }
+  ]
+}

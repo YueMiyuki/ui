@@ -1,0 +1,25 @@
+{
+  "name": "Waterline Card",
+  "category": "text",
+  "description": "A card where moving the pointer across it pulls a glowing waterline, and the text behind the line reads differently.",
+  "preview": { "layout": "center", "height": 380 },
+  "props": [
+    {
+      "component": "WaterlineCard",
+      "props": [
+        { "name": "text", "type": "string", "description": "Text shown at rest, in a muted tone." },
+        {
+          "name": "revealText",
+          "type": "string",
+          "description": "Text shown to the left of the line, in a water-to-snow gradient (water to ink in the light theme). Screen readers hear both texts."
+        },
+        { "name": "children", "type": "ReactNode", "description": "The title and description, placed above the text." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. The line follows a mouse, follows a drag on touch, leans with its speed and drains back to the left edge when the pointer leaves. Keyboard focus reveals the whole text. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

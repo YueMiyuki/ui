@@ -1,0 +1,127 @@
+{
+  "name": "Tide Tabs",
+  "category": "navigation",
+  "original": true,
+  "description": "Tabs over a shallow channel whose indicator is a pool of water that flows to the chosen tab, stretching on the way and gathering when it arrives.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Forecast"
+    },
+    {
+      "name": "vertical",
+      "title": "Vertical"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 300
+  },
+  "props": [
+    {
+      "component": "TideTabs",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "Lay the channel out as a row above the panel, or as a column beside it."
+        },
+        {
+          "name": "selectedKey",
+          "type": "Key",
+          "description": "The id of the current tab (controlled)."
+        },
+        {
+          "name": "defaultSelectedKey",
+          "type": "Key",
+          "description": "The id of the tab shown first (uncontrolled). Defaults to the first tab."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(key: Key) => void",
+          "description": "Called when another tab is chosen."
+        },
+        {
+          "name": "keyboardActivation",
+          "type": "\"automatic\" | \"manual\"",
+          "default": "\"automatic\"",
+          "description": "Whether arrow keys switch panels straight away, or only move focus until Enter or Space."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Tabs."
+        }
+      ]
+    },
+    {
+      "component": "TideTabList",
+      "props": [
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Names the set of tabs for assistive technology."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the water. Labels under the water take `brand-foreground`, so pick a colour that reads with it."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The TideTab elements."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Classes for the row of tabs inside the channel. Also accepts every other prop of the react-aria-components TabList."
+        }
+      ]
+    },
+    {
+      "component": "TideTab",
+      "props": [
+        {
+          "name": "id",
+          "type": "Key",
+          "description": "Matches the id of the TideTabPanel this tab shows."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The label, optionally with a lucide icon. It changes colour exactly where the water covers it."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables this tab."
+        }
+      ]
+    },
+    {
+      "component": "TideTabPanel",
+      "props": [
+        {
+          "name": "id",
+          "type": "Key",
+          "description": "Matches the id of its TideTab."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The panel content. It rises in a few pixels when its tab is chosen."
+        },
+        {
+          "name": "shouldForceMount",
+          "type": "boolean",
+          "default": "false",
+          "description": "Keep the panel in the DOM while it is hidden."
+        }
+      ]
+    }
+  ]
+}

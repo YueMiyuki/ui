@@ -1,0 +1,92 @@
+{
+  "name": "Radial Chart",
+  "category": "charts",
+  "description": "Values as arcs: concentric rings, a three-quarter gauge with the value in the middle, or a half gauge split into segments.",
+  "demos": [
+    { "name": "default", "title": "Stacked" },
+    { "name": "rings", "title": "Rings" },
+    { "name": "gauge", "title": "Gauge" }
+  ],
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "RadialChart",
+      "props": [
+        {
+          "name": "data",
+          "type": "{ name: string; value: number; color?: string }[]",
+          "description": "The values. A gauge uses the first one. Colours follow the chart palette unless given."
+        },
+        {
+          "name": "variant",
+          "type": "\"rings\" | \"gauge\" | \"stacked\"",
+          "default": "\"stacked\"",
+          "description": "Concentric rings that sweep up to three quarters of a turn, a single three-quarter arc, or a half gauge divided into segments."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": "What a full arc stands for. Defaults to the total for stacked, 100 for a gauge and a rounded-up largest value for rings."
+        },
+        {
+          "name": "centerValue",
+          "type": "ReactNode",
+          "description": "Replaces the numeral in the middle: the total for stacked, the share of max for a gauge."
+        },
+        {
+          "name": "centerLabel",
+          "type": "ReactNode",
+          "description": "Short line with the middle numeral, e.g. \"of the 1,200 goal\"."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default": "\"Value\"",
+          "description": "What is counted, for the rings tooltip."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in labels, the legend and the tooltip. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatScale",
+          "type": "(value: number) => string",
+          "description": "Writes the 0 and max labels under the ends of a gauge. Defaults to compact numbers."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "description": "Largest diameter in pixels: 236 for rings, 224 for a gauge, 304 for stacked. Shrinks to fit the card."
+        },
+        {
+          "name": "thickness",
+          "type": "number",
+          "description": "Width of each arc: 14 for rings and 18 for a gauge or stacked."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "description": "Show a legend with values under the chart. On by default for stacked; rings label themselves."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts caption, note, action, footer and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Patient Summary",
+  "category": "templates",
+  "description": "A patient summary for a mountain clinic: identity and key facts, vitals, allergies and medications, sleep, activity and steps from a wearable, upcoming appointments and visit history, with booking and messaging.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "PatientSummary",
+      "props": [
+        {
+          "name": "user",
+          "type": "{ name: string; email: string; avatar?: string }",
+          "default": "Sora Nakamura",
+          "description": "The signed-in clinician at the foot of the sidebar."
+        },
+        {
+          "name": "avatars",
+          "type": "Record<string, string>",
+          "default": "{}",
+          "description": "Portrait images keyed by person name, used for the patient and the user. Anyone without one shows initials."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

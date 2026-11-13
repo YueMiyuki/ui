@@ -1,0 +1,94 @@
+{
+  "name": "Horizon Chart",
+  "category": "charts",
+  "original": true,
+  "description": "Many long series in little height: each row folds its area into bands of deepening water blue above a baseline and camellia below, read all at once by a vertical rule.",
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "HorizonChart",
+      "props": [
+        {
+          "name": "series",
+          "type": "{ label: string; values: number[]; title?: string; baseline?: number }[]",
+          "description": "One row per entry, with a value per label. label sits on the left; title, when given, is used in the summary and table. A row's own baseline overrides the shared one."
+        },
+        {
+          "name": "labels",
+          "type": "string[]",
+          "description": "One label per point along the shared time axis, e.g. \"14 Mar\"."
+        },
+        {
+          "name": "titles",
+          "type": "string[]",
+          "description": "Longer names for each point, for the summary, the live readout and the table."
+        },
+        {
+          "name": "ticks",
+          "type": "number[]",
+          "description": "Indices of the labels to show on the axis. Defaults to evenly spaced labels that fit."
+        },
+        {
+          "name": "bands",
+          "type": "number",
+          "default": "3",
+          "description": "How many layers each row folds into. Values beyond the last band are clipped at the row's top."
+        },
+        {
+          "name": "baseline",
+          "type": "number",
+          "default": "0",
+          "description": "The value rows are measured from. Above it folds up in blue, below it folds up in red."
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "description": "How much each band holds. Defaults to a round step that fits the largest difference from the baseline across all rows, so rows compare directly."
+        },
+        { "name": "rowHeight", "type": "number", "default": "30", "description": "Height of each row in pixels." },
+        {
+          "name": "colors",
+          "type": "[above: string, below: string]",
+          "default": "[\"var(--chart-1)\", \"var(--chart-5)\"]",
+          "description": "The deepest shade above and below the baseline. Shallower bands fade toward the card."
+        },
+        { "name": "unit", "type": "string", "description": "Unit written after values, e.g. \"m\"." },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes a difference from the baseline in the readouts and table. Defaults to a signed number with the unit."
+        },
+        {
+          "name": "formatStep",
+          "type": "(value: number) => string",
+          "description": "Writes the band size in the key. Defaults to the number with the unit."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the vertical axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value." },
+        { "name": "note", "type": "ReactNode", "description": "A muted line under the value." },
+        { "name": "footer", "type": "ReactNode", "description": "Replaces the key under the plot." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card, e.g. a width. Also accepts delta, action and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

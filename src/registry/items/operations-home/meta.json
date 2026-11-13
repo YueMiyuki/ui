@@ -1,0 +1,30 @@
+{
+  "name": "Operations Home",
+  "category": "templates",
+  "description": "The operations home of a weather service: season earnings, recent sign-ups, revenue by week, month or year, a year of bulletins and a customers table, all filtered by region.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "OperationsHome",
+      "props": [
+        {
+          "name": "user",
+          "type": "{ name: string; email: string; avatar?: string }",
+          "default": "Yuna Sato",
+          "description": "The signed-in person at the foot of the sidebar. The greeting uses the first name."
+        },
+        {
+          "name": "avatars",
+          "type": "Record<string, string>",
+          "default": "{}",
+          "description": "Portrait images keyed by person name, used for the user and the recent sign-ups. Anyone without one shows initials."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

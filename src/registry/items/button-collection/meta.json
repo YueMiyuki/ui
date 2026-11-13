@@ -1,0 +1,54 @@
+{
+  "name": "Button Collection",
+  "category": "buttons",
+  "description": "Twelve button treatments in one component, from a lifting ink button to a key that presses down.",
+  "preview": {
+    "layout": "center",
+    "height": 420
+  },
+  "props": [
+    {
+      "component": "EffectButton",
+      "props": [
+        {
+          "name": "effect",
+          "type": "\"lift\" | \"fill\" | \"draw\" | \"frost\" | \"ripple\" | \"sheen\" | \"underline\" | \"reveal\" | \"keycap\" | \"halo\" | \"swap\" | \"march\"",
+          "default": "\"lift\"",
+          "description": "The treatment. lift: ink that rises 2px. fill: an outline that fills with water from the bottom. draw: a water line draws itself round the border. frost: glass over a blurred backdrop. ripple: a ring spreads from where it was pressed. sheen: a band of light crosses on hover. underline: a text button with a sliding underline. reveal: an arrow slides in as the label shifts. keycap: a key that presses down. halo: a soft water ring pulses outward. swap: the label rolls up to altLabel. march: a dashed border whose dashes travel."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The label, with optional 16 pixel icons."
+        },
+        {
+          "name": "altLabel",
+          "type": "ReactNode",
+          "description": "For swap: the label that rolls in on hover. Defaults to children. It is hidden from assistive technology, so the accessible name stays the first label."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels, as Button."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the button."
+        },
+        {
+          "name": "onPress",
+          "type": "(event: PressEvent) => void",
+          "description": "Called when the button is pressed by mouse, touch or keyboard."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components Button. The draw and march effects trace the standard 10px corner; if you change the radius, set --miyuki-button-collection-radius to match."
+        }
+      ]
+    }
+  ]
+}

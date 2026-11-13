@@ -1,0 +1,89 @@
+{
+  "name": "Star Field",
+  "category": "backgrounds",
+  "description": "A quiet twinkling star field and an occasional shooting star, as two layers you can stack.",
+  "demos": [{ "name": "default", "title": "Observatory" }, { "name": "chart", "title": "Star chart" }],
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "StarField",
+      "props": [
+        {
+          "name": "density",
+          "type": "number",
+          "default": "60",
+          "description": "Stars per 100,000 square pixels, in three sizes."
+        },
+        {
+          "name": "twinkle",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let each star brighten and dim slowly at its own rate."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--foreground)\", \"var(--brand)\", \"var(--chart-6)\"]",
+          "description": "The first colour is used for most stars; the second and third tint a few of them. At night the stars glow; on a light surface they are fine ink specks."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the layer, which is absolutely positioned to fill its nearest positioned parent. Other div props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "FallingStars",
+      "props": [
+        {
+          "name": "minDelay",
+          "type": "number",
+          "default": "1800",
+          "description": "Shortest pause between two shooting stars, in milliseconds."
+        },
+        {
+          "name": "maxDelay",
+          "type": "number",
+          "default": "5200",
+          "description": "Longest pause between two shooting stars, in milliseconds."
+        },
+        {
+          "name": "minSpeed",
+          "type": "number",
+          "default": "620",
+          "description": "Slowest starting speed, in pixels per second. Each star decelerates as it fades."
+        },
+        {
+          "name": "maxSpeed",
+          "type": "number",
+          "default": "1050",
+          "description": "Fastest starting speed, in pixels per second."
+        },
+        {
+          "name": "angle",
+          "type": "[number, number]",
+          "default": "[24, 40]",
+          "description": "Range for the direction of travel in degrees, where 0 points right and 90 points down."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "Colour of the bright head: near-white at night, ink on a light surface.",
+          "default": "\"var(--foreground)\""
+        },
+        {
+          "name": "trailColor",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the fading tail."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the layer, which is absolutely positioned to fill its nearest positioned parent. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

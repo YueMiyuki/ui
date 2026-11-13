@@ -1,0 +1,93 @@
+{
+  "name": "Popover",
+  "category": "overlays",
+  "description": "Rich content anchored to a trigger, with an optional arrow, that flips when there is no room.",
+  "demos": [
+    { "name": "default", "title": "Definition" },
+    { "name": "form", "title": "Form" },
+    { "name": "placements", "title": "Placements" }
+  ],
+  "preview": { "layout": "center", "height": 360, "thumb": false, "thumbClick": "button" },
+  "props": [
+    {
+      "component": "PopoverTrigger",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A button that opens the popover, then the Popover."
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Open state (controlled). Use defaultOpen when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the popover opens or closes."
+        }
+      ]
+    },
+    {
+      "component": "Popover",
+      "props": [
+        {
+          "name": "placement",
+          "type": "Placement",
+          "default": "\"bottom\"",
+          "description": "Where it opens relative to the trigger, e.g. \"top\", \"right\", \"bottom start\". It flips to the opposite side when there is no room."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": "10",
+          "description": "Gap from the trigger in pixels, with room for the arrow."
+        },
+        {
+          "name": "crossOffset",
+          "type": "number",
+          "default": "0",
+          "description": "Shift along the trigger's edge in pixels."
+        },
+        {
+          "name": "shouldFlip",
+          "type": "boolean",
+          "default": "true",
+          "description": "Flip to the other side when there is no room."
+        },
+        {
+          "name": "isNonModal",
+          "type": "boolean",
+          "default": "false",
+          "description": "Leave the rest of the page interactive while open."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Labels the popover when it has no heading with slot=\"title\". Falls back to the trigger's label."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | ({ close }) => ReactNode",
+          "description": "The content, with an optional PopoverArrow. A function receives close()."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the surface, e.g. a width. Also accepts every other prop of the react-aria-components Popover."
+        }
+      ]
+    },
+    {
+      "component": "PopoverArrow",
+      "props": [
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. The arrow is drawn in the popover's fill and hairline and turns to face the trigger."
+        }
+      ]
+    }
+  ]
+}

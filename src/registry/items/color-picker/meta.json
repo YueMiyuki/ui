@@ -1,0 +1,77 @@
+{
+  "name": "Color picker",
+  "category": "pickers",
+  "description": "Pick a colour by eye on a saturation and brightness area, by hex value, or from presets taken from the theme.",
+  "demos": [{ "name": "default", "title": "In a popover" }, { "name": "inline", "title": "Inline, with opacity" }],
+  "preview": { "layout": "center", "height": 460, "thumb": false, "thumbClick": "button" },
+  "props": [
+    {
+      "component": "ColorPicker",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the trigger." },
+        { "name": "description", "type": "ReactNode", "description": "Help text under the trigger." },
+        {
+          "name": "value",
+          "type": "string | Color",
+          "description": "The colour (controlled): a hex, rgb() or hsl() string, or a Color."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string | Color",
+          "default": "\"#2F7FC1\"",
+          "description": "The starting colour when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(color: Color) => void",
+          "description": "Called as the colour changes. color.toString(\"hex\") gives a hex string."
+        },
+        {
+          "name": "presets",
+          "type": "string[]",
+          "default": "defaultColorPresets",
+          "description": "Swatches under the controls, as any CSS colours. Tokens such as var(--chart-2) are resolved to hex for the current theme. Pass [] for none."
+        },
+        {
+          "name": "showAlpha",
+          "type": "boolean",
+          "default": "false",
+          "description": "Add a slider for opacity. The trigger then shows the opacity beside the hex value."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the trigger and dims it to 50%."
+        },
+        { "name": "className", "type": "string", "description": "Extra classes for the root." }
+      ]
+    },
+    {
+      "component": "ColorPickerPanel",
+      "props": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "A heading above the panel, which also names the group."
+        },
+        { "name": "value", "type": "string | Color", "description": "The colour (controlled)." },
+        {
+          "name": "defaultValue",
+          "type": "string | Color",
+          "default": "\"#2F7FC1\"",
+          "description": "The starting colour when uncontrolled."
+        },
+        { "name": "onChange", "type": "(color: Color) => void", "description": "Called as the colour changes." },
+        {
+          "name": "presets",
+          "type": "string[]",
+          "default": "defaultColorPresets",
+          "description": "Swatches under the controls. Pass [] for none."
+        },
+        { "name": "showAlpha", "type": "boolean", "default": "false", "description": "Add a slider for opacity." },
+        { "name": "className", "type": "string", "description": "Extra classes for the root." }
+      ]
+    }
+  ]
+}

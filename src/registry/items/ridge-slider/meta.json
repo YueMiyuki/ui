@@ -1,0 +1,66 @@
+{
+  "name": "Ridge Slider",
+  "category": "inputs",
+  "original": true,
+  "description": "A slider whose track is a ridgeline: the marker climbs the path as the value changes and the readout gives the percentage and the altitude there.",
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "RidgeSlider",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the ridge, on the left." },
+        { "name": "value", "type": "number", "description": "How far along the route, from 0 to 100 (controlled)." },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "description": "Starting position when uncontrolled, from 0 to 100."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: number) => void",
+          "description": "Called continuously while the marker moves."
+        },
+        {
+          "name": "onChangeEnd",
+          "type": "(value: number) => void",
+          "description": "Called when a drag or key press ends."
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "default": "1",
+          "description": "Increment between positions, in percent of the route."
+        },
+        {
+          "name": "points",
+          "type": "number[]",
+          "description": "Heights along the route at even spacing, from 0 (minAltitude) to 1 (maxAltitude). The line runs smoothly through them without overshooting. Without it a ridge is generated from seed."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "7",
+          "description": "Seed for the generated ridge, which climbs from the valley to the summit at the right."
+        },
+        { "name": "minAltitude", "type": "number", "default": "0", "description": "Altitude in metres at height 0." },
+        {
+          "name": "maxAltitude",
+          "type": "number",
+          "default": "1000",
+          "description": "Altitude in metres at height 1."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the slider and dims it to 50%."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components Slider."
+        }
+      ]
+    }
+  ]
+}

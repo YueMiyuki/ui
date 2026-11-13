@@ -1,0 +1,52 @@
+{
+  "name": "Meter",
+  "category": "display",
+  "description": "How much of a limit has been used, in water that turns yuzu and then camellia near the limit.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "Meter",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the track, on the left." },
+        { "name": "value", "type": "number", "default": "0", "description": "The amount used." },
+        { "name": "minValue", "type": "number", "default": "0", "description": "Start of the range." },
+        { "name": "maxValue", "type": "number", "default": "100", "description": "End of the range: the limit." },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "A line under the track, such as \"8.6 GB of 10 GB\"."
+        },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the formatted value to the right of the label."
+        },
+        {
+          "name": "thresholds",
+          "type": "{ warning?: number; danger?: number }",
+          "default": "{ warning: 75, danger: 90 }",
+          "description": "Percentages of the range where the fill turns yuzu and then camellia."
+        },
+        {
+          "name": "variant",
+          "type": "\"bar\" | \"segments\"",
+          "default": "\"bar\"",
+          "description": "One continuous 6px track, or ten separate blocks."
+        },
+        {
+          "name": "formatOptions",
+          "type": "Intl.NumberFormatOptions",
+          "default": "{ style: \"percent\" }",
+          "description": "How the value is written."
+        },
+        { "name": "valueLabel", "type": "ReactNode", "description": "Text to show instead of the formatted value." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components Meter."
+        }
+      ]
+    }
+  ]
+}

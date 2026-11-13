@@ -1,0 +1,62 @@
+{
+  "name": "Hero sections",
+  "category": "blocks",
+  "description": "Two opening sections for a landing page: a centred headline over a framed preview, and a split layout with photographs that move with the pointer.",
+  "demos": [{ "name": "simple", "title": "Simple" }, { "name": "split", "title": "Split" }],
+  "preview": { "layout": "fill", "height": 640, "iframe": true },
+  "props": [
+    {
+      "component": "HeroSimple",
+      "props": [
+        {
+          "name": "brand",
+          "type": "ReactNode",
+          "description": "The wordmark at the left of the top bar, usually a link home."
+        },
+        {
+          "name": "links",
+          "type": "{ label: string; href: string }[]",
+          "default": "[]",
+          "description": "Links in the middle of the top bar. When the section is narrower than 768px they move into a small menu behind a button at the right of the bar; Escape or a press outside closes it."
+        },
+        { "name": "signIn", "type": "ReactNode", "description": "The action at the right of the top bar." },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "The headline. Its words arrive one by one out of a blur."
+        },
+        { "name": "description", "type": "ReactNode", "description": "A paragraph under the headline." },
+        { "name": "actions", "type": "ReactNode", "description": "Buttons under the paragraph, centred." },
+        {
+          "name": "preview",
+          "type": "ReactNode",
+          "description": "Content for the large frame at the bottom, which rises into place after the text. Give it its own aspect ratio."
+        }
+      ]
+    },
+    {
+      "component": "HeroSplit",
+      "props": [
+        { "name": "title", "type": "ReactNode", "description": "The headline, on the left." },
+        { "name": "description", "type": "ReactNode", "description": "A paragraph under the headline." },
+        { "name": "actions", "type": "ReactNode", "description": "Buttons under the paragraph." },
+        {
+          "name": "footnote",
+          "type": "ReactNode",
+          "description": "A quiet line under the buttons, such as who writes the forecasts."
+        },
+        {
+          "name": "images",
+          "type": "{ src: string; alt?: string; label?: ReactNode }[]",
+          "description": "Three photographs, back to front. They overlap at small angles and shift with the pointer, the front one most. A label is shown as a chip on the photograph."
+        },
+        {
+          "name": "shift",
+          "type": "number",
+          "default": "22",
+          "description": "How far the front photograph moves, in pixels, with the pointer at the edge of the section."
+        }
+      ]
+    }
+  ]
+}

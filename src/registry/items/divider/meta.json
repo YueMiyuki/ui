@@ -1,0 +1,41 @@
+{
+  "name": "Divider",
+  "category": "display",
+  "description": "A separator between content, as a single or double line, a dashed line or a filled band, with an optional label.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "Divider",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "Direction of the line. A vertical divider stretches to the height of its flex row, or takes a height from className."
+        },
+        {
+          "name": "variant",
+          "type": "\"single\" | \"double\" | \"dashed\" | \"filled\"",
+          "default": "\"single\"",
+          "description": "A hairline, two hairlines 3 pixels apart, a dashed hairline, or a 6 pixel band of muted colour."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Text set into the line. The line breaks around it with a 12 pixel gap on each side."
+        },
+        {
+          "name": "labelPosition",
+          "type": "\"start\" | \"center\" | \"end\"",
+          "default": "\"center\"",
+          "description": "Where the label sits along the line."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes, merged with cn(). Also accepts the other props of the react-aria-components Separator."
+        }
+      ]
+    }
+  ]
+}

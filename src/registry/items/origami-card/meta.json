@@ -1,0 +1,65 @@
+{
+  "name": "Origami Card",
+  "category": "cards",
+  "original": true,
+  "description": "A small folded square of paper that opens hinge by hinge into a flat card, keeping its creases.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "OrigamiCard",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "What is written inside the sheet. It fills the square once it is open."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled state. Opening unfolds the last fold first; closing folds them back in the order they were made."
+        },
+        { "name": "defaultOpen", "type": "boolean", "default": "false", "description": "Starts open." },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the packet is opened or folded up."
+        },
+        {
+          "name": "folds",
+          "type": "2 | 3 | 4",
+          "default": "4",
+          "description": "How many times the sheet is halved, alternating across and down. Four folds make a packet a quarter of the width."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "340",
+          "description": "Width of the open sheet in pixels. It shrinks to fit a narrower container."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "default": "\"Open me\"",
+          "description": "Written on the outside of the packet, and the name of the button that opens it."
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "default": "\"Fold it up\"",
+          "description": "Text of the small button that appears in the corner of the open card on hover or focus."
+        },
+        {
+          "name": "tone",
+          "type": "\"water\" | \"camellia\" | \"wisteria\" | \"seafoam\" | \"yuzu\"",
+          "default": "\"water\"",
+          "description": "Colour of the printed outside of the paper. The inside is plain."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, a square group; give it an aria-label."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "name": "Camera Tiles",
+  "category": "backgrounds",
+  "description": "The camera feed as a grid of soft tiles that rise where something moves, with a drifting pattern until the camera is turned on.",
+  "preview": { "layout": "fill", "height": 480, "thumb": false },
+  "props": [
+    {
+      "component": "CameraTiles",
+      "props": [
+        {
+          "name": "cols",
+          "type": "number",
+          "default": "48",
+          "description": "Number of columns. Tiles are square, so the rows follow the aspect ratio of the element."
+        },
+        {
+          "name": "mode",
+          "type": "\"water\" | \"color\" | \"mono\"",
+          "default": "\"water\"",
+          "description": "`water` maps brightness onto a ramp from ink through water blue to snow, `color` keeps the sampled colour, `mono` runs from ink to snow."
+        },
+        {
+          "name": "mirror",
+          "type": "boolean",
+          "default": "true",
+          "description": "Flip the feed horizontally, like a mirror."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "0.12",
+          "description": "Space between tiles as a fraction of a cell."
+        },
+        {
+          "name": "maxElevation",
+          "type": "number",
+          "default": "10",
+          "description": "How far a tile rises where something moves, in pixels. Raised tiles also grow slightly and cast a blue shadow."
+        },
+        {
+          "name": "motionSensitivity",
+          "type": "number",
+          "default": "0.5",
+          "description": "From 0 to 1. Higher values raise tiles for smaller changes between frames."
+        },
+        {
+          "name": "smoothing",
+          "type": "number",
+          "default": "0.6",
+          "description": "From 0 to 1. Higher values settle raised tiles more slowly and steady the brightness between frames."
+        },
+        {
+          "name": "autoStart",
+          "type": "boolean",
+          "default": "false",
+          "description": "Ask for the camera on mount. Leave it off so the camera only starts when the user presses the button."
+        },
+        {
+          "name": "onReady",
+          "type": "(stream: MediaStream) => void",
+          "description": "Called once the camera is streaming."
+        },
+        {
+          "name": "onError",
+          "type": "(error: Error) => void",
+          "description": "Called when the camera is denied, missing or fails to start. The pattern keeps running and a short message is shown."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the grid. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the grid. The camera button sits at the bottom centre."
+        }
+      ]
+    }
+  ]
+}

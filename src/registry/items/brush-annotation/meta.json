@@ -1,0 +1,48 @@
+{
+  "name": "Brush Annotation",
+  "category": "text",
+  "original": true,
+  "description": "Hand-brushed ink marks over inline text: underline, double underline, circle, strike, bracket and highlight.",
+  "demos": [{ "name": "default", "title": "Field notes" }, { "name": "kinds", "title": "Kinds" }],
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "BrushAnnotation",
+      "props": [
+        {
+          "name": "kind",
+          "type": "\"underline\" | \"double\" | \"circle\" | \"strike\" | \"bracket\" | \"highlight\"",
+          "default": "\"underline\"",
+          "description": "The mark. Each is a filled brush stroke that presses in, swells and trails off dry, drawn in the order a hand would. Underline, double, strike and highlight follow every line the text wraps onto; circle rings each line; bracket opens before the first word and closes after the last. Highlight is a wide pale wash behind the text."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--primary)\"",
+          "description": "Ink colour. Any CSS colour or variable; use var(--destructive) for corrections. Highlight washes it out to a quarter strength."
+        },
+        {
+          "name": "show",
+          "type": "boolean",
+          "description": "Draws the mark when it turns true and lifts it away when it turns false. Leave it unset to draw the mark once, when the text scrolls into view."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds to wait before the brush starts, for marking several passages in reading order."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The inline content to mark. It is wrapped in mark for a highlight, s for a strike and span otherwise."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapping span. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

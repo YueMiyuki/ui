@@ -1,0 +1,116 @@
+{
+  "name": "Sign-in Cards",
+  "category": "blocks",
+  "description": "Sign-in and sign-up cards with validated fields, a password reveal and social sign-in.",
+  "demos": [{ "name": "default", "title": "Sign in" }, { "name": "sign-up", "title": "Sign up" }],
+  "preview": { "layout": "center", "height": 680 },
+  "props": [
+    {
+      "component": "SignInCard",
+      "props": [
+        {
+          "name": "onSubmit",
+          "type": "(values: { email: string; password: string; remember: boolean }) => void | Promise<void>",
+          "description": "Called with the values once every field is valid. A returned promise shows a spinner on the button and disables the form until it settles."
+        },
+        {
+          "name": "providers",
+          "type": "SocialProvider[]",
+          "default": "[\"google\", \"apple\"]",
+          "description": "Social sign-in buttons under the divider. One shows its full label, two share a row with their names, three or more show marks only. Pass [] for none."
+        },
+        {
+          "name": "onProvider",
+          "type": "(provider: SocialProvider) => void",
+          "description": "Called when a social button is pressed."
+        },
+        {
+          "name": "onSwitch",
+          "type": "() => void",
+          "description": "Called by the \"Create one\" link in the footer. The footer is hidden without it."
+        },
+        { "name": "onForgotPassword", "type": "() => void", "description": "Called by the \"Forgot password?\" link." },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "default": "\"Welcome back\"",
+          "description": "Heading, set in the display face."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "default": "\"Sign in to pick up where you left off.\"",
+          "description": "Muted line under the heading."
+        },
+        { "name": "logo", "type": "ReactNode", "description": "A mark shown above the heading." },
+        {
+          "name": "submitLabel",
+          "type": "ReactNode",
+          "default": "\"Sign in\"",
+          "description": "Label of the main button."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts every other div attribute."
+        }
+      ]
+    },
+    {
+      "component": "SignUpCard",
+      "props": [
+        {
+          "name": "onSubmit",
+          "type": "(values: { name: string; email: string; password: string }) => void | Promise<void>",
+          "description": "Called with the values once every field is valid. A returned promise shows a spinner on the button and disables the form until it settles."
+        },
+        {
+          "name": "providers",
+          "type": "SocialProvider[]",
+          "default": "[\"google\", \"apple\"]",
+          "description": "Social sign-up buttons under the divider. Pass [] for none."
+        },
+        {
+          "name": "onProvider",
+          "type": "(provider: SocialProvider) => void",
+          "description": "Called when a social button is pressed."
+        },
+        {
+          "name": "onSwitch",
+          "type": "() => void",
+          "description": "Called by the \"Sign in\" link in the footer. The footer is hidden without it."
+        },
+        {
+          "name": "minPasswordLength",
+          "type": "number",
+          "default": "8",
+          "description": "Shortest password accepted, also written in the hint under the field."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "default": "\"Create your account\"",
+          "description": "Heading, set in the display face."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "default": "\"It takes a minute. No card needed.\"",
+          "description": "Muted line under the heading."
+        },
+        { "name": "logo", "type": "ReactNode", "description": "A mark shown above the heading." },
+        {
+          "name": "submitLabel",
+          "type": "ReactNode",
+          "default": "\"Create account\"",
+          "description": "Label of the main button."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

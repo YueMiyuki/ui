@@ -1,0 +1,24 @@
+{
+  "name": "Tilt-in Panel",
+  "category": "scroll",
+  "description": "A large framed panel under a heading that starts tilted away and lies flat as the page scrolls it into place.",
+  "preview": { "layout": "fill", "height": 600, "iframe": true },
+  "props": [
+    {
+      "component": "TiltInPanel",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "The heading block above the frame. It drifts up as you scroll; bring your own heading element."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "What sits in the frame, clipped to its rounded corners. A wide image or a screenshot of your app."
+        },
+        { "name": "className", "type": "string", "description": "Extra classes for the outer section." }
+      ]
+    }
+  ]
+}

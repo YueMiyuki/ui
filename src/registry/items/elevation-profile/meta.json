@@ -1,0 +1,79 @@
+{
+  "name": "Elevation Profile",
+  "category": "charts",
+  "original": true,
+  "description": "The shape of a route from the side: altitude against distance, tinted by steepness, with flagged waypoints, a scrubber and total ascent and descent.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "ElevationProfile",
+      "props": [
+        {
+          "name": "points",
+          "type": "{ km: number; m: number }[]",
+          "description": "Altitude in metres along the route, by distance in kilometres. Ascent and descent are summed from these points."
+        },
+        {
+          "name": "waypoints",
+          "type": "{ km: number; name: string }[]",
+          "description": "Named places along the route, marked with small flags. Labels stack so they never overlap each other or the terrain."
+        },
+        {
+          "name": "onScrub",
+          "type": "(state: { km: number; m: number; gradient: number } | null) => void",
+          "description": "Called as the scrubber moves, with the distance, altitude and gradient under it, or null when it leaves. Use it to move a marker on a map."
+        },
+        {
+          "name": "steep",
+          "type": "number",
+          "default": "0.3",
+          "description": "The gradient, as a fraction, that takes the deepest tint. Gentler ground is paler."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "220",
+          "description": "Plot height in pixels. The width follows the card."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the gradient scale under the plot."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the vertical axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the profile shows, for screen readers. Generated from the data when left out."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Small muted label at the top of the card, e.g. the route name."
+        },
+        { "name": "value", "type": "ReactNode", "description": "The headline. Defaults to the route's length." },
+        {
+          "name": "caption",
+          "type": "ReactNode",
+          "description": "Text after the headline. Defaults to total ascent and descent."
+        },
+        { "name": "footer", "type": "ReactNode", "description": "Replaces the gradient scale under the plot." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts note, action and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

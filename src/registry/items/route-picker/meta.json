@@ -1,0 +1,46 @@
+{
+  "name": "Route picker",
+  "category": "pickers",
+  "original": true,
+  "description": "A line of stations drawn as a strip map, for choosing where to get on and off, with the fare and journey time beneath.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "RoutePicker",
+      "props": [
+        {
+          "name": "stations",
+          "type": "{ id: string; name: string; km: number; min?: number }[]",
+          "description": "The stations in line order, with the distance and, optionally, the running time in minutes from the first one. Without min the time is estimated from the distance."
+        },
+        {
+          "name": "value",
+          "type": "[from: string, to: string] | null",
+          "description": "Station ids where the journey starts and ends (controlled). Use defaultValue when uncontrolled. Either order works; the train runs from the first to the second."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: [string, string]) => void",
+          "description": "Called once both stations have been chosen."
+        },
+        {
+          "name": "fare",
+          "type": "(km: number) => number",
+          "description": "Works out the fare for a distance. Defaults to a stepped regional rail tariff."
+        },
+        { "name": "currency", "type": "string", "default": "\"JPY\"", "description": "Currency for the fare." },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "default": "\"Choose your journey\"",
+          "description": "Heading, which also names the group of stations."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Below 576 pixels wide the line turns to run down the page."
+        }
+      ]
+    }
+  ]
+}

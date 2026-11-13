@@ -1,0 +1,55 @@
+{
+  "name": "Chip",
+  "category": "display",
+  "description": "A compact tag with an optional icon or avatar that can be removed or toggled.",
+  "demos": [{ "name": "default", "title": "Removable filters" }, { "name": "selectable", "title": "Selectable" }],
+  "preview": { "layout": "center", "height": 240 },
+  "props": [
+    {
+      "component": "Chip",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The label." },
+        { "name": "icon", "type": "ReactNode", "description": "An icon before the label, sized to 14 pixels." },
+        {
+          "name": "avatar",
+          "type": "string | ReactNode",
+          "description": "A 20 pixel avatar before the label: an image URL (initials if it fails), or your own element."
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"brand\" | \"success\" | \"warning\" | \"destructive\"",
+          "default": "\"neutral\"",
+          "description": "The soft tint, as on Badge. A selected chip is always water."
+        },
+        {
+          "name": "onRemove",
+          "type": "() => void",
+          "description": "Shows a round remove button. The chip shrinks and fades, then this is called; remove it from your list here."
+        },
+        {
+          "name": "removeLabel",
+          "type": "string",
+          "description": "Accessible name of the remove button. Defaults to \"Remove {label}\"."
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "description": "Makes the chip a toggle (controlled). Selected chips turn water-tinted and a check draws in."
+        },
+        { "name": "defaultSelected", "type": "boolean", "description": "Makes the chip a toggle (uncontrolled)." },
+        {
+          "name": "onSelectedChange",
+          "type": "(selected: boolean) => void",
+          "description": "Called when the toggle changes."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Dims the chip and disables its buttons."
+        },
+        { "name": "className", "type": "string", "description": "Extra classes for the chip." }
+      ]
+    }
+  ]
+}

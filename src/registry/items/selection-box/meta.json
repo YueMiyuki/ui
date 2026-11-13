@@ -1,0 +1,41 @@
+{
+  "name": "Selection Box",
+  "category": "cursor",
+  "description": "A phrase gets a box drawn round it, and a pointer arrives at its corner as if someone just selected it.",
+  "preview": { "layout": "center", "height": 320 },
+  "props": [
+    {
+      "component": "SelectionBox",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The phrase to highlight. It stays on one block, so keep it short."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the box outline, its faint fill and the pointer."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "0.3",
+          "description": "Seconds to wait after the phrase scrolls into view before the box starts to draw."
+        },
+        {
+          "name": "rectangleClassName",
+          "type": "string",
+          "description": "Extra classes for the box, for example a different radius or border."
+        },
+        { "name": "pointerClassName", "type": "string", "description": "Extra classes for the pointer's wrapper." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the inline wrapper. Also accepts every other prop of a span."
+        }
+      ]
+    }
+  ]
+}

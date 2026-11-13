@@ -1,0 +1,36 @@
+{
+  "name": "Scattered Photos",
+  "category": "backgrounds",
+  "description": "Photos scattered around a heading at different depths, fading in on mount and shifting with the pointer like near and distant ridges.",
+  "preview": { "layout": "fill", "height": 560 },
+  "props": [
+    {
+      "component": "ScatteredPhotos",
+      "props": [
+        {
+          "name": "images",
+          "type": "(string | { src: string; alt?: string; x?: number; y?: number; depth?: number; width?: number })[]",
+          "description": "The photos. Plain URLs get a seeded arrangement that keeps the centre clear. In the object form, x and y place the photo's centre as a percentage of the box, depth runs from 0 (far) to 1 (near), and width is in pixels at a 960px-wide box; any field you leave out is filled in from the arrangement. Photos without alt text are treated as decorative."
+        },
+        {
+          "name": "strength",
+          "type": "number",
+          "default": "40",
+          "description": "How far the nearest photos move when the pointer reaches an edge, in pixels. Each photo moves by strength × depth."
+        },
+        {
+          "name": "variant",
+          "type": "\"center-near\" | \"edge-near\"",
+          "default": "\"center-near\"",
+          "description": "`center-near` puts the near, larger photos closest to the heading; `edge-near` pushes them out to the edges and keeps the far ones inside."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative, clips the photos and is a size container for them. Give it a height. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content centred above the photos." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Foil Ticket",
+  "category": "cards",
+  "description": "A ticket that tilts deeply toward the pointer and casts a long shadow away from it, with a foil strip that shifts colour as it turns.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "FoilTicket",
+      "props": [
+        {
+          "name": "rotateDepth",
+          "type": "number",
+          "default": "17.5",
+          "description": "Largest tilt on each axis, in degrees."
+        },
+        {
+          "name": "translateDepth",
+          "type": "number",
+          "default": "20",
+          "description": "How far the card travels toward the pointer, in pixels. The shadow moves the other way, further."
+        },
+        {
+          "name": "foil",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draws the foil strip across the card, with a notch cut into each edge beside it. Place it with the custom properties --miyuki-foil-ticket-foil-y (top, default 66.667%) and --miyuki-foil-ticket-foil-h (height, default 1.75rem) and leave that band of your content empty."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the outer element, which sets the card's size, for example w-75 aspect-[5/7]."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The face of the ticket. A focusable element inside tilts the card on keyboard focus and shows the focus ring around it."
+        }
+      ]
+    }
+  ]
+}

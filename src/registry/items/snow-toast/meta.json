@@ -1,0 +1,94 @@
+{
+  "name": "Snow toast",
+  "category": "overlays",
+  "original": true,
+  "description": "Notifications that drift down from the top of the window like large flakes, settle on a pile at the bottom, and melt when dismissed.",
+  "preview": {
+    "layout": "center",
+    "height": 480,
+    "iframe": true,
+    "thumb": false,
+    "thumbClick": ["button:has-text('Check the lifts')", "button:has-text('Save route')"]
+  },
+  "props": [
+    {
+      "component": "snowToast",
+      "props": [
+        {
+          "name": "snowToast(message, options?)",
+          "type": "(message: ReactNode | SnowToastOptions, options?: SnowToastOptions) => string",
+          "description": "Lets a message fall onto the pile and returns its id. Call it from anywhere, inside React or not. It is announced politely."
+        },
+        {
+          "name": "snowToast.dismiss(id?)",
+          "type": "(id?: string) => void",
+          "description": "Melts one message, or all of them when called without an id."
+        },
+        {
+          "name": "options.title",
+          "type": "ReactNode",
+          "description": "The message, when passing options as the first argument."
+        },
+        { "name": "options.description", "type": "ReactNode", "description": "A line or two under the title." },
+        {
+          "name": "options.icon",
+          "type": "ReactNode",
+          "description": "An 18 pixel icon before the title, drawn in water blue."
+        },
+        {
+          "name": "options.action",
+          "type": "{ label: ReactNode; onPress: () => void }",
+          "description": "A small button, e.g. Undo. Pressing it also melts the message."
+        },
+        {
+          "name": "options.duration",
+          "type": "number",
+          "description": "Milliseconds it rests on the pile before melting, counted from when it lands. Infinity keeps it until dismissed. Defaults to the toaster's duration."
+        },
+        { "name": "options.id", "type": "string", "description": "Reuse an id to update a message in place." },
+        {
+          "name": "options.onDismiss",
+          "type": "(id: string) => void",
+          "description": "Called when the message starts to melt, by time, button or keyboard."
+        }
+      ]
+    },
+    {
+      "component": "SnowToaster",
+      "props": [
+        {
+          "name": "position",
+          "type": "\"bottom-right\" | \"bottom-center\" | \"bottom-left\"",
+          "default": "\"bottom-right\"",
+          "description": "Where the pile gathers. Messages always fall from the top of the window. Mount one per app."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "6000",
+          "description": "Default milliseconds before a message melts. Timers pause while the pile is hovered or focused, and while the tab is hidden."
+        },
+        {
+          "name": "visibleToasts",
+          "type": "number",
+          "default": "4",
+          "description": "Most messages on the pile. When another lands, the oldest at the bottom melts."
+        },
+        { "name": "gap", "type": "number", "default": "10", "description": "Space between messages on the pile." },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": "16",
+          "description": "Distance from the edges of the window."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Notifications\"",
+          "description": "Accessible name of the region. Alt+T moves focus to the newest message; Escape or Delete melts the focused one."
+        },
+        { "name": "className", "type": "string", "description": "Classes for the region." }
+      ]
+    }
+  ]
+}

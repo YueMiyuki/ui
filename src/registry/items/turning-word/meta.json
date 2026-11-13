@@ -1,0 +1,35 @@
+{
+  "name": "Turning Word",
+  "category": "text",
+  "description": "A word in a small recessed box that turns over to the next word, while the box springs to the new width.",
+  "preview": { "layout": "center", "height": 320 },
+  "props": [
+    {
+      "component": "TurningWord",
+      "props": [
+        {
+          "name": "words",
+          "type": "string[]",
+          "description": "Words shown in turn. Screen readers hear all of them, separated by commas."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "3000",
+          "description": "Milliseconds each word stays. The cycle pauses while the box is off screen, and holds the first word under reduced motion."
+        },
+        {
+          "name": "animationDuration",
+          "type": "number",
+          "default": "0.6",
+          "description": "Seconds for one turn: the old word rolls away over the top edge as the new one rolls in from below, letter by letter."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapping span, an inline block. Font, size and colour are inherited. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

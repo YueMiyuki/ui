@@ -1,0 +1,58 @@
+{
+  "name": "Train Window",
+  "category": "media",
+  "original": true,
+  "description": "Scenery seen from a moving train: poles and trees whip past, hills drift, mountains barely move, and a tunnel carries you from one view to the next.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "TrainWindow",
+      "props": [
+        {
+          "name": "scenes",
+          "type": "{ mood: \"dawn\" | \"day\" | \"dusk\" | \"night\" | \"snow\" | \"aurora\"; seed: number | string }[]",
+          "description": "The views. Each is drawn on the spot from its seed, so the same seed gives the same country every time, and the mood sets the light and weather."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "How fast the train runs. Every layer, the motion blur, the snow and the rail jolts follow it together; 0 stops the train."
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "description": "The view shown, when you control it. Changing it sends the train through a tunnel to the new view."
+        },
+        {
+          "name": "defaultIndex",
+          "type": "number",
+          "default": "0",
+          "description": "The first view when uncontrolled."
+        },
+        {
+          "name": "onIndexChange",
+          "type": "(index: number) => void",
+          "description": "Called when the train moves on to the next view by itself (see interval)."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between tunnels when the view changes by itself. 0 keeps the current view."
+        },
+        {
+          "name": "caption",
+          "type": "ReactNode",
+          "description": "A short line set on the window sill, such as the line and the kilometre post."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content laid over the glass." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the carriage wall around the window. It is 16:10 and full width by default. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

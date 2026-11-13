@@ -1,0 +1,24 @@
+{
+  "name": "Tea shop",
+  "category": "templates",
+  "original": true,
+  "description": "A small online tea shop: a seasonal hero, a product grid with filter chips and quick add, a product page with a gallery, a brewing guide on a dial and a steep timer, and a cart drawer that ends in a printed receipt.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "TeaShop",
+      "props": [
+        {
+          "name": "image",
+          "type": "(key: string) => string | undefined",
+          "description": "Returns a picture for a key: a tea id for its main picture, \"<id>:farm\" and \"<id>:liquor\" for the gallery, and \"hero\" for the backdrop of the seasonal banner. Tea pictures are tinted to the colour of the tea. Without it, quiet placeholders show."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

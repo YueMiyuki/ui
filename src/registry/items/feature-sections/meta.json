@@ -1,0 +1,142 @@
+{
+  "name": "Feature sections",
+  "category": "blocks",
+  "description": "Three page sections for a list of product features: a bento of small live tiles, a grid divided by hairlines, and a list that answers the pointer.",
+  "demos": [
+    { "name": "bento", "title": "Bento" },
+    { "name": "grid", "title": "Grid" },
+    { "name": "hover", "title": "Hover" }
+  ],
+  "preview": { "layout": "fill", "height": 640, "iframe": true },
+  "props": [
+    {
+      "component": "FeatureBento",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "The section headline, set in the display face. It sits in the top-left of the layout."
+        },
+        { "name": "description", "type": "ReactNode", "description": "A supporting paragraph under the headline." },
+        { "name": "action", "type": "ReactNode", "description": "A button or link under the paragraph." },
+        {
+          "name": "tiles",
+          "type": "{ title: string; description: string; visual: ReactNode; surface?: \"card\" | \"well\" | \"picture\" }[]",
+          "description": "Four tiles, placed as one tall tile on the right, one under the headline and two across the bottom. A picture tile lets its visual fill the whole tile and sets the text over it."
+        }
+      ]
+    },
+    {
+      "component": "FeatureBentoAlerts",
+      "props": [
+        {
+          "name": "alerts",
+          "type": "{ title: string; detail: string; tone?: \"brand\" | \"success\" | \"warning\" | \"destructive\" }[]",
+          "description": "The alerts to cycle through. Three are shown, newest on top; a new one ticks in on each interval while the list is on screen."
+        },
+        { "name": "interval", "type": "number", "default": "3.6", "description": "Seconds between new alerts." },
+        {
+          "name": "ages",
+          "type": "string[]",
+          "default": "[\"now\", \"6 min ago\", \"19 min ago\"]",
+          "description": "The time shown beside each row, by position."
+        }
+      ]
+    },
+    {
+      "component": "FeatureBentoPicture",
+      "props": [
+        { "name": "src", "type": "string", "description": "The image that fills the tile." },
+        { "name": "alt", "type": "string", "default": "\"\"", "description": "Alternative text for the image." },
+        { "name": "place", "type": "string", "description": "Where the reading in the chip was taken." },
+        {
+          "name": "temperature",
+          "type": "number",
+          "description": "The reading. The chip drifts a few tenths around it so the tile looks live."
+        },
+        { "name": "unit", "type": "string", "default": "\"°C\"", "description": "Unit after the reading." }
+      ]
+    },
+    {
+      "component": "FeatureBentoStations",
+      "props": [
+        {
+          "name": "map",
+          "type": "string",
+          "description": "An image of contour lines on a transparent background. It is used as a mask and tinted with the text colour at low contrast."
+        },
+        {
+          "name": "stations",
+          "type": "{ name: string; x: number; y: number }[]",
+          "description": "Stations in percent of the tile, joined by a dashed route. A pulse travels along them in order."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the dots, pulses and route."
+        }
+      ]
+    },
+    {
+      "component": "FeatureBentoSparkline",
+      "props": [
+        {
+          "name": "values",
+          "type": "number[]",
+          "description": "The series. The line draws itself the first time it comes into view."
+        },
+        { "name": "value", "type": "string", "description": "The current reading, shown large above the line." },
+        { "name": "label", "type": "string", "description": "What the reading is." },
+        { "name": "change", "type": "string", "description": "A short change note beside the reading." },
+        { "name": "from", "type": "string", "description": "Label under the start of the line." },
+        { "name": "to", "type": "string", "description": "Label under the end of the line." },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the line and its fill."
+        }
+      ]
+    },
+    {
+      "component": "FeatureGrid",
+      "props": [
+        { "name": "title", "type": "ReactNode", "description": "The section headline." },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "A paragraph set to the right of the headline on wide screens."
+        },
+        {
+          "name": "features",
+          "type": "{ title: string; description: string; href?: string }[]",
+          "description": "Eight features fill four columns and two rows. A feature with href is a link."
+        },
+        {
+          "name": "texture",
+          "type": "string",
+          "description": "An image of contour lines on a transparent background. Each cell shows a different corner of it at low contrast, a little stronger on hover."
+        },
+        {
+          "name": "textureColor",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "The colour the texture is tinted with."
+        }
+      ]
+    },
+    {
+      "component": "FeatureHover",
+      "props": [
+        { "name": "title", "type": "ReactNode", "description": "The section headline, centred." },
+        { "name": "description", "type": "ReactNode", "description": "A centred paragraph under the headline." },
+        {
+          "name": "features",
+          "type": "{ title: string; description: string; icon?: ReactNode; href?: string }[]",
+          "description": "The features. On hover or keyboard focus a water bar fills the cell's left rule, a pale wash rises and the title moves 4px right. With href each cell is a link."
+        }
+      ]
+    }
+  ]
+}

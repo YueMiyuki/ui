@@ -1,0 +1,37 @@
+{
+  "name": "Frost Glass",
+  "category": "cards",
+  "original": true,
+  "description": "A pane that frosts over when left alone; the pointer wipes a clear path, and the frost creeps back in from the edges.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "FrostGlass",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "What sits behind the glass. It fills the pane; size the pane with className."
+        },
+        { "name": "radius", "type": "number", "default": "44", "description": "Radius of the wiped path, in pixels." },
+        {
+          "name": "refreeze",
+          "type": "number",
+          "default": "3500",
+          "description": "How long a wiped area stays clear before the frost starts growing back into it, in milliseconds."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "0.85",
+          "description": "How thick the frost is, from 0 (a light mist) to 1."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the pane, which is rounded, clipped and focusable. Keyboard focus clears the frost until focus leaves. Other div props are passed through; set aria-label to name what is behind the glass."
+        }
+      ]
+    }
+  ]
+}

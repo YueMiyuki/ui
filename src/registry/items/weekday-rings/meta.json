@@ -1,0 +1,77 @@
+{
+  "name": "Weekday Rings",
+  "category": "charts",
+  "description": "A month in weekday columns, each day a small ring towards a daily goal, with a bar per weekday showing its average.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "WeekdayRings",
+      "props": [
+        {
+          "name": "data",
+          "type": "number[]",
+          "description": "One value per day of the month, the 1st first. New data refills the rings and bars."
+        },
+        {
+          "name": "goal",
+          "type": "number",
+          "description": "The daily goal. A day's ring sweeps value ÷ goal and closes when the goal is reached; it is also marked across each bar."
+        },
+        {
+          "name": "firstWeekday",
+          "type": "number",
+          "default": "0",
+          "description": "Column of the 1st, counting from the first weekday (0 is Monday with the default names)."
+        },
+        { "name": "month", "type": "string", "description": "Name of the month, for tooltips and the summary." },
+        { "name": "weekdays", "type": "string[]", "description": "Seven short column names. Defaults to Mon to Sun." },
+        {
+          "name": "weekdayNames",
+          "type": "string[]",
+          "description": "Seven long names for tooltips. Defaults to Monday to Sunday."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default": "\"Steps\"",
+          "description": "What is counted, for the tooltip and table."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--chart-1)\"",
+          "description": "Colour of the rings and bars."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip, legend and table. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a legend for the rings, the bars and the goal."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated when left out."
+        },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "description": "A control on the right of the header, such as a PeriodStepper from @/components/miyuki-ui/lib/chart for the month."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value, e.g. \"total steps\"." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts delta, note, footer and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

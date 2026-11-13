@@ -1,0 +1,60 @@
+{
+  "name": "Funnel Chart",
+  "category": "charts",
+  "description": "A horizontal funnel drawn as one smooth tapering band split into coloured stages, with each stage's share of the first and a tile per stage.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "FunnelChart",
+      "props": [
+        {
+          "name": "stages",
+          "type": "{ name: string; value: number; color?: string }[]",
+          "description": "The stages from first to last. The band is as tall as each value at the middle of its stage. Colours follow the chart palette unless given."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes counts in the tiles and tooltip. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "168",
+          "description": "Plot height in pixels. The width follows the card."
+        },
+        {
+          "name": "tiles",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a tile per stage with its colour, count and name under the plot."
+        },
+        {
+          "name": "track",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draw a pale track behind the band, showing what each stage lost against the largest."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value: 0.052 is +5.2%."
+        },
+        { "name": "action", "type": "ReactNode", "description": "A control on the right of the header." },
+        { "name": "footer", "type": "ReactNode", "description": "Replaces the stage tiles under the plot." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card, e.g. a width. Also accepts caption, note, invertDelta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

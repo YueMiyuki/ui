@@ -1,0 +1,45 @@
+{
+  "name": "Agent Questions",
+  "category": "ai",
+  "description": "Questions from an agent, one step at a time, with single or multiple choice, an Other answer and step pills, sliding sideways between steps.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "AgentQuestions",
+      "props": [
+        {
+          "name": "questions",
+          "type": "{ id: string; title: ReactNode; help?: ReactNode; type: \"single\" | \"multiple\"; options: { id: string; label: ReactNode; description?: ReactNode }[]; allowOther?: boolean }[]",
+          "description": "The steps in order. allowOther adds an Other row that opens a text field when chosen."
+        },
+        {
+          "name": "onComplete",
+          "type": "(answers: Record<string, { selected: string[]; other?: string }>) => void",
+          "description": "Called when Start is pressed on the last step, with the chosen option ids and any Other text for each question id."
+        },
+        {
+          "name": "onClose",
+          "type": "() => void",
+          "description": "Shows a close button in the corner and is called when it is pressed."
+        },
+        {
+          "name": "defaultAnswers",
+          "type": "Record<string, { selected: string[]; other?: string }>",
+          "description": "Answers to start with."
+        },
+        { "name": "otherLabel", "type": "ReactNode", "default": "\"Other\"", "description": "Label of the Other row." },
+        {
+          "name": "otherPlaceholder",
+          "type": "string",
+          "default": "\"Tell me in your own words\"",
+          "description": "Placeholder of the Other text field. Enter in the field moves to the next step."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the card. Other section props are spread onto it."
+        }
+      ]
+    }
+  ]
+}

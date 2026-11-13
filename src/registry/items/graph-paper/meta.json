@@ -1,0 +1,46 @@
+{
+  "name": "Graph Paper",
+  "category": "backgrounds",
+  "description": "A ruled grid or an even field of dots behind your content, drawn with CSS gradients.",
+  "preview": { "layout": "fill", "height": 420 },
+  "props": [
+    {
+      "component": "GridPaper",
+      "props": [
+        { "name": "size", "type": "number", "default": "32", "description": "Cell size in pixels." },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--border-strong)\"",
+          "description": "Line colour. Any CSS colour or token."
+        },
+        {
+          "name": "fade",
+          "type": "boolean",
+          "default": "true",
+          "description": "Fade the grid toward the edges with a radial mask."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the pattern." }
+      ]
+    },
+    {
+      "component": "DotPaper",
+      "props": [
+        { "name": "size", "type": "number", "default": "20", "description": "Distance between dots in pixels." },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--border-strong)\"",
+          "description": "Dot colour. Any CSS colour or token."
+        },
+        {
+          "name": "fade",
+          "type": "boolean",
+          "default": "true",
+          "description": "Fade the dots toward the edges with a radial mask."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the pattern." }
+      ]
+    }
+  ]
+}

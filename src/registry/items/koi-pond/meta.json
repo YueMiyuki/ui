@@ -1,0 +1,48 @@
+{
+  "name": "Koi Pond",
+  "category": "backgrounds",
+  "original": true,
+  "description": "A few koi drifting under the surface that come to circle a resting pointer and dart away when you click.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "KoiPond",
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "5",
+          "description": "Number of fish, up to 14. The first three are always a white koi with camellia patches, a gold one and a dark one."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for everything in the pond: swimming, turning, rising and the rings."
+        },
+        {
+          "name": "curiosity",
+          "type": "number",
+          "default": "0.6",
+          "description": "Chance, from 0 to 1, that a fish comes over to circle a pointer resting on the water. Each fish decides again whenever the pointer settles."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "\"koi\"",
+          "description": "Picks the patterns, sizes and starting places. The same seed gives the same pond."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the pond. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content above the water. Clicks on links, buttons and fields stay with them; clicks elsewhere startle the fish."
+        }
+      ]
+    }
+  ]
+}

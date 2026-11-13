@@ -1,0 +1,43 @@
+{
+  "name": "Soundscape Mixer",
+  "category": "media",
+  "original": true,
+  "description": "A small mixer of weather sounds made on the spot with WebAudio, no files: rain, wind, a stream and a fire, each with a level and a live picture of itself.",
+  "preview": { "layout": "center", "height": 460, "thumb": true },
+  "props": [
+    {
+      "component": "SoundscapeMixer",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "default": "\"Soundscape\"",
+          "description": "The mixer's name, shown beside the play button."
+        },
+        {
+          "name": "sources",
+          "type": "(\"rain\" | \"wind\" | \"stream\" | \"fire\")[]",
+          "default": "[\"rain\", \"wind\", \"stream\", \"fire\"]",
+          "description": "Which sounds the mixer offers, shown in that fixed order."
+        },
+        {
+          "name": "defaultLevels",
+          "type": "Partial<Record<\"rain\" | \"wind\" | \"stream\" | \"fire\", number>>",
+          "default": "{ rain: 0.6, wind: 0.35, stream: 0.45, fire: 0.55 }",
+          "description": "Starting level of each sound, from 0 to 1."
+        },
+        {
+          "name": "defaultVolume",
+          "type": "number",
+          "default": "0.75",
+          "description": "Starting master volume, from 0 to 1."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Other section props are passed through."
+        }
+      ]
+    }
+  ]
+}

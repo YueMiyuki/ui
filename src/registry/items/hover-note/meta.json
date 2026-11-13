@@ -1,0 +1,29 @@
+{
+  "name": "Hover Note",
+  "category": "cards",
+  "description": "A rich floating card that appears beside a word in running text and follows the pointer, leaning slightly as it moves.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "HoverNote",
+      "props": [
+        {
+          "name": "content",
+          "type": "ReactNode",
+          "description": "What the floating card shows. It is a w-72 popover surface with p-3 padding."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The inline text that opens the card. It gets a dotted underline and is focusable; on keyboard focus the card sits under it instead of following the pointer, and Escape closes it."
+        },
+        {
+          "name": "containerClassName",
+          "type": "string",
+          "description": "Extra classes for the floating card, for example to change its padding or width."
+        },
+        { "name": "className", "type": "string", "description": "Extra classes for the inline trigger." }
+      ]
+    }
+  ]
+}

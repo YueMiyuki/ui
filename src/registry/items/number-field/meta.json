@@ -1,0 +1,78 @@
+{
+  "name": "Number Field",
+  "category": "inputs",
+  "description": "A numeric field with stepper buttons, number formatting and limits.",
+  "preview": { "layout": "center", "height": 220 },
+  "props": [
+    {
+      "component": "NumberField",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the field." },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the field. Replaced by the error while the field is invalid."
+        },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the field while it is invalid, with an alert icon."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels."
+        },
+        {
+          "name": "minValue",
+          "type": "number",
+          "description": "The smallest value. The decrement button dims when it is reached."
+        },
+        {
+          "name": "maxValue",
+          "type": "number",
+          "description": "The largest value. The increment button dims when it is reached."
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "default": "1",
+          "description": "Amount the buttons, arrow keys and wheel change the value by."
+        },
+        {
+          "name": "formatOptions",
+          "type": "Intl.NumberFormatOptions",
+          "description": "How the value is shown: currency, percent, unit, fraction digits."
+        },
+        { "name": "value", "type": "number", "description": "The value (controlled)." },
+        { "name": "defaultValue", "type": "number", "description": "The value at first (uncontrolled)." },
+        {
+          "name": "onChange",
+          "type": "(value: number) => void",
+          "description": "Called when the value is committed: on step, blur or Enter."
+        },
+        { "name": "placeholder", "type": "string", "description": "Hint shown while the field is empty." },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the camellia border and the error message."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the field." },
+        {
+          "name": "isReadOnly",
+          "type": "boolean",
+          "default": "false",
+          "description": "Hides the steppers and shows the value on a muted fill."
+        },
+        { "name": "fieldClassName", "type": "string", "description": "Extra classes for the outlined box." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components NumberField."
+        }
+      ]
+    }
+  ]
+}

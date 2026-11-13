@@ -1,0 +1,42 @@
+{
+  "name": "Spindrift",
+  "category": "backgrounds",
+  "original": true,
+  "description": "Fine streaks of snow blown low along the ground in gusts, rising and dipping together like a veil.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "Spindrift",
+      "props": [
+        {
+          "name": "strength",
+          "type": "number",
+          "default": "0.6",
+          "description": "Wind strength from 0 to 1. Stronger wind races faster, lifts the veil higher and carries more snow."
+        },
+        {
+          "name": "direction",
+          "type": "number",
+          "default": "0",
+          "description": "Where the wind blows, in degrees on screen: 0 to the right, 180 to the left. Negative angles lift the veil a little, positive ones press it down."
+        },
+        {
+          "name": "gusts",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let gusts come and go, travelling across the frame with the wind. Off, the wind holds nearly steady."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the snow. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the snow. Moving the pointer across it leans the wind toward the movement for a few seconds."
+        }
+      ]
+    }
+  ]
+}

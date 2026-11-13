@@ -1,0 +1,63 @@
+{
+  "name": "Route Card",
+  "category": "blocks",
+  "original": true,
+  "description": "A route at a glance: the line drawn over a contour map, its figures, a compact elevation profile that moves a dot along the map, and save and GPX actions.",
+  "preview": { "layout": "center", "height": 760 },
+  "props": [
+    {
+      "component": "RouteCard",
+      "props": [
+        {
+          "name": "route",
+          "type": "RouteCardRoute",
+          "description": "The route: name, region, distance (km), ascent and descent (m), time (text such as \"9 h 40 min\"), grade ({ label, level } with level 1–5, shown as five pips), points, waypoints, and optionally mapKm and north."
+        },
+        {
+          "name": "route.points",
+          "type": "{ x: number; y: number; km: number; m: number; lat?: number; lon?: number }[]",
+          "description": "The track in order. x and y place it on the map as fractions of the panel, which keeps a 21:11 shape; km is the distance along the route and m the altitude. With lat and lon the GPX download is built from them."
+        },
+        {
+          "name": "route.waypoints",
+          "type": "{ km: number; name: string; kind?: \"peak\" | \"place\"; label?: boolean }[]",
+          "description": "Named points along the route. Peaks get a small triangle on the map; every waypoint gets a dot on the profile, and a label on the map unless label is false. The readout names a waypoint when the scrubber passes it."
+        },
+        {
+          "name": "route.mapKm",
+          "type": "number",
+          "description": "Kilometres across the map panel. When given, a scale bar is drawn in the corner."
+        },
+        {
+          "name": "route.north",
+          "type": "number",
+          "default": "0",
+          "description": "Direction of north on the map in degrees clockwise from up, for the north arrow."
+        },
+        {
+          "name": "map",
+          "type": "string",
+          "description": "Image URL for the map panel, drawn under the route. It is muted at night."
+        },
+        { "name": "saved", "type": "boolean", "description": "Controlled saved state of the Save toggle." },
+        {
+          "name": "defaultSaved",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial saved state when uncontrolled."
+        },
+        { "name": "onSave", "type": "(saved: boolean) => void", "description": "Called when Save is toggled." },
+        {
+          "name": "onDownload",
+          "type": "(gpx: string | null) => void",
+          "description": "Called by Download GPX with a GPX 1.1 document built from the points (null without coordinates). Without it the card saves the file itself as <route-name>.gpx."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Hovering, touching or arrow-keying the profile moves a dot along the route on the map. Other article props are passed through."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "File upload",
+  "category": "inputs",
+  "description": "A drop area for files, with each file checked for type and size and shown as a row with upload progress.",
+  "preview": { "layout": "center", "height": 440 },
+  "props": [
+    {
+      "component": "FileUpload",
+      "props": [
+        {
+          "name": "accept",
+          "type": "string[]",
+          "description": "Accepted types: extensions such as \".gpx\", MIME types such as \"image/png\", or \"image/*\". Other files get a failed row that says so."
+        },
+        { "name": "maxSize", "type": "number", "description": "Largest file in bytes. Larger files get a failed row." },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "default": "true",
+          "description": "Allow several files at once. When false, a new file replaces the list."
+        },
+        {
+          "name": "upload",
+          "type": "(file: File, onProgress: (fraction: number) => void, signal: AbortSignal) => Promise<void>",
+          "description": "Sends one file and reports progress from 0 to 1. Reject to fail the row with your message; the signal aborts when the row is removed. When left out, progress is simulated."
+        },
+        {
+          "name": "onChange",
+          "type": "(items: FileUploadItem[]) => void",
+          "description": "Called with every row (name, size, status, progress, error, file) whenever the list changes."
+        },
+        {
+          "name": "defaultItems",
+          "type": "FileUploadItem[]",
+          "default": "[]",
+          "description": "Rows to start with, for files sent earlier."
+        },
+        {
+          "name": "hint",
+          "type": "ReactNode",
+          "description": "Replaces the muted line that lists accepted types and the size limit."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Turns off dropping and choosing, and dims the component."
+        },
+        { "name": "className", "type": "string", "description": "Extra classes for the root." }
+      ]
+    }
+  ]
+}

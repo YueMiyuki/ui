@@ -1,0 +1,76 @@
+{
+  "name": "Newsletter Postcard",
+  "category": "blocks",
+  "original": true,
+  "description": "A sign-up form on the back of a postcard: the email goes on the address lines, a postmark cancels the stamp and the card slides away as if posted.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "NewsletterPostcard",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "The pitch at the top of the message side, set in the display face."
+        },
+        { "name": "children", "type": "ReactNode", "description": "The message under the title." },
+        { "name": "signature", "type": "ReactNode", "description": "A sign-off at the foot of the message." },
+        {
+          "name": "onSubmit",
+          "type": "(email: string) => void | Promise<void>",
+          "description": "Called with a valid address. While a returned promise is pending the button shows a spinner; when it resolves, the postmark draws across the stamp, the card slides away and a confirmation takes its place and receives focus. If it rejects, the card stays and an error shows under the address."
+        },
+        {
+          "name": "submitLabel",
+          "type": "string",
+          "default": "\"Subscribe\"",
+          "description": "Label of the submit button."
+        },
+        {
+          "name": "emailLabel",
+          "type": "string",
+          "default": "\"Your email address\"",
+          "description": "Visible label of the email field on the first address line."
+        },
+        {
+          "name": "stamp",
+          "type": "string",
+          "description": "Image for the stamp. Without it the stamp shows a small drawn landscape in the theme's colours."
+        },
+        {
+          "name": "stampAlt",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Alternative text for the stamp image."
+        },
+        {
+          "name": "stampValue",
+          "type": "string",
+          "default": "\"84\"",
+          "description": "The face value printed in the stamp's corner."
+        },
+        {
+          "name": "postmark",
+          "type": "string",
+          "default": "\"Hakuba\"",
+          "description": "Place name around the postmark. The date is the day of posting."
+        },
+        {
+          "name": "imprint",
+          "type": "string",
+          "description": "Tiny printer's line set vertically along the divider, from 576px wide."
+        },
+        {
+          "name": "confirmation",
+          "type": "ReactNode | (email: string) => ReactNode",
+          "description": "Replaces the line under the confirmation heading."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

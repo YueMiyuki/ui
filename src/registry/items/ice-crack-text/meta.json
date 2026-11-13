@@ -1,0 +1,30 @@
+{
+  "name": "Ice Crack Text",
+  "category": "text",
+  "original": true,
+  "description": "Lettering made of ice that cracks in branching lines under the pointer and shatters into angular shards that hang, then draw back together.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "IceCrackText",
+      "props": [
+        {
+          "name": "children",
+          "type": "string",
+          "description": "The text. It stays real text laid out by the page in the inherited font; the ice is painted in exactly the same glyph shapes."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "1",
+          "description": "Seeds the crack paths, the shard pattern and the frozen streaks inside the letters. The same seed cracks the same way."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, an inline block. Moving the pointer over the letters starts cracks there, which heal a moment after it leaves; pressing breaks the word apart. Other span props are passed through. Under reduced motion the plain text is shown."
+        }
+      ]
+    }
+  ]
+}

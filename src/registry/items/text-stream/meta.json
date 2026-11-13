@@ -1,0 +1,42 @@
+{
+  "name": "Text stream",
+  "category": "labs",
+  "description": "Rows of text carried along gentle waves, like words on a current, each row at its own pace.",
+  "preview": { "layout": "fill", "height": 360 },
+  "props": [
+    {
+      "component": "TextStream",
+      "props": [
+        {
+          "name": "text",
+          "type": "string | string[]",
+          "description": "The text to carry. One string is used on every row; an array gives each row its own line, repeating if there are more rows than lines."
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "default": "3",
+          "description": "How many rows. They share the height, and differ in size, opacity and speed; alternate rows travel the other way."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for every row's speed. Hovering slows the stream to about a fifth."
+        },
+        {
+          "name": "amplitude",
+          "type": "number",
+          "default": "24",
+          "description": "Height of the waves, in pixels, from the middle of a row."
+        },
+        { "name": "wavelength", "type": "number", "default": "480", "description": "Length of one wave, in pixels." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the stream. Give it a height; the text takes its font family, weight and colour from here, and the left and right edges fade out."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Agent Team Chat",
+  "category": "templates",
+  "description": "Conversations with several agents, in groups or one to one: a list of agents and group chats, a thread with one agent mid-reply, and an editor for the agent you opened last.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "AgentTeamChat",
+      "props": [
+        {
+          "name": "user",
+          "type": "{ name: string; email: string; avatar?: string }",
+          "default": "Aiko Tanaka",
+          "description": "The signed-in person, shown in the sidebar and among the members of a group chat."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It fills the viewport height. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

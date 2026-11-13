@@ -1,0 +1,42 @@
+{
+  "name": "Cipher Card",
+  "category": "cards",
+  "description": "A card covered in hidden characters that show, and keep shifting, only where the pointer shines, around a round seal with a short word.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "CipherCard",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "default": "\"\"",
+          "description": "The word on the round seal in the centre, and the card's accessible name. No seal is drawn when it is empty."
+        },
+        {
+          "name": "charset",
+          "type": "string",
+          "default": "\"A–Z a–z 0–9 + / =\"",
+          "description": "Characters the hidden field is made of."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "220",
+          "description": "Radius of the revealed area around the pointer, in pixels."
+        },
+        {
+          "name": "colors",
+          "type": "[string, string]",
+          "default": "[\"var(--brand)\", \"var(--chart-3)\"]",
+          "description": "The revealed characters run from the first colour at the pointer to the second at the edge of the light."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Set its size here. The card is focusable; keyboard focus reveals the field around the centre."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "name": "Precipitation Radar",
+  "category": "charts",
+  "original": true,
+  "description": "A radar loop over a map: soft patches of rain and snow carried along the wind frame by frame, a sweep line, play and pause, and a timeline that scrubs.",
+  "preview": {
+    "layout": "center",
+    "height": 560
+  },
+  "props": [
+    {
+      "component": "PrecipRadar",
+      "props": [
+        {
+          "name": "frames",
+          "type": "number",
+          "default": "12",
+          "description": "How many frames the loop has."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "1000",
+          "description": "Milliseconds per frame. The sweep line turns once in this time, painting the next frame behind it."
+        },
+        {
+          "name": "wind",
+          "type": "{ from: number; speed?: number }",
+          "default": "{ from: 300, speed: 0.024 }",
+          "description": "The bearing the weather comes from, in degrees, and how far it travels each frame as a share of the panel width."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "1",
+          "description": "Seeds the noise the precipitation is grown from. The same seed always gives the same weather."
+        },
+        {
+          "name": "times",
+          "type": "string[]",
+          "description": "A time label per frame, oldest first. Defaults to minutes before now in ten-minute steps."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "300",
+          "description": "Map panel height in pixels. The width follows the card."
+        },
+        {
+          "name": "autoPlay",
+          "type": "boolean",
+          "default": "true",
+          "description": "Start the loop when the radar comes into view. It stays still under reduced motion until play is pressed."
+        },
+        {
+          "name": "coverage",
+          "type": "number",
+          "default": "0.36",
+          "description": "Roughly what share of the panel shows any echo, from 0 to 1. The strongest few percent reach heavy."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the intensity scale under the timeline."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the radar shows, for screen readers. Generated from the frame on screen when left out."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The base map under the precipitation, such as an image or place labels. It fills the panel."
+        },
+        {
+          "name": "overlay",
+          "type": "ReactNode",
+          "description": "Drawn above the rain, for place names and markers that must stay readable. Use children for the base map underneath."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Small muted label at the top of the card."
+        },
+        {
+          "name": "note",
+          "type": "ReactNode",
+          "description": "A muted line under the label."
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "description": "Replaces the intensity scale."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts value, action and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

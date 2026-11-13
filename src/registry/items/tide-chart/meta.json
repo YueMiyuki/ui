@@ -1,0 +1,90 @@
+{
+  "name": "Tide Chart",
+  "category": "charts",
+  "original": true,
+  "description": "A day of tide as a smooth water curve, with high and low water labelled, night hours shaded, a now marker riding the curve and the moon's phase.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "TideChart",
+      "props": [
+        {
+          "name": "points",
+          "type": "{ time: number; height: number }[]",
+          "description": "Water heights by time in hours from midnight, e.g. 6.7 for 06:42. Include the high and low water times as points: the curve never overshoots the data, so they become its peaks and troughs. Points outside 0 to 24 carry the curve past the edges."
+        },
+        {
+          "name": "now",
+          "type": "number",
+          "description": "The current time in hours. A marker rides the curve to it and the header reads the height there."
+        },
+        {
+          "name": "phase",
+          "type": "number",
+          "description": "Moon phase from 0 to 1: 0 new, 0.25 first quarter, 0.5 full, 0.75 last quarter. Drawn at the right of the header."
+        },
+        {
+          "name": "sunrise",
+          "type": "number",
+          "description": "Sunrise in hours. Hours before it are shaded as night, with half an hour of twilight."
+        },
+        { "name": "sunset", "type": "number", "description": "Sunset in hours. Hours after it are shaded as night." },
+        {
+          "name": "format",
+          "type": "(height: number) => string",
+          "description": "Writes heights in labels, the tooltip and the table. Defaults to metres with two decimals."
+        },
+        {
+          "name": "formatAxis",
+          "type": "(height: number) => string",
+          "description": "Writes the height axis. Defaults to format."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "220",
+          "description": "Plot height in pixels. The width follows the card."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the legend with the night hours under the plot."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the vertical axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data when left out."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Small muted label at the top of the card, e.g. the place and date."
+        },
+        { "name": "value", "type": "ReactNode", "description": "The headline. Defaults to the height now." },
+        {
+          "name": "caption",
+          "type": "ReactNode",
+          "description": "Muted text after the headline. Defaults to whether the tide is rising or falling and the next turn."
+        },
+        { "name": "action", "type": "ReactNode", "description": "Replaces the moon on the right of the header." },
+        { "name": "footer", "type": "ReactNode", "description": "Replaces the legend under the plot." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts note and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

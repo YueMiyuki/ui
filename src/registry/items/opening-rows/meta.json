@@ -1,0 +1,48 @@
+{
+  "name": "Opening Rows",
+  "category": "cards",
+  "description": "A list of compact rows where choosing one opens it in place into a full dialog card, and closing folds it back.",
+  "demos": [{ "name": "default", "title": "List" }, { "name": "grid", "title": "Grid" }],
+  "preview": { "layout": "center", "height": 680, "iframe": true },
+  "props": [
+    {
+      "component": "OpeningRows",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; title: string; subtitle: string; src: string; content: ReactNode; action?: ReactNode }[]",
+          "description": "The rows. content is the body of the open card; action is its main button, placed at the bottom right."
+        },
+        {
+          "name": "layout",
+          "type": "\"list\" | \"grid\"",
+          "default": "\"list\"",
+          "description": "Compact rows with a thumbnail, or tiles with the image on top. The grid follows its container's width."
+        },
+        {
+          "name": "viewLabel",
+          "type": "string",
+          "default": "\"View\"",
+          "description": "Label of the button on each row. Its accessible name adds the row's title."
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "default": "\"Close\"",
+          "description": "Accessible label for the close button on the open card."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default: the browser redraws the blur on every frame while anything behind it changes, which stalls on large pages, most of all in Firefox."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the outer element, which is a size container."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Context Meter",
+  "category": "ai",
+  "description": "How much of an agent's context window is in use, by category, and how close the plan's usage limits are.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "near-limit", "title": "Near the limit" }],
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "ContextMeter",
+      "props": [
+        {
+          "name": "context",
+          "type": "{ used: number; total: number; segments: { label: string; value: number; color?: string }[] }",
+          "description": "Tokens in use and the window size. Each segment is a category drawn in palette order (water, seafoam, wisteria, plum, yuzu) unless it has its own colour. Hovering a segment names it with its size."
+        },
+        {
+          "name": "limits",
+          "type": "{ label: ReactNode; resetsIn: ReactNode; value: number }[]",
+          "default": "[]",
+          "description": "Plan limits as rows. resetsIn follows the word \"Resets\", for example \"in 2 h 46 min\" or \"Tuesday 15:00\". value is the percentage used."
+        },
+        {
+          "name": "warnAt",
+          "type": "number",
+          "default": "75",
+          "description": "Percentage at which a limit's bar and number turn yuzu."
+        },
+        {
+          "name": "criticalAt",
+          "type": "number",
+          "default": "90",
+          "description": "Percentage at which a limit's bar and number turn camellia."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the card. Other props go to the root section element."
+        }
+      ]
+    }
+  ]
+}

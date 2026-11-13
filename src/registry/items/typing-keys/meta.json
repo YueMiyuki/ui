@@ -1,0 +1,35 @@
+{
+  "name": "Typing Keys",
+  "category": "cards",
+  "description": "A compact keyboard drawn in CSS whose keys sink and fill with water blue as you type on your own keyboard.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "TypingKeys",
+      "props": [
+        {
+          "name": "sound",
+          "type": "boolean",
+          "default": "false",
+          "description": "Plays a short synthesised click on each key press, slightly lower toward the bottom rows."
+        },
+        {
+          "name": "showPreview",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the last few characters typed above the board, each floating up and fading."
+        },
+        {
+          "name": "onKey",
+          "type": "(press: { code: string; key: string; source: \"keyboard\" | \"pointer\" }) => void",
+          "description": "Called for every key press, from the physical keyboard while the board is on screen or from a click on a cap. Default behaviour is never prevented."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the outer element. The board scales to its width."
+        }
+      ]
+    }
+  ]
+}

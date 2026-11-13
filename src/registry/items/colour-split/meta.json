@@ -1,0 +1,53 @@
+{
+  "name": "Colour Split",
+  "category": "media",
+  "description": "A picture whose red and blue channels peel apart and lean toward the pointer while the frame tilts, drawn with WebGL.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "ColourSplit",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "The image URL. Remote images need CORS headers to be drawn with WebGL; without them the plain image is shown."
+        },
+        { "name": "alt", "type": "string", "description": "Alternative text for the image." },
+        {
+          "name": "shift",
+          "type": "number",
+          "default": "0.012",
+          "description": "How far the red and blue channels separate, as a fraction of the image width. At rest only a trace of it remains, as fringing near the edges."
+        },
+        {
+          "name": "displacement",
+          "type": "number",
+          "default": "0.04",
+          "description": "How far the picture slides toward the pointer, as a fraction of its size."
+        },
+        {
+          "name": "zoom",
+          "type": "number",
+          "default": "1.04",
+          "description": "Scale of the picture while the pointer is over it."
+        },
+        {
+          "name": "tilt",
+          "type": "number",
+          "default": "6",
+          "description": "Largest tilt of the frame on each axis, in degrees."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. Give it a size, for example an aspect ratio and a width, and a radius; the frame inherits the radius. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Overlay content, laid over the picture in a box of the same size and tilted with it."
+        }
+      ]
+    }
+  ]
+}

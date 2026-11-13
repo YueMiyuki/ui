@@ -1,0 +1,70 @@
+{
+  "name": "Marker Headline",
+  "category": "text",
+  "description": "A headline with a phrase marked by a sweep of colour, on a field of fine dots that turn water blue under the pointer.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "MarkerHeadline",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "Content placed over the dots." },
+        {
+          "name": "dotColor",
+          "type": "string",
+          "default": "\"var(--border-strong)\"",
+          "description": "Colour of the resting dots. Any CSS colour or token. The grid fades out towards the edges."
+        },
+        {
+          "name": "activeColor",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the dots inside the circle around the pointer."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "200",
+          "description": "Radius of the circle around the pointer, in pixels. Its edge is soft."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the container. Lay out its content here. Other div props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "Marker",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The phrase to mark. It wraps like ordinary text, and the wash follows it from line to line."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "0.4",
+          "description": "Seconds after the phrase comes into view before the wash starts."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1.2",
+          "description": "Seconds the wash takes to sweep from the first letter to the last. Under reduced motion it is shown at once."
+        },
+        {
+          "name": "color",
+          "type": "string | string[]",
+          "default": "[\"var(--brand-soft)\", seafoam tint]",
+          "description": "Colour of the wash, or a list of colours blended from left to right."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the mark element. Other props are passed through."
+        }
+      ]
+    }
+  ]
+}

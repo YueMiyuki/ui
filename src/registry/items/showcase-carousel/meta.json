@@ -1,0 +1,40 @@
+{
+  "name": "Showcase Carousel",
+  "category": "media",
+  "description": "A carousel with the current slide forward and its neighbours turned away on either side.",
+  "preview": { "layout": "fill", "height": 520 },
+  "props": [
+    {
+      "component": "ShowcaseCarousel",
+      "props": [
+        {
+          "name": "slides",
+          "type": "{ title: string; src: string; alt?: string; action?: ReactNode }[]",
+          "description": "The slides. The title is set over the image; the action, usually a small button, shows only on the current slide."
+        },
+        { "name": "defaultIndex", "type": "number", "default": "0", "description": "The slide shown first." },
+        {
+          "name": "onIndexChange",
+          "type": "(index: number) => void",
+          "description": "Called when another slide comes forward."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Showcase\"",
+          "description": "Names the carousel for assistive technology."
+        },
+        {
+          "name": "labels",
+          "type": "{ previous?: string; next?: string; goTo?: (index) => string; slide?: (title, index, count) => string }",
+          "description": "Text for assistive technology, for translation."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root, which fills its parent. Also accepts every other prop of a section."
+        }
+      ]
+    }
+  ]
+}

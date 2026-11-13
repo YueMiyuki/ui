@@ -1,0 +1,101 @@
+{
+  "name": "Hatching",
+  "category": "backgrounds",
+  "description": "Fine engraved hatching behind or around your content: diagonal, horizontal, vertical, cross-hatched, or rows of seigaiha waves.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "Hatching",
+      "props": [
+        {
+          "name": "pattern",
+          "type": "\"diagonal\" | \"horizontal\" | \"vertical\" | \"cross\" | \"waves\"",
+          "default": "\"diagonal\"",
+          "description": "The hatch. Cross lays two diagonals over each other; waves draws overlapping rows of concentric arcs."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "10",
+          "description": "Distance between lines in pixels. For waves, the distance between the rings of each fan."
+        },
+        { "name": "strokeWidth", "type": "number", "default": "1", "description": "Line width in pixels." },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--border-strong)\"",
+          "description": "Line colour. Any CSS colour or token."
+        },
+        {
+          "name": "fade",
+          "type": "\"none\" | \"radial\" | \"top\" | \"bottom\"",
+          "default": "\"none\"",
+          "description": "Fade the lines out toward the edges, toward the top, or toward the bottom."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "false",
+          "description": "Let the lines drift slowly, about 4 pixels a second. Stops with reduced motion."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the layer, which is absolutely positioned to fill its parent behind the content (-z-10). Give the parent relative and isolate. Other div props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "HatchingContainer",
+      "props": [
+        {
+          "name": "frame",
+          "type": "number",
+          "default": "0",
+          "description": "Width in pixels of a hatched frame around the children, ruled on both edges. At 0 the pattern fills the box behind them."
+        },
+        {
+          "name": "pattern",
+          "type": "\"diagonal\" | \"horizontal\" | \"vertical\" | \"cross\" | \"waves\"",
+          "default": "\"diagonal\"",
+          "description": "The hatch. Cross lays two diagonals over each other; waves draws overlapping rows of concentric arcs."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "10",
+          "description": "Distance between lines in pixels. For waves, the distance between the rings of each fan."
+        },
+        { "name": "strokeWidth", "type": "number", "default": "1", "description": "Line width in pixels." },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--border-strong)\"",
+          "description": "Line colour. Any CSS colour or token."
+        },
+        {
+          "name": "fade",
+          "type": "\"none\" | \"radial\" | \"top\" | \"bottom\"",
+          "default": "\"none\"",
+          "description": "Fade the lines out toward the edges, toward the top, or toward the bottom. With a frame it applies to the band."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "false",
+          "description": "Let the lines drift slowly, about 4 pixels a second. Stops with reduced motion."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and isolates the pattern. With a frame, its padding is the frame width. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the pattern, or inside the frame."
+        }
+      ]
+    }
+  ]
+}

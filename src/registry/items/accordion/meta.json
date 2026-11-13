@@ -1,0 +1,67 @@
+{
+  "name": "Accordion",
+  "category": "display",
+  "description": "Sections that open in place, divided by hairlines or set apart as cards.",
+  "demos": [{ "name": "default", "title": "Flush" }, { "name": "separated", "title": "Separated" }],
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "Accordion",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"flush\" | \"separated\"",
+          "default": "\"flush\"",
+          "description": "Flush divides rows with hairlines. Separated gives each row its own card."
+        },
+        {
+          "name": "allowsMultipleExpanded",
+          "type": "boolean",
+          "default": "false",
+          "description": "Let more than one section stay open."
+        },
+        {
+          "name": "expandedKeys",
+          "type": "Iterable<Key>",
+          "description": "The ids of the open sections (controlled)."
+        },
+        {
+          "name": "defaultExpandedKeys",
+          "type": "Iterable<Key>",
+          "description": "The ids of the sections open at first (uncontrolled)."
+        },
+        {
+          "name": "onExpandedChange",
+          "type": "(keys: Set<Key>) => void",
+          "description": "Called when a section opens or closes."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables every section." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components DisclosureGroup."
+        }
+      ]
+    },
+    {
+      "component": "AccordionItem",
+      "props": [
+        { "name": "id", "type": "Key", "description": "Identifies the section in expandedKeys." },
+        { "name": "title", "type": "ReactNode", "description": "The row's heading. The whole row is the toggle." },
+        { "name": "children", "type": "ReactNode", "description": "The section's content." },
+        {
+          "name": "headingLevel",
+          "type": "2 | 3 | 4 | 5 | 6",
+          "default": "3",
+          "description": "Heading level of the title, to fit the page outline."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables this section." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Disclosure."
+        }
+      ]
+    }
+  ]
+}

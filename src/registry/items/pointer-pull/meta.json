@@ -1,0 +1,41 @@
+{
+  "name": "Pointer Pull",
+  "category": "buttons",
+  "description": "A wrapper that lets whatever is inside drift toward a nearby pointer and spring back when it leaves.",
+  "preview": { "layout": "center", "height": 300 },
+  "props": [
+    {
+      "component": "PointerPull",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The control to move, usually one Button or IconButton."
+        },
+        {
+          "name": "strength",
+          "type": "number",
+          "default": "0.35",
+          "description": "Fraction of the distance from the centre to the pointer that the child travels."
+        },
+        {
+          "name": "maxDistance",
+          "type": "number",
+          "default": "24",
+          "description": "Furthest the child moves, in pixels. The pull reaches twice this far beyond the edges and fades out toward the limit."
+        },
+        {
+          "name": "inner",
+          "type": "boolean",
+          "default": "false",
+          "description": "Move the child's contents a little further than its shell, so the label seems to float inside."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapper. Other span props are passed through. There is no movement on touch screens or with reduced motion."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    path { stroke: #0b79b8; }
+    @media (prefers-color-scheme: dark) { path { stroke: #46b4ea; } }
+  </style>
+  <path d="M12 12V2.8M12 12l7.97-4.6M12 12l7.97 4.6M12 12v9.2M12 12l-7.97 4.6M12 12L4.03 7.4" />
+  <path d="M9.66 5.2L12 6.66L14.34 5.2M16.72 6.57L16.62 9.33L19.06 10.63M19.06 13.37L16.62 14.67L16.72 17.43M14.34 18.8L12 17.34L9.66 18.8M7.28 17.43L7.38 14.67L4.94 13.37M4.94 10.63L7.38 9.33L7.28 6.57" />
+</svg>

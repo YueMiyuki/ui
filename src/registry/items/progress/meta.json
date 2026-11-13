@@ -1,0 +1,94 @@
+{
+  "name": "Progress",
+  "category": "display",
+  "description": "How far something has got, as a bar or a ring, with or without a known end.",
+  "preview": { "layout": "center", "height": 380 },
+  "props": [
+    {
+      "component": "ProgressBar",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the track, on the left." },
+        {
+          "name": "value",
+          "type": "number",
+          "default": "0",
+          "description": "How far it has got. Changes move the fill with a spring."
+        },
+        { "name": "minValue", "type": "number", "default": "0", "description": "Start of the range." },
+        { "name": "maxValue", "type": "number", "default": "100", "description": "End of the range." },
+        {
+          "name": "isIndeterminate",
+          "type": "boolean",
+          "default": "false",
+          "description": "There is no known end: a soft band of water sweeps along the track."
+        },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the formatted value above the track, on the right. Hidden while indeterminate."
+        },
+        { "name": "size", "type": "\"sm\" | \"md\"", "default": "\"md\"", "description": "Track of 4 or 6 pixels." },
+        {
+          "name": "tone",
+          "type": "\"brand\" | \"success\" | \"warning\" | \"destructive\"",
+          "default": "\"brand\"",
+          "description": "Fill colour: water, or a status colour for a bar that reports health, such as usage nearing a limit."
+        },
+        {
+          "name": "formatOptions",
+          "type": "Intl.NumberFormatOptions",
+          "default": "{ style: \"percent\" }",
+          "description": "How the value is written."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components ProgressBar."
+        }
+      ]
+    },
+    {
+      "component": "ProgressRing",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Progress\"",
+          "description": "Accessible name. The ring has no visible label."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "default": "0",
+          "description": "How far it has got. The arc fills clockwise from the top."
+        },
+        { "name": "minValue", "type": "number", "default": "0", "description": "Start of the range." },
+        { "name": "maxValue", "type": "number", "default": "100", "description": "End of the range." },
+        {
+          "name": "isIndeterminate",
+          "type": "boolean",
+          "default": "false",
+          "description": "There is no known end: an arc turns around the ring."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "20, 32 or 56 pixels."
+        },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show the value in the middle. Only the large ring has room for it."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. The arc is currentColor, water by default. Also accepts every other prop of the react-aria-components ProgressBar."
+        }
+      ]
+    }
+  ]
+}

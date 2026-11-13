@@ -1,0 +1,38 @@
+{
+  "name": "Image Wall",
+  "category": "maps",
+  "description": "A tilted wall of images whose columns drift in opposite directions.",
+  "preview": {
+    "layout": "fill",
+    "height": 520
+  },
+  "props": [
+    {
+      "component": "ImageWall",
+      "props": [
+        {
+          "name": "images",
+          "type": "(string | { src: string; alt?: string })[]",
+          "description": "Image sources, dealt into the columns in turn. A plain string is treated as decoration and gets empty alt text; pass { src, alt } when a picture carries meaning."
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "default": "4",
+          "description": "Number of columns, from 1 to 8. Neighbouring columns drift in opposite directions at slightly different speeds."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "40",
+          "description": "Seconds for a column to travel the length of its images once. Each column varies it a little."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which clips the wall and fades its edges. Give it a height. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

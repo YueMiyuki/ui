@@ -1,0 +1,65 @@
+{
+  "name": "Pinned Globe",
+  "category": "maps",
+  "description": "A solid globe with shaded land and sea, and people pinned to places.",
+  "preview": { "layout": "fill", "height": 520 },
+  "props": [
+    {
+      "component": "PinnedGlobe",
+      "props": [
+        {
+          "name": "markers",
+          "type": "{ lat: number; lng: number; src?: string; label: string }[]",
+          "default": "[]",
+          "description": "People or places to pin. Each shows its image in a ring, or a dot without one, and its label on hover or focus. Markers fade out as they turn to the far side. Focusing one from the keyboard turns the globe to face it."
+        },
+        {
+          "name": "autoRotateSpeed",
+          "type": "number",
+          "default": "0.25",
+          "description": "Turning speed in degrees per frame at 60 frames a second. 0 stops it. It pauses while dragged, while a marker is hovered and under reduced motion."
+        },
+        {
+          "name": "enableZoom",
+          "type": "boolean",
+          "default": "false",
+          "description": "Let the wheel, and the + and − keys, zoom between 0.85× and 2.2×."
+        },
+        {
+          "name": "initialRotation",
+          "type": "[lng: number, lat: number]",
+          "default": "[120, 24]",
+          "description": "The longitude and latitude facing the viewer at the start. Latitude is kept within 60 degrees."
+        },
+        {
+          "name": "onMarkerClick",
+          "type": "(marker: PinnedGlobeMarker, index: number) => void",
+          "description": "Called when a marker is clicked or activated from the keyboard."
+        },
+        {
+          "name": "onMarkerHover",
+          "type": "(marker: PinnedGlobeMarker | null, index: number) => void",
+          "description": "Called with the marker when the pointer enters it, and with null when it leaves."
+        },
+        {
+          "name": "landColor",
+          "type": "string",
+          "default": "snow by day, frost at night",
+          "description": "Fill for the land. Shading is laid over it."
+        },
+        {
+          "name": "seaColor",
+          "type": "string",
+          "default": "water by day, deep water at night",
+          "description": "Base colour for the sea, lightened toward the highlight and deepened toward the edge."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. The globe is drawn centred in it, as large as fits. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content placed over the globe." }
+      ]
+    }
+  ]
+}

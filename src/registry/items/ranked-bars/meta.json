@@ -1,0 +1,86 @@
+{
+  "name": "Ranked Bars",
+  "category": "charts",
+  "description": "Ranked rows with each label on a bar showing its share, with tabs for several breakdowns and a fold for long lists.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "RankedBars",
+      "props": [
+        {
+          "name": "data",
+          "type": "{ name: string; value: number; icon?: ReactNode }[]",
+          "description": "Rows for a single list, drawn in the order given; sort them first for a ranking. Bars are scaled to the largest row, and the share beside each is of the list's total."
+        },
+        {
+          "name": "groups",
+          "type": "{ id: string; name: string; data: { name: string; value: number; icon?: ReactNode }[] }[]",
+          "description": "Several breakdowns of the same total, each behind an underline tab. Takes the place of data."
+        },
+        { "name": "selectedGroup", "type": "string", "description": "The id of the tab shown, when you control it." },
+        {
+          "name": "defaultSelectedGroup",
+          "type": "string",
+          "default": "groups[0].id",
+          "description": "The id of the tab shown first."
+        },
+        {
+          "name": "onGroupChange",
+          "type": "(id: string) => void",
+          "description": "Called with the id of the tab chosen."
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "default": "5",
+          "description": "Rows shown before the list folds. The last one fades and a Show all button opens the rest."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--chart-1)\"",
+          "description": "Bar colour. The bars are a pale tint of it with a solid leading edge."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes each row's value. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatShare",
+          "type": "(share: number) => string",
+          "description": "Writes each row's share of the list's total, given as a fraction. Defaults to whole percents."
+        },
+        {
+          "name": "showAllLabel",
+          "type": "string",
+          "default": "\"Show all\"",
+          "description": "Text of the button that opens a folded list."
+        },
+        {
+          "name": "showLessLabel",
+          "type": "string",
+          "default": "\"Show less\"",
+          "description": "Text of the button that folds it again."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Small muted label at the top of the card. Also names the list for screen readers."
+        },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value, e.g. \"last 30 days\"." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts note, action, footer, invertDelta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

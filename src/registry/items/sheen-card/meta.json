@@ -1,0 +1,41 @@
+{
+  "name": "Sheen Card",
+  "category": "cards",
+  "description": "A portrait card that tilts slightly while a band of glare slides across it with the pointer, like light on ice.",
+  "preview": { "layout": "center", "height": 500 },
+  "props": [
+    {
+      "component": "SheenCard",
+      "props": [
+        {
+          "name": "maxTilt",
+          "type": "number",
+          "default": "8",
+          "description": "Largest tilt on each axis, in degrees."
+        },
+        {
+          "name": "glare",
+          "type": "number",
+          "default": "0.5",
+          "description": "Strength of the glare band, from 0 to 1."
+        },
+        {
+          "name": "sheen",
+          "type": "boolean",
+          "default": "true",
+          "description": "Adds a faint cyan-to-violet sheen under the glare that shifts with the angle."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the outer element. Set the card's width here; the height follows at 3:4."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The card's content. The card is relative and clips its children, so absolutely positioned images can fill it."
+        }
+      ]
+    }
+  ]
+}

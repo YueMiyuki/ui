@@ -1,0 +1,37 @@
+{
+  "name": "Icicles",
+  "category": "backgrounds",
+  "original": true,
+  "description": "Icicles hanging from the top edge of a container; they lengthen slowly, drip, and snap when touched.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "Icicles",
+      "props": [
+        { "name": "count", "type": "number", "default": "18", "description": "Number of icicles along the top edge." },
+        {
+          "name": "maxLength",
+          "type": "number",
+          "default": "90",
+          "description": "Length of the longest icicle, in pixels. Leave at least this much room above the content."
+        },
+        {
+          "name": "drip",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let a drop form at the tip of an icicle now and then, fall and land on the bottom edge with a small ring. Off under reduced motion."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the icicles. Style it as the card or panel they hang from. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content of the container. The icicles hang in front of it, so pad the top. Touching an icicle snaps it where you touch: it falls, shatters on the bottom edge and grows back."
+        }
+      ]
+    }
+  ]
+}

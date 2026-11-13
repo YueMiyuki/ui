@@ -1,0 +1,54 @@
+{
+  "name": "Furin Bell",
+  "category": "navigation",
+  "original": true,
+  "description": "A notification button drawn as a glass wind chime whose paper strip carries the unread count and which swings when something arrives.",
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "FurinBell",
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "0",
+          "description": "Unread count, written on the paper strip. When it rises the bell is pushed and swings. Above 99 it reads 99+."
+        },
+        {
+          "name": "sound",
+          "type": "boolean",
+          "default": "false",
+          "description": "Play a short, quiet chime when the count rises, as the clapper first strikes the glass."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "40",
+          "description": "Width and height of the button in pixels. The strip hangs below it by about the same again."
+        },
+        {
+          "name": "onPress",
+          "type": "(e: PressEvent) => void",
+          "description": "Called when the bell is activated, for example to open a list."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Notifications\"",
+          "description": "Accessible name. The unread count is added to it and announced when it changes."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the button and dims it to 50%."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the button. Also accepts every other prop of the react-aria-components Button."
+        }
+      ]
+    }
+  ]
+}

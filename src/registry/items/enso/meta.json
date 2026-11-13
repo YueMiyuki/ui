@@ -1,0 +1,42 @@
+{
+  "name": "Enso",
+  "category": "display",
+  "original": true,
+  "description": "A circle drawn in one brush stroke, heavy at the start and dry at the tail, used as a progress ring or a loader.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "Enso",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Progress from 0 to 100. The brush is drawn to that point along the circle and moves on with a spring when the value changes. The element is then a progressbar. Leave it out for a loader."
+        },
+        { "name": "size", "type": "number", "default": "64", "description": "Width and height in pixels." },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1.4",
+          "description": "Seconds the brush takes to draw the circle when there is no value."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "true",
+          "description": "Without a value: draw, hold, fade and draw again. Set false to draw once and keep the circle."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Accessible name. A loader defaults to \"Loading\" and is a status; pass an empty string when visible text beside it already says what is happening."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapping span. The ink is currentColor, foreground by default. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

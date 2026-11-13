@@ -1,0 +1,30 @@
+{
+  "name": "Word Chip",
+  "category": "text",
+  "description": "A phrase whose last word sits in a chip and keeps changing, while the text around it slides to make room.",
+  "preview": { "layout": "center", "height": 320 },
+  "props": [
+    {
+      "component": "WordChip",
+      "props": [
+        { "name": "text", "type": "string", "description": "The fixed text before the chip." },
+        {
+          "name": "words",
+          "type": "string[]",
+          "description": "Words shown in the chip in turn. Screen readers hear the fixed text followed by all of them."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "3000",
+          "description": "Milliseconds each word stays. The cycle pauses while the phrase is off screen, and holds the first word under reduced motion."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapping span. Font, size and colour are inherited. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

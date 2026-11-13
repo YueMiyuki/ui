@@ -1,0 +1,169 @@
+{
+  "name": "Modal",
+  "category": "overlays",
+  "description": "A dialog over a dimmed page, in four sizes, with a scrolling body and a confirm variant.",
+  "demos": [
+    { "name": "default", "title": "Form" },
+    { "name": "alert", "title": "Alert dialog" },
+    { "name": "scrolling", "title": "Scrolling content" },
+    { "name": "sizes", "title": "Sizes" },
+    { "name": "blur", "title": "Blurred backdrop" }
+  ],
+  "preview": { "layout": "center", "height": 320, "thumb": false, "thumbClick": "button" },
+  "props": [
+    {
+      "component": "ModalTrigger",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A button that opens the modal, then the Modal or AlertDialog."
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Open state (controlled). Use defaultOpen when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the modal opens or closes."
+        }
+      ]
+    },
+    {
+      "component": "Modal",
+      "props": [
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\" | \"full\"",
+          "default": "\"md\"",
+          "description": "Width of 400, 520 or 720 pixels, or the whole window less 24 pixels all round."
+        },
+        {
+          "name": "isDismissable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close when the scrim is clicked. Escape always closes unless isKeyboardDismissDisabled is set."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default: the browser redraws the blur on every frame while anything behind it changes, which stalls on large pages, most of all in Firefox."
+        },
+        {
+          "name": "closeButton",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows a close button in the top right corner."
+        },
+        {
+          "name": "role",
+          "type": "\"dialog\" | \"alertdialog\"",
+          "default": "\"dialog\"",
+          "description": "Use alertdialog for a confirmation that interrupts."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | ({ close }) => ReactNode",
+          "description": "ModalHeader, ModalBody and ModalFooter. A function receives close(). Any button with slot=\"close\" also closes."
+        },
+        { "name": "isOpen", "type": "boolean", "description": "Open state, when used without a ModalTrigger." },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the open state changes, when used without a ModalTrigger."
+        },
+        { "name": "className", "type": "string", "description": "Classes for the panel." },
+        { "name": "overlayClassName", "type": "string", "description": "Classes for the scrim." }
+      ]
+    },
+    {
+      "component": "ModalHeader",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Holds the title and description and stays put while the body scrolls."
+        }
+      ]
+    },
+    {
+      "component": "ModalTitle",
+      "props": [{ "name": "children", "type": "ReactNode", "description": "The modal's name. Labels the dialog." }]
+    },
+    {
+      "component": "ModalDescription",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A line or two under the title. Describes the dialog."
+        }
+      ]
+    },
+    {
+      "component": "ModalBody",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Scrolls between the header and footer when the content is tall, with a hairline on the side that has more to read."
+        }
+      ]
+    },
+    {
+      "component": "ModalFooter",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Actions aligned to the end; put the main action last."
+        }
+      ]
+    },
+    {
+      "component": "AlertDialog",
+      "props": [
+        { "name": "title", "type": "ReactNode", "description": "The question, e.g. \"Delete Hakuba traverse?\"." },
+        { "name": "children", "type": "ReactNode", "description": "What will happen." },
+        {
+          "name": "actionLabel",
+          "type": "ReactNode",
+          "description": "Label of the confirming button. Say what it does."
+        },
+        {
+          "name": "cancelLabel",
+          "type": "ReactNode",
+          "default": "\"Cancel\"",
+          "description": "Label of the cancel button, which takes focus first."
+        },
+        {
+          "name": "tone",
+          "type": "\"default\" | \"destructive\"",
+          "default": "\"default\"",
+          "description": "Destructive makes the action camellia and shows a warning icon."
+        },
+        { "name": "icon", "type": "ReactNode", "description": "Replaces the default icon. Pass null for none." },
+        {
+          "name": "onAction",
+          "type": "() => void | Promise<void>",
+          "description": "Called on confirm. The dialog then closes; a returned promise shows a spinner until it settles."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"sm\"",
+          "description": "Width of the panel."
+        },
+        {
+          "name": "isDismissable",
+          "type": "boolean",
+          "default": "false",
+          "description": "Close when the scrim is clicked."
+        }
+      ]
+    }
+  ]
+}

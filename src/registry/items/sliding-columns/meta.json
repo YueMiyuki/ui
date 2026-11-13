@@ -1,0 +1,39 @@
+{
+  "name": "Sliding Columns",
+  "category": "scroll",
+  "description": "A wall of images in columns that slide at different rates as you scroll, leaning slightly while the scroll is fast.",
+  "preview": { "layout": "fill", "height": 560 },
+  "props": [
+    {
+      "component": "SlidingColumns",
+      "props": [
+        { "name": "images", "type": "string[]", "description": "Image sources, dealt into the columns in turn." },
+        {
+          "name": "columns",
+          "type": "number",
+          "default": "3",
+          "description": "Number of columns. The outer columns run fast and the ones inside them lag."
+        },
+        {
+          "name": "strength",
+          "type": "number",
+          "default": "200",
+          "description": "How far, in pixels, a column travels against its neighbours over the whole scroll."
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "default": "\"40rem\"",
+          "description": "Height of the scroll area, as any CSS length."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Photo wall\"",
+          "description": "Accessible name of the scroll area, which can be focused and scrolled with the keyboard."
+        },
+        { "name": "className", "type": "string", "description": "Extra classes for the scroll area." }
+      ]
+    }
+  ]
+}

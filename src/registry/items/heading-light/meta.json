@@ -1,0 +1,42 @@
+{
+  "name": "Heading Light",
+  "category": "backgrounds",
+  "description": "A bar of light that opens above a heading and throws a soft cone down onto it.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "HeadingLight",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the light. At night the bar has a snow-white core and the cone glows; by day the bar is a water line and the cone a pale wash."
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "default": "\"60%\"",
+          "description": "Width of the bar once open, as any CSS length. It opens from half this width."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "0.2",
+          "description": "Seconds between entering the view and opening."
+        },
+        { "name": "duration", "type": "number", "default": "0.9", "description": "Seconds the bar takes to open." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, a relative flex column that centres the light and the content horizontally and clips the cone. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content placed under the bar, in the pool of light. It rises a few pixels as the light opens."
+        }
+      ]
+    }
+  ]
+}

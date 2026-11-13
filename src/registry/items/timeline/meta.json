@@ -1,0 +1,28 @@
+{
+  "name": "Timeline",
+  "category": "display",
+  "description": "A vertical timeline whose labels stick while their content scrolls past, with a line that fills with water as you go.",
+  "preview": { "layout": "fill", "height": 600, "iframe": true },
+  "props": [
+    {
+      "component": "Timeline",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ title: ReactNode; content: ReactNode }[]",
+          "description": "The entries, in order. The title sticks beside its content; each node fills when the line reaches it."
+        },
+        {
+          "name": "heading",
+          "type": "ReactNode",
+          "description": "Heading block above the timeline. Bring your own heading element."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the outer element. Set [--miyuki-timeline-top:7rem] to keep the sticky labels below a fixed header."
+        }
+      ]
+    }
+  ]
+}

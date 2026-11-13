@@ -1,0 +1,75 @@
+{
+  "name": "Radio",
+  "category": "inputs",
+  "description": "A radio group whose chosen option fills with water as a dot drops in, with a card variant.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "cards", "title": "Cards" }],
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "RadioGroup",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the options." },
+        { "name": "description", "type": "ReactNode", "description": "Help text under the options." },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the options while the group is invalid."
+        },
+        {
+          "name": "orientation",
+          "type": "\"vertical\" | \"horizontal\"",
+          "default": "\"vertical\"",
+          "description": "Stack the options, or lay them out in a wrapping row. Cards share the row equally."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Circle of 16 or 18 pixels for every option."
+        },
+        {
+          "name": "value",
+          "type": "string | null",
+          "description": "The chosen value (controlled). Use defaultValue when uncontrolled."
+        },
+        { "name": "onChange", "type": "(value: string) => void", "description": "Called when the choice changes." },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables every option." },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "default": "false",
+          "description": "Gives empty circles a camellia outline and shows the error message."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components RadioGroup."
+        }
+      ]
+    },
+    {
+      "component": "Radio",
+      "props": [
+        { "name": "value", "type": "string", "description": "The value this option stands for. Required." },
+        { "name": "children", "type": "ReactNode", "description": "The label, to the right of the circle." },
+        { "name": "description", "type": "ReactNode", "description": "Help text under the label." },
+        { "name": "size", "type": "\"sm\" | \"md\"", "description": "Overrides the group's size." },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables this option." }
+      ]
+    },
+    {
+      "component": "RadioCard",
+      "props": [
+        { "name": "value", "type": "string", "description": "The value this card stands for. Required." },
+        { "name": "children", "type": "ReactNode", "description": "The title." },
+        { "name": "description", "type": "ReactNode", "description": "A line under the title." },
+        {
+          "name": "trailing",
+          "type": "ReactNode",
+          "description": "Content on the right before the circle, such as a price. Set in tabular figures."
+        },
+        { "name": "size", "type": "\"sm\" | \"md\"", "description": "Overrides the group's size." }
+      ]
+    }
+  ]
+}

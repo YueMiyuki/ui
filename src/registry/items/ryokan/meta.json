@@ -1,0 +1,24 @@
+{
+  "name": "Ryokan",
+  "category": "templates",
+  "original": true,
+  "description": "A hot spring inn's landing page and booking: the valley with steam rising, three rooms, the baths with live hours and occupancy, a seasonal dinner menu, a small line map for getting there, a booking card and a waterline footer.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "Ryokan",
+      "props": [
+        {
+          "name": "images",
+          "type": "{ hero?: string; rooms?: string[]; bath?: string }",
+          "description": "Pictures for the page: the valley behind the hero, one for each of the three rooms in order (river, garden, snow-viewing), and the open-air bath. Any image URL. Without them each space shows a soft wash."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. The page grows with its content and scrolls; Check availability and each room's button scroll to the booking card. Bath occupancy follows the viewer's clock; booking dates are fixed in February and March 2027. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

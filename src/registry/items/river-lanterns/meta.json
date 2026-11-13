@@ -1,0 +1,43 @@
+{
+  "name": "River Lanterns",
+  "category": "backgrounds",
+  "original": true,
+  "description": "Paper lanterns drifting down a river at night, each with a long wavering reflection; by day they become paper boats.",
+  "preview": { "layout": "fill", "height": 480 },
+  "demos": [{ "name": "default", "title": "Night" }, { "name": "day", "title": "Day" }],
+  "props": [
+    {
+      "component": "RiverLanterns",
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "14",
+          "description": "Number of lanterns on a frame of about 960 by 480 pixels. Larger and smaller frames scale it by area."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the current, the turning and the movement of the water."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--warning)\"",
+          "description": "Colour of the lantern light at night, and the faint tint of some paper boats by day. Any CSS colour or token."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the river. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the river. Pressing the water anywhere outside links, buttons and fields launches a new lantern from that point."
+        }
+      ]
+    }
+  ]
+}

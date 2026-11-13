@@ -1,0 +1,47 @@
+{
+  "name": "Funnel Pills",
+  "category": "charts",
+  "description": "Funnel stages as horizontal pills that shorten down the list, each with an icon, its count and its share of the first stage.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "FunnelPills",
+      "props": [
+        {
+          "name": "stages",
+          "type": "{ name: string; value: number; icon?: ReactNode; color?: string }[]",
+          "description": "One row per stage, from the widest down. Each bar's length is its share of the first stage; colours step through the chart palette unless given."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes each stage's count. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatShare",
+          "type": "(share: number) => string",
+          "description": "Writes shares and conversions, given as fractions. Defaults to whole percents."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value." },
+        { "name": "action", "type": "ReactNode", "description": "A control on the right of the header." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts note, footer, invertDelta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

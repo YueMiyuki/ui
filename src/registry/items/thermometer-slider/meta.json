@@ -1,0 +1,80 @@
+{
+  "name": "Thermometer Slider",
+  "category": "inputs",
+  "original": true,
+  "description": "A slider drawn as a glass thermometer whose liquid column springs to the value and shifts from water blue to camellia as it warms.",
+  "preview": { "layout": "center", "height": 440 },
+  "props": [
+    {
+      "component": "ThermometerSlider",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the thermometer." },
+        { "name": "value", "type": "number", "description": "The value (controlled)." },
+        { "name": "defaultValue", "type": "number", "description": "Starting value when uncontrolled." },
+        {
+          "name": "onChange",
+          "type": "(value: number) => void",
+          "description": "Called continuously while the value changes."
+        },
+        {
+          "name": "onChangeEnd",
+          "type": "(value: number) => void",
+          "description": "Called when a drag or key press ends."
+        },
+        {
+          "name": "minValue",
+          "type": "number",
+          "default": "-30",
+          "description": "Value at the bulb end of the scale."
+        },
+        { "name": "maxValue", "type": "number", "default": "40", "description": "Value at the far end of the scale." },
+        {
+          "name": "step",
+          "type": "number",
+          "default": "1",
+          "description": "Increment between values. Its decimals set how the value is written."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "default": "\"°C\"",
+          "description": "Written after the value. °C and °F are also read out as Celsius and Fahrenheit."
+        },
+        {
+          "name": "orientation",
+          "type": "\"vertical\" | \"horizontal\"",
+          "default": "\"vertical\"",
+          "description": "Upright with the bulb at the bottom, or lying down with the bulb on the left."
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "description": "Length of the scale in pixels. Vertical defaults to 200; horizontal fills its container."
+        },
+        {
+          "name": "coldColor",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the liquid at the cold end. It passes through a neutral on the way to warmColor."
+        },
+        {
+          "name": "warmColor",
+          "type": "string",
+          "default": "\"var(--chart-5)\"",
+          "description": "Colour of the liquid at the warm end."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the slider and dims it to 50%."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components Slider."
+        }
+      ]
+    }
+  ]
+}

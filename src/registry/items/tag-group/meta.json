@@ -1,0 +1,98 @@
+{
+  "name": "Tag Group",
+  "category": "pickers",
+  "description": "A labelled set of tags for filtering, choosing or removing, with keyboard navigation between them.",
+  "demos": [{ "name": "default", "title": "Multiple selection" }, { "name": "removable", "title": "Removable" }],
+  "preview": { "layout": "center", "height": 240 },
+  "props": [
+    {
+      "component": "TagGroup",
+      "props": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Label above the tags. Without one, give it an aria-label."
+        },
+        { "name": "description", "type": "ReactNode", "description": "Help text under the tags." },
+        { "name": "errorMessage", "type": "ReactNode", "description": "Error text under the tags." },
+        {
+          "name": "selectionMode",
+          "type": "\"none\" | \"single\" | \"multiple\"",
+          "default": "\"none\"",
+          "description": "Lets tags be chosen. Selected tags turn water-tinted and a check draws in."
+        },
+        { "name": "selectedKeys", "type": "Iterable<Key>", "description": "The selected tags' ids (controlled)." },
+        {
+          "name": "defaultSelectedKeys",
+          "type": "Iterable<Key>",
+          "description": "The tags selected at first (uncontrolled)."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(keys: Selection) => void",
+          "description": "Called with the new selection."
+        },
+        {
+          "name": "onRemove",
+          "type": "(keys: Set<Key>) => void",
+          "description": "Shows a remove button on each tag and enables Delete and Backspace. The tag shrinks and fades first; remove it from your items here."
+        },
+        {
+          "name": "items",
+          "type": "Iterable<T>",
+          "description": "The tags' data, rendered by a function child. Each item needs an id, or give each Tag one."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | ((item: T) => ReactNode)",
+          "description": "Tag elements, or a function from an item to a Tag."
+        },
+        {
+          "name": "renderEmptyState",
+          "type": "() => ReactNode",
+          "description": "Shown in place of the tags when there are none."
+        },
+        {
+          "name": "disabledKeys",
+          "type": "Iterable<Key>",
+          "description": "Tags that cannot be focused, chosen or removed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components TagGroup."
+        }
+      ]
+    },
+    {
+      "component": "Tag",
+      "props": [
+        { "name": "id", "type": "Key", "description": "Identifies the tag in selections and removals." },
+        { "name": "children", "type": "ReactNode", "description": "The label. Give non-text children a textValue." },
+        { "name": "icon", "type": "ReactNode", "description": "An icon before the label, sized to 14 pixels." },
+        {
+          "name": "avatar",
+          "type": "string | ReactNode",
+          "description": "A 20 pixel avatar before the label: an image URL, or your own element."
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"brand\" | \"success\" | \"warning\" | \"destructive\"",
+          "default": "\"neutral\"",
+          "description": "The soft tint, as on Badge. A selected tag is always water."
+        },
+        {
+          "name": "textValue",
+          "type": "string",
+          "description": "Plain-text label for assistive tech and type-ahead, when children are not a string."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables this tag." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Tag."
+        }
+      ]
+    }
+  ]
+}

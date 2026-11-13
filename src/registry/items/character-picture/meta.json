@@ -1,0 +1,73 @@
+{
+  "name": "Character Picture",
+  "category": "cards",
+  "description": "Turns an image into a picture made of characters, sized so the columns fill the width, with an entrance where the characters fall into place.",
+  "preview": {
+    "layout": "center",
+    "height": 560
+  },
+  "props": [
+    {
+      "component": "CharacterPicture",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "The image to convert. It is drawn on a hidden canvas, so it must be same-origin or a data URI."
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "description": "Description of the picture for screen readers. The characters themselves are hidden from them."
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "default": "100",
+          "description": "Characters per row. The font size follows the width and the number of rows follows the height. Finer sets such as dots and standard read best at about 130 to 150 columns on a 640px box; blocks reads from about 100."
+        },
+        {
+          "name": "charset",
+          "type": "\"standard\" | \"blocks\" | \"dots\" | \"binary\" | \"kana\" | string",
+          "default": "\"standard\"",
+          "description": "The character set. Glyphs are ranked by the ink they put down in the font actually in use, so tone maps evenly whichever set you choose. kana uses half-width katakana. A custom string may be in any order; its first character fills empty areas."
+        },
+        {
+          "name": "colored",
+          "type": "boolean",
+          "default": "false",
+          "description": "Colours each character with its cell's sampled colour, nudged darker on a light surface and lighter on a dark one. Otherwise characters use currentColor."
+        },
+        {
+          "name": "invert",
+          "type": "\"auto\" | boolean",
+          "default": "\"auto\"",
+          "description": "Whether dense characters stand for bright areas. auto picks by the text colour: dark areas on a light surface, bright areas on a dark one, so the picture reads correctly in both themes."
+        },
+        {
+          "name": "animation",
+          "type": "\"rain\" | \"typewriter\" | \"fade\" | \"none\"",
+          "default": "\"rain\"",
+          "description": "How the picture arrives when it first scrolls into view, and again when its source, charset or columns change. rain resolves columns from the top behind a falling water-blue trail; typewriter fills row by row. Reduced motion shows the picture at once."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1.6",
+          "description": "Length of the entrance, in seconds."
+        },
+        {
+          "name": "objectFit",
+          "type": "\"cover\" | \"contain\" | \"fill\"",
+          "default": "\"cover\"",
+          "description": "How the image fits the box. The box takes the image's aspect ratio unless you give it one, for example with aspect-[16/10]."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the box. Set its width, an aspect ratio or height, and the text colour."
+        }
+      ]
+    }
+  ]
+}

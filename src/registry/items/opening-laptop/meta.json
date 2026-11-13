@@ -1,0 +1,39 @@
+{
+  "name": "Opening Laptop",
+  "category": "scroll",
+  "description": "A laptop drawn in CSS whose lid opens as you scroll, until the picture on its screen lifts out and grows over the keyboard.",
+  "preview": { "layout": "fill", "height": 600, "iframe": true },
+  "props": [
+    {
+      "component": "OpeningLaptop",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "The picture on the screen. A wide image of about 5:3 fills it without cropping much."
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Text alternative for the screen picture."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "Heading above the laptop. It fades as the lid opens; bring your own heading element."
+        },
+        {
+          "name": "badge",
+          "type": "ReactNode",
+          "description": "A small mark that sits on the front left corner of the deck."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the outer element, which is two and a half screens tall so there is room to scroll."
+        }
+      ]
+    }
+  ]
+}

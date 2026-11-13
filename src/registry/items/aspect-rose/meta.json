@@ -1,0 +1,80 @@
+{
+  "name": "Aspect Rose",
+  "category": "charts",
+  "original": true,
+  "description": "Avalanche danger by slope direction and elevation: eight aspects by three elevation rings on a five-step scale, each cell numbered, with its key beside it.",
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "AspectRose",
+      "props": [
+        {
+          "name": "levels",
+          "type": "number[][]",
+          "description": "Danger from 1 to 5, one array per aspect clockwise from north, with one value per elevation band in the order of bands."
+        },
+        {
+          "name": "bands",
+          "type": "string[]",
+          "default": "[\"Alpine\", \"Treeline\", \"Below treeline\"]",
+          "description": "Elevation bands from the centre outward. Bulletins draw the mountain from above, so the highest band sits in the centre."
+        },
+        {
+          "name": "elevations",
+          "type": "string[]",
+          "description": "Height range for each band, shown in the key, e.g. \"2,400 m+\"."
+        },
+        {
+          "name": "levelNames",
+          "type": "string[]",
+          "default": "[\"Low\", \"Moderate\", \"Considerable\", \"High\", \"Very high\"]",
+          "description": "Names of the five levels, lowest first."
+        },
+        {
+          "name": "aspects",
+          "type": "string[]",
+          "default": "[\"N\", \"NE\", \"E\", \"SE\", \"S\", \"SW\", \"W\", \"NW\"]",
+          "description": "Aspect labels clockwise from north."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "264",
+          "description": "Largest rose diameter in pixels, labels included. It shrinks to fit the card."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the key of levels and elevation bands beside the rose, or under it when the card is narrow."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the rose shows, for screen readers. Generated from the levels when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        {
+          "name": "value",
+          "type": "ReactNode",
+          "description": "The headline. Defaults to the name of the highest level."
+        },
+        {
+          "name": "caption",
+          "type": "ReactNode",
+          "description": "Muted text after the headline. Defaults to the highest level out of five."
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "description": "Replaces the line under the rose that reads out the hovered or focused cell."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts note, action and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

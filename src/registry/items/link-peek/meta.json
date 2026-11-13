@@ -1,0 +1,51 @@
+{
+  "name": "Link Peek",
+  "category": "overlays",
+  "description": "A link that shows a small card with a picture, title and host when hovered or focused.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "LinkPeek",
+      "props": [
+        {
+          "name": "href",
+          "type": "string",
+          "description": "Where the link goes. Its host is shown at the foot of the card."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The link text. It carries the meaning; the card is hidden from assistive technology. Keep it to a short phrase, as it does not wrap."
+        },
+        {
+          "name": "preview",
+          "type": "{ image: string; title: string; description?: string }",
+          "description": "What the card shows. Nothing is fetched; pass the picture yourself, as a URL or data URI shown at 16:10."
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "default": "240",
+          "description": "Width of the card in pixels. The card stays at least 8 pixels inside the window."
+        },
+        {
+          "name": "side",
+          "type": "\"top\" | \"bottom\"",
+          "default": "\"top\"",
+          "description": "Whether the card appears above or below the link."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "350",
+          "description": "Milliseconds of hover before the card shows. Keyboard focus shows it at once and Escape hides it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the link. Other props go to the a element."
+        }
+      ]
+    }
+  ]
+}

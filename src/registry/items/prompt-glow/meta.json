@@ -1,0 +1,47 @@
+{
+  "name": "Prompt Glow",
+  "category": "ai",
+  "description": "A band of water-blue light that circles the composer's border while the agent works, with a faint glow under its lower edge.",
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "PromptGlow",
+      "props": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "default": "false",
+          "description": "Runs the band. It eases in, and when switched off it slows as it fades. Sets aria-busy on the wrapper while on."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "18",
+          "description": "Corner radius of the wrapped box in pixels, so the band follows its border."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "2.4",
+          "description": "Seconds per lap. The band travels at an even speed along the edges and round the corners."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the band and glow. The head of the band is mixed toward the text colour: deeper by day, brighter at night."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The box to circle, usually a PromptBox. It should fill the wrapper."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the wrapper. Other div props are spread onto it."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "name": "Figure Cards",
+  "category": "blocks",
+  "description": "Headline numbers in cards, each with an icon, a change from last period and an optional explanation.",
+  "demos": [{ "name": "default", "title": "Chip" }, { "name": "band", "title": "Footer band" }],
+  "preview": { "layout": "center", "height": 320 },
+  "props": [
+    {
+      "component": "FigureCard",
+      "props": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "What the number counts, shown muted beside the icon. Also names the card."
+        },
+        {
+          "name": "value",
+          "type": "ReactNode",
+          "description": "The number, already formatted, e.g. \"12,840\" or \"1.94M\"."
+        },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change since the last period as a signed fraction: 0.16 shows 16% up."
+        },
+        {
+          "name": "invertDelta",
+          "type": "boolean",
+          "default": "false",
+          "description": "Treats a fall as good, for numbers like churn or cost. The arrow still points the way the number moved."
+        },
+        {
+          "name": "deltaDigits",
+          "type": "number",
+          "default": "1",
+          "description": "Most decimal places in the change."
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "description": "A 16 pixel icon, shown in a small tile before the label."
+        },
+        {
+          "name": "variant",
+          "type": "\"chip\" | \"band\"",
+          "default": "\"chip\"",
+          "description": "Chip puts the change beside the value. Band moves it into a muted footer with the comparison text."
+        },
+        {
+          "name": "info",
+          "type": "ReactNode",
+          "description": "Explains the number. Shows an info button at the top right with this text in a tooltip."
+        },
+        {
+          "name": "comparison",
+          "type": "ReactNode",
+          "default": "\"From last month\"",
+          "description": "Text on the left of the footer band."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts every other div attribute."
+        }
+      ]
+    },
+    {
+      "component": "FigureCardGroup",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "FigureCard elements. They share the row evenly, wrap onto more rows when narrow, and match heights."
+        },
+        {
+          "name": "minCardWidth",
+          "type": "number",
+          "default": "200",
+          "description": "Narrowest a card may get before the row wraps."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the grid, e.g. a max width. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

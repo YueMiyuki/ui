@@ -1,0 +1,36 @@
+{
+  "name": "Ripple Text",
+  "category": "text",
+  "original": true,
+  "description": "A line of text that behaves like a water surface: pressing a letter sends a wave both ways along the line, and the pointer pushes a small bow wave ahead of it.",
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "RippleText",
+      "props": [
+        {
+          "name": "children",
+          "type": "string",
+          "description": "The text. It stays real, selectable text laid out by the page in the inherited font; the moving letters sit exactly over it."
+        },
+        {
+          "name": "amplitude",
+          "type": "number",
+          "default": "14",
+          "description": "Height in pixels a letter rises next to a press. The wave loses height as it spreads and with distance along the line."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for how fast the wave travels along the line."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, an inline block. Other span props are passed through. Under reduced motion the text stays still."
+        }
+      ]
+    }
+  ]
+}

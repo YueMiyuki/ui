@@ -1,0 +1,47 @@
+{
+  "name": "Progress Button",
+  "category": "buttons",
+  "description": "A button that shows its work: water rises while it waits, fills with a check on success, and flashes camellia with a retry label on failure.",
+  "preview": { "layout": "center", "height": 280 },
+  "props": [
+    {
+      "component": "ProgressButton",
+      "props": [
+        {
+          "name": "onClick",
+          "type": "(event: PressEvent) => unknown",
+          "description": "Called on press by mouse, touch or keyboard. Return a promise to show the working, done and failed states; anything else leaves the button as it is."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The idle label, with an optional 16 pixel icon. The width is kept from the widest of this and the retry label, so it never jumps."
+        },
+        {
+          "name": "labels",
+          "type": "{ loading?: string; success?: string; error?: string }",
+          "default": "{ loading: \"Working\", success: \"Done\", error: \"Try again\" }",
+          "description": "loading and success are announced to screen readers while the spinner and the check show. error is the visible retry label after a failure, and is announced too."
+        },
+        {
+          "name": "successDuration",
+          "type": "number",
+          "default": "1600",
+          "description": "Milliseconds the full button and check stay before the water drains and the label returns."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels, as Button."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the button." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components Button except onPress. The button sets aria-busy while it works."
+        }
+      ]
+    }
+  ]
+}

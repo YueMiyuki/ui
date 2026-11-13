@@ -1,0 +1,111 @@
+{
+  "name": "Drawer",
+  "category": "overlays",
+  "description": "A panel that slides in from any edge of the window, with a bottom sheet you can drag down to dismiss.",
+  "demos": [
+    { "name": "default", "title": "Filters" },
+    { "name": "bottom", "title": "Bottom sheet" },
+    { "name": "left", "title": "Navigation" },
+    { "name": "top", "title": "From the top" }
+  ],
+  "preview": { "layout": "center", "height": 320, "thumb": false, "thumbClick": "button" },
+  "props": [
+    {
+      "component": "DrawerTrigger",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "A button that opens the drawer, then the Drawer." },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Open state (controlled). Use defaultOpen when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the drawer opens or closes."
+        }
+      ]
+    },
+    {
+      "component": "Drawer",
+      "props": [
+        {
+          "name": "side",
+          "type": "\"right\" | \"left\" | \"top\" | \"bottom\"",
+          "default": "\"right\"",
+          "description": "The edge it slides in from. Side panels are 380 pixels wide and full height; bottom is a sheet with a grab handle that can be dragged down to dismiss."
+        },
+        {
+          "name": "isDismissable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close when the scrim is clicked. Escape always closes unless isKeyboardDismissDisabled is set."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default: the browser redraws the blur on every frame while anything behind it changes, which stalls on large pages, most of all in Firefox."
+        },
+        {
+          "name": "closeButton",
+          "type": "boolean",
+          "default": "true, false for bottom",
+          "description": "Shows a close button in the top corner."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | ({ close }) => ReactNode",
+          "description": "DrawerHeader, DrawerBody and DrawerFooter. A function receives close(). Any button with slot=\"close\" also closes."
+        },
+        { "name": "isOpen", "type": "boolean", "description": "Open state, when used without a DrawerTrigger." },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the open state changes, when used without a DrawerTrigger."
+        },
+        { "name": "aria-label", "type": "string", "description": "Labels the drawer when it has no DrawerTitle." },
+        { "name": "className", "type": "string", "description": "Classes for the panel." },
+        {
+          "name": "overlayClassName",
+          "type": "string",
+          "description": "Classes for the full-window layer that holds the scrim and the panel."
+        }
+      ]
+    },
+    {
+      "component": "DrawerHeader",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Stays put while the body scrolls; on a bottom sheet it is also a place to grab."
+        }
+      ]
+    },
+    {
+      "component": "DrawerTitle",
+      "props": [{ "name": "children", "type": "ReactNode", "description": "The drawer's name. Labels the dialog." }]
+    },
+    {
+      "component": "DrawerBody",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Scrolls between the header and footer, with a hairline on the side that has more to see."
+        }
+      ]
+    },
+    {
+      "component": "DrawerFooter",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Actions aligned to the end; put the main action last."
+        }
+      ]
+    }
+  ]
+}

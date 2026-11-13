@@ -1,0 +1,79 @@
+{
+  "name": "Ghost Bars",
+  "category": "charts",
+  "description": "Bars in tubes with the previous period as a thin ghost bar beside each and the current period outlined in ink.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "GhostBars",
+      "props": [
+        { "name": "labels", "type": "string[]", "description": "One label per column." },
+        { "name": "data", "type": "number[]", "description": "This period's values, as water filling the tubes." },
+        {
+          "name": "previous",
+          "type": "number[]",
+          "description": "The previous period's values, as thin ghost bars beside each tube."
+        },
+        {
+          "name": "currentIndex",
+          "type": "number",
+          "default": "labels.length - 1",
+          "description": "The period in progress, outlined in ink. Pass -1 for none."
+        },
+        {
+          "name": "currentName",
+          "type": "string",
+          "default": "\"This year\"",
+          "description": "Name of this period in the legend and tooltip."
+        },
+        {
+          "name": "previousName",
+          "type": "string",
+          "default": "\"Last year\"",
+          "description": "Name of the previous period."
+        },
+        { "name": "color", "type": "string", "default": "\"var(--chart-1)\"", "description": "Bar colour." },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatAxis",
+          "type": "(value: number) => string",
+          "description": "Writes the tick labels on the left. Defaults to compact numbers."
+        },
+        { "name": "height", "type": "number", "default": "208", "description": "Plot height in pixels." },
+        { "name": "titles", "type": "string[]", "description": "Longer names for the tooltip title." },
+        { "name": "legend", "type": "boolean", "default": "true", "description": "Show a legend under the plot." },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the vertical axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts caption, note, action, footer, invertDelta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

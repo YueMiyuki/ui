@@ -1,0 +1,156 @@
+{
+  "name": "Path Morph",
+  "category": "display",
+  "description": "SVG paths that flow from one shape into another through a spring, with ready-made icon pairs drawn to morph cleanly.",
+  "demos": [
+    { "name": "default", "title": "Play and toggles" },
+    { "name": "gallery", "title": "Every icon set" },
+    { "name": "shapes", "title": "Any two shapes" }
+  ],
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "MorphIcon",
+      "props": [
+        {
+          "name": "shapes",
+          "type": "Record<string, MorphShape>",
+          "description": "Named shapes on a 24 grid: a path, an array of paths matched by position, or { paths, rotate }. Use a set from morphIcons or draw your own."
+        },
+        {
+          "name": "shape",
+          "type": "string",
+          "description": "The name of the shape to show. Changing it morphs from whatever is on screen."
+        },
+        { "name": "size", "type": "number | string", "default": "24", "description": "Width and height." },
+        {
+          "name": "strokeWidth",
+          "type": "number",
+          "default": "1.75",
+          "description": "Stroke width in grid units. Caps and joins are round."
+        },
+        {
+          "name": "filled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Fill every path as well as stroking it. A single path can be filled with { d, fill: true }."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Accessible name. Without it the icon is hidden from assistive technology."
+        },
+        {
+          "name": "transition",
+          "type": "{ stiffness?: number; damping?: number; mass?: number }",
+          "default": "{ stiffness: 420, damping: 34 }",
+          "description": "Spring settings for every path and turn in the icon."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the svg. Other svg props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "MorphPath",
+      "props": [
+        {
+          "name": "d",
+          "type": "string",
+          "description": "Path data. A change morphs to it with a spring, starting from the shape on screen, mid-flight included. An empty string shrinks the shape to its centre."
+        },
+        {
+          "name": "transition",
+          "type": "{ stiffness?: number; damping?: number; mass?: number }",
+          "default": "{ stiffness: 420, damping: 34 }",
+          "description": "Spring settings."
+        },
+        {
+          "name": "...props",
+          "type": "SVGProps<SVGPathElement>",
+          "description": "Any other path attribute: fill, stroke, className and so on."
+        }
+      ]
+    },
+    {
+      "component": "PlayPauseButton",
+      "props": [
+        {
+          "name": "playing",
+          "type": "boolean",
+          "description": "Controlled state. Leave it out and use defaultPlaying for an uncontrolled button."
+        },
+        {
+          "name": "defaultPlaying",
+          "type": "boolean",
+          "default": "false",
+          "description": "Starting state when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(playing: boolean) => void",
+          "description": "Called with the new state when pressed."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "48",
+          "description": "Diameter in pixels. The glyph scales with it."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Button."
+        }
+      ]
+    },
+    {
+      "component": "interpolatePath",
+      "props": [
+        { "name": "from", "type": "string", "description": "Path data at t = 0." },
+        {
+          "name": "to",
+          "type": "string",
+          "description": "Path data at t = 1. Returns (t: number) => string. Paths with the same commands interpolate number by number; others are resampled, matched in winding and start point, so any two shapes morph."
+        }
+      ]
+    },
+    {
+      "component": "morphIcons",
+      "props": [
+        { "name": "playPause", "type": "play | pause", "description": "Triangle folds into two bars." },
+        {
+          "name": "menuClose",
+          "type": "menu | close",
+          "description": "The outer lines bend into a cross; the middle one shrinks away."
+        },
+        { "name": "plusMinus", "type": "plus | minus", "description": "The upright retracts into the bar." },
+        { "name": "plusCheck", "type": "plus | check", "description": "The plus tips over into a check." },
+        { "name": "copyCheck", "type": "copy | check", "description": "The front sheet folds into a check." },
+        {
+          "name": "sunMoon",
+          "type": "sun | moon",
+          "description": "The disc opens into a crescent; the rays draw back onto its rim."
+        },
+        { "name": "chevron", "type": "down | up | left | right", "description": "Turns the short way round." },
+        { "name": "arrow", "type": "right | down | up-right", "description": "Turns the short way round." },
+        { "name": "soundOnOff", "type": "on | off", "description": "The sound waves straighten into a cross." },
+        {
+          "name": "eyeOpenClosed",
+          "type": "open | closed",
+          "description": "The lids close, the pupil goes under and lashes grow."
+        },
+        { "name": "lockUnlock", "type": "locked | unlocked", "description": "The shackle lifts free of the body." },
+        { "name": "heartFilled", "type": "outline | filled", "description": "A filled heart swells from the centre." },
+        { "name": "bookmark", "type": "off | on", "description": "The ribbon fills from the top." },
+        {
+          "name": "filterClose",
+          "type": "filter | close",
+          "description": "The funnel pinches through a star into a cross."
+        }
+      ]
+    }
+  ]
+}

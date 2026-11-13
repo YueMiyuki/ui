@@ -1,0 +1,57 @@
+{
+  "name": "Tanzaku Card",
+  "category": "cards",
+  "original": true,
+  "description": "Narrow paper strips tied to a line by short threads, each a damped pendulum that swings and twists when touched and stirs its neighbours.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "TanzakuLine",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Tanzaku strips, hung left to right along a cord that sags a little between its ends."
+        },
+        {
+          "name": "breeze",
+          "type": "number",
+          "default": "0.3",
+          "description": "Idle sway from a passing breeze, from 0 (still air) to 1. Pointer movement across a strip pushes it whatever the breeze."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the line. Its width sets the length of the cord; the strips are centred along it."
+        }
+      ]
+    },
+    {
+      "component": "Tanzaku",
+      "props": [
+        {
+          "name": "tone",
+          "type": "\"snow\" | \"water\" | \"seafoam\" | \"wisteria\" | \"yuzu\" | \"camellia\"",
+          "default": "\"snow\"",
+          "description": "The tint of the paper."
+        },
+        {
+          "name": "writing",
+          "type": "\"vertical\" | \"horizontal\"",
+          "default": "\"vertical\"",
+          "description": "Set the text top to bottom, or upright across the strip."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "What is written on the strip. Keep it to a short line."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the strip, which is 64px by 240px. It is focusable: the arrow keys push it left or right, Enter and Space give it a nudge."
+        }
+      ]
+    }
+  ]
+}

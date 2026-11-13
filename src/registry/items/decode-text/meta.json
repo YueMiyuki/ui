@@ -1,0 +1,58 @@
+{
+  "name": "Decode Text",
+  "category": "text",
+  "description": "Text that starts as scrambled characters and resolves to the real text one character at a time.",
+  "preview": { "layout": "center", "height": 320 },
+  "props": [
+    {
+      "component": "DecodeText",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "The text that is revealed. It is exposed to assistive tech in full from the start."
+        },
+        {
+          "name": "revealDelayMs",
+          "type": "number",
+          "default": "50",
+          "description": "Milliseconds between one character locking to its real value and the next. Spaces are skipped."
+        },
+        {
+          "name": "flipDelayMs",
+          "type": "number",
+          "default": "40",
+          "description": "Milliseconds between changes of the characters still scrambled."
+        },
+        {
+          "name": "charset",
+          "type": "string",
+          "default": "\"A–Z a–z 0–9 #%&*+=/<>\"",
+          "description": "Characters the scramble draws from."
+        },
+        {
+          "name": "trigger",
+          "type": "\"mount\" | \"view\" | \"hover\"",
+          "default": "\"view\"",
+          "description": "Start at once, when half the text is in view, or re-scramble and resolve again each time the pointer enters."
+        },
+        {
+          "name": "encryptedClassName",
+          "type": "string",
+          "description": "Classes for scrambled characters. They are muted by default."
+        },
+        {
+          "name": "revealedClassName",
+          "type": "string",
+          "description": "Classes for resolved characters. By default they take the surrounding text colour."
+        },
+        { "name": "onDone", "type": "() => void", "description": "Called once every character has resolved." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapping span. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

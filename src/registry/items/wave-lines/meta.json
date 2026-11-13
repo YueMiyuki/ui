@@ -1,0 +1,43 @@
+{
+  "name": "Wave Lines",
+  "category": "backgrounds",
+  "description": "Evenly stacked wave lines that draw in from the left and then undulate slowly behind your content.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "WaveLines",
+      "props": [
+        {
+          "name": "lines",
+          "type": "number",
+          "default": "16",
+          "description": "Number of wave lines, stacked evenly from top to bottom."
+        },
+        {
+          "name": "amplitude",
+          "type": "number",
+          "default": "18",
+          "description": "Height of the waves above and below their rest line, in pixels."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "10",
+          "description": "Seconds for one rise and fall at any point on a line."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\", \"var(--chart-3)\"]",
+          "description": "Stroke colours, cycled down the stack. Any CSS colour or token."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the lines. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the lines." }
+      ]
+    }
+  ]
+}

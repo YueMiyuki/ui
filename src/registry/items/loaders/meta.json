@@ -1,0 +1,104 @@
+{
+  "name": "Loaders",
+  "category": "display",
+  "description": "Six small loading indicators drawn in the current colour: bars, a wave, a snow crystal, ripples, a dot grid and a word.",
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "LoaderBars",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Five bars rise and fall in turn like a tide gauge."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "LoaderWave",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A sine line travels sideways, fading at both ends."
+        },
+        { "name": "label", "type": "string", "default": "\"Loading\"", "description": "Text for screen readers." },
+        { "name": "className", "type": "string", "description": "Extra classes. Other span props are passed through." }
+      ]
+    },
+    {
+      "component": "LoaderCrystal",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. The six arms of a snow crystal grow in turn."
+        },
+        { "name": "label", "type": "string", "default": "\"Loading\"", "description": "Text for screen readers." },
+        { "name": "className", "type": "string", "description": "Extra classes. Other span props are passed through." }
+      ]
+    },
+    {
+      "component": "LoaderRipple",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Three rings widen from a point and fade."
+        },
+        { "name": "label", "type": "string", "default": "\"Loading\"", "description": "Text for screen readers." },
+        { "name": "className", "type": "string", "description": "Extra classes. Other span props are passed through." }
+      ]
+    },
+    {
+      "component": "LoaderGrid",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A 3 by 3 grid of dots pulses in a diagonal wave."
+        },
+        { "name": "label", "type": "string", "default": "\"Loading\"", "description": "Text for screen readers." },
+        { "name": "className", "type": "string", "description": "Extra classes. Other span props are passed through." }
+      ]
+    },
+    {
+      "component": "LoaderText",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "default": "\"Loading\"",
+          "description": "The word or short phrase. It is read out as the status."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "14",
+          "description": "Font size in pixels. A band of light passes across the text."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

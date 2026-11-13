@@ -1,0 +1,36 @@
+{
+  "name": "Action Log",
+  "category": "ai",
+  "description": "A running log of what an agent has done, one row per action, with the newest row in progress.",
+  "preview": {
+    "layout": "center",
+    "height": 380
+  },
+  "props": [
+    {
+      "component": "ActionLog",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; kind: \"search\" | \"read\" | \"write\" | \"run\" | \"think\"; label: ReactNode; detail?: ReactNode; status: \"running\" | \"done\" | \"failed\" | \"skipped\" }[]",
+          "description": "The actions in order. The kind picks the icon, the label is the verb, and the detail is a file or source name shown as a monospaced chip. A running row has a passing band of light and a timer; when it finishes, the timer keeps its final time. A failed row turns camellia and says \"Failed\"; a skipped row is struck through and says \"Skipped\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the list. Other props, such as aria-label, go to the ol element, which is a polite live region for new rows."
+        }
+      ]
+    }
+  ],
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "states",
+      "title": "Every state"
+    }
+  ]
+}

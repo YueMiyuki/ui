@@ -1,0 +1,106 @@
+{
+  "name": "Surfacing Modal",
+  "category": "overlays",
+  "description": "A dialog that surfaces from below, tipped back and coming into focus, opened by a button whose label slides away for an icon.",
+  "preview": { "layout": "center", "height": 360, "thumb": false, "thumbClick": "button" },
+  "props": [
+    {
+      "component": "SurfacingModal",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A SurfacingModalTrigger, then a SurfacingModalBody."
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Open state (controlled). Use defaultOpen when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the dialog opens or closes."
+        }
+      ]
+    },
+    {
+      "component": "SurfacingModalTrigger",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The label. On hover or keyboard focus it slides out to the right."
+        },
+        { "name": "icon", "type": "ReactNode", "description": "The icon that slides in from the left in its place." },
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"brand\" | \"secondary\" | \"soft\" | \"ghost\" | \"destructive\"",
+          "default": "\"primary\"",
+          "description": "Visual weight, as on Button."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Button."
+        }
+      ]
+    },
+    {
+      "component": "SurfacingModalBody",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | ({ close }) => ReactNode",
+          "description": "SurfacingModalContent and SurfacingModalFooter. A function receives close(); any button with slot=\"close\" also closes."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\" | \"full\"",
+          "default": "\"md\"",
+          "description": "Width of 400, 520 or 720 pixels, or the whole window less 24 pixels all round."
+        },
+        {
+          "name": "isDismissable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close when the scrim is clicked. Escape always closes."
+        },
+        {
+          "name": "closeButton",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows a close button in the top right corner."
+        },
+        { "name": "className", "type": "string", "description": "Classes for the panel." },
+        { "name": "overlayClassName", "type": "string", "description": "Classes for the scrim." }
+      ]
+    },
+    {
+      "component": "SurfacingModalContent",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Padded, stacks its children with 20 pixels between them and scrolls when tall. Put a ModalTitle inside to name the dialog."
+        }
+      ]
+    },
+    {
+      "component": "SurfacingModalFooter",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Actions aligned to the end; put the main action last."
+        }
+      ]
+    }
+  ]
+}

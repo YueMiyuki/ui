@@ -1,0 +1,84 @@
+{
+  "name": "Tree View",
+  "category": "display",
+  "description": "Nested folders and files with guide lines, keyboard navigation and selection.",
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "Tree",
+      "props": [
+        { "name": "aria-label", "type": "string", "description": "Names the tree for assistive technology." },
+        {
+          "name": "selectionMode",
+          "type": "\"none\" | \"single\" | \"multiple\"",
+          "default": "\"none\"",
+          "description": "Whether rows can be selected, one or several at a time."
+        },
+        {
+          "name": "selectionBehavior",
+          "type": "\"replace\" | \"toggle\"",
+          "default": "\"replace\"",
+          "description": "Replace: a click selects only that row, and modifier keys add to it. Toggle: each click adds or removes."
+        },
+        {
+          "name": "selectedKeys",
+          "type": "Iterable<Key>",
+          "description": "The ids of the selected rows (controlled). Use defaultSelectedKeys when uncontrolled."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(keys: Selection) => void",
+          "description": "Called when the selection changes."
+        },
+        {
+          "name": "expandedKeys",
+          "type": "Iterable<Key>",
+          "description": "The ids of the open folders (controlled). Use defaultExpandedKeys when uncontrolled."
+        },
+        {
+          "name": "onExpandedChange",
+          "type": "(keys: Set<Key>) => void",
+          "description": "Called when a folder opens or closes."
+        },
+        {
+          "name": "onAction",
+          "type": "(key: Key) => void",
+          "description": "Called when a row is activated: Enter, or a double click while selecting."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Tree."
+        }
+      ]
+    },
+    {
+      "component": "TreeItem",
+      "props": [
+        { "name": "id", "type": "Key", "description": "Identifies the row in selectedKeys and expandedKeys." },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "The name shown on the row. Its extension picks the file icon."
+        },
+        {
+          "name": "textValue",
+          "type": "string",
+          "description": "Text for typeahead and the accessible name. Defaults to title when it is a string."
+        },
+        { "name": "icon", "type": "ReactNode", "description": "Replaces the folder or file icon." },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Nested TreeItem elements. Having children makes the row a folder, which opens when its row is clicked."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "The row cannot be selected or opened."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Flowing Letters",
+  "category": "text",
+  "description": "Letters filled with thin wavy lines of colour that flow sideways like water, drawn on a canvas in the surrounding font.",
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "FlowingLetters",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "The text. It is laid out by the page in the inherited font and stays selectable and readable by assistive tech; the canvas paints over it."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--chart-2)\", \"var(--brand)\", \"var(--chart-3)\"]",
+          "description": "Line colours, blended from the top of the letters to the bottom: seafoam, water, wisteria by default. Any CSS colour or token; re-read when the theme changes."
+        },
+        {
+          "name": "lineWidth",
+          "type": "number",
+          "default": "2",
+          "description": "Stroke width of each line, in pixels."
+        },
+        { "name": "lineGap", "type": "number", "default": "6", "description": "Space between lines, in pixels." },
+        {
+          "name": "curve",
+          "type": "number",
+          "default": "18",
+          "description": "Height of the waves above and below their rest line, in pixels."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "5",
+          "description": "Seconds for one wave to pass. The canvas pauses off screen and in hidden tabs, and holds still under reduced motion."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapping span, an inline block. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

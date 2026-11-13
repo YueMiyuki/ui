@@ -1,0 +1,30 @@
+{
+  "name": "Map Pin Card",
+  "category": "maps",
+  "description": "A card that lies back like a map on a table while a pin rises out of it.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "MapPinCard",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "Text for the chip at the top of the pin. The chip is the link."
+        },
+        { "name": "href", "type": "string", "description": "Where the chip links to." },
+        { "name": "children", "type": "ReactNode", "description": "The card's content." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card that tilts: rounded-2xl, hairline border, bg-card and p-2.5 by default. Avoid overflow-hidden and filter here; they flatten the tilt."
+        },
+        {
+          "name": "containerClassName",
+          "type": "string",
+          "description": "Classes for the outer hover area, which sets the perspective and holds the pin. Leave about 4rem free above it for the chip. Other div props are passed through to it."
+        }
+      ]
+    }
+  ]
+}

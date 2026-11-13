@@ -1,0 +1,77 @@
+{
+  "name": "Channel Bars",
+  "category": "charts",
+  "description": "Stacked bars by channel with a dashed goal line and the best day marked, in a card.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "ChannelBars",
+      "props": [
+        { "name": "labels", "type": "string[]", "description": "One label per column, e.g. days of the week." },
+        {
+          "name": "series",
+          "type": "{ name: string; data: number[]; color?: string }[]",
+          "description": "Stacked from the bottom up, in order. Colours follow the chart palette unless given."
+        },
+        {
+          "name": "goal",
+          "type": "number",
+          "description": "Draws a dashed goal line at this value, labelled in the right margin."
+        },
+        {
+          "name": "goalLabel",
+          "type": "string",
+          "default": "\"Goal\"",
+          "description": "Text before the goal value and in the legend."
+        },
+        {
+          "name": "bestLabel",
+          "type": "string | null",
+          "default": "\"Best day\"",
+          "description": "Small label over the highest column. Pass null to leave it out."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip and legend. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatAxis",
+          "type": "(value: number) => string",
+          "description": "Writes the tick labels on the left. Defaults to compact numbers."
+        },
+        { "name": "height", "type": "number", "default": "208", "description": "Plot height in pixels." },
+        { "name": "titles", "type": "string[]", "description": "Longer names for the tooltip title." },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a legend with each series' total."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the vertical axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value, e.g. \"this week\"." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts delta, note, action, footer and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

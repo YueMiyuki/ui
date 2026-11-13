@@ -1,0 +1,70 @@
+{
+  "name": "Field Notes",
+  "category": "blocks",
+  "original": true,
+  "description": "An article set to a comfortable measure with notes in a wide margin, each level with the words it refers to and joined to them by a thin hand-drawn line.",
+  "preview": { "layout": "fill", "height": 600, "iframe": true },
+  "props": [
+    {
+      "component": "FieldNotes",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The article: headings, paragraphs, Note and Figure parts. Text is set at 17px in a column of at most 36rem. From 52rem wide a margin column opens beside it for the notes; narrower, the notes fold into the text."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the article, which is centred and at most 56rem wide. Other article props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "Note",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The words the note refers to, inline in a paragraph."
+        },
+        {
+          "name": "note",
+          "type": "ReactNode",
+          "description": "The note. In the margin it sits with its first line level with the words, nudged down only to avoid an earlier note or a figure, and a hand-drawn line underlines the words and runs out to it; it is placed again whenever the text reflows. On narrow screens the words are dotted and followed by a small button; tapping either opens the note as an aside inside the paragraph."
+        },
+        {
+          "name": "mark",
+          "type": "\"underline\" | \"double\" | \"circle\" | \"strike\" | \"bracket\" | \"highlight\"",
+          "description": "Marks the words with a brush annotation instead of the drawn underline; the line then starts beside the mark."
+        },
+        {
+          "name": "markColor",
+          "type": "string",
+          "default": "\"var(--primary)\"",
+          "description": "Ink colour of the brush mark."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Margin note\"",
+          "description": "Accessible name of the button that opens the note on narrow screens."
+        }
+      ]
+    },
+    {
+      "component": "Figure",
+      "props": [
+        { "name": "src", "type": "string", "description": "Image for the figure, shown at 2:1." },
+        { "name": "alt", "type": "string", "default": "\"\"", "description": "Alternative text for the image." },
+        { "name": "caption", "type": "ReactNode", "description": "Caption under the image." },
+        { "name": "children", "type": "ReactNode", "description": "Your own figure content instead of an image." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the figure. It breaks out across the margin when there is one, and notes move below it."
+        }
+      ]
+    }
+  ]
+}

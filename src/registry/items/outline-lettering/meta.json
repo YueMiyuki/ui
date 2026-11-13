@@ -1,0 +1,47 @@
+{
+  "name": "Outline Lettering",
+  "category": "text",
+  "description": "Large outlined lettering that draws itself in, and whose outline lights up in colour around the pointer.",
+  "preview": { "layout": "fill", "height": 360 },
+  "props": [
+    {
+      "component": "OutlineLettering",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "The lettering. It is scaled to fit the box and exposed to assistive tech as plain text."
+        },
+        {
+          "name": "strokeWidth",
+          "type": "number",
+          "default": "1",
+          "description": "Width of the hairline outline, in screen pixels at any size. The coloured outline is a little heavier."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "0.2",
+          "description": "Radius of the lit circle around the pointer, as a fraction of the text width."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "water, seafoam, wisteria",
+          "description": "Colours of the lit outline, blended along the word from left to right. Any CSS colour or token. The defaults deepen a little on light backgrounds."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "3",
+          "description": "Seconds the outline takes to draw itself the first time it comes into view. Under reduced motion it is shown at once."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, a block as wide as its container. Font family, weight and tracking are inherited by the lettering. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

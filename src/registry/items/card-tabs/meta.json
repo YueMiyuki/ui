@@ -1,0 +1,46 @@
+{
+  "name": "Card Tabs",
+  "category": "navigation",
+  "description": "Tabs whose panels are a stack of cards, where choosing a tab brings its card to the front.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "CardTabs",
+      "props": [
+        {
+          "name": "tabs",
+          "type": "{ value: string; title: ReactNode; content: ReactNode }[]",
+          "description": "One entry per tab. The content becomes a card in the stack; give it its own height and background."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "description": "The tab in front at first (uncontrolled). Defaults to the first tab."
+        },
+        { "name": "value", "type": "string", "description": "The tab in front (controlled)." },
+        {
+          "name": "onValueChange",
+          "type": "(value: string) => void",
+          "description": "Called when another tab is chosen."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Panels\"",
+          "description": "Names the tab list for assistive technology."
+        },
+        {
+          "name": "keyboardActivation",
+          "type": "\"automatic\" | \"manual\"",
+          "default": "\"automatic\"",
+          "description": "Whether arrow keys bring a card forward straight away, or only move focus until Enter or Space."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, e.g. a max width. Also accepts every other prop of the react-aria-components Tabs."
+        }
+      ]
+    }
+  ]
+}

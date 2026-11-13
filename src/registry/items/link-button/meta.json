@@ -1,0 +1,46 @@
+{
+  "name": "Link Button",
+  "category": "buttons",
+  "description": "An inline text action styled as a link, with an underline that draws in on hover and focus.",
+  "preview": { "layout": "center", "height": 280 },
+  "props": [
+    {
+      "component": "LinkButton",
+      "props": [
+        {
+          "name": "href",
+          "type": "string",
+          "description": "When given, renders a link (<a>). Without it, renders a button that takes onPress."
+        },
+        {
+          "name": "tone",
+          "type": "\"brand\" | \"ink\" | \"muted\"",
+          "default": "\"brand\"",
+          "description": "Water-coloured text, body ink, or muted text that turns to ink on hover."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Text size of 13 or 14 pixels."
+        },
+        {
+          "name": "iconEnd",
+          "type": "ReactNode",
+          "description": "Icon after the text. Nudges 2 pixels to the right on hover."
+        },
+        {
+          "name": "onPress",
+          "type": "(event: PressEvent) => void",
+          "description": "Called when pressed by mouse, touch or keyboard."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the link or button." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components Link or Button."
+        }
+      ]
+    }
+  ]
+}

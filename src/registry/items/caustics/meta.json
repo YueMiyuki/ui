@@ -1,0 +1,48 @@
+{
+  "name": "Caustics",
+  "category": "backgrounds",
+  "original": true,
+  "description": "Sunlight on the floor of shallow water: a soft network of light that shifts slowly and bends around the pointer.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "Caustics",
+      "props": [
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for how fast the surface moves. 0 holds one frame."
+        },
+        {
+          "name": "scale",
+          "type": "number",
+          "default": "1",
+          "description": "Size of the pattern. 2 gives cells twice as wide, as in deeper water."
+        },
+        {
+          "name": "intensity",
+          "type": "number",
+          "default": "0.6",
+          "description": "Strength of the light lines from 0 to 1. The pattern stays soft at 1."
+        },
+        {
+          "name": "tint",
+          "type": "string",
+          "default": "\"color-mix(in oklab, var(--chart-2) 55%, var(--brand))\"",
+          "description": "Colour of the water. By day it tints pale sand; at night it tints deep water lit by the moon. Any CSS colour or token."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the water. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the water. The pointer still bends the light through it."
+        }
+      ]
+    }
+  ]
+}

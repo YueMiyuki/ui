@@ -1,0 +1,35 @@
+{
+  "name": "Weather station",
+  "category": "templates",
+  "original": true,
+  "description": "The home screen of a mountain weather service: the current reading set very large, the week ahead, snow stakes, wind rose and barometer in a row, then radar beside the active alerts.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "WeatherStation",
+      "props": [
+        {
+          "name": "user",
+          "type": "{ name: string; email: string; avatar?: string }",
+          "default": "Yuna Sato",
+          "description": "The signed-in person at the foot of the navigation column. Without an avatar it shows initials."
+        },
+        {
+          "name": "radarMap",
+          "type": "string",
+          "description": "Image drawn under the radar, such as a contour map of the area. Without one the radar sits on a plain well."
+        },
+        {
+          "name": "towns",
+          "type": "{ name: string; x: number; y: number }[]",
+          "description": "Place names marked on the radar, positioned in percent of its width and height. Defaults to five towns around Hakuba."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls; below 1024px the navigation column moves into a drawer. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

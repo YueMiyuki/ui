@@ -1,0 +1,55 @@
+{
+  "name": "Snow Stakes",
+  "category": "charts",
+  "original": true,
+  "description": "Snow depth drawn as snow standing against marked stakes, with the newest snow as a brighter layer on top.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "SnowStakes",
+      "props": [
+        {
+          "name": "data",
+          "type": "{ label: string; title?: string; depth: number; fresh?: number; temperature?: number }[]",
+          "description": "One stake per station or day. label goes under the stake; title, when given, heads the tooltip. fresh is the new snow since the last reading and is drawn as the top layer."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": "Depth at the top of the stakes. Defaults to a round number above the deepest reading."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "default": "\"cm\"",
+          "description": "Unit written after depths in the tooltip and table."
+        },
+        {
+          "name": "temperatureUnit",
+          "type": "string",
+          "default": "\"°C\"",
+          "description": "Unit written after temperatures."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "240",
+          "description": "Plot height in pixels, including the labels under the stakes."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline reading, already formatted." },
+        { "name": "caption", "type": "ReactNode", "description": "Short text beside the value, such as the new snow." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts note, action, footer, delta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

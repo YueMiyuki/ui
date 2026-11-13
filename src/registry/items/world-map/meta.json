@@ -1,0 +1,61 @@
+{
+  "name": "World Map",
+  "category": "maps",
+  "description": "A world map made of dots, with routes that draw themselves between places.",
+  "preview": { "layout": "fill", "height": 520 },
+  "props": [
+    {
+      "component": "WorldMap",
+      "props": [
+        {
+          "name": "routes",
+          "type": "{ from: { lat: number; lng: number; label?: string }; to: { lat: number; lng: number; label?: string } }[]",
+          "default": "[]",
+          "description": "Routes to draw, each from one place to another. A place with a label gets a small name tag beside its dot."
+        },
+        {
+          "name": "dotColor",
+          "type": "string",
+          "default": "\"var(--foreground)\"",
+          "description": "Colour of the land dots. They are drawn at low opacity."
+        },
+        {
+          "name": "routeColors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\"]",
+          "description": "The route gradient, from the first colour at the start to the last colour at the end."
+        },
+        {
+          "name": "dotSpacing",
+          "type": "number",
+          "default": "6",
+          "description": "Distance between land dots in pixels, from 3 to 24."
+        },
+        {
+          "name": "projection",
+          "type": "\"naturalEarth\" | \"equirectangular\"",
+          "default": "\"naturalEarth\"",
+          "description": "The map projection. Antarctica is left off."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "2.4",
+          "description": "Seconds each route takes to draw. Routes then hold, fade and start again, staggered."
+        },
+        {
+          "name": "centerLng",
+          "type": "number",
+          "default": "0",
+          "description": "Longitude at the middle of the map. Use about 150 to centre the Pacific."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the map. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content placed over the map, such as a caption." }
+      ]
+    }
+  ]
+}

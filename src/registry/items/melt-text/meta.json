@@ -1,0 +1,35 @@
+{
+  "name": "Melt Text",
+  "category": "text",
+  "original": true,
+  "description": "Lettering that thaws under the pointer: drops bead at the bottoms of the letters, lengthen and fall into a faint puddle.",
+  "preview": { "layout": "center", "height": 380 },
+  "props": [
+    {
+      "component": "MeltText",
+      "props": [
+        {
+          "name": "children",
+          "type": "string",
+          "description": "The text. It stays real text, crisp at rest; a liquid copy beneath it carries the drops."
+        },
+        {
+          "name": "intensity",
+          "type": "number",
+          "default": "0.5",
+          "description": "From 0 to 1: how quickly letters warm under the pointer and how many drops may hang at once (one to three). Each spot rests for a few seconds after it drips."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "Colour of the letters and the meltwater. Defaults to the inherited text colour."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapping span, an inline block. Leave about half an em below it for the drops and the puddle line. Under reduced motion the text stays still."
+        }
+      ]
+    }
+  ]
+}

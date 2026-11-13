@@ -1,0 +1,77 @@
+{
+  "name": "Moon Phase",
+  "category": "display",
+  "original": true,
+  "description": "The moon as it is on a given date, with a strip of the days around it.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "MoonPhase",
+      "props": [
+        {
+          "name": "date",
+          "type": "Date | string",
+          "description": "The day to show. A \"YYYY-MM-DD\" string is read as that calendar day; a Date uses its local calendar day. The phase is worked out at midday UTC from the mean synodic month, good to within a few hours. When the date changes the terminator sweeps across the disc to the new phase, forward or back with the dates."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "160",
+          "description": "Diameter of the disc in pixels. The glow spills outside it without taking up room."
+        },
+        {
+          "name": "showLabel",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show the phase name, the share illuminated and the moon's age under the disc. The disc is always named for assistive technology."
+        },
+        {
+          "name": "hemisphere",
+          "type": "\"north\" | \"south\"",
+          "default": "\"north\"",
+          "description": "Which way up the moon is seen. In the north a waxing moon is lit on the right; in the south the whole face turns over and it is lit on the left."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the figure. Other figure props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "MoonStrip",
+      "props": [
+        { "name": "from", "type": "Date | string", "description": "First day of the strip." },
+        {
+          "name": "days",
+          "type": "number",
+          "default": "14",
+          "description": "Number of days. Beyond seven they wrap into weeks on narrow screens. The days nearest new and full moon are marked."
+        },
+        { "name": "value", "type": "Date | string", "description": "The day to highlight." },
+        {
+          "name": "onChange",
+          "type": "(date: string) => void",
+          "description": "Makes the strip a radio group: clicking a day or moving with the arrow keys reports it as \"YYYY-MM-DD\". Without it the strip is a plain list."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Day\"",
+          "description": "Accessible name of the radio group."
+        },
+        {
+          "name": "hemisphere",
+          "type": "\"north\" | \"south\"",
+          "default": "\"north\"",
+          "description": "As for MoonPhase."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapper. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

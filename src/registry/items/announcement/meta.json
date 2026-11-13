@@ -1,0 +1,49 @@
+{
+  "name": "Announcement",
+  "category": "display",
+  "description": "A dismissible pill or full-width strip for product news, with a label, a short message and a link.",
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "Announcement",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The message. Keep it to one short line." },
+        {
+          "name": "variant",
+          "type": "\"pill\" | \"bar\"",
+          "default": "\"pill\"",
+          "description": "A small centred pill that a band of light crosses once on mount, or a full-width strip in water tint."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "default": "\"New\"",
+          "description": "The badge before the message. Pass null for none."
+        },
+        { "name": "href", "type": "string", "description": "Where the link goes. Without it there is no link." },
+        { "name": "linkText", "type": "ReactNode", "default": "\"Read more\"", "description": "Text of the link." },
+        {
+          "name": "onDismiss",
+          "type": "() => void",
+          "description": "Called once the close animation has finished. If focus was inside the announcement, it has already moved to the next focusable element after it (or the one before it, or failing both its container)."
+        },
+        {
+          "name": "storageKey",
+          "type": "string",
+          "description": "Remembers the dismissal in localStorage under this key, so the announcement stays hidden on later visits. Read after hydration."
+        },
+        {
+          "name": "dismissLabel",
+          "type": "string",
+          "default": "\"Dismiss\"",
+          "description": "Accessible label of the close button."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the outer element, which closes its height when dismissed. Also accepts every other div prop."
+        }
+      ]
+    }
+  ]
+}

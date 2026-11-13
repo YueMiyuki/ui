@@ -1,0 +1,26 @@
+{
+  "name": "Flood Hover",
+  "category": "cards",
+  "description": "An image card whose overlay floods in from the side the pointer entered and drains toward the side it leaves.",
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "FloodHover",
+      "props": [
+        { "name": "src", "type": "string", "description": "The image." },
+        { "name": "alt", "type": "string", "description": "Alternative text for the image." },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content shown on the sheet, laid out as a column at the bottom. Text inherits a light colour in both themes."
+        },
+        { "name": "imageClassName", "type": "string", "description": "Extra classes for the image." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the card. Give it a size or an aspect ratio; it has no height of its own."
+        }
+      ]
+    }
+  ]
+}

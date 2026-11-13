@@ -1,0 +1,48 @@
+{
+  "name": "Switch",
+  "category": "inputs",
+  "description": "An on/off toggle whose thumb stretches while pressed and springs across on release.",
+  "preview": { "layout": "center", "height": 300 },
+  "props": [
+    {
+      "component": "Switch",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The label, to the right of the switch." },
+        { "name": "description", "type": "ReactNode", "description": "Help text under the label." },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Track of 28×16 or 36×20 pixels."
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "description": "On state (controlled). Use defaultSelected when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(isSelected: boolean) => void",
+          "description": "Called when the switch is turned on or off."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the switch and dims it to 50%."
+        },
+        {
+          "name": "isReadOnly",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the state without letting it change."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components SwitchField."
+        }
+      ]
+    }
+  ]
+}

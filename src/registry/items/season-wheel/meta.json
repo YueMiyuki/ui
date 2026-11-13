@@ -1,0 +1,45 @@
+{
+  "name": "Season Wheel",
+  "category": "inputs",
+  "original": true,
+  "description": "Pick a month, or a span of months, from the year laid out as a ring tinted by season, each month with its own small glyph.",
+  "demos": [{ "name": "default", "title": "One month" }, { "name": "range", "title": "A span of months" }],
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "SeasonWheel",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the ring." },
+        {
+          "name": "range",
+          "type": "boolean",
+          "default": "false",
+          "description": "Choose a span of months instead of one. The span runs clockwise and may cross the new year."
+        },
+        {
+          "name": "value",
+          "type": "number | [number, number]",
+          "description": "The month, 1 to 12, or with range the first and last month of the span (controlled)."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number | [number, number]",
+          "default": "1, or [12, 2] with range",
+          "description": "Starting value when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: number | [number, number]) => void",
+          "description": "Called with the new month, or the new span."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Dims the ring and ignores input."
+        },
+        { "name": "className", "type": "string", "description": "Extra classes for the root." }
+      ]
+    }
+  ]
+}

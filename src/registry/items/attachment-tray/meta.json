@@ -1,0 +1,48 @@
+{
+  "name": "Attachment Tray",
+  "category": "ai",
+  "description": "A horizontally scrolling row of attached files above the prompt: image thumbnails and document tiles that drop in one by one and close up when removed.",
+  "preview": { "layout": "center", "height": 380 },
+  "props": [
+    {
+      "component": "AttachmentTray",
+      "props": [
+        {
+          "name": "files",
+          "type": "{ id: string; name: string; type?: string; src?: string }[]",
+          "description": "The files in order. type is a MIME type; with the name's extension it picks the icon and tint. Images with a src show as square thumbnails."
+        },
+        {
+          "name": "onRemove",
+          "type": "(id: string) => void",
+          "description": "Called when a tile's remove button is pressed. Without it the tiles have no remove button."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Other div props are spread onto it."
+        }
+      ]
+    },
+    {
+      "component": "AttachmentTile",
+      "props": [
+        {
+          "name": "file",
+          "type": "{ id: string; name: string; type?: string; src?: string }",
+          "description": "The file to show. Long names are cut in the middle so the extension stays visible."
+        },
+        {
+          "name": "onRemove",
+          "type": "() => void",
+          "description": "Shows a small remove button on the tile's corner."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the tile. Other div props are spread onto it."
+        }
+      ]
+    }
+  ]
+}

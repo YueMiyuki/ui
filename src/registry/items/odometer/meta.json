@@ -1,0 +1,48 @@
+{
+  "name": "Odometer",
+  "category": "display",
+  "original": true,
+  "description": "A number shown on turning wheels that roll and carry over like a mechanical counter.",
+  "demos": [{ "name": "default", "title": "Season snowfall" }, { "name": "formats", "title": "Formats" }],
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "Odometer",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "description": "The number to show. When it changes, the lowest wheel that has a readable distance to go rolls there and each wheel to its left turns as the one beside it passes from 9 to 0, a little later and a little slower. Wheels below it spin once and land. Through zero, the wheels roll down to 0 and up again while the minus sign comes or goes."
+        },
+        {
+          "name": "format",
+          "type": "Intl.NumberFormatOptions",
+          "description": "Formatting, as for Intl.NumberFormat: currency, percent, fraction digits, grouping. Group separators, the decimal mark, currency and percent signs sit between the windows as plain text and stay aligned."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale for formatting. Fixed by default so the server and the browser agree."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1400",
+          "description": "Milliseconds the lowest moving wheel takes. Wheels further left start 70ms later each and take 14% longer. Under reduced motion the number changes at once."
+        },
+        { "name": "prefix", "type": "ReactNode", "description": "Content before the number, on its baseline." },
+        {
+          "name": "suffix",
+          "type": "ReactNode",
+          "description": "Content after the number, on its baseline, such as a unit in a smaller size."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root span. Set the size with a text utility; the wheels scale with it. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

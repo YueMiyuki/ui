@@ -1,0 +1,47 @@
+{
+  "name": "Rim Light Button",
+  "category": "buttons",
+  "description": "A button whose border carries a soft arc of light that circles it and floods the whole border on hover.",
+  "preview": { "layout": "center", "height": 280 },
+  "props": [
+    {
+      "component": "RimLightButton",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The label, with an optional icon. Icons are sized to 16 pixels."
+        },
+        {
+          "name": "as",
+          "type": "ElementType",
+          "default": "\"button\"",
+          "description": "Element to render, for example \"a\" for a link. Props for that element are passed through."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "4",
+          "description": "Seconds for the light to go once round."
+        },
+        { "name": "clockwise", "type": "boolean", "default": "true", "description": "Direction of travel." },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the light and of the faint tint inside on hover."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the inner surface that holds the label: padding, background, text."
+        },
+        {
+          "name": "containerClassName",
+          "type": "string",
+          "description": "Classes for the outer element, which is the button itself: radius, height, width. Any radius works; the default is a pill."
+        }
+      ]
+    }
+  ]
+}

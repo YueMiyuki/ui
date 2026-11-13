@@ -1,0 +1,54 @@
+{
+  "name": "Arriving Text",
+  "category": "text",
+  "description": "A passage that arrives word by word, each word rising slightly and coming into focus.",
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "ArrivingText",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "The passage. A line break starts a new line. Screen readers get the whole passage at once."
+        },
+        {
+          "name": "by",
+          "type": "\"word\" | \"char\" | \"line\"",
+          "default": "\"word\"",
+          "description": "What arrives together: each word, each character, or each line as the passage wraps."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.07",
+          "description": "Seconds between one unit and the next."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.5",
+          "description": "Seconds each unit takes to rise and come into focus."
+        },
+        {
+          "name": "blur",
+          "type": "boolean",
+          "default": "true",
+          "description": "Units come into focus from a blur. Off, they only rise and fade in."
+        },
+        {
+          "name": "startOnView",
+          "type": "boolean",
+          "default": "true",
+          "description": "Wait until the passage is scrolled into view, then run once. Off, it runs on mount."
+        },
+        { "name": "as", "type": "ElementType", "default": "\"p\"", "description": "The element to render." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the element. Font, size and colour are inherited. Under reduced motion the passage shows at once."
+        }
+      ]
+    }
+  ]
+}

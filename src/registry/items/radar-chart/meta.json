@@ -1,0 +1,81 @@
+{
+  "name": "Radar Chart",
+  "category": "charts",
+  "description": "A polygon on a spider grid with labels round the outside: filled, dotted, two series as outlines, or scores with their mean in the middle.",
+  "demos": [
+    { "name": "default", "title": "Filled" },
+    { "name": "dotted", "title": "Dotted" },
+    { "name": "lines", "title": "Lines" },
+    { "name": "score", "title": "Score" }
+  ],
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "RadarChart",
+      "props": [
+        {
+          "name": "labels",
+          "type": "string[]",
+          "description": "One label per axis, placed round the outside clockwise from the top. The chart shrinks until every label fits."
+        },
+        {
+          "name": "series",
+          "type": "{ name: string; data: number[]; color?: string }[]",
+          "description": "One value per axis. Only the lines variant draws more than the first series. Colours follow the chart palette unless given."
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"dotted\" | \"lines\" | \"score\"",
+          "default": "\"filled\"",
+          "description": "A filled polygon; an outline with vertex dots on a dotted grid; series as outlines, the second dashed; or a filled polygon with each score under its label and the mean in the middle."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": "The value at the outer ring. Defaults to the largest value rounded up."
+        },
+        { "name": "levels", "type": "number", "default": "4", "description": "Number of grid rings." },
+        { "name": "titles", "type": "string[]", "description": "Longer names for the tooltip title, one per axis." },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip, score labels and table. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "meanLabel",
+          "type": "ReactNode",
+          "default": "\"Mean\"",
+          "description": "Caption under the mean in the score variant."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "264",
+          "description": "Plot height in pixels. The radius follows from the space left after the labels."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "description": "Show a legend of series. On by default when more than one series is drawn."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts caption, note, action, footer and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

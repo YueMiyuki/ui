@@ -1,0 +1,51 @@
+{
+  "name": "Code Block",
+  "category": "display",
+  "description": "A block of highlighted code with a file name or tabs, optional line numbers and a copy button.",
+  "demos": [{ "name": "default", "title": "Tabs" }, { "name": "file", "title": "Single file" }],
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "CodeBlock",
+      "props": [
+        { "name": "code", "type": "string", "description": "The code to show when there are no tabs." },
+        {
+          "name": "language",
+          "type": "string",
+          "description": "Any language id or alias the highlighter knows, such as \"ts\", \"tsx\", \"css\" or \"yaml\". Its grammar loads on the client when first needed; until then, and for unknown ids, the code shows as plain text in the same layout."
+        },
+        {
+          "name": "filename",
+          "type": "string",
+          "description": "Shown in a header above the code, beside the copy button. Without it, the copy button floats in the top right corner."
+        },
+        {
+          "name": "highlightLines",
+          "type": "number[]",
+          "description": "Line numbers, counted from 1, to mark with a water wash and a bar on the left edge."
+        },
+        {
+          "name": "showLineNumbers",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show a column of line numbers."
+        },
+        {
+          "name": "tabs",
+          "type": "{ name: string; code: string; language?: string; highlightLines?: number[] }[]",
+          "description": "Several files in one block, with a tab for each in the header. Replaces code, filename and highlightLines; language is used for tabs that have none."
+        },
+        {
+          "name": "labels",
+          "type": "{ copy?: string; copied?: string; tabs?: string }",
+          "description": "Text for assistive technology, for translation. tabs names the tab list."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the surface. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Run Checklist",
+  "category": "ai",
+  "description": "A collapsible checklist that shows how far an agent has got through a task with several steps.",
+  "preview": { "layout": "center", "height": 440 },
+  "props": [
+    {
+      "component": "RunChecklist",
+      "props": [
+        {
+          "name": "steps",
+          "type": "{ id: string; label: ReactNode; status: \"done\" | \"running\" | \"pending\" }[]",
+          "description": "The steps in order. Done steps take a pine check, the running step sits in a raised row with a spinner, and pending steps fade toward the bottom when there are three or more."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "Name of the task, shown in the header before the count of steps left."
+        },
+        {
+          "name": "defaultExpanded",
+          "type": "boolean",
+          "default": "true",
+          "description": "Whether the steps are shown at first (uncontrolled)."
+        },
+        { "name": "expanded", "type": "boolean", "description": "Whether the steps are shown (controlled)." },
+        {
+          "name": "onExpandedChange",
+          "type": "(expanded: boolean) => void",
+          "description": "Called when the collapse button is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the card. Other props go to the root section element."
+        }
+      ]
+    }
+  ]
+}

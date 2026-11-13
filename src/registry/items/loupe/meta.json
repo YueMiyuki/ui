@@ -1,0 +1,65 @@
+{
+  "name": "Loupe",
+  "category": "cursor",
+  "description": "A round magnifying glass that follows the pointer over whatever it wraps.",
+  "preview": {
+    "layout": "center",
+    "height": 520
+  },
+  "props": [
+    {
+      "component": "Loupe",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The content to magnify, usually an image. It is drawn a second time inside the glass, hidden from assistive technology."
+        },
+        {
+          "name": "zoom",
+          "type": "number",
+          "default": "1.6",
+          "description": "How much larger the content appears inside the glass."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "170",
+          "description": "Diameter of the glass, in pixels."
+        },
+        {
+          "name": "static",
+          "type": "boolean",
+          "default": "false",
+          "description": "Pin the glass in place and ignore the pointer."
+        },
+        {
+          "name": "position",
+          "type": "{ x: number; y: number }",
+          "description": "Where a static glass sits, in pixels from the top left. Defaults to the centre."
+        },
+        {
+          "name": "hovering",
+          "type": "boolean",
+          "description": "Show or hide the glass yourself (controlled)."
+        },
+        {
+          "name": "onHoveringChange",
+          "type": "(hovering: boolean) => void",
+          "description": "Called when the pointer enters or leaves, or a finger touches down or lifts."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the wrapper, which clips the glass to its box; give it the same radius as the content. Unless the glass is static, a finger on the area moves the glass rather than scrolling the page. Also accepts every other prop of a div."
+        },
+        {
+          "name": "eager",
+          "type": "boolean",
+          "default": "true",
+          "description": "Keeps the magnified copy mounted and painted once the lens scrolls near the screen, so the first hover is instant. Turn it off when the content is heavy (video, canvas) and a second copy would cost more than a moment's delay."
+        }
+      ]
+    }
+  ]
+}

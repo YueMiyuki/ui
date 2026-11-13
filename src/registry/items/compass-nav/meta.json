@@ -1,0 +1,62 @@
+{
+  "name": "Compass Nav",
+  "category": "navigation",
+  "original": true,
+  "description": "A compass whose needle swings toward the destination under the pointer or the section in view, and whose dial turns to bring the chosen destination to the top.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "CompassNav",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; bearing?: number }[]",
+          "description": "The destinations, placed round the dial at `bearing` degrees clockwise from north. Without bearings they are spread evenly. When an element with an item's id exists in the page (or in `container`), the needle follows that section while scrolling and choosing the item scrolls to it."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The id of the chosen destination (controlled). It sits at the top of the dial, under the index mark."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "description": "The destination chosen first (uncontrolled). Defaults to the first item."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when another destination is chosen."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "300",
+          "description": "Diameter in pixels. It shrinks to fit narrower containers."
+        },
+        {
+          "name": "container",
+          "type": "RefObject<HTMLElement | null>",
+          "description": "A scrolling element whose sections the needle follows, instead of the window."
+        },
+        {
+          "name": "needleColor",
+          "type": "string",
+          "default": "\"var(--chart-5)\"",
+          "description": "Colour of the needle's pointing end and the N on the dial."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Destinations\"",
+          "description": "Names the menu of destinations for assistive technology. Up and Down arrows move round the dial clockwise; Enter chooses."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

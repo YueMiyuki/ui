@@ -1,0 +1,113 @@
+{
+  "name": "Collapsible sidebar",
+  "category": "navigation",
+  "description": "A sidebar that rests as a strip of icons and opens to full width while the pointer or keyboard focus is in it.",
+  "preview": { "layout": "fill", "height": 520 },
+  "props": [
+    {
+      "component": "Sidebar",
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Whether the sidebar shows its full width (controlled). On small screens this is the sheet."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when hover, focus or the menu button opens or closes it."
+        },
+        {
+          "name": "defaultPinned",
+          "type": "boolean",
+          "default": "false",
+          "description": "Start pinned: kept open at full width, taking its space in the layout."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default: the browser redraws the blur on every frame while anything behind it changes, which stalls on large pages, most of all in Firefox."
+        },
+        {
+          "name": "logo",
+          "type": "ReactNode",
+          "description": "A mark of about 32 pixels, shown in the icon column and in the top bar on small screens."
+        },
+        { "name": "name", "type": "ReactNode", "description": "The product name beside the logo, shown when open." },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Sidebar\"",
+          "description": "Names the aside landmark."
+        },
+        { "name": "children", "type": "ReactNode", "description": "SidebarBody, then optionally SidebarFooter." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the aside. Also accepts every other aside attribute."
+        }
+      ]
+    },
+    {
+      "component": "SidebarBody",
+      "props": [
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Main\"",
+          "description": "Names the navigation landmark that holds the links."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "SidebarLink elements. The list scrolls when it is taller than the space."
+        }
+      ]
+    },
+    {
+      "component": "SidebarLink",
+      "props": [
+        { "name": "href", "type": "string", "description": "Where the link goes." },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "description": "An 18 pixel icon, the only thing visible while collapsed."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "The text that slides in beside the icon. It is always the link's accessible name."
+        },
+        {
+          "name": "current",
+          "type": "boolean",
+          "default": "false",
+          "description": "Marks the current page with aria-current and the water bar, which slides here from the previous current link."
+        },
+        {
+          "name": "onClick",
+          "type": "(event) => void",
+          "description": "Called on click. On small screens the sheet closes afterwards. Also accepts every other anchor attribute."
+        }
+      ]
+    },
+    {
+      "component": "SidebarFooter",
+      "props": [
+        {
+          "name": "avatar",
+          "type": "string | ReactNode",
+          "description": "An image URL, drawn as a 32 pixel circle, or your own element."
+        },
+        { "name": "name", "type": "ReactNode", "description": "The person's name." },
+        { "name": "detail", "type": "ReactNode", "description": "A second, muted line such as a role or email." },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "An optional control at the end of the row, shown when open."
+        }
+      ]
+    }
+  ]
+}

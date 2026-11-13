@@ -1,0 +1,37 @@
+{
+  "name": "Colour Wave Text",
+  "category": "text",
+  "description": "A word whose letters take palette colours by position and pass each one on in a slow wave.",
+  "preview": { "layout": "center", "height": 320 },
+  "props": [
+    {
+      "component": "ColourWaveText",
+      "props": [
+        { "name": "text", "type": "string", "description": "The text to colour. Font and size are inherited." },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "water, seafoam, wisteria, plum, yuzu, camellia",
+          "description": "Letter colours, given by position and advanced by one with each wave. The defaults are the palette tokens, deepened on light backgrounds so each holds 3:1 as display text."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "4000",
+          "description": "Milliseconds between waves. Waves pause off screen and stop under reduced motion."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "45",
+          "description": "Milliseconds between one letter dipping and the next."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapping span. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

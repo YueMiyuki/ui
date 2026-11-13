@@ -1,0 +1,38 @@
+{
+  "name": "Kintsugi Card",
+  "category": "cards",
+  "original": true,
+  "description": "A card crossed by fine cracks that fill with gold, poured from the point nearest the pointer, when you come near.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "KintsugiCard",
+      "props": [
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "7",
+          "description": "Picks the crack pattern. The same seed and size always break the same way."
+        },
+        {
+          "name": "cracks",
+          "type": "number",
+          "default": "3",
+          "description": "Number of main cracks crossing the card. Each grows one or two branches."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--warning)\"",
+          "description": "Colour of the gold. Its lighter core and the warm shadow under it are derived from it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the card. It is rounded-2xl, bordered and padded by default."
+        },
+        { "name": "children", "type": "ReactNode", "description": "The card's content, drawn above the cracks." }
+      ]
+    }
+  ]
+}

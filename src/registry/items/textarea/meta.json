@@ -1,0 +1,65 @@
+{
+  "name": "Textarea",
+  "category": "inputs",
+  "description": "A multiline text field that grows with its content and counts characters.",
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "TextArea",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the field." },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the field. Replaced by the error while the field is invalid."
+        },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the field while it is invalid. Defaults to the browser's validation message."
+        },
+        { "name": "placeholder", "type": "string", "description": "Hint shown while the field is empty." },
+        { "name": "size", "type": "\"sm\" | \"md\"", "default": "\"md\"", "description": "Text and padding size." },
+        {
+          "name": "autoGrow",
+          "type": "boolean",
+          "default": "true",
+          "description": "Grow with the content instead of showing a scrollbar."
+        },
+        { "name": "minRows", "type": "number", "default": "3", "description": "Height in lines when empty." },
+        { "name": "maxRows", "type": "number", "description": "Stop growing at this many lines and scroll instead." },
+        { "name": "maxLength", "type": "number", "description": "Character limit. Also turns the counter on." },
+        {
+          "name": "showCount",
+          "type": "boolean",
+          "default": "true when maxLength is set",
+          "description": "Show the counter in the bottom right of the field. It turns yuzu at 90% of the limit and camellia at the limit."
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the camellia border and the error message."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the field and dims it to 50%."
+        },
+        {
+          "name": "isReadOnly",
+          "type": "boolean",
+          "default": "false",
+          "description": "The text can be selected but not changed. Shown on a muted fill."
+        },
+        { "name": "fieldClassName", "type": "string", "description": "Extra classes for the outlined box." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components TextField (value, onChange, name, validate...)."
+        }
+      ]
+    }
+  ]
+}

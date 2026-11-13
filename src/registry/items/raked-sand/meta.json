@@ -1,0 +1,41 @@
+{
+  "name": "Raked Sand",
+  "category": "backgrounds",
+  "original": true,
+  "description": "A raked gravel garden whose grooves bend into rings around the stones standing in it; drag to rake new furrows.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "RakedSand",
+      "props": [
+        {
+          "name": "spacing",
+          "type": "number",
+          "default": "9",
+          "description": "Distance between grooves, in pixels. The rake has five tines at this spacing."
+        },
+        {
+          "name": "lineColor",
+          "type": "string",
+          "description": "Colour of the shaded side of each groove and of the shadows round the stones. Without it, blue ink by day and deep blue-black at night. Any CSS colour or token."
+        },
+        {
+          "name": "shade",
+          "type": "number",
+          "default": "0.6",
+          "description": "Depth of the grooves and strength of the light across them, from 0 (barely raked) to 1."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the garden. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the gravel. Mark any element data-stone and the grooves ring it, following its border radius. Dragging on the gravel rakes furrows that stay in the pattern."
+        }
+      ]
+    }
+  ]
+}

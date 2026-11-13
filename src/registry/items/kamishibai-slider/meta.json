@@ -1,0 +1,42 @@
+{
+  "name": "Kamishibai Slider",
+  "category": "media",
+  "original": true,
+  "description": "A paper theatre: pictures in a wooden frame with its doors folded back, each sheet drawn out sideways to reveal the next.",
+  "preview": { "layout": "center", "height": 620 },
+  "props": [
+    {
+      "component": "KamishibaiSlider",
+      "props": [
+        {
+          "name": "slides",
+          "type": "{ src: string; caption: string; alt?: string }[]",
+          "description": "The sheets, in order. The caption is shown under the frame; alt describes the picture."
+        },
+        { "name": "index", "type": "number", "description": "The sheet showing (controlled)." },
+        {
+          "name": "defaultIndex",
+          "type": "number",
+          "default": "0",
+          "description": "The sheet showing at first (uncontrolled)."
+        },
+        {
+          "name": "onIndexChange",
+          "type": "(index: number) => void",
+          "description": "Called when a button or arrow key moves to another sheet. Going forward draws the front sheet out to the right; going back slides the earlier sheet in over it."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Picture story\"",
+          "description": "Names the slideshow. The frame is focusable; the left and right arrow keys, Home and End move through it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, up to 38rem wide. Also accepts every other prop of a section."
+        }
+      ]
+    }
+  ]
+}

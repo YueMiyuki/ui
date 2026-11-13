@@ -1,0 +1,46 @@
+{
+  "name": "Page Curl",
+  "category": "layout",
+  "original": true,
+  "description": "A booklet page whose lower corner lifts into a curl when you reach for it, showing its underside and the page beneath; drag it past halfway to turn, or pull the last page back from the left.",
+  "preview": { "layout": "center", "height": 640 },
+  "props": [
+    {
+      "component": "PageCurl",
+      "props": [
+        {
+          "name": "pages",
+          "type": "ReactNode[]",
+          "description": "The pages in order. Each fills a sheet with a 4:5 shape, so give it its own padding."
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "description": "The page shown, when you control it. Changing it from outside jumps to that page."
+        },
+        {
+          "name": "defaultIndex",
+          "type": "number",
+          "default": "0",
+          "description": "The page shown first when uncontrolled."
+        },
+        {
+          "name": "onIndexChange",
+          "type": "(index: number) => void",
+          "description": "Called when a page has turned, by drag, click, the buttons or the arrow keys."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Booklet\"",
+          "description": "Names the booklet for assistive technology."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which holds the sheet and the page buttons beneath it. Set its width; the sheet keeps a 4:5 shape. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

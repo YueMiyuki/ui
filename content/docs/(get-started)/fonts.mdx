@@ -1,0 +1,49 @@
+---
+title: Fonts
+description: The three font utilities components read, and how this site loads Geist.
+---
+
+Components never load fonts. They use three Tailwind font utilities, so they pick up the fonts your project already has.
+
+| Utility | Variable | Used for |
+| --- | --- | --- |
+| `font-sans` | `--font-sans` | All interface text |
+| `font-display` | `--font-display` | Display text: hero headlines and large numerals |
+| `font-mono` | `--font-mono` | Code and keyboard shortcuts |
+
+`font-sans` and `font-mono` come with Tailwind. `font-display` comes with the `base` item and falls back to a system sans-serif stack until you choose a face for it.
+
+## The fonts on this site
+
+This site sets the interface and headings in Geist Sans, code in Geist Mono, and the wordmark in Geist Pixel. They load from the `geist` package, which serves the files from your own domain through `next/font`.
+
+```npm
+npm install geist
+```
+
+```tsx title="app/layout.tsx"
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+Then point the theme variables at them:
+
+```css title="globals.css"
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+```
+
+## Your own fonts
+
+Load any font with `next/font` and give it a CSS variable, then point `--font-sans`, `--font-display` or `--font-mono` at that variable. A face with some character suits `--font-display`; use it at weight 600 with tight leading.

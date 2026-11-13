@@ -1,0 +1,60 @@
+{
+  "name": "Shoji Reveal",
+  "category": "layout",
+  "original": true,
+  "description": "Paper screens on wooden lattices that slide apart, overlapping as they go, to show what is behind them.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "ShojiReveal",
+      "props": [
+        { "name": "open", "type": "boolean", "description": "Whether the screens are open (controlled)." },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Starts open when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the screens are opened or closed from inside the component."
+        },
+        {
+          "name": "trigger",
+          "type": "\"click\" | \"hover\" | \"view\"",
+          "default": "\"click\"",
+          "description": "What opens the screens: pressing them, the pointer coming over the frame (closing when it leaves), or the frame scrolling into view. The screens can always be pressed or toggled from the keyboard."
+        },
+        {
+          "name": "panels",
+          "type": "number",
+          "default": "4",
+          "description": "Number of screens. Half slide to each side, the inner ones over the outer ones."
+        },
+        {
+          "name": "openLabel",
+          "type": "string",
+          "default": "\"Open the screens\"",
+          "description": "Accessible name of the screens while closed."
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "default": "\"Close the screens\"",
+          "description": "Accessible name of the screens while open."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the frame. Give it a size; the content fills it."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "What is behind the screens. It shows through the paper as soft shapes and cannot be focused until the screens open."
+        }
+      ]
+    }
+  ]
+}

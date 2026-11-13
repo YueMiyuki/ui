@@ -1,0 +1,44 @@
+{
+  "name": "Pond Button",
+  "category": "buttons",
+  "original": true,
+  "description": "A button whose surface is water: a press sends rings out from the press point and a little way past its edge.",
+  "preview": { "layout": "center", "height": 260 },
+  "props": [
+    {
+      "component": "PondButton",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"brand\" | \"secondary\"",
+          "default": "\"primary\"",
+          "description": "The surface: ink, water or a raised card. Each has its own crest and trough shades for the rings, in both themes."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels, as Button."
+        },
+        {
+          "name": "rings",
+          "type": "number",
+          "default": "3",
+          "description": "Rings sent out per press, from 1 to 5. Each is a thin light crest with a darker trough inside it; they spread past the edge for about 28 pixels and fade. Keyboard presses ripple from the centre."
+        },
+        { "name": "iconStart", "type": "ReactNode", "description": "Icon before the label. Sized to 16 pixels." },
+        { "name": "iconEnd", "type": "ReactNode", "description": "Icon after the label." },
+        {
+          "name": "onPress",
+          "type": "(event: PressEvent) => void",
+          "description": "Called when the button is pressed by mouse, touch or keyboard."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components Button. Hovering sends a slow sheen across the surface; under reduced motion a press gives a short soft glow instead of rings."
+        }
+      ]
+    }
+  ]
+}

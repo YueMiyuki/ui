@@ -1,0 +1,106 @@
+{
+  "name": "Contour Plot",
+  "category": "charts",
+  "original": true,
+  "description": "A two-dimensional field drawn as filled bands and labelled lines of equal value, with highs and lows marked, like a pressure chart.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "ContourPlot",
+      "props": [
+        {
+          "name": "values",
+          "type": "number[][]",
+          "description": "The field as rows of values, first row at the top. Lines are traced through a smooth surface fitted to the grid."
+        },
+        {
+          "name": "levels",
+          "type": "number | number[]",
+          "description": "The step between lines, e.g. 4 for a line every 4 hPa, or the exact values to draw lines at. Defaults to a round step giving about twelve lines."
+        },
+        {
+          "name": "indexEvery",
+          "type": "number",
+          "default": "4",
+          "description": "Every this many lines is drawn heavier. With a step, the heavy lines fall on multiples of the step times this number."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "Unit written after values in the tooltip, legend and summary, e.g. \"hPa\"."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "What the values are, for the tooltip. Defaults to the card label."
+        },
+        {
+          "name": "xDomain",
+          "type": "[number, number]",
+          "description": "The values at the left and right edges, e.g. longitudes. With formatX, ticks are drawn along the bottom."
+        },
+        {
+          "name": "yDomain",
+          "type": "[number, number]",
+          "description": "The values at the top and bottom edges, e.g. latitudes. With formatY, ticks are drawn on the left."
+        },
+        {
+          "name": "formatX",
+          "type": "(value: number) => string",
+          "description": "Writes x positions on the axis and in the tooltip, e.g. \"140°E\"."
+        },
+        {
+          "name": "formatY",
+          "type": "(value: number) => string",
+          "description": "Writes y positions on the axis and in the tooltip, e.g. \"42°N\"."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip and table. Defaults to one decimal with the unit."
+        },
+        {
+          "name": "formatLevel",
+          "type": "(value: number) => string",
+          "description": "Writes the values set along the lines and beside highs and lows. Defaults to the plain number."
+        },
+        {
+          "name": "colors",
+          "type": "[low: string, high: string]",
+          "description": "Colours of the lowest and highest bands; the bands between are mixed from them. Defaults to snow white through pale water."
+        },
+        {
+          "name": "extremes",
+          "type": "boolean",
+          "default": "true",
+          "description": "Mark highs with H and lows with L, each with its value, where the field peaks or bottoms out inside the frame."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "260",
+          "description": "Plot height in pixels, including the bottom axis. The width follows the card."
+        },
+        {
+          "name": "underlay",
+          "type": "(frame: { width: number; height: number; x: (value: number) => number; y: (value: number) => number }) => ReactNode",
+          "description": "SVG drawn over the bands and under the lines, such as a coastline. x and y turn domain values into frame pixels."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the range, the highs and the lows when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value." },
+        { "name": "footer", "type": "ReactNode", "description": "Replaces the key under the plot." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card, e.g. a width. Also accepts note, action, delta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

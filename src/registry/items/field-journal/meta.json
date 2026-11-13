@@ -1,0 +1,37 @@
+{
+  "name": "Field journal",
+  "category": "templates",
+  "original": true,
+  "description": "An editorial journal with a masthead, a front page of one lead story, four smaller stories and an archive, and an article view with a post-town rail, margin notes, brush annotations, a pull quote and an image pair.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "FieldJournal",
+      "props": [
+        {
+          "name": "images",
+          "type": "Partial<Record<FieldJournalImage, string>>",
+          "default": "{}",
+          "description": "Pictures by slot: the five story images, the two halves of the article's image pair and the four archive covers. A missing picture shows a quiet placeholder."
+        },
+        {
+          "name": "avatars",
+          "type": "Record<string, string>",
+          "default": "{}",
+          "description": "Portraits keyed by author name, used in bylines. Anyone without one shows initials."
+        },
+        {
+          "name": "defaultView",
+          "type": "\"front\" | \"article\"",
+          "default": "\"front\"",
+          "description": "Which view opens first: the front page, or the lead story as an article."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

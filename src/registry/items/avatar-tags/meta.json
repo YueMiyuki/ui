@@ -1,0 +1,28 @@
+{
+  "name": "Avatar Tags",
+  "category": "overlays",
+  "description": "A row of overlapping avatars, each with an ink name tag that springs in and leans with the pointer.",
+  "preview": { "layout": "center", "height": 280 },
+  "props": [
+    {
+      "component": "AvatarTags",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string | number; name: string; designation: string; image: string }[]",
+          "description": "The people. Each avatar shows a tag with the name and designation on hover or keyboard focus. When an image fails to load, initials show instead."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Names the group of avatars for assistive technology."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the row. Other props go to the row element."
+        }
+      ]
+    }
+  ]
+}

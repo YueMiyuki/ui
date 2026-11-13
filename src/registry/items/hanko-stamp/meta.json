@@ -1,0 +1,66 @@
+{
+  "name": "Hanko Stamp",
+  "category": "buttons",
+  "original": true,
+  "description": "A press-and-hold confirm control that charges, then brings a seal down and leaves a red impression.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "HankoStamp",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Hold to approve\"",
+          "description": "Button text before stamping. It is also the accessible name, so say that it needs holding."
+        },
+        {
+          "name": "doneLabel",
+          "type": "string",
+          "default": "\"Approved\"",
+          "description": "Button text after stamping, also announced politely to assistive technology."
+        },
+        {
+          "name": "holdMs",
+          "type": "number",
+          "default": "900",
+          "description": "How long to hold, by pointer or with Space or Enter. A water ring fills round the control and the stamp lowers; letting go early drains it."
+        },
+        { "name": "onStamp", "type": "() => void", "description": "Called once when the seal comes down." },
+        {
+          "name": "mark",
+          "type": "string",
+          "description": "One or two characters for the seal, set in the inherited font; a name with spaces becomes its initials, and two CJK characters stack vertically. Without it the seal carries a drawn snow-crystal crest that needs no font."
+        },
+        {
+          "name": "shape",
+          "type": "\"square\" | \"round\"",
+          "default": "\"square\"",
+          "description": "Outline of the seal. Every press gives a slightly different impression: uneven border, patchy ink, and a turn of 1.5 to 6.5 degrees either way."
+        },
+        {
+          "name": "sealSize",
+          "type": "number",
+          "default": "72",
+          "description": "Width and height of the impression in pixels."
+        },
+        {
+          "name": "sealClassName",
+          "type": "string",
+          "description": "Classes for the impression. By default it sits beside the button. The wrapper is not positioned, so absolute classes such as \"absolute top-4 right-4\" place it on the nearest positioned ancestor, like the corner of a card."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the control." },
+        {
+          "name": "ref",
+          "type": "Ref<HankoStampHandle>",
+          "description": "Exposes reset(), which lifts the seal and returns the control to its first label."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapper, an inline flex row. Other div props are passed through. Under reduced motion the ring still fills and the seal fades in without falling."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Hover Grid",
+  "category": "cards",
+  "description": "A grid of items divided by hairlines, where one soft highlight glides to whichever item is under the pointer or focused.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "HoverGrid",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ title: string; description: string; icon?: LucideIcon; href?: string }[]",
+          "description": "The items, in reading order. icon is a lucide-react icon component. With href the whole item is a link, and keyboard focus moves the highlight too."
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "default": "3",
+          "description": "Columns at full width. The grid follows its container: one column when narrow, two at medium widths."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the outer element, which is a size container."
+        }
+      ]
+    }
+  ]
+}

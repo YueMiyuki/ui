@@ -1,0 +1,36 @@
+{
+  "name": "Haiku Reveal",
+  "category": "text",
+  "original": true,
+  "description": "Three lines written in turn by an unseen brush, stroke by stroke with the ink heavier where it presses, and a seal pressed at the end.",
+  "preview": { "layout": "center", "height": 420, "settle": 16000 },
+  "props": [
+    {
+      "component": "HaikuReveal",
+      "props": [
+        {
+          "name": "lines",
+          "type": "[string, string, string]",
+          "description": "The three lines. They stay real text laid out by the page in the inherited font; the brush follows the strokes of those same glyphs, left to right."
+        },
+        {
+          "name": "pause",
+          "type": "number",
+          "default": "900",
+          "description": "Milliseconds the brush rests between one line and the next."
+        },
+        {
+          "name": "seal",
+          "type": "string | false",
+          "default": "\"雪\"",
+          "description": "One to four characters cut into a camellia seal that is pressed at the lower right once the last line is written. Pass false for no seal."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, an inline block. The ink takes the text colour. Writing starts when the poem first scrolls into view. Other div props are passed through. Under reduced motion the lines and the seal are shown at once."
+        }
+      ]
+    }
+  ]
+}

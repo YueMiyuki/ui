@@ -1,0 +1,81 @@
+{
+  "name": "Stream Graph",
+  "category": "charts",
+  "original": true,
+  "description": "Series stacked about a central baseline so they flow as one river, with names set inside each layer where it is widest.",
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "StreamGraph",
+      "props": [
+        {
+          "name": "series",
+          "type": "{ name: string; data: number[]; color?: string }[]",
+          "description": "One layer per entry, with a value per label. Colours follow the chart palette unless given. Layers are ordered so the ones that peak early sit in the middle."
+        },
+        {
+          "name": "labels",
+          "type": "string[]",
+          "description": "One label per point along the bottom. Crowded labels thin out."
+        },
+        {
+          "name": "titles",
+          "type": "string[]",
+          "description": "Longer names for the tooltip and table, one per label, e.g. \"Week of 5 January\"."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "220",
+          "description": "Plot height in pixels. The width follows the card."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip, legend and scale key. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "totalName",
+          "type": "string",
+          "default": "\"All\"",
+          "description": "Name of the total row in the tooltip and table, e.g. \"All resorts\"."
+        },
+        {
+          "name": "unitName",
+          "type": "string",
+          "description": "Words after the number in the scale key, e.g. \"visitors a week\"."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a legend with each layer's total and a key for the stream's thickness."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value." },
+        { "name": "footer", "type": "ReactNode", "description": "Replaces the legend under the plot." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card, e.g. a width. Also accepts note, action, invertDelta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

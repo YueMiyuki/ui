@@ -1,0 +1,83 @@
+{
+  "name": "Time field",
+  "category": "pickers",
+  "suspense": true,
+  "description": "A time typed one part at a time, with arrow keys to step each part, on a 12- or 24-hour clock.",
+  "preview": { "layout": "center", "height": 280 },
+  "props": [
+    {
+      "component": "TimeField",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the field." },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the field. Replaced by the error while the field is invalid."
+        },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the field while it is invalid, with an alert icon."
+        },
+        {
+          "name": "hourCycle",
+          "type": "12 | 24",
+          "description": "12-hour clock with a day period, or 24-hour. Defaults to the locale's."
+        },
+        {
+          "name": "granularity",
+          "type": "\"hour\" | \"minute\" | \"second\"",
+          "default": "\"minute\"",
+          "description": "Smallest part shown."
+        },
+        {
+          "name": "shouldForceLeadingZeros",
+          "type": "boolean",
+          "default": "false",
+          "description": "Write 08:30 rather than 8:30."
+        },
+        {
+          "name": "value",
+          "type": "TimeValue | null",
+          "description": "The time (controlled), for example new Time(9, 0). Use defaultValue when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: TimeValue | null) => void",
+          "description": "Called when the time changes."
+        },
+        { "name": "minValue", "type": "TimeValue", "description": "Earliest valid time." },
+        { "name": "maxValue", "type": "TimeValue", "description": "Latest valid time." },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Field height of 32, 36 or 44 pixels, matching Input."
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "default": "false",
+          "description": "Requires a time before a form submits."
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the camellia outline and the error message."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the field and dims it to 50%."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components TimeField."
+        }
+      ]
+    }
+  ]
+}

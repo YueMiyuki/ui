@@ -1,0 +1,56 @@
+{
+  "name": "Sleep Ring",
+  "category": "charts",
+  "description": "A score in a ring made of one segment per sleep stage, with a large numeral in the middle and a row per stage below.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "SleepRing",
+      "props": [
+        {
+          "name": "score",
+          "type": "number",
+          "description": "Score out of 100. The ring sweeps that share of a turn; the rest is a pale track."
+        },
+        {
+          "name": "stages",
+          "type": "{ name: string; minutes: number; color?: string }[]",
+          "description": "Time in each stage. Each takes a segment of the ring and a row below, sized by its share of the night. Colours follow the chart palette unless given."
+        },
+        {
+          "name": "rating",
+          "type": "string",
+          "description": "The word above the numeral. Defaults to Excellent from 85, Good from 70, Fair from 50, Poor below."
+        },
+        {
+          "name": "formatDuration",
+          "type": "(minutes: number) => string",
+          "description": "Writes stage durations. Defaults to \"1 h 42 m\"."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "188",
+          "description": "Ring diameter in pixels. Shrinks to fit a narrow card."
+        },
+        { "name": "thickness", "type": "number", "default": "12", "description": "Width of the ring." },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated when left out."
+        },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "description": "A control on the right of the header, such as a PeriodStepper from @/components/miyuki-ui/lib/chart for the week."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts value, delta, caption, note, footer and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

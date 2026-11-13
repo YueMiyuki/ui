@@ -1,0 +1,68 @@
+{
+  "name": "Tide Slideshow",
+  "category": "media",
+  "description": "A full-bleed slideshow where each image washes in over the last like a tide, with content laid over the top.",
+  "preview": { "layout": "fill", "height": 520 },
+  "props": [
+    {
+      "component": "TideSlideshow",
+      "props": [
+        {
+          "name": "images",
+          "type": "(string | { src: string; alt?: string })[]",
+          "description": "The slides, in order. A string is an image URL with no alt text, for images that are only backdrop."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content laid over every slide, placed at the bottom left above the controls."
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean",
+          "default": "true",
+          "description": "Move on by itself. It holds while hovered or focused, has a pause button, and is off under reduced motion."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "5000",
+          "description": "Milliseconds each slide stays before the next washes in. The current hairline fills over this time."
+        },
+        {
+          "name": "direction",
+          "type": "\"up\" | \"left\" | \"right\"",
+          "default": "\"up\"",
+          "description": "Which way the edge of the incoming image travels."
+        },
+        {
+          "name": "overlay",
+          "type": "boolean",
+          "default": "true",
+          "description": "A dark fade from the bottom for legibility. Content over it is set in the night palette so light text reads."
+        },
+        {
+          "name": "contentClassName",
+          "type": "string",
+          "description": "Extra classes for the content layer, for example to centre it."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Slideshow\"",
+          "description": "Names the slideshow for assistive technology."
+        },
+        {
+          "name": "labels",
+          "type": "{ previous?: string; next?: string; pause?: string; play?: string; goTo?: (index) => string; slide?: (index, count) => string }",
+          "description": "Text for assistive technology, for translation."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root, which takes its height from you. Also accepts every other prop of a section."
+        }
+      ]
+    }
+  ]
+}

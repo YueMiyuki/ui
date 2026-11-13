@@ -1,0 +1,45 @@
+{
+  "name": "Lantern Button",
+  "category": "buttons",
+  "original": true,
+  "description": "A paper lantern with wooden rims that lights from inside when hovered, with the faint unsteadiness of a flame.",
+  "preview": { "layout": "center", "height": 300 },
+  "props": [
+    {
+      "component": "LanternButton",
+      "props": [
+        {
+          "name": "lit",
+          "type": "boolean",
+          "default": "false",
+          "description": "Holds the light on. Otherwise it lights on hover, keyboard focus and press."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--chart-4)\"",
+          "description": "Colour of the light. The paper glows from a pale core to a deeper edge of this colour."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels, as Button."
+        },
+        { "name": "iconStart", "type": "ReactNode", "description": "Icon before the label. Sized to 16 pixels." },
+        { "name": "iconEnd", "type": "ReactNode", "description": "Icon after the label." },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the button." },
+        {
+          "name": "onPress",
+          "type": "(event: PressEvent) => void",
+          "description": "Called when the button is pressed by mouse, touch or keyboard. The light brightens for a moment."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components Button."
+        }
+      ]
+    }
+  ]
+}

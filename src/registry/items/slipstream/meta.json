@@ -1,0 +1,37 @@
+{
+  "name": "Slipstream",
+  "category": "text",
+  "description": "Slipstream: a few words in a marked box that streak with speed lines and lean forward when you hover them.",
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "Slipstream",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The words to wrap. Keep it to a short phrase; it sits inline in your heading."
+        },
+        {
+          "name": "streaks",
+          "type": "number",
+          "default": "12",
+          "description": "Number of speed lines that run behind the text on hover."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.6",
+          "description": "Seconds for an average line to cross the box. Each line runs a little faster or slower."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the speed lines, the trailing copy and the corner marks on hover."
+        },
+        { "name": "className", "type": "string", "description": "Extra classes for the box." }
+      ]
+    }
+  ]
+}

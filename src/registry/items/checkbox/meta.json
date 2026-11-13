@@ -1,0 +1,107 @@
+{
+  "name": "Checkbox",
+  "category": "inputs",
+  "description": "A check box that floods with water when turned on, with groups, an indeterminate state and a card variant.",
+  "demos": [{ "name": "default", "title": "Group" }, { "name": "cards", "title": "Cards" }],
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "Checkbox",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The label, to the right of the box." },
+        { "name": "description", "type": "ReactNode", "description": "Help text under the label." },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Box of 16 or 18 pixels. Inside a group, defaults to the group's size."
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "description": "Checked state (controlled). Use defaultSelected when uncontrolled."
+        },
+        {
+          "name": "isIndeterminate",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows a dash, for a parent whose children are partly checked."
+        },
+        { "name": "value", "type": "string", "description": "The value this checkbox adds to its group." },
+        {
+          "name": "onChange",
+          "type": "(isSelected: boolean) => void",
+          "description": "Called when the checked state changes."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the checkbox and dims it to 50%."
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "default": "false",
+          "description": "Gives the empty box a camellia outline."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components CheckboxField."
+        }
+      ]
+    },
+    {
+      "component": "CheckboxGroup",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the group." },
+        { "name": "description", "type": "ReactNode", "description": "Help text under the group." },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the group while it is invalid."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Size for every checkbox and card in the group."
+        },
+        {
+          "name": "value",
+          "type": "string[]",
+          "description": "Checked values (controlled). Use defaultValue when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string[]) => void",
+          "description": "Called when the checked values change."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components CheckboxGroup."
+        }
+      ]
+    },
+    {
+      "component": "CheckboxCard",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The title." },
+        { "name": "description", "type": "ReactNode", "description": "A line under the title." },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Size of the box on the right."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the card. Accepts the same props as Checkbox."
+        }
+      ]
+    }
+  ]
+}

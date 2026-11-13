@@ -1,0 +1,57 @@
+{
+  "name": "Seat map",
+  "category": "pickers",
+  "original": true,
+  "description": "A rail carriage drawn from above, with seat pairs, an aisle, doors, racks and windows, for choosing seats across several cars.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "SeatMap",
+      "props": [
+        {
+          "name": "cars",
+          "type": "{ id: string; rows: number; layout?: string; taken?: string[]; price?: number; name?: string }[]",
+          "description": "The train, front car last. layout lists seat letters with a space for each aisle, e.g. \"AB CD\" (the default) or \"A BC\"; taken lists seats such as \"11A\" that cannot be chosen. The first and last cars are drawn with a cab."
+        },
+        {
+          "name": "value",
+          "type": "string[]",
+          "description": "Chosen seats (controlled), each as car id, a dash and the seat, e.g. \"3-11A\". Use defaultValue when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string[]) => void",
+          "description": "Called when a seat is chosen or removed."
+        },
+        { "name": "max", "type": "number", "default": "4", "description": "Most seats that can be chosen at once." },
+        {
+          "name": "car",
+          "type": "string",
+          "description": "The car shown (controlled). Use defaultCar when uncontrolled; it starts on the first car."
+        },
+        {
+          "name": "onCarChange",
+          "type": "(car: string) => void",
+          "description": "Called when another car is shown, from the train diagram, the arrows, or Page Up and Page Down."
+        },
+        {
+          "name": "towards",
+          "type": "string",
+          "description": "Where the train is heading, shown above the carriage with the direction of travel."
+        },
+        { "name": "currency", "type": "string", "default": "\"JPY\"", "description": "Currency for seat prices." },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Choose seats\"",
+          "description": "Visible heading, which also names the seat grid."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Below 800 pixels wide the carriage turns upright."
+        }
+      ]
+    }
+  ]
+}

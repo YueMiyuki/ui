@@ -1,0 +1,36 @@
+{
+  "name": "Streaming Ink",
+  "category": "ai",
+  "original": true,
+  "description": "Streamed text that is written rather than typed: each new word inks in from left to right with a wet sheen that dries, led by a small brush that lifts when the answer is done.",
+  "preview": { "layout": "center", "height": 520, "settle": 16000 },
+  "props": [
+    {
+      "component": "StreamingInk",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "The text so far. Pass the whole string each time it grows. A word is written once the space after it arrives, so the last half-word never flickers; blank lines start paragraphs, single line breaks are kept, and text between backticks is set as inline code. If the new text does not start with the old one, the stream starts again."
+        },
+        {
+          "name": "done",
+          "type": "boolean",
+          "default": "false",
+          "description": "Set when the stream has ended. The last word is written and the brush lifts off the line once the ink catches up."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for how fast the ink runs. When text arrives faster than it can be written, the ink hurries to catch up."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. Text is 15px with a 28px line by default; the ink scales with the font size. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

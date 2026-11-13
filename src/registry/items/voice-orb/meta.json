@@ -1,0 +1,59 @@
+{
+  "name": "Voice Orb",
+  "category": "ai",
+  "original": true,
+  "description": "A sphere of water that shows a voice assistant's state: it breathes when idle, ripples with the input level while listening, turns with a slow current while thinking and sends rings outward while speaking.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "VoiceOrb",
+      "props": [
+        {
+          "name": "state",
+          "type": "\"idle\" | \"listening\" | \"thinking\" | \"speaking\"",
+          "default": "\"idle\"",
+          "description": "What the assistant is doing. The orb blends from one behaviour to the next over about half a second, so changes are continuous rather than cuts."
+        },
+        {
+          "name": "level",
+          "type": "number",
+          "description": "Input level from 0 to 1, read every frame. While listening it drives the ripples and the wobble of the edge; while speaking it drives the pulse and the rings, so pass your speech output's level here. Without it, and without a microphone, a speech-like level is simulated."
+        },
+        {
+          "name": "useMic",
+          "type": "boolean",
+          "default": "false",
+          "description": "Listen to the microphone while the state is listening. Permission is requested only once the visitor has interacted with the page, and the stream is closed as soon as the state changes. If permission is refused, the orb falls back to level or the simulation."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "160",
+          "description": "Diameter of the layout box in pixels. Rings and the glow spread beyond it, so leave some room around the orb."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Water colour. Any CSS colour or variable; the inner light and deep tones are mixed from it for the current theme."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Voice assistant\"",
+          "description": "Accessible name. The orb is a status region that reads, for example, \"Voice assistant, listening\" when the state changes."
+        },
+        {
+          "name": "onMicError",
+          "type": "(error: unknown) => void",
+          "description": "Called when the microphone could not be opened, for example because permission was refused."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Colour Pool",
+  "category": "backgrounds",
+  "description": "A pool of soft colour: blurred blobs drift on slow loops over a base colour, and one follows the pointer.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "ColourPool",
+      "props": [
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\", \"var(--chart-3)\", \"var(--chart-6)\"]",
+          "description": "Blob colours. Four or five blobs are drawn, cycling through these; the pointer blob takes the first."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "Add a blob that follows the pointer with a soft lag. It rests in place under reduced motion."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the drift speed. At 1 each blob takes 20 to 40 seconds per loop."
+        },
+        { "name": "blur", "type": "number", "default": "80", "description": "Blur radius of the blobs, in pixels." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the blobs. Other div props, including pointer handlers, are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the colour." }
+      ]
+    }
+  ]
+}

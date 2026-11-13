@@ -1,0 +1,40 @@
+{
+  "name": "Source Trail",
+  "category": "ai",
+  "description": "The trail of sources an agent opened while researching, arriving one by one under the query.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "SourceTrail",
+      "props": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "What the agent searched for, shown in quotes in the header."
+        },
+        {
+          "name": "sources",
+          "type": "{ title: string; domain: string; status: \"reading\" | \"done\"; href?: string }[]",
+          "description": "The pages in the order they were opened. Each gets a letter tile tinted from its domain. A source with an href is a link."
+        },
+        {
+          "name": "defaultExpanded",
+          "type": "boolean",
+          "default": "true",
+          "description": "Whether the sources are shown at first (uncontrolled). Collapsed, the header shows the first tiles and a count."
+        },
+        { "name": "expanded", "type": "boolean", "description": "Whether the sources are shown (controlled)." },
+        {
+          "name": "onExpandedChange",
+          "type": "(expanded: boolean) => void",
+          "description": "Called when the header is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the block. Other props go to the root section element."
+        }
+      ]
+    }
+  ]
+}

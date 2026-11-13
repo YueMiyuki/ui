@@ -1,0 +1,47 @@
+{
+  "name": "Wind Map",
+  "category": "backgrounds",
+  "original": true,
+  "description": "A field of moving air drawn as thousands of short fading trails, faster air brighter and longer, with speed and bearing under the pointer.",
+  "preview": { "layout": "fill", "height": 520 },
+  "props": [
+    {
+      "component": "WindMap",
+      "props": [
+        {
+          "name": "field",
+          "type": "(x: number, y: number, t: number) => [u: number, v: number]",
+          "description": "Your own wind. Takes a point in CSS pixels from the top left and the time in seconds, and returns the velocity in pixels per second, u to the right and v downward. Without it, a seeded field of drifting highs and lows over a westerly. The chip reads one pixel per second as 1 km/h."
+        },
+        {
+          "name": "particles",
+          "type": "number",
+          "default": "2500",
+          "description": "Particles in a 960 by 520 frame. Scaled with the area, so a small frame is not crowded."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for how fast the particles move and the field changes. The chip still shows the field's own speed."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of slow air. Faster air shifts toward ink by day and toward white at night. Any CSS colour or token."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the trails. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Layers drawn under the trails, such as a coastline or contours, and any content above them."
+        }
+      ]
+    }
+  ]
+}

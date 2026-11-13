@@ -1,0 +1,85 @@
+{
+  "name": "Gliding Menu",
+  "category": "navigation",
+  "description": "A bar of menus that share one panel, which glides and reshapes itself as you move from one menu to the next.",
+  "preview": { "layout": "fill", "height": 440 },
+  "props": [
+    {
+      "component": "GlidingMenu",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "GlidingMenuItem elements, in order." },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Main\"",
+          "description": "Names the navigation landmark."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the nav element. Also accepts every other nav attribute."
+        }
+      ]
+    },
+    {
+      "component": "GlidingMenuItem",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "The text of the top-level item." },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The panel content, usually a grid of GlidingMenuLink or GlidingMenuFeature with a fixed width. With children the item is a button with aria-expanded that opens the panel on hover, focus or press."
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "Without children, the item is a plain link to this address."
+        },
+        {
+          "name": "current",
+          "type": "boolean",
+          "default": "false",
+          "description": "Marks the item with aria-current for the section the page belongs to."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the list item. Also accepts every other li attribute."
+        }
+      ]
+    },
+    {
+      "component": "GlidingMenuLink",
+      "props": [
+        { "name": "href", "type": "string", "description": "Where the link goes." },
+        { "name": "children", "type": "ReactNode", "description": "The link text." },
+        { "name": "description", "type": "ReactNode", "description": "A muted line under the text." },
+        {
+          "name": "current",
+          "type": "boolean",
+          "default": "false",
+          "description": "Marks the current page with aria-current and water-coloured text."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Also accepts every other anchor attribute."
+        }
+      ]
+    },
+    {
+      "component": "GlidingMenuFeature",
+      "props": [
+        { "name": "href", "type": "string", "description": "Where the link goes." },
+        { "name": "image", "type": "string", "description": "Thumbnail URL, shown at 96 by 64 pixels." },
+        { "name": "title", "type": "ReactNode", "description": "The heading beside the thumbnail." },
+        { "name": "description", "type": "ReactNode", "description": "Up to two muted lines under the title." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Also accepts every other anchor attribute."
+        }
+      ]
+    }
+  ]
+}

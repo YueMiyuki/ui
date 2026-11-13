@@ -1,0 +1,24 @@
+{
+  "name": "Snow Report",
+  "category": "blocks",
+  "original": true,
+  "description": "A resort's morning snow report, led by new snow, with figures that count up, lifts and runs as meters, and the forecaster's note.",
+  "preview": { "layout": "center", "height": 640 },
+  "props": [
+    {
+      "component": "SnowReport",
+      "props": [
+        {
+          "name": "report",
+          "type": "SnowReportData",
+          "description": "The reading: { resort, date, time, title?, status?, new24, new7, base, summit, baseAltitude?, summitAltitude?, temperature: { summit, base }, wind: { speed, direction }, lifts: { open, total }, runs: { open, total }, note?, forecaster?: { name, role?, avatar? }, next? }. Depths are in centimetres, temperatures in °C, wind speed in km/h and direction a compass point such as \"NW\" (where the wind comes from; the arrow points where it blows). title defaults to \"Morning report\", status shows as a pill in the header, next is a short line beside the forecaster such as \"Next report at 12:00\". New snow in 24 hours is set large beside a measuring stake; every figure counts up once when the card comes into view, and the lift and run meters fill. Under reduced motion the final values show at once."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Other article props are passed through."
+        }
+      ]
+    }
+  ]
+}

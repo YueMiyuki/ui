@@ -1,0 +1,104 @@
+{
+  "name": "Floating sidebar",
+  "category": "blocks",
+  "description": "App navigation in a floating panel with a team switcher, quick search, a sliding current-page highlight and an icon-only mode.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "drawer", "title": "In a drawer" }],
+  "preview": { "layout": "fill", "height": 600 },
+  "props": [
+    {
+      "component": "FloatingSidebar",
+      "props": [
+        {
+          "name": "teams",
+          "type": "{ id: string; name: string; plan?: string; logo?: ReactNode }[]",
+          "description": "Teams in the switcher at the top. A team without a logo shows its initials."
+        },
+        {
+          "name": "team",
+          "type": "string",
+          "description": "Id of the chosen team (controlled). Use defaultTeam when uncontrolled; the first team is chosen otherwise."
+        },
+        {
+          "name": "onTeamChange",
+          "type": "(id: string) => void",
+          "description": "Called when another team is picked from the menu."
+        },
+        {
+          "name": "onCreateTeam",
+          "type": "() => void",
+          "description": "Called by \"Create team\" at the foot of the team menu."
+        },
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; icon: ReactNode; count?: number; countTone?: \"neutral\" | \"solid\"; href?: string }[]",
+          "description": "The main navigation. A solid count is a water pill, and stays on the icon when collapsed. With href an item renders as a link."
+        },
+        {
+          "name": "groups",
+          "type": "{ label: string; items: FloatingSidebarItem[] }[]",
+          "default": "[]",
+          "description": "Further labelled groups under the main items."
+        },
+        {
+          "name": "footerItems",
+          "type": "FloatingSidebarItem[]",
+          "default": "Support and Settings",
+          "description": "Items pinned to the bottom, above the user row."
+        },
+        {
+          "name": "user",
+          "type": "{ name: string; email: string; avatar?: string }",
+          "description": "The signed-in person, shown at the bottom with an account menu."
+        },
+        {
+          "name": "onUserAction",
+          "type": "(action: string) => void",
+          "description": "Called with \"profile\", \"preferences\", \"shortcuts\" or \"sign-out\" from the account menu."
+        },
+        {
+          "name": "current",
+          "type": "string",
+          "description": "Id of the current item (controlled). The highlight slides to it. Use defaultCurrent when uncontrolled."
+        },
+        { "name": "onNavigate", "type": "(id: string) => void", "description": "Called when an item is pressed." },
+        {
+          "name": "collapsed",
+          "type": "boolean",
+          "description": "Icons-only mode, 64 pixels wide (controlled). Use defaultCollapsed when uncontrolled. Labels then show in tooltips."
+        },
+        {
+          "name": "onCollapsedChange",
+          "type": "(collapsed: boolean) => void",
+          "description": "Called by the round button on the panel's edge, and by ⌘K while collapsed, which opens the panel and focuses search."
+        },
+        {
+          "name": "collapsible",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the round button on the panel's edge that collapses and expands it. Set false where the panel should keep its width, such as in a drawer."
+        },
+        {
+          "name": "action",
+          "type": "ReactNode | ((state: { collapsed: boolean }) => ReactNode)",
+          "description": "A slot between quick search and the navigation, for a main action such as \"New chat\". Pass a function to render something narrower, such as an icon button, while the panel is collapsed."
+        },
+        {
+          "name": "onSearch",
+          "type": "(query: string) => void",
+          "description": "Called when Enter is pressed in the quick search field."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Sidebar\"",
+          "description": "Names the aside landmark."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the panel. It fills the height of its container. Also accepts every other aside attribute. To show it in a Drawer on small screens, render it inside the drawer with collapsible={false}, collapsed={false} and className=\"min-h-0 flex-1\", and give the drawer closeButton={false} and a transparent, borderless panel 264px wide (see the drawer demo)."
+        }
+      ]
+    }
+  ]
+}

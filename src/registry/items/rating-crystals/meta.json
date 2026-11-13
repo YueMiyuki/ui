@@ -1,0 +1,59 @@
+{
+  "name": "Rating Crystals",
+  "category": "inputs",
+  "original": true,
+  "description": "A rating made of snow crystals that grow richer from the first to the fifth.",
+  "demos": [{ "name": "default", "title": "Powder report" }, { "name": "sizes", "title": "Sizes" }],
+  "preview": { "layout": "center", "height": 320 },
+  "props": [
+    {
+      "component": "RatingCrystals",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "description": "The rating, from 0 (none) to max. Controlled; pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "0",
+          "description": "Starting rating when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: number) => void",
+          "description": "Called when a crystal is chosen by click, tap or the arrow keys."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": "5",
+          "description": "Number of positions. Each position holds a richer crystal than the one before: a bare six-arm star, then side branches, then plates at the centre and the tips."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "28",
+          "description": "Width and height of each crystal in pixels. Drawn to stay clear at 24."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Visible label for the group. Without it, pass aria-label."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the rating without letting it change; no hover preview."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Classes for the group. Other react-aria-components RadioGroup props, such as isDisabled and name, are passed through."
+        }
+      ]
+    }
+  ]
+}

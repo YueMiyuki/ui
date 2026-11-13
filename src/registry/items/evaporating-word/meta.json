@@ -1,0 +1,29 @@
+{
+  "name": "Evaporating Word",
+  "category": "text",
+  "description": "One word in a sentence that evaporates letter by letter and condenses into the next.",
+  "preview": { "layout": "center", "height": 300 },
+  "props": [
+    {
+      "component": "EvaporatingWord",
+      "props": [
+        {
+          "name": "words",
+          "type": "string[]",
+          "description": "Words shown in turn. Screen readers hear all of them, separated by commas."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "3000",
+          "description": "Milliseconds each word stays. The cycle pauses while the word is off screen, and holds the first word under reduced motion."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapping span, an inline block. Font, size and colour are inherited. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

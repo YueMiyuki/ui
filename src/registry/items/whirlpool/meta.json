@@ -1,0 +1,55 @@
+{
+  "name": "Whirlpool",
+  "category": "backgrounds",
+  "description": "A whirlpool of particles circling a centre, turning faster as they spiral inward, with short trails.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "Whirlpool",
+      "props": [
+        {
+          "name": "particleCount",
+          "type": "number",
+          "default": "600",
+          "description": "Number of particles in the whirl."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-1)\", \"var(--chart-3)\"]",
+          "description": "Colours from the rim inward; particles shift through them as they near the centre. By day they are drawn as ink, at night as light. The last colour also tints the core glow at night."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the turning and the inward drift. At 1 a particle takes about half a minute to reach the eye."
+        },
+        {
+          "name": "trail",
+          "type": "number",
+          "default": "0.9",
+          "description": "How much of each frame is kept, from 0 (no trails) to 1 (long trails)."
+        },
+        {
+          "name": "clockwise",
+          "type": "boolean",
+          "default": "true",
+          "description": "Turn clockwise. False turns the other way."
+        },
+        {
+          "name": "center",
+          "type": "[number, number]",
+          "default": "[0.5, 0.5]",
+          "description": "The centre of the whirl, as fractions of the width and height."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the whirl. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the whirl." }
+      ]
+    }
+  ]
+}

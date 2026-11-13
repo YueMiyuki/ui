@@ -1,0 +1,19 @@
+{
+  "name": "Observatory",
+  "category": "templates",
+  "original": true,
+  "description": "A public observatory's night page: tonight's sky with seeing, cloud cover and moonrise, an hour-by-hour chart, the moon with a two-week strip, the sun's arc, a month of events, a booking card and a visitor notice.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "Observatory",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls. It follows the theme scope it sits in; the demo wraps it in a dark scope. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

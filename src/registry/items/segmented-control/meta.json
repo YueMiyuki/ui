@@ -1,0 +1,59 @@
+{
+  "name": "Segmented Control",
+  "category": "inputs",
+  "description": "A row of options with a pill that slides to the selected one.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "icons", "title": "With icons" }],
+  "preview": { "layout": "center", "height": 220 },
+  "props": [
+    {
+      "component": "SegmentedControl",
+      "props": [
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Segments 28 or 32 pixels tall."
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "default": "false",
+          "description": "Stretch to the container with equal segments."
+        },
+        {
+          "name": "selectedKeys",
+          "type": "Iterable<Key>",
+          "description": "The selected segment's id, as a one-item array (controlled)."
+        },
+        {
+          "name": "defaultSelectedKeys",
+          "type": "Iterable<Key>",
+          "description": "The segment selected at first (uncontrolled)."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(keys: Set<Key>) => void",
+          "description": "Called with the newly selected id. One segment is always selected."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables every segment." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the track. Also accepts every other prop of the react-aria-components ToggleButtonGroup; give it an aria-label."
+        }
+      ]
+    },
+    {
+      "component": "Segment",
+      "props": [
+        { "name": "id", "type": "Key", "description": "Identifies the segment in selectedKeys." },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Text, optionally with a lucide icon before it. Give an icon-only segment an aria-label."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables this segment." }
+      ]
+    }
+  ]
+}

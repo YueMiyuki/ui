@@ -1,0 +1,37 @@
+{
+  "name": "Splash Line",
+  "category": "backgrounds",
+  "description": "Thin streaks fall to a water line near the bottom edge and splash when they reach it.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "SplashLine",
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "7",
+          "description": "Number of streaks. Each falls, splashes, waits a moment and falls again."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the streaks, the surface line and the splashes. Any CSS colour or token."
+        },
+        {
+          "name": "splash",
+          "type": "boolean",
+          "default": "true",
+          "description": "Throw droplets and a ripple when a streak reaches the surface. Off, the streaks slip under it quietly."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the effect. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the streaks." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Pagination",
+  "category": "navigation",
+  "description": "Page numbers with previous and next buttons, folding long runs into an ellipsis.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "compact", "title": "Compact" }],
+  "preview": { "layout": "center", "height": 220 },
+  "props": [
+    {
+      "component": "Pagination",
+      "props": [
+        { "name": "total", "type": "number", "description": "How many pages there are." },
+        { "name": "page", "type": "number", "description": "The current page, counting from 1 (controlled)." },
+        {
+          "name": "defaultPage",
+          "type": "number",
+          "default": "1",
+          "description": "The page shown first (uncontrolled)."
+        },
+        {
+          "name": "onChange",
+          "type": "(page: number) => void",
+          "description": "Called with the page that was chosen."
+        },
+        {
+          "name": "siblings",
+          "type": "number",
+          "default": "1",
+          "description": "Pages shown either side of the current one."
+        },
+        {
+          "name": "boundaries",
+          "type": "number",
+          "default": "1",
+          "description": "Pages always shown at the start and the end."
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"compact\"",
+          "default": "\"default\"",
+          "description": "Compact shows \"Page 3 of 20\" between the arrows instead of page numbers."
+        },
+        {
+          "name": "labels",
+          "type": "{ previous?: string; next?: string; page?: (page: number) => string }",
+          "description": "Accessible names for the arrows and page buttons, for translation."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Pagination\"",
+          "description": "Names the nav landmark."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of a nav."
+        }
+      ]
+    }
+  ]
+}

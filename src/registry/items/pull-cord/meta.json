@@ -1,0 +1,56 @@
+{
+  "name": "Pull Cord",
+  "category": "buttons",
+  "original": true,
+  "description": "A switch you pull: an elastic cord with a glass bead that clicks past a threshold, springs back and swings to rest.",
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "PullCord",
+      "props": [
+        { "name": "pulled", "type": "boolean", "description": "Whether it is on, when controlled." },
+        {
+          "name": "defaultPulled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Whether it starts on, when uncontrolled."
+        },
+        {
+          "name": "onPull",
+          "type": "(pulled: boolean) => void",
+          "description": "Called with the new state each time the cord clicks past its threshold, or is pressed with Space or Enter."
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "default": "120",
+          "description": "Resting length of the cord in pixels. The pull needed to click is about a third of it, and the component is tall enough to hold the bead at full stretch."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Light\"",
+          "description": "The accessible name of the switch."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Bead 14, 18 or 22 pixels wide."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the cord." },
+        {
+          "name": "sound",
+          "type": "boolean",
+          "default": "false",
+          "description": "Plays a short, quiet synthesised click when it switches."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

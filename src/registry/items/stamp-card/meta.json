@@ -1,0 +1,49 @@
+{
+  "name": "Stamp Card",
+  "category": "cards",
+  "original": true,
+  "description": "A stamp rally card: pressing an empty ring brings a seal down and leaves an inked impression.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "StampCard",
+      "props": [
+        {
+          "name": "slots",
+          "type": "{ id: string; label: string; motif: \"peak\" | \"wave\" | \"pine\" | \"lantern\" | \"train\" | \"bridge\" | \"teacup\" | \"wheel\" }[]",
+          "description": "The rings, in order. Each slot's stamp shows its motif inside a double ring."
+        },
+        { "name": "stamped", "type": "string[]", "description": "Ids of the stamped slots (controlled)." },
+        {
+          "name": "defaultStamped",
+          "type": "string[]",
+          "default": "[]",
+          "description": "Ids stamped at first (uncontrolled)."
+        },
+        {
+          "name": "onStamp",
+          "type": "(id: string) => void",
+          "description": "Called when an empty ring is pressed. In controlled use, add the id to stamped."
+        },
+        { "name": "title", "type": "ReactNode", "description": "Heading printed at the top of the card." },
+        { "name": "description", "type": "ReactNode", "description": "A short line under the heading." },
+        {
+          "name": "ink",
+          "type": "string",
+          "default": "\"var(--brand-strong)\"",
+          "description": "Colour of the ink, the rings and the counter. It is read in a light scope, since the card is paper in both themes."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Anything printed under the rings, such as terms or a prize line."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

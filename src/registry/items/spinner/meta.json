@@ -1,0 +1,36 @@
+{
+  "name": "Spinner",
+  "category": "display",
+  "description": "An in-progress indicator drawn as moving water, in three variants and five sizes.",
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "Spinner",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"ring\" | \"drops\" | \"orbit\"",
+          "default": "\"ring\"",
+          "description": "Ring: an arc with a fainter trail turning once every 0.8s. Drops: three dots that swell and sink in turn. Orbit: a droplet circling with a fading tail."
+        },
+        {
+          "name": "size",
+          "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+          "default": "\"md\"",
+          "description": "14, 16, 20, 28 or 40 pixels."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The spinner has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default; pass text-current to adopt the surrounding text colour."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Thinking Glyph",
+  "category": "ai",
+  "description": "A small animated glyph and a label with a passing band of light that say what an agent is doing right now.",
+  "preview": {
+    "layout": "center",
+    "height": 320
+  },
+  "props": [
+    {
+      "component": "ThinkingGlyph",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"thinking\" | \"searching\" | \"reading\" | \"writing\"",
+          "default": "\"thinking\"",
+          "description": "The glyph: a six-armed crystal, widening rings, three lines filling in turn, or a line that writes itself."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "What the agent is doing. Defaults to the variant's name, such as \"Searching\"."
+        },
+        {
+          "name": "showElapsed",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the time since the indicator appeared, counted in seconds."
+        },
+        {
+          "name": "startedAt",
+          "type": "number",
+          "description": "When the work began, as a timestamp in milliseconds (Date.now()). The elapsed time counts from then, so it survives a remount. Without it, counting starts when the indicator appears."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. It is a status region, so a label change is announced."
+        }
+      ]
+    }
+  ]
+}

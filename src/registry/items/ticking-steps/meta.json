@@ -1,0 +1,58 @@
+{
+  "name": "Ticking Steps",
+  "category": "display",
+  "description": "An overlay with a list of steps that tick off one by one, the current one held in the centre, while something slow happens.",
+  "preview": { "layout": "fill", "height": 480, "thumb": false, "thumbClick": "button", "settle": 2600 },
+  "props": [
+    {
+      "component": "TickingSteps",
+      "props": [
+        {
+          "name": "steps",
+          "type": "string[]",
+          "description": "The steps, in order. Done steps get a water-filled check, the current one a spinner, the rest an empty ring."
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show the overlay. Each time it opens it starts again from the first step."
+        },
+        { "name": "duration", "type": "number", "default": "1800", "description": "Milliseconds spent on each step." },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Start again from the first step after the last one is done, until loading is turned off."
+        },
+        {
+          "name": "contained",
+          "type": "boolean",
+          "default": "false",
+          "description": "Cover the nearest positioned parent instead of the viewport. The parent needs position: relative."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default: the browser redraws the blur on every frame while anything behind it changes, which stalls on large pages, most of all in Firefox."
+        },
+        {
+          "name": "onComplete",
+          "type": "() => void",
+          "description": "Called when the last step is done. The overlay stays until loading is set to false."
+        },
+        {
+          "name": "onClose",
+          "type": "() => void",
+          "description": "Shows a close button in the top right corner, also bound to Escape. Focus moves to it when the overlay opens and returns when it closes."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the overlay. Other div props, such as aria-label (default \"Progress\"), are passed through."
+        }
+      ]
+    }
+  ]
+}

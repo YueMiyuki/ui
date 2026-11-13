@@ -1,0 +1,160 @@
+{
+  "name": "Dropdown",
+  "category": "overlays",
+  "description": "A menu of actions or choices that opens from a button, with icons, descriptions, shortcuts, sections and submenus.",
+  "demos": [
+    { "name": "team", "title": "Team switcher" },
+    { "name": "model", "title": "Choice with descriptions" },
+    { "name": "actions", "title": "Actions and submenu" }
+  ],
+  "preview": { "layout": "center", "height": 340, "thumb": false, "thumbClick": "button[aria-haspopup]" },
+  "props": [
+    {
+      "component": "Dropdown",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A button that opens the menu, then the DropdownMenu."
+        },
+        {
+          "name": "trigger",
+          "type": "\"press\" | \"longPress\"",
+          "default": "\"press\"",
+          "description": "How the button opens the menu."
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Open state (controlled). Use defaultOpen when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the menu opens or closes."
+        }
+      ]
+    },
+    {
+      "component": "DropdownMenu",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | (item) => ReactElement",
+          "description": "DropdownItem, DropdownSection, DropdownSeparator and DropdownSubmenu elements, or a function rendering each of items."
+        },
+        { "name": "items", "type": "Iterable<T>", "description": "Items for a dynamic menu." },
+        { "name": "onAction", "type": "(key: Key) => void", "description": "Called when an item is chosen." },
+        {
+          "name": "selectionMode",
+          "type": "\"none\" | \"single\" | \"multiple\"",
+          "default": "\"none\"",
+          "description": "Lets items be chosen. Chosen items show a dot (single) or a check (multiple)."
+        },
+        {
+          "name": "selectedKeys",
+          "type": "Iterable<Key> | \"all\"",
+          "description": "Chosen items (controlled). Use defaultSelectedKeys when uncontrolled."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(keys: Selection) => void",
+          "description": "Called when the chosen items change."
+        },
+        { "name": "indicator", "type": "\"check\" | \"dot\"", "description": "Overrides the mark for chosen items." },
+        {
+          "name": "placement",
+          "type": "Placement",
+          "default": "\"bottom start\", or \"end top\" in a submenu",
+          "description": "Where the menu opens. It flips when there is no room."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": "6, or 8 in a submenu",
+          "description": "Gap from the trigger in pixels."
+        },
+        {
+          "name": "popoverClassName",
+          "type": "string",
+          "description": "Classes for the floating surface, e.g. a width. It is at least 200 pixels and as wide as the trigger."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Classes for the list inside the surface. Also accepts every other prop of the react-aria-components Menu."
+        }
+      ]
+    },
+    {
+      "component": "DropdownItem",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The label." },
+        { "name": "id", "type": "Key", "description": "Identifies the item in onAction and selectedKeys." },
+        { "name": "icon", "type": "ReactNode", "description": "A 16 pixel icon or a small avatar before the label." },
+        { "name": "description", "type": "ReactNode", "description": "A line under the label." },
+        { "name": "shortcut", "type": "ReactNode", "description": "A key hint at the end of the row, e.g. \"⌘D\"." },
+        {
+          "name": "tone",
+          "type": "\"default\" | \"destructive\" | \"warning\"",
+          "default": "\"default\"",
+          "description": "Destructive paints the row camellia, with a camellia-soft highlight. Warning paints it yuzu, for a choice that is allowed but risky, with a yuzu-soft highlight."
+        },
+        {
+          "name": "textValue",
+          "type": "string",
+          "description": "Text for type-ahead when the label is not a plain string."
+        },
+        { "name": "onAction", "type": "() => void", "description": "Called when the item is chosen." },
+        { "name": "href", "type": "string", "description": "Makes the item a link." },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the item." }
+      ]
+    },
+    {
+      "component": "DropdownSection",
+      "props": [
+        { "name": "title", "type": "ReactNode", "description": "A small heading over the group." },
+        {
+          "name": "children",
+          "type": "ReactNode | (item) => ReactElement",
+          "description": "The items, or a function rendering each of items."
+        },
+        {
+          "name": "selectionMode",
+          "type": "\"none\" | \"single\" | \"multiple\"",
+          "description": "Lets the items in this group be chosen, apart from the rest of the menu."
+        },
+        {
+          "name": "selectedKeys",
+          "type": "Iterable<Key> | \"all\"",
+          "description": "Chosen items in this group (controlled)."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(keys: Selection) => void",
+          "description": "Called when the chosen items in this group change."
+        }
+      ]
+    },
+    {
+      "component": "DropdownSeparator",
+      "props": [{ "name": "className", "type": "string", "description": "Extra classes for the hairline." }]
+    },
+    {
+      "component": "DropdownSubmenu",
+      "props": [
+        {
+          "name": "children",
+          "type": "[ReactElement, ReactElement]",
+          "description": "The DropdownItem that opens it, then its DropdownMenu."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "200",
+          "description": "Milliseconds of hover before it opens. The right arrow key opens it at once."
+        }
+      ]
+    }
+  ]
+}

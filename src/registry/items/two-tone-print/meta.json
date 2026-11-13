@@ -1,0 +1,100 @@
+{
+  "name": "Two-tone Print",
+  "category": "media",
+  "description": "An image reduced to dots, lines or noise in two colours, like a woodblock or newspaper print.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "TwoTonePrint",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "The image. Any URL or data URI the browser can draw on a canvas; remote images need CORS headers."
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "description": "Describes the picture. The root is an image for assistive technology."
+        },
+        {
+          "name": "gridSize",
+          "type": "number",
+          "default": "4",
+          "description": "Size of one dither cell in pixels. Halftone dots and hatching scale with it."
+        },
+        {
+          "name": "mode",
+          "type": "\"bayer\" | \"halftone\" | \"noise\" | \"crosshatch\"",
+          "default": "\"bayer\"",
+          "description": "Ordered 8×8 matrix, round dots on a 45° screen, scattered noise, or engraved diagonal hatching that crosses and doubles in the darker tones."
+        },
+        {
+          "name": "colorMode",
+          "type": "\"duotone\" | \"grayscale\" | \"original\"",
+          "default": "\"duotone\"",
+          "description": "Duotone prints in the two colours. Grayscale uses their lightness only. Original gives each dot the picture's own colour on the paper colour."
+        },
+        {
+          "name": "primaryColor",
+          "type": "string",
+          "default": "\"color-mix(in oklab, var(--brand-strong) 40%, var(--foreground))\"",
+          "description": "The ink. Indigo ink by day, pale water at night."
+        },
+        {
+          "name": "secondaryColor",
+          "type": "string",
+          "default": "\"var(--background)\"",
+          "description": "The paper. Snow by day, night blue at night. When the ink is lighter than the paper, dots stand for light instead of shadow, so the picture keeps its tones in either theme."
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "0.5",
+          "description": "Raise for fewer dots, lower for more."
+        },
+        {
+          "name": "brightness",
+          "type": "number",
+          "default": "0",
+          "description": "Added to the picture's lightness before dithering, from -1 to 1."
+        },
+        {
+          "name": "contrast",
+          "type": "number",
+          "default": "1",
+          "description": "Stretches the picture's lightness around the middle before dithering."
+        },
+        {
+          "name": "invert",
+          "type": "boolean",
+          "default": "false",
+          "description": "Swaps light and dark in the picture."
+        },
+        {
+          "name": "animated",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shifts the pattern slowly across the picture. Stops with reduced motion and while off screen."
+        },
+        {
+          "name": "animationSpeed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the drift speed."
+        },
+        {
+          "name": "objectFit",
+          "type": "\"cover\" | \"contain\" | \"fill\"",
+          "default": "\"cover\"",
+          "description": "How the picture fits the box. Contain leaves paper around it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Size the root with classes, for example aspect-[16/10] w-full. Other props go to the root element."
+        }
+      ]
+    }
+  ]
+}

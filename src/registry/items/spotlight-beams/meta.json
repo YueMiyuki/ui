@@ -1,0 +1,49 @@
+{
+  "name": "Spotlight Beams",
+  "category": "backgrounds",
+  "description": "Two fans of light from the upper corners that sway slowly toward each other and back.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "SpotlightBeams",
+      "props": [
+        {
+          "name": "colors",
+          "type": "[string, string]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\"]",
+          "description": "Colours of the left and right fans. Each fan has a pale core mixed toward snow white at night and toward ink by day."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "7",
+          "description": "Seconds for one full sway, in and back out."
+        },
+        {
+          "name": "spread",
+          "type": "number",
+          "default": "100",
+          "description": "How far each fan travels sideways during a sway, in pixels."
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "default": "560",
+          "description": "Width of each fan where it fades out, in pixels."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "820",
+          "description": "Length of each fan from its corner to where it fades out, in pixels."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the beams. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the beams." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Wind Rose",
+  "category": "charts",
+  "original": true,
+  "description": "Where the wind comes from and how hard: sixteen spokes of stacked speed bands on frequency rings, with a vane that swings to the prevailing direction.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "WindRose",
+      "props": [
+        {
+          "name": "data",
+          "type": "{ direction: string | number; bands: number[] }[]",
+          "description": "One entry per direction: a compass point such as \"NW\" or a bearing in degrees, and the share of time in each speed band, in percent."
+        },
+        {
+          "name": "bands",
+          "type": "string[]",
+          "description": "Speed band labels from light air to strong wind, e.g. \"0–4\". Each band is a shade from pale to deep water blue."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "default": "\"m/s\"",
+          "description": "Unit of the speed bands, for the legend and tooltip."
+        },
+        { "name": "colors", "type": "string[]", "description": "Replaces the band colours, lightest band first." },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes frequencies. Defaults to one decimal and a percent sign."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "300",
+          "description": "Plot height in pixels. The rose fills the smaller of width and height."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the speed band legend under the rose."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the rose shows, for screen readers. Generated from the data when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline. Defaults to the prevailing direction." },
+        {
+          "name": "caption",
+          "type": "ReactNode",
+          "description": "Muted text after the headline. Defaults to how often the prevailing wind blows."
+        },
+        { "name": "footer", "type": "ReactNode", "description": "Replaces the legend under the rose." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts note, action and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

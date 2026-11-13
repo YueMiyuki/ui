@@ -1,0 +1,41 @@
+{
+  "name": "Snow Cap Text",
+  "category": "text",
+  "original": true,
+  "description": "Large text that snow falls around and settles on, gathering in soft caps along the real tops of the letters until a letter is knocked.",
+  "preview": { "layout": "center", "height": 440 },
+  "props": [
+    {
+      "component": "SnowCapText",
+      "props": [
+        {
+          "name": "children",
+          "type": "string",
+          "description": "The text. It stays real text laid out by the page in the inherited font. The tops of the glyphs are measured from that font once it has loaded, and again on resize."
+        },
+        {
+          "name": "rate",
+          "type": "number",
+          "default": "1",
+          "description": "How hard it snows. Multiplies the number of flakes and how quickly the caps build."
+        },
+        {
+          "name": "maxDepth",
+          "type": "number",
+          "default": "0.12em",
+          "description": "Deepest a cap can grow, in pixels. Narrow tops and slopes hold less; snow slides off steep edges into the hollows."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<{ shake: () => void }>",
+          "description": "Call `shake()` to knock the snow off every letter in turn."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, an inline block. Flakes fall in a soft margin around it, so leave some room above. Other span props are passed through. Under reduced motion the plain text is shown."
+        }
+      ]
+    }
+  ]
+}

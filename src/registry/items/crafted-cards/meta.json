@@ -1,0 +1,29 @@
+{
+  "name": "Feature Deck",
+  "category": "labs",
+  "description": "Four cards in a grid; choosing one grows it into the main card while the others move into a row of tiles beneath it.",
+  "preview": { "layout": "fill", "height": 560 },
+  "props": [
+    {
+      "component": "FeatureDeck",
+      "props": [
+        {
+          "name": "cards",
+          "type": "{ id: string; title: string; summary: string; content: ReactNode; src?: string; alt?: string }[]",
+          "description": "The cards, laid out two to a row. Each is a button showing its image, title and summary; once chosen it shows its content, which sits in a dark scope over the image."
+        },
+        {
+          "name": "backLabel",
+          "type": "string",
+          "default": "\"Show all\"",
+          "description": "Label of the button on the main card that returns to the grid. Escape does the same."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the deck. Give it a height; the cards share it."
+        }
+      ]
+    }
+  ]
+}

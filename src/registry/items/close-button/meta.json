@@ -1,0 +1,42 @@
+{
+  "name": "Close Button",
+  "category": "buttons",
+  "description": "A round button with a cross that turns a quarter turn on hover, for dismissing banners, tags and dialogs.",
+  "preview": { "layout": "center", "height": 280 },
+  "props": [
+    {
+      "component": "CloseButton",
+      "props": [
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Diameter of 20, 24 or 32 pixels."
+        },
+        {
+          "name": "variant",
+          "type": "\"ghost\" | \"filled\"",
+          "default": "\"ghost\"",
+          "description": "Ghost is transparent until hovered. Filled rests on a soft secondary fill."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Close\"",
+          "description": "Accessible name. Say what is being closed when more than one is on screen."
+        },
+        {
+          "name": "onPress",
+          "type": "(event: PressEvent) => void",
+          "description": "Called when the button is pressed by mouse, touch or keyboard."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the button." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components Button except children."
+        }
+      ]
+    }
+  ]
+}

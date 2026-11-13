@@ -1,0 +1,42 @@
+{
+  "name": "Lake Freeze",
+  "category": "backgrounds",
+  "original": true,
+  "description": "Ice that grows across a surface in feathery fronts from its edges, and breaks into plates that melt away when it thaws.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "LakeFreeze",
+      "props": [
+        {
+          "name": "frozen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Turning it on grows ice inward from the edges until the surface is covered; turning it off thins the sheet and breaks it into plates that melt from their edges. If it starts on, the ice grows in when the component first comes into view."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for freezing and thawing. At 1 the ice covers the surface in about four seconds and melts in about five."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "1",
+          "description": "Seed for the shape of the ice: the branching fronts, the fracture lines and the plates."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the ice. Size and round it here. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "What lies under the ice. It stays visible through the sheet, cooled and slightly softened."
+        }
+      ]
+    }
+  ]
+}

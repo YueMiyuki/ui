@@ -1,0 +1,74 @@
+{
+  "name": "Timetable picker",
+  "category": "pickers",
+  "original": true,
+  "description": "A station timetable with one row per hour and the minutes set out along it, for choosing a departure and seeing when it arrives.",
+  "preview": {
+    "layout": "center",
+    "height": 620
+  },
+  "props": [
+    {
+      "component": "TimetablePicker",
+      "props": [
+        {
+          "name": "departures",
+          "type": "{ time: string; kind: \"local\" | \"rapid\" | \"express\"; arrives: string; to?: string; platform?: string }[]",
+          "description": "Every departure in the day, as 24-hour \"HH:MM\" times. Rapid trains carry a dot and express trains a diamond, and express minutes are set in bold."
+        },
+        {
+          "name": "value",
+          "type": "string | null",
+          "description": "The chosen departure time (controlled). Use defaultValue when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(time: string, departure: Departure) => void",
+          "description": "Called when a departure is chosen, with its full record."
+        },
+        {
+          "name": "now",
+          "type": "string",
+          "description": "The time now, as \"HH:MM\". Earlier departures are dimmed, its hour is tinted, and the next departure is ringed and underlined."
+        },
+        {
+          "name": "allowPast",
+          "type": "boolean",
+          "default": "false",
+          "description": "Lets trains that left before now be chosen. By default they are dimmed, announced as departed and cannot be picked."
+        },
+        {
+          "name": "from",
+          "type": "string",
+          "description": "Departure station, shown under the time in the summary."
+        },
+        {
+          "name": "to",
+          "type": "string",
+          "description": "Arrival station, shown under the arrival time."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "default": "\"Departures\"",
+          "description": "Heading, which also names the timetable grid."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "A line under the heading, such as the day and the line."
+        },
+        {
+          "name": "kindLabels",
+          "type": "Partial<Record<\"local\" | \"rapid\" | \"express\", string>>",
+          "description": "Names for the train types in the key, the summary and for assistive technology."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the card."
+        }
+      ]
+    }
+  ]
+}

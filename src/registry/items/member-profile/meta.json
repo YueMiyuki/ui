@@ -1,0 +1,29 @@
+{
+  "name": "Member Profile",
+  "category": "templates",
+  "description": "A member's profile in an agent workspace: a cover and avatar, lifetime stats, a year of runs that regroups by week, month or year, runs per agent by month and recent tasks, with sharing and editing.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "MemberProfile",
+      "props": [
+        {
+          "name": "cover",
+          "type": "string",
+          "description": "Image for the cover band across the top. Without one the band is a plain well."
+        },
+        {
+          "name": "avatars",
+          "type": "Record<string, string>",
+          "default": "{}",
+          "description": "Portrait images keyed by person name, used for the member's avatar in the header and the sidebar. Without one the avatar shows initials."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

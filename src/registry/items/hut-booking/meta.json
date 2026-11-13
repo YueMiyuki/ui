@@ -1,0 +1,34 @@
+{
+  "name": "Hut Booking",
+  "category": "blocks",
+  "original": true,
+  "description": "A three-step booking card for a mountain hut: nights on a range calendar, guests and meals, then confirm, with an itemised summary that updates as you choose and a hut stamp on the booking.",
+  "preview": { "layout": "center", "height": 660 },
+  "props": [
+    {
+      "component": "HutBooking",
+      "props": [
+        {
+          "name": "hut",
+          "type": "Hut",
+          "description": "The hut: { name, region, altitude (metres), image?, currency? (ISO code, default \"JPY\"), prices: { bunk, child?, dinner, breakfast, lunch }, open?: { start, end } (ISO dates of the season), booked?: string[] (ISO dates of full nights, shown struck through), cancelDays? (free cancellation ends this many days before arrival, default 3) }. Prices are per person per night; child falls back to bunk."
+        },
+        {
+          "name": "defaultValue",
+          "type": "Partial<HutBookingChoice>",
+          "description": "Initial choices: { start, end (ISO dates), adults (default 2), children (default 0), dinner (default true), breakfast (default true), lunch (default false), guest }. Make another booking returns to these."
+        },
+        {
+          "name": "onConfirm",
+          "type": "(booking: HutBookingResult) => void",
+          "description": "Called when the booking is confirmed, with { reference, hut, start, end, nights, adults, children, meals, guest, lines, total }. lines is the itemised price list shown in the summary."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Other section props are passed through. Below about 640px of width the summary moves under the steps."
+        }
+      ]
+    }
+  ]
+}

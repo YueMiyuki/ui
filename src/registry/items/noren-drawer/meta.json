@@ -1,0 +1,94 @@
+{
+  "name": "Noren drawer",
+  "category": "overlays",
+  "original": true,
+  "description": "A drawer from the top edge whose content is covered by three cloth panels on a rod, which part as it opens and fall back as it closes.",
+  "preview": { "layout": "center", "height": 520, "thumb": false, "thumbClick": "button" },
+  "props": [
+    {
+      "component": "NorenDrawerTrigger",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A button that opens the drawer, then the NorenDrawer."
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Open state (controlled). Use defaultOpen when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the drawer opens or closes."
+        }
+      ]
+    },
+    {
+      "component": "NorenDrawer",
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Open state, when used without a NorenDrawerTrigger. Use defaultOpen when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the open state changes, when used without a NorenDrawerTrigger."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | ({ close }) => ReactNode",
+          "description": "The content behind the curtain. DrawerHeader, DrawerTitle, DrawerBody and DrawerFooter from Drawer fit it. Any button with slot=\"close\" closes it."
+        },
+        {
+          "name": "mark",
+          "type": "ReactNode",
+          "default": "<NorenMark />",
+          "description": "The emblem printed across the three panels, split by the slits between them. An SVG that draws in currentColor takes the cloth's ink."
+        },
+        {
+          "name": "closeButton",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows a close button in the top corner, under the rod."
+        },
+        {
+          "name": "isDismissable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close when the scrim is clicked. Escape always closes unless isKeyboardDismissDisabled is set."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default: the browser redraws the blur on every frame while anything behind it changes, which stalls on large pages, most of all in Firefox."
+        },
+        { "name": "aria-label", "type": "string", "description": "Labels the dialog when it has no title." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the panel, e.g. a width. It is 560 pixels wide at most."
+        },
+        {
+          "name": "clothClassName",
+          "type": "string",
+          "description": "Classes for the cloth. Set --miyuki-noren-cloth and --miyuki-noren-ink to dye it."
+        }
+      ]
+    },
+    {
+      "component": "NorenMark",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "The default emblem: a ring around three rows of waves."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Signature Pad",
+  "category": "inputs",
+  "original": true,
+  "description": "A paper area you sign with a brush: ink thickens when you slow down, thins when you hurry and bleeds a little where each stroke begins. A Type instead switch lets anyone without a pointer type their name, set in a script hand.",
+  "preview": { "layout": "center", "height": 380 },
+  "props": [
+    {
+      "component": "SignaturePad",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the paper." },
+        {
+          "name": "onChange",
+          "type": "(strokes: SignatureStroke[]) => void",
+          "description": "Called after each finished stroke, Undo and Clear, and when Type instead is switched. A stroke is an array of { x, y, time, pressure? } in CSS pixels from the paper's top left. While a typed name stands in for the drawing it is called with no strokes."
+        },
+        {
+          "name": "onNameChange",
+          "type": "(name: string) => void",
+          "description": "Called as the typed name changes, with the name trimmed, and with an empty string when Type instead is switched off. With the switch on, the name typed on the line is the signature; it is set in a script face from the system and toDataURL() draws it."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--foreground)\"",
+          "description": "Ink colour. Any CSS colour or token; it is read again when the theme changes."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "200",
+          "description": "Height of the paper in pixels. The width fills the container."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Dims the pad and ignores input."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<SignaturePadHandle>",
+          "description": "toDataURL(type?, quality?) returns the ink (or the typed name) alone on a transparent background at twice the size; also clear(), undo(), isEmpty(), strokes() and name()."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

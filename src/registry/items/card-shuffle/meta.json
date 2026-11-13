@@ -1,0 +1,48 @@
+{
+  "name": "Card Shuffle",
+  "category": "cards",
+  "description": "A small stack of cards that cycles, with the front card leaving and rejoining at the back.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "CardShuffle",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string | number; content: ReactNode }[]",
+          "description": "The cards, front first. Each one is placed on a padded card surface; the stack is as tall as its tallest card."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "5000",
+          "description": "Milliseconds each card spends at the front. A hairline along its bottom fills over this time. 0 turns cycling off."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": "10",
+          "description": "How much higher each card behind sits, in pixels."
+        },
+        {
+          "name": "scaleStep",
+          "type": "number",
+          "default": "0.05",
+          "description": "How much smaller each card behind is, as a fraction."
+        },
+        {
+          "name": "draggable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Lets the front card be flicked away sideways."
+        },
+        { "name": "cardClassName", "type": "string", "description": "Extra classes for every card surface." },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Name for the stack, which is a focusable region. Focus pauses it; the right and down arrow keys move it on."
+        }
+      ]
+    }
+  ]
+}

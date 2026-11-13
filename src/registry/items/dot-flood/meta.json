@@ -1,0 +1,48 @@
+{
+  "name": "Dot Flood",
+  "category": "backgrounds",
+  "description": "A matrix of small square dots that floods across a surface from a point and keeps shimmering, usually inside a card on hover or focus.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "DotFlood",
+      "props": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "description": "Shows the dots when true and recedes them when false. Leave it unset to reveal once on mount."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\"]",
+          "description": "One to three dot colours, mixed at random across the grid. Any CSS colour or token."
+        },
+        { "name": "dotSize", "type": "number", "default": "3", "description": "Side of each square dot, in pixels." },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "5",
+          "description": "Space between neighbouring dots, in pixels."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the wave and the shimmer. At 1 the wave crosses the surface in about 0.6 seconds and recedes in about 0.35."
+        },
+        {
+          "name": "origin",
+          "type": "\"center\" | \"pointer\"",
+          "default": "\"center\"",
+          "description": "Where the wave starts. `pointer` floods from the point where the pointer entered the parent element and recedes toward the point where it left; keyboard focus falls back to the centre."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the layer, which is absolutely positioned to fill its nearest positioned parent. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

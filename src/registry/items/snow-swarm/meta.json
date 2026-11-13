@@ -1,0 +1,98 @@
+{
+  "name": "Snow Swarm",
+  "category": "charts",
+  "original": true,
+  "description": "A dot plot whose dots fall like snow and settle at their values, piling up without overlapping, and drift to new places when regrouped.",
+  "preview": { "layout": "center", "height": 500 },
+  "props": [
+    {
+      "component": "SnowSwarm",
+      "props": [
+        {
+          "name": "points",
+          "type": "{ value: number; group: string; label: string }[]",
+          "description": "One dot per point. value sets its place along the axis exactly; dots pile upward from the axis where values crowd. label names the dot in the tooltip."
+        },
+        {
+          "name": "groups",
+          "type": "(string | { name: string; color?: string })[]",
+          "description": "The groups in order, for colours, lanes and the legend. Groups found in the points but not listed are added after. Colours follow the chart palette unless given."
+        },
+        {
+          "name": "split",
+          "type": "boolean",
+          "default": "false",
+          "description": "Give each group its own lane. Changing it, or the order of groups, makes the dots drift to their new places."
+        },
+        {
+          "name": "domain",
+          "type": "[number, number]",
+          "description": "The range of the axis. Defaults to a rounded range around the values."
+        },
+        {
+          "name": "ticks",
+          "type": "number[]",
+          "description": "Values to label on the axis. Defaults to a few round values."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip, legend and table, e.g. as dates. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatTick",
+          "type": "(value: number) => string",
+          "description": "Writes the axis labels. Defaults to format."
+        },
+        {
+          "name": "valueName",
+          "type": "string",
+          "default": "\"Value\"",
+          "description": "What the value is, for the tooltip and table, e.g. \"First snow\"."
+        },
+        {
+          "name": "groupName",
+          "type": "string",
+          "default": "\"Group\"",
+          "description": "What the groups are, for the tooltip and table, e.g. \"Region\"."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "240",
+          "description": "Plot height in pixels, including the axis. Dots shrink if a pile would not fit."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show each group's median under the plot."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the groups and medians when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline value, already formatted." },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value." },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "description": "A control on the right of the header, such as a switch between one pile and a lane per group."
+        },
+        { "name": "footer", "type": "ReactNode", "description": "Replaces the legend under the plot." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card, e.g. a width. Also accepts note, delta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

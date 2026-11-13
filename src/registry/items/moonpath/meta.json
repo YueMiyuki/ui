@@ -1,0 +1,41 @@
+{
+  "name": "Moonpath",
+  "category": "backgrounds",
+  "original": true,
+  "description": "The moon over open water and the flickering road of light it lays toward you; by day a low sun and a warm path.",
+  "preview": { "layout": "fill", "height": 480 },
+  "demos": [
+    { "name": "default", "title": "Night" },
+    { "name": "phases", "title": "Phases" },
+    { "name": "day", "title": "Day" }
+  ],
+  "props": [
+    {
+      "component": "Moonpath",
+      "props": [
+        {
+          "name": "phase",
+          "type": "number",
+          "default": "0.5",
+          "description": "Phase of the moon from 0 to 1: 0 is new, 0.25 first quarter, 0.5 full, 0.75 last quarter. It sets the lit part of the disc and the brightness of the path. By day the sun is always whole."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the movement of the water and the flicker of the glints."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the scene. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the scene. The path leans toward the pointer, as if you were walking along the shore."
+        }
+      ]
+    }
+  ]
+}

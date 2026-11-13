@@ -1,0 +1,60 @@
+{
+  "name": "Carousel",
+  "category": "media",
+  "description": "A row of cards you slide through, with snapping, round arrow buttons and dots.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "Carousel",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "CarouselItem elements." },
+        {
+          "name": "slidesPerView",
+          "type": "number | { base?: number; sm?: number; md?: number; lg?: number; xl?: number }",
+          "default": "{ base: 1, sm: 2, lg: 3 }",
+          "description": "Slides in view at once. Per breakpoint, each value applies from that screen width up."
+        },
+        { "name": "gap", "type": "number", "default": "16", "description": "Space between slides, in pixels." },
+        {
+          "name": "showArrows",
+          "type": "boolean",
+          "default": "true",
+          "description": "Round previous and next buttons under the track. They are disabled at the ends."
+        },
+        {
+          "name": "showDots",
+          "type": "boolean",
+          "default": "true",
+          "description": "One dot per position under the track; the current one stretches into a water pill as you scroll."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Carousel\"",
+          "description": "Names the carousel for assistive technology."
+        },
+        {
+          "name": "labels",
+          "type": "{ previous?: string; next?: string; goTo?: (index) => string; slide?: (index, count) => string }",
+          "description": "Text for assistive technology, for translation."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Also accepts every other prop of a section."
+        }
+      ]
+    },
+    {
+      "component": "CarouselItem",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The slide's content." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

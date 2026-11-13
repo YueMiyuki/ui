@@ -1,0 +1,29 @@
+{
+  "name": "Chat Shell",
+  "category": "templates",
+  "description": "The simplest working chat shell: a sidebar, an API key empty state with three steps, a composer and replies that stream in word by word.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "ChatShell",
+      "props": [
+        {
+          "name": "user",
+          "type": "{ name: string; email: string; avatar?: string }",
+          "default": "Aiko Tanaka",
+          "description": "The signed-in person shown at the foot of the sidebar."
+        },
+        {
+          "name": "respond",
+          "type": "(message: string) => string | Promise<string>",
+          "description": "Returns the reply to a sent message, which then streams in word by word. Without it the shell answers with sample replies."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It fills the viewport height. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

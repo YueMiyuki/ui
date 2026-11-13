@@ -1,0 +1,35 @@
+{
+  "name": "Gate Transition",
+  "category": "navigation",
+  "original": true,
+  "description": "A wrapper that switches between views through a ticket gate: two flaps swing shut across the middle, a lamp lights, the content changes behind them and the flaps swing open, all in 600ms.",
+  "preview": { "layout": "center", "height": 380 },
+  "props": [
+    {
+      "component": "GateTransition",
+      "props": [
+        {
+          "name": "viewKey",
+          "type": "Key",
+          "description": "Identifies the view being shown. Changing it runs the gate; the old children stay on screen until the flaps are shut."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The current view. Updates that keep the same viewKey show straight away."
+        },
+        {
+          "name": "tone",
+          "type": "\"glass\" | \"ink\" | \"brand\"",
+          "default": "\"glass\"",
+          "description": "The flaps: frosted glass with a water edge, solid ink, or solid water."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapper. Other div props are passed through. With reduced motion the views cross-fade instead."
+        }
+      ]
+    }
+  ]
+}

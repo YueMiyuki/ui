@@ -1,0 +1,152 @@
+{
+  "name": "Command palette",
+  "category": "overlays",
+  "description": "A searchable list of every page and action, opened with ⌘K or Ctrl+K and driven from the keyboard.",
+  "demos": [{ "name": "inline", "title": "Inline panel" }, { "name": "default", "title": "Dialog" }],
+  "preview": { "layout": "center", "height": 540 },
+  "props": [
+    {
+      "component": "CommandPalette",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "CommandGroup and CommandItem elements." },
+        {
+          "name": "onAction",
+          "type": "(key: Key) => void",
+          "description": "Called with the item's id when it is chosen. The palette then closes."
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Open state (controlled). Inside a DialogTrigger it follows the trigger instead."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Open state on first render (uncontrolled)."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the palette opens or closes."
+        },
+        {
+          "name": "shortcut",
+          "type": "string | null",
+          "default": "\"k\"",
+          "description": "The key that opens and closes the palette with ⌘ or Ctrl. Null turns the shortcut off."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Search pages and actions…\"",
+          "description": "Placeholder of the search row."
+        },
+        {
+          "name": "emptyState",
+          "type": "ReactNode | (query: string) => ReactNode",
+          "description": "Shown when nothing matches. Defaults to a short message naming the query."
+        },
+        {
+          "name": "inputValue",
+          "type": "string",
+          "description": "The query (controlled). Use defaultInputValue when uncontrolled."
+        },
+        { "name": "onInputChange", "type": "(value: string) => void", "description": "Called as the query changes." },
+        {
+          "name": "isDismissable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close when the scrim is clicked. Escape clears the query first, then closes."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default: the browser redraws the blur on every frame while anything behind it changes, which stalls on large pages, most of all in Firefox."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Command palette\"",
+          "description": "Names the dialog."
+        },
+        { "name": "className", "type": "string", "description": "Classes for the panel." },
+        { "name": "overlayClassName", "type": "string", "description": "Classes for the scrim." }
+      ]
+    },
+    {
+      "component": "CommandPalettePanel",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "CommandGroup and CommandItem elements." },
+        {
+          "name": "onAction",
+          "type": "(key: Key) => void",
+          "description": "Called with the item's id when it is chosen."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Search pages and actions…\"",
+          "description": "Placeholder of the search row."
+        },
+        {
+          "name": "emptyState",
+          "type": "ReactNode | (query: string) => ReactNode",
+          "description": "Shown when nothing matches."
+        },
+        {
+          "name": "inputValue",
+          "type": "string",
+          "description": "The query (controlled). Use defaultInputValue when uncontrolled."
+        },
+        { "name": "onInputChange", "type": "(value: string) => void", "description": "Called as the query changes." },
+        { "name": "autoFocus", "type": "boolean", "default": "false", "description": "Focus the search row on mount." },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Commands\"",
+          "description": "Names the list of results."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the panel, e.g. a width. It is at most 560 pixels wide."
+        }
+      ]
+    },
+    {
+      "component": "CommandGroup",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "A small heading over the group. Groups with no matches are hidden while filtering."
+        },
+        { "name": "children", "type": "ReactNode", "description": "CommandItem elements." }
+      ]
+    },
+    {
+      "component": "CommandItem",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The label. Matched against the query." },
+        { "name": "id", "type": "Key", "description": "Identifies the item in onAction." },
+        { "name": "icon", "type": "ReactNode", "description": "A 16 pixel icon before the label." },
+        {
+          "name": "shortcut",
+          "type": "string",
+          "description": "Key hint at the end of the row. Separate keys with spaces, e.g. \"⌘ ⇧ L\"."
+        },
+        {
+          "name": "keywords",
+          "type": "string[]",
+          "description": "Extra words that also match, e.g. [\"dark\", \"light\"] for a theme switch."
+        },
+        { "name": "textValue", "type": "string", "description": "Text to match when the label is not a plain string." },
+        { "name": "onAction", "type": "() => void", "description": "Called when the item is chosen." },
+        { "name": "href", "type": "string", "description": "Makes the item a link." },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the item." }
+      ]
+    }
+  ]
+}

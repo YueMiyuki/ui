@@ -1,0 +1,111 @@
+{
+  "name": "Combo Chart",
+  "category": "charts",
+  "description": "Bars in tubes on the left axis and a line with dots on the right axis, in a card.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "ComboChart",
+      "props": [
+        { "name": "labels", "type": "string[]", "description": "One label per column." },
+        { "name": "bars", "type": "number[]", "description": "Values for the bars, read on the left axis." },
+        {
+          "name": "line",
+          "type": "number[]",
+          "description": "Values for the line, read on the right axis. The right axis is stepped to share the left axis's grid lines."
+        },
+        {
+          "name": "barName",
+          "type": "string",
+          "default": "\"Bars\"",
+          "description": "What the bars count, for the legend and tooltip."
+        },
+        {
+          "name": "lineName",
+          "type": "string",
+          "default": "\"Line\"",
+          "description": "What the line measures, for the legend and tooltip."
+        },
+        {
+          "name": "barColor",
+          "type": "string",
+          "default": "\"var(--chart-2)\"",
+          "description": "Bar colour, seafoam by default."
+        },
+        {
+          "name": "lineColor",
+          "type": "string",
+          "default": "\"var(--chart-1)\"",
+          "description": "Line colour, water by default."
+        },
+        {
+          "name": "formatBar",
+          "type": "(value: number) => string",
+          "description": "Writes bar values in the tooltip. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatLine",
+          "type": "(value: number) => string",
+          "description": "Writes line values in the tooltip. Defaults to a percentage of a fraction."
+        },
+        {
+          "name": "formatBarAxis",
+          "type": "(value: number) => string",
+          "description": "Writes the left tick labels. Defaults to compact numbers."
+        },
+        {
+          "name": "formatLineAxis",
+          "type": "(value: number) => string",
+          "description": "Writes the right tick labels. Defaults to percentages."
+        },
+        {
+          "name": "lineAxisClassName",
+          "type": "string",
+          "default": "\"fill-brand-strong\"",
+          "description": "Classes for the right tick labels, so they read in the line's colour."
+        },
+        { "name": "height", "type": "number", "default": "208", "description": "Plot height in pixels." },
+        { "name": "titles", "type": "string[]", "description": "Longer names for the tooltip title." },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a legend naming the bars and the line."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the left-hand axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "yRightLabel",
+          "type": "ReactNode",
+          "description": "A title beside the right-hand axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        { "name": "note", "type": "ReactNode", "description": "A muted line under the value." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts caption, action, footer, invertDelta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

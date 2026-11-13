@@ -1,0 +1,84 @@
+{
+  "name": "Notification",
+  "category": "display",
+  "description": "A status message card with a tone icon or an avatar, a timestamp, body text and optional actions.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Stack"
+    },
+    {
+      "name": "tones",
+      "title": "Tones"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 620
+  },
+  "props": [
+    {
+      "component": "Notification",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "What happened, in a few words. Names the card."
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"success\" | \"warning\" | \"destructive\" | \"info\"",
+          "default": "\"neutral\"",
+          "description": "Colours the round tile and picks its icon."
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "description": "Replaces the tone's icon inside the tile."
+        },
+        {
+          "name": "avatar",
+          "type": "string | ReactNode",
+          "description": "An image URL or an Avatar, shown instead of the tile. Use a 40 pixel avatar."
+        },
+        {
+          "name": "time",
+          "type": "ReactNode",
+          "description": "A short timestamp after the title, e.g. \"2 min ago\"."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The body text."
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "description": "Small buttons under the body, e.g. a secondary and a brand Button with size=\"sm\"."
+        },
+        {
+          "name": "onClose",
+          "type": "() => void",
+          "description": "Shows a close button in the top corner and is called when it is pressed."
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "default": "\"Dismiss\"",
+          "description": "Accessible label of the close button."
+        },
+        {
+          "name": "unread",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows a water dot beside the icon and tells screen readers the card is unread."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Also accepts every other article prop."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "name": "Breadcrumb",
+  "category": "navigation",
+  "description": "A trail of links showing where you are, with the middle steps folded into a menu when it gets long.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "collapsed", "title": "Collapsed" }],
+  "preview": { "layout": "center", "height": 260 },
+  "props": [
+    {
+      "component": "Breadcrumbs",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Breadcrumb elements, from the top of the hierarchy down to the current page."
+        },
+        {
+          "name": "maxItems",
+          "type": "number",
+          "default": "4",
+          "description": "The most crumbs to show, counting the \"…\" button. Past this the middle crumbs fold into a menu, keeping the first and the last."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Breadcrumbs\"",
+          "description": "Names the surrounding nav landmark."
+        },
+        {
+          "name": "onAction",
+          "type": "(key: Key) => void",
+          "description": "Called with the id of a crumb that is pressed. Useful for crumbs without an href."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables every link in the trail."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the list. Also accepts every other prop of the react-aria-components Breadcrumbs."
+        }
+      ]
+    },
+    {
+      "component": "Breadcrumb",
+      "props": [
+        {
+          "name": "href",
+          "type": "string",
+          "description": "Where the crumb leads. Ignored on the last crumb, which is the current page."
+        },
+        { "name": "children", "type": "ReactNode", "description": "The page's name." },
+        { "name": "id", "type": "Key", "description": "Passed to onAction when the crumb is pressed." },
+        {
+          "name": "linkProps",
+          "type": "LinkProps",
+          "description": "Props for the inner react-aria-components Link, such as target or routerOptions."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the list item."
+        }
+      ]
+    }
+  ]
+}

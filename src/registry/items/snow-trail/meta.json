@@ -1,0 +1,36 @@
+{
+  "name": "Snow Trail",
+  "category": "cursor",
+  "original": true,
+  "description": "Inside its area the pointer sheds a short trail of tiny flakes that fall, drift and fade, and a click throws a small flurry.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "SnowTrail",
+      "props": [
+        {
+          "name": "rate",
+          "type": "number",
+          "default": "1",
+          "description": "How many flakes are shed per distance moved. Faster movement sheds more on top of this. 0 turns the trail and the click flurry off."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--miyuki-snow-trail-flake)\"",
+          "description": "Colour of the flakes. The default is a cool blue-grey shade under a white body by day and near-white with a faint glow at night. Any CSS colour or token."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The content of the area. The flakes are drawn above it and never take the pointer, so links, buttons and text selection work as usual."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and sets the size of the area. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Trip planner",
+  "category": "templates",
+  "original": true,
+  "description": "A route-planning workspace: an itinerary whose stages reorder, a map of the route with an elevation profile that moves a marker along it, and an assistant with a packing checklist.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "TripPlanner",
+      "props": [
+        {
+          "name": "map",
+          "type": "string",
+          "description": "Image drawn under the route, such as a contour map. Without one the route sits on a plain well."
+        },
+        {
+          "name": "party",
+          "type": "{ name: string; role?: string; avatar?: string }[]",
+          "default": "[]",
+          "description": "The people on the trip, shown as avatars in the header."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. From 1024px wide it fills the viewport as three panes that scroll on their own; below that the panes become tabs and the page scrolls. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

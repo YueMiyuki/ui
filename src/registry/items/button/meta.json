@@ -1,0 +1,49 @@
+{
+  "name": "Button",
+  "category": "buttons",
+  "description": "A button in six weights and three sizes, with icons and a pending state.",
+  "demos": [
+    { "name": "default", "title": "Variants" },
+    { "name": "sizes", "title": "Sizes" },
+    { "name": "states", "title": "Icons and states" }
+  ],
+  "preview": { "layout": "center", "height": 280 },
+  "props": [
+    {
+      "component": "Button",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"brand\" | \"secondary\" | \"soft\" | \"ghost\" | \"destructive\"",
+          "default": "\"primary\"",
+          "description": "Visual weight. Primary is ink for the main action, brand is water."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels."
+        },
+        { "name": "iconStart", "type": "ReactNode", "description": "Icon before the label. Sized to 16 pixels." },
+        { "name": "iconEnd", "type": "ReactNode", "description": "Icon after the label." },
+        {
+          "name": "isPending",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows a spinner in place of the start icon (or over the label when there is none), keeps the width, sets aria-busy and blocks presses."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the button." },
+        {
+          "name": "onPress",
+          "type": "(event: PressEvent) => void",
+          "description": "Called when the button is pressed by mouse, touch or keyboard."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components Button."
+        }
+      ]
+    }
+  ]
+}

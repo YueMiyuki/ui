@@ -1,0 +1,63 @@
+{
+  "name": "Tide Range",
+  "category": "inputs",
+  "original": true,
+  "description": "A two-thumb range slider drawn as a strip of moving water, with bobbing buoys for thumbs and deeper water between them.",
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "TideRange",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the water." },
+        { "name": "value", "type": "[number, number]", "description": "The range (controlled)." },
+        {
+          "name": "defaultValue",
+          "type": "[number, number]",
+          "default": "a quarter and three fifths of the way along",
+          "description": "Starting range when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: number[]) => void",
+          "description": "Called continuously while a buoy moves."
+        },
+        {
+          "name": "onChangeEnd",
+          "type": "(value: number[]) => void",
+          "description": "Called when a drag or key press ends."
+        },
+        { "name": "minValue", "type": "number", "default": "0", "description": "Value at the left end." },
+        { "name": "maxValue", "type": "number", "default": "100", "description": "Value at the right end." },
+        { "name": "step", "type": "number", "default": "1", "description": "Increment between values." },
+        {
+          "name": "formatOptions",
+          "type": "Intl.NumberFormatOptions",
+          "description": "How the flags and the scale write values, e.g. { style: \"unit\", unit: \"meter\" }."
+        },
+        {
+          "name": "thumbLabels",
+          "type": "[string, string]",
+          "default": "[\"Minimum\", \"Maximum\"]",
+          "description": "Accessible names for the two buoys."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the water. Any CSS colour or token."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the slider and dims it to 50%."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components Slider."
+        }
+      ]
+    }
+  ]
+}

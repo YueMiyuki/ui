@@ -1,0 +1,94 @@
+{
+  "name": "Tabs",
+  "category": "navigation",
+  "description": "Switch between panels with a water underline or a pill that slides to the current tab.",
+  "demos": [
+    { "name": "default", "title": "Underline" },
+    { "name": "pill", "title": "Pill" },
+    { "name": "vertical", "title": "Vertical" }
+  ],
+  "preview": { "layout": "center", "height": 260 },
+  "props": [
+    {
+      "component": "Tabs",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"underline\" | \"pill\"",
+          "default": "\"underline\"",
+          "description": "Underline: tabs on a hairline with a 2px water line under the current one. Pill: a card that slides inside a muted track."
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "Lay the tabs out in a row above the panel, or in a column beside it."
+        },
+        { "name": "selectedKey", "type": "Key", "description": "The id of the current tab (controlled)." },
+        {
+          "name": "defaultSelectedKey",
+          "type": "Key",
+          "description": "The id of the tab shown first (uncontrolled). Defaults to the first tab."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(key: Key) => void",
+          "description": "Called when another tab is chosen."
+        },
+        {
+          "name": "keyboardActivation",
+          "type": "\"automatic\" | \"manual\"",
+          "default": "\"automatic\"",
+          "description": "Whether arrow keys switch panels straight away, or only move focus until Enter or Space."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Tabs."
+        }
+      ]
+    },
+    {
+      "component": "TabList",
+      "props": [
+        { "name": "aria-label", "type": "string", "description": "Names the set of tabs for assistive technology." },
+        { "name": "children", "type": "ReactNode", "description": "The Tab elements." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components TabList."
+        }
+      ]
+    },
+    {
+      "component": "Tab",
+      "props": [
+        { "name": "id", "type": "Key", "description": "Matches the id of the TabPanel this tab shows." },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The label, optionally with a lucide icon before it."
+        },
+        { "name": "count", "type": "ReactNode", "description": "A number in a small muted badge after the label." },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables this tab." }
+      ]
+    },
+    {
+      "component": "TabPanel",
+      "props": [
+        { "name": "id", "type": "Key", "description": "Matches the id of its Tab." },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The panel content. It fades in when its tab is chosen."
+        },
+        {
+          "name": "shouldForceMount",
+          "type": "boolean",
+          "default": "false",
+          "description": "Keep the panel in the DOM while it is hidden."
+        }
+      ]
+    }
+  ]
+}

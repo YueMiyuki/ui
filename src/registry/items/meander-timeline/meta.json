@@ -1,0 +1,24 @@
+{
+  "name": "Meander Timeline",
+  "category": "layout",
+  "original": true,
+  "description": "Events along a river that winds down the page in slow bends and fills with water as you scroll, with each event on alternate banks joined by a small tributary and a leaf drifting at the reading position.",
+  "preview": { "layout": "fill", "height": 600, "iframe": true },
+  "props": [
+    {
+      "component": "MeanderTimeline",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ title: ReactNode; date: ReactNode; content?: ReactNode }[]",
+          "description": "The events, in order down the river. Each becomes a small card on alternate banks, or a single column on screens narrower than 640px."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and takes the width of its parent. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

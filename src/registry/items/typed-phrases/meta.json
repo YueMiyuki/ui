@@ -1,0 +1,67 @@
+{
+  "name": "Typed Phrases",
+  "category": "text",
+  "description": "Phrases typed out after a fixed prefix, held, erased and replaced, with a water-blue caret.",
+  "demos": [{ "name": "default", "title": "Type" }, { "name": "wipe", "title": "Wipe" }],
+  "preview": { "layout": "center", "height": 300 },
+  "props": [
+    {
+      "component": "TypedPhrases",
+      "props": [
+        {
+          "name": "phrases",
+          "type": "string[]",
+          "description": "Phrases typed one after another. The box is sized for the tallest from the start, so nothing around it moves. Screen readers get the prefix and every phrase."
+        },
+        { "name": "prefix", "type": "ReactNode", "description": "Static text before the phrases." },
+        {
+          "name": "mode",
+          "type": "\"type\" | \"wipe\"",
+          "default": "\"type\"",
+          "description": "Type adds and removes one character at a time. Wipe reveals and hides the whole phrase behind a moving soft edge."
+        },
+        {
+          "name": "typeSpeed",
+          "type": "number",
+          "default": "55",
+          "description": "Milliseconds per character typed, with a slight human unevenness. In wipe, sets the speed of the edge."
+        },
+        {
+          "name": "deleteSpeed",
+          "type": "number",
+          "default": "30",
+          "description": "Milliseconds per character deleted."
+        },
+        {
+          "name": "pause",
+          "type": "number",
+          "default": "1600",
+          "description": "Milliseconds a finished phrase is held before it is erased."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "true",
+          "description": "Start again after the last phrase. Off, the last phrase stays."
+        },
+        {
+          "name": "caret",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the caret: a 2px water-blue bar that holds steady while typing and blinks while waiting."
+        },
+        {
+          "name": "startOnView",
+          "type": "boolean",
+          "default": "true",
+          "description": "Wait until the text is scrolled into view. Off, it starts on mount."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, a grid. Font, size and colour are inherited. Under reduced motion a whole phrase shows and the caret holds still."
+        }
+      ]
+    }
+  ]
+}

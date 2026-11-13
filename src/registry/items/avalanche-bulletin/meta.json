@@ -1,0 +1,72 @@
+{
+  "name": "Avalanche Bulletin",
+  "category": "blocks",
+  "original": true,
+  "description": "A public avalanche bulletin: the danger level with its name, danger by slope and height on a rose, the avalanche problems and the forecaster's note.",
+  "preview": { "layout": "center", "height": 960 },
+  "props": [
+    {
+      "component": "AvalancheBulletin",
+      "props": [
+        {
+          "name": "bulletin",
+          "type": "AvalancheBulletinData",
+          "description": "Everything the bulletin shows, described below."
+        },
+        { "name": "bulletin.region", "type": "string", "description": "The heading, such as a mountain range." },
+        {
+          "name": "bulletin.areas",
+          "type": "string",
+          "description": "The places the bulletin covers, under the heading."
+        },
+        {
+          "name": "bulletin.issued",
+          "type": "string",
+          "description": "When the bulletin was written, already formatted."
+        },
+        { "name": "bulletin.validUntil", "type": "string", "description": "When it expires, already formatted." },
+        {
+          "name": "bulletin.level",
+          "type": "1 | 2 | 3 | 4 | 5",
+          "description": "The danger level. It is shown large as a number on a tile in its colour, with its name (Low, Moderate, Considerable, High, Very high), its place on a five-step scale and a sentence on what it means."
+        },
+        {
+          "name": "bulletin.levels",
+          "type": "DangerLevel[][]",
+          "description": "Danger for each of eight aspects, from north clockwise, and three elevation bands, from lowest to highest. Drawn on the rose; pointing at or arrowing to a cell reads it out, and the whole grid is also given as a table to screen readers."
+        },
+        {
+          "name": "bulletin.bands",
+          "type": "[string, string, string]",
+          "default": "[\"Below the tree line\", \"Tree line\", \"Alpine\"]",
+          "description": "Names of the three elevation bands, from the centre of the rose to its rim."
+        },
+        {
+          "name": "bulletin.headline",
+          "type": "ReactNode",
+          "description": "One sentence on the main danger, under the level."
+        },
+        {
+          "name": "bulletin.tendency",
+          "type": "ReactNode",
+          "description": "A short note on how the danger will change."
+        },
+        {
+          "name": "bulletin.problems",
+          "type": "{ kind, title?, aspects, bands?, elevation, time, hours?, description }[]",
+          "description": "The avalanche problems, as cards. kind is wind-slab, persistent-weak-layer, wet-snow, new-snow or gliding-snow and picks the drawing and default title. aspects and bands fill a small rose for where; hours ([from, to], 0 to 24) fills a small day dial for when."
+        },
+        {
+          "name": "bulletin.forecaster",
+          "type": "{ name: string; role?: string; avatar?: string; text: ReactNode }",
+          "description": "The forecaster's note at the foot, signed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the article. Other article props are passed through. Set --miyuki-avalanche-bulletin-gap to the surface colour if you place it on something other than the page background."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "name": "Date calendar",
+  "category": "pickers",
+  "suspense": true,
+  "description": "A month on the page for choosing one date or a range, with one or two months side by side.",
+  "demos": [
+    { "name": "default", "title": "Single date" },
+    { "name": "range", "title": "Range" },
+    { "name": "two-months", "title": "Two months" }
+  ],
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "Calendar",
+      "props": [
+        {
+          "name": "visibleMonths",
+          "type": "1 | 2",
+          "default": "1",
+          "description": "Months shown side by side. They wrap onto two rows when there is no room."
+        },
+        {
+          "name": "value",
+          "type": "DateValue | null",
+          "description": "The chosen date (controlled). Use defaultValue when uncontrolled."
+        },
+        { "name": "onChange", "type": "(value: DateValue) => void", "description": "Called when a date is chosen." },
+        {
+          "name": "minValue",
+          "type": "DateValue",
+          "description": "Earliest date that can be chosen. Earlier days are dimmed."
+        },
+        { "name": "maxValue", "type": "DateValue", "description": "Latest date that can be chosen." },
+        {
+          "name": "isDateUnavailable",
+          "type": "(date: DateValue) => boolean",
+          "description": "Marks days that can be focused but not chosen. They are muted and struck through."
+        },
+        {
+          "name": "focusedValue",
+          "type": "DateValue",
+          "description": "The focused date, which decides the month shown (controlled). Use defaultFocusedValue when uncontrolled."
+        },
+        {
+          "name": "firstDayOfWeek",
+          "type": "\"sun\" | \"mon\" | \"tue\" | \"wed\" | \"thu\" | \"fri\" | \"sat\"",
+          "description": "First column of the week. Defaults to the locale's."
+        },
+        {
+          "name": "pageBehavior",
+          "type": "\"visible\" | \"single\"",
+          "default": "\"visible\"",
+          "description": "Whether the arrows move by all visible months or by one."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the calendar and dims it to 50%."
+        },
+        {
+          "name": "isReadOnly",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the value but does not change it."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components Calendar; give it an aria-label."
+        }
+      ]
+    },
+    {
+      "component": "RangeCalendar",
+      "props": [
+        { "name": "visibleMonths", "type": "1 | 2", "default": "1", "description": "Months shown side by side." },
+        {
+          "name": "value",
+          "type": "{ start: DateValue; end: DateValue } | null",
+          "description": "The chosen range (controlled). Use defaultValue when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: { start: DateValue; end: DateValue }) => void",
+          "description": "Called when both ends have been chosen."
+        },
+        {
+          "name": "allowsNonContiguousRanges",
+          "type": "boolean",
+          "default": "false",
+          "description": "Let a range run across unavailable days."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Accepts the same props as Calendar otherwise."
+        }
+      ]
+    }
+  ]
+}

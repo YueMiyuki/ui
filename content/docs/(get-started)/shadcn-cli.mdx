@@ -1,0 +1,74 @@
+---
+title: Using the shadcn CLI
+description: Add the registry to your project and install components by name.
+---
+
+miyuki-ui is a shadcn registry. The CLI reads it, copies the files into your project and installs what they need.
+
+## Add the namespace
+
+Add the `@miyuki-ui` registry to `components.json`:
+
+<RegistryJson />
+
+Or let the CLI add it:
+
+<RegistryAdd />
+
+## Add components
+
+Name one or more components:
+
+```npm
+npx shadcn@latest add @miyuki-ui/button @miyuki-ui/northern-lights
+```
+
+For each one, the CLI:
+
+- copies the component into `components/miyuki-ui/`,
+- adds the shared helpers it uses to `components/miyuki-ui/lib/`,
+- installs the packages it imports,
+- adds the other miyuki-ui components it uses,
+- adds the `base` tokens to your stylesheet.
+
+## Where the files go
+
+The components live in their own folder, beside shadcn's `components/ui/`. They never overwrite shadcn's files, so you can use both side by side.
+
+<Files>
+  <Folder name="components" defaultOpen>
+    <Folder name="miyuki-ui" defaultOpen>
+      <Folder name="lib" defaultOpen>
+        <File name="prng.ts" />
+      </Folder>
+      <File name="button.tsx" />
+      <File name="northern-lights.tsx" />
+    </Folder>
+    <Folder name="ui" defaultOpen>
+      <File name="button.tsx" />
+    </Folder>
+  </Folder>
+  <Folder name="lib" defaultOpen>
+    <File name="utils.ts" />
+  </Folder>
+</Files>
+
+Import them from there:
+
+```tsx
+import { Button } from "@/components/miyuki-ui/button";
+```
+
+## Without the namespace
+
+Every component also has its own URL, which works without the registry entry:
+
+<AddByUrl slug="button" />
+
+## Update a component
+
+Run the add command again with `--overwrite` to replace your copy with the current version. Changes you made to that file are lost, so commit them first.
+
+```npm
+npx shadcn@latest add @miyuki-ui/button --overwrite
+```

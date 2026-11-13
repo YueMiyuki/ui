@@ -1,0 +1,57 @@
+{
+  "name": "Tatami Grid",
+  "category": "layout",
+  "original": true,
+  "description": "Lays its children out as tatami mats, half or full, arranged so that four corners never meet, and re-lays the room with a layout animation when mats are added, removed or resized.",
+  "preview": { "layout": "center", "height": 620 },
+  "props": [
+    {
+      "component": "TatamiGrid",
+      "props": [
+        {
+          "name": "columns",
+          "type": "number",
+          "default": "4",
+          "description": "Half-mat cells across the room. A full mat covers two cells, lying across or along. The room drops to fewer cells when they would be narrower than 104px."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "6",
+          "description": "Space between mats and around the room, in pixels."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "TatamiMat elements, each with a key. They are placed in reading order as far as the rule allows; when the mats cannot fill the room exactly, the rest is laid as plain floor boards."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the room, a muted well with rounded corners. Other div props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "TatamiMat",
+      "props": [
+        {
+          "name": "span",
+          "type": "\"half\" | \"full\"",
+          "default": "\"full\"",
+          "description": "A half mat is one square cell; a full mat is two cells, 2:1. Which way a full mat lies is chosen by the layout."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The mat's content. Each mat is a group named tatami with data-shape set to wide, tall or square, so content can adapt with group-data-[shape=tall]/tatami: and the like."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the content box inside the mat's cloth edging. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

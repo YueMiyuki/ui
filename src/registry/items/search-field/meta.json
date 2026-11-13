@@ -1,0 +1,59 @@
+{
+  "name": "Search Field",
+  "category": "inputs",
+  "description": "A search box with a clear button, a pending state and a keyboard shortcut hint.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "filter", "title": "Filtering a list" }],
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "SearchField",
+      "props": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Label above the field. Without one, give it an aria-label."
+        },
+        { "name": "description", "type": "ReactNode", "description": "Help text under the field." },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the field while it is invalid."
+        },
+        { "name": "placeholder", "type": "string", "description": "Hint shown while the field is empty." },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels."
+        },
+        {
+          "name": "isPending",
+          "type": "boolean",
+          "default": "false",
+          "description": "The lens draws in its handle and turns into a spinning ring until the results arrive."
+        },
+        {
+          "name": "shortcut",
+          "type": "string",
+          "description": "A key hint shown at the right while the field is empty, such as \"/\" or \"⌘K\". Pressing it anywhere on the page focuses the field."
+        },
+        { "name": "value", "type": "string", "description": "The query (controlled)." },
+        { "name": "defaultValue", "type": "string", "description": "The query at first (uncontrolled)." },
+        { "name": "onChange", "type": "(value: string) => void", "description": "Called as the query changes." },
+        { "name": "onSubmit", "type": "(value: string) => void", "description": "Called when Enter is pressed." },
+        {
+          "name": "onClear",
+          "type": "() => void",
+          "description": "Called when the field is cleared with Escape or the clear button."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the field." },
+        { "name": "fieldClassName", "type": "string", "description": "Extra classes for the outlined box." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components SearchField."
+        }
+      ]
+    }
+  ]
+}

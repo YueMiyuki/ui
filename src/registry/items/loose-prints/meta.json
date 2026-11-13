@@ -1,0 +1,48 @@
+{
+  "name": "Loose Prints",
+  "category": "cards",
+  "description": "Photo prints scattered on a surface that you can pick up, throw against the edges and pile on top of each other.",
+  "preview": { "layout": "fill", "height": 520 },
+  "props": [
+    {
+      "component": "LoosePrints",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the surface. Its box is the bounds the prints stay inside, so give it a size."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "LoosePrint elements, and anything to show behind them."
+        }
+      ]
+    },
+    {
+      "component": "LoosePrint",
+      "props": [
+        {
+          "name": "initial",
+          "type": "{ x: number; y: number; rotate: number }",
+          "description": "Starting offset from the centre of the container, in pixels, and angle in degrees. Without it the print takes a seeded position and angle. Prints are kept inside the bounds when the container resizes."
+        },
+        {
+          "name": "caption",
+          "type": "ReactNode",
+          "description": "Text written in the wide bottom margin of the print."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The photo. Give it a width; the print wraps it with a narrow border."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the print, which is focusable. Arrow keys move the focused print, Shift moves it further."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Torch Card",
+  "category": "cards",
+  "description": "A plain card where a soft light follows the pointer and reveals a pattern that is otherwise invisible.",
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "TorchCard",
+      "props": [
+        { "name": "radius", "type": "number", "default": "220", "description": "Radius of the light, in pixels." },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the light, the border glow and the pattern. Any CSS colour, including a token variable."
+        },
+        {
+          "name": "pattern",
+          "type": "\"dots\" | \"grid\" | \"none\"",
+          "default": "\"dots\"",
+          "description": "The pattern revealed inside the light."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the card. It is rounded-2xl, bordered and padded by default."
+        },
+        { "name": "children", "type": "ReactNode", "description": "The card's content." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+---
+title: Theming
+description: The tokens every component reads, the full palette, and dark mode.
+---
+
+Components style themselves with Tailwind utilities that point at CSS variables: `bg-background`, `text-foreground`, `bg-brand` and so on. Change a variable and every component follows.
+
+## Two registry items
+
+**base** travels with every component. It adds the tokens a stock shadcn theme does not have: `brand`, `success` and `warning` with their soft and strong steps, `destructive-soft`, `destructive-strong`, `border-strong`, `chart-6`, two easings and the display font stack. It never changes a variable you already have.
+
+**theme** is optional. It replaces your colours, radius scale and shadows with the snow-and-water palette, in light and dark.
+
+```npm
+npx shadcn@latest add @miyuki-ui/theme
+```
+
+## Tokens
+
+| Utility | Use |
+| --- | --- |
+| `bg-background`, `text-foreground` | Page and body text |
+| `bg-card` | Raised surfaces: cards, inputs, secondary buttons |
+| `bg-popover` | Menus, popovers, tooltips and dialogs |
+| `bg-muted`, `text-muted-foreground` | Wells and tracks, secondary text |
+| `bg-secondary` | Soft filled controls |
+| `bg-accent` | Hover and highlighted rows |
+| `bg-primary`, `text-primary-foreground` | Ink: the main action |
+| `bg-brand`, `text-brand-foreground` | Water: selected, on, in progress |
+| `bg-brand-soft`, `text-brand-strong` | A water tint behind text, water-coloured text and links |
+| `bg-destructive`, `bg-destructive-soft`, `text-destructive-strong` | Errors and destructive actions |
+| `bg-success`, `bg-success-soft`, `text-success-strong` | Success |
+| `bg-warning`, `bg-warning-soft`, `text-warning-strong` | Warnings |
+| `border-border` | Hairlines |
+| `border-border-strong`, `border-input` | Control outlines |
+| `ring-ring` | Focus rings |
+| `chart-1` to `chart-6` | Data and effect hues |
+
+Each `-foreground` pairs with its solid fill. Text on a `-soft` tint uses the matching `-strong` step. Opacity modifiers work on every token, for example `bg-brand/15`.
+
+### Radius
+
+| Utility | Size | Use |
+| --- | --- | --- |
+| `rounded-sm` | 6px | Chips inside controls, checkboxes |
+| `rounded-md` | 8px | Small buttons, menu items |
+| `rounded-lg` | 10px | Buttons, inputs, selects |
+| `rounded-xl` | 14px | Cards, popovers, menus |
+| `rounded-2xl` | 18px | Dialogs, drawers, large cards |
+| `rounded-3xl` | 22px | Hero panels |
+
+Every step follows `--radius`.
+
+### Shadows
+
+`shadow-xs` to `shadow-2xl` are tinted blue. In the dark theme they add a thin line of frost along the top edge.
+
+## Dark mode
+
+The dark theme turns on with the `dark` class on `<html>`. Set the class before the page paints, from a small inline script in `<head>`, so the page does not flash.
+
+You can also switch part of a page: give any element the `dark` or `light` class. The tokens and the `dark:` variant follow the nearest one.
+
+```css title="globals.css"
+@custom-variant dark (&:where(.dark, .dark *):not(:where(.light, .light *)));
+```
+
+## The stylesheet [#stylesheet]
+
+To set the theme up by hand, paste this into your global stylesheet, after `@import "tailwindcss";`. It holds the same variables the `theme` item installs.
+
+<ThemeCss />

@@ -1,0 +1,71 @@
+{
+  "name": "Postcard Flip",
+  "category": "cards",
+  "original": true,
+  "description": "A postcard whose corner curls up under the pointer and is carried across until the card has turned over, showing the message side.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "PostcardFlip",
+      "props": [
+        {
+          "name": "front",
+          "type": "ReactNode",
+          "description": "The picture side. It fills the card, which is 440px wide at the proportions of a postcard."
+        },
+        { "name": "back", "type": "ReactNode", "description": "The message side. PostcardBack lays one out." },
+        {
+          "name": "flipped",
+          "type": "boolean",
+          "description": "Controlled state: true shows the back. Changing it plays the turn."
+        },
+        { "name": "defaultFlipped", "type": "boolean", "default": "false", "description": "Starts showing the back." },
+        {
+          "name": "onFlippedChange",
+          "type": "(flipped: boolean) => void",
+          "description": "Called when the card has been turned over."
+        },
+        {
+          "name": "turnLabel",
+          "type": "string",
+          "default": "\"Turn the postcard over\"",
+          "description": "Accessible name of the button that covers the card. Click it, press Enter or Space, or drag the card leftward past halfway to turn it; hovering or focusing lifts the lower right corner."
+        },
+        { "name": "className", "type": "string", "description": "Classes for the card. Give it an aria-label." }
+      ]
+    },
+    {
+      "component": "PostcardBack",
+      "props": [
+        { "name": "message", "type": "ReactNode", "description": "The note, written on the left half in pen blue." },
+        { "name": "signature", "type": "ReactNode", "description": "Signed under the note." },
+        {
+          "name": "address",
+          "type": "string[]",
+          "description": "Address lines, written on ruled lines on the right half."
+        },
+        {
+          "name": "postcode",
+          "type": "string",
+          "description": "Up to seven digits, written into red postcode boxes above the address."
+        },
+        {
+          "name": "stamp",
+          "type": "ReactNode",
+          "description": "The picture inside the perforated stamp, usually an img."
+        },
+        {
+          "name": "value",
+          "type": "ReactNode",
+          "default": "\"84\"",
+          "description": "Face value printed on the stamp."
+        },
+        {
+          "name": "postmark",
+          "type": "{ place: string; date: string }",
+          "description": "A round postmark with wavy cancellation lines, struck across the stamp."
+        }
+      ]
+    }
+  ]
+}

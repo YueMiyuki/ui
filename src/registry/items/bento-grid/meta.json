@@ -1,0 +1,43 @@
+{
+  "name": "Bento grid",
+  "category": "layout",
+  "description": "A grid of unequal tiles, each with a small visual on top, a title and a line of text.",
+  "preview": { "layout": "center", "height": 640 },
+  "props": [
+    {
+      "component": "BentoGrid",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The tiles, usually BentoGridItem." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the outer element, which is a size container. The grid has one column, two from 36rem wide and three from 48rem."
+        }
+      ]
+    },
+    {
+      "component": "BentoGridItem",
+      "props": [
+        {
+          "name": "header",
+          "type": "ReactNode",
+          "description": "The visual at the top of the tile, in a 9rem well with rounded, clipped corners. It shifts 4px when the tile is hovered."
+        },
+        { "name": "icon", "type": "ReactNode", "description": "A small icon above the title." },
+        { "name": "title", "type": "ReactNode", "description": "The tile's title." },
+        { "name": "description", "type": "ReactNode", "description": "One line of supporting text." },
+        {
+          "name": "tone",
+          "type": "\"default\" | \"water\"",
+          "default": "\"default\"",
+          "description": "water fills the tile with the brand colour, for the one tile that should stand out."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes, usually a span such as @3xl:col-span-2."
+        }
+      ]
+    }
+  ]
+}

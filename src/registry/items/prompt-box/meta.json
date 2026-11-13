@@ -1,0 +1,207 @@
+{
+  "name": "Prompt Box",
+  "category": "ai",
+  "description": "The message box for a chat with an agent: a text area that grows line by line, a model picker, and a send button that turns into stop while a reply streams.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "PromptBox",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The text (controlled). Use defaultValue when uncontrolled; the composer then clears itself after sending."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Starting text when uncontrolled."
+        },
+        { "name": "onChange", "type": "(value: string) => void", "description": "Called as the text changes." },
+        {
+          "name": "onSend",
+          "type": "(value: string) => void",
+          "description": "Called with the text when the send button is pressed or Enter is typed. Shift+Enter adds a line, and Enter that confirms an input-method candidate is ignored."
+        },
+        {
+          "name": "onStop",
+          "type": "() => void",
+          "description": "Called when the stop button is pressed while streaming."
+        },
+        {
+          "name": "status",
+          "type": "\"idle\" | \"streaming\"",
+          "default": "\"idle\"",
+          "description": "While streaming, the send arrow morphs into a stop square and Enter no longer sends."
+        },
+        {
+          "name": "models",
+          "type": "{ id: string; name: string; description?: ReactNode }[]",
+          "description": "Models for the picker in the toolbar. The picker is hidden when there are none."
+        },
+        {
+          "name": "model",
+          "type": "string",
+          "description": "The chosen model id (controlled). Use defaultModel when uncontrolled."
+        },
+        {
+          "name": "defaultModel",
+          "type": "string",
+          "default": "the first model",
+          "description": "Starting model when uncontrolled."
+        },
+        { "name": "onModelChange", "type": "(id: string) => void", "description": "Called when a model is chosen." },
+        {
+          "name": "context",
+          "type": "{ id?: string; label: ReactNode; icon?: ReactNode }[]",
+          "description": "Quiet chips under the box, such as a branch and a folder."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Ask anything\"",
+          "description": "Placeholder for the text area."
+        },
+        {
+          "name": "onAttach",
+          "type": "(files: File[]) => void",
+          "description": "Called with the files chosen after pressing the + button, which opens the system file picker."
+        },
+        {
+          "name": "accept",
+          "type": "string[]",
+          "description": "File types the picker offers, as MIME types or extensions."
+        },
+        { "name": "showAttach", "type": "boolean", "default": "true", "description": "Shows the + button." },
+        {
+          "name": "canSend",
+          "type": "boolean",
+          "description": "Overrides whether sending is allowed. By default the send button is disabled while the text is blank; pass true to send attachments without text."
+        },
+        {
+          "name": "maxRows",
+          "type": "number",
+          "default": "8",
+          "description": "Lines the text area grows to before it scrolls."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables typing and every control."
+        },
+        { "name": "autoFocus", "type": "boolean", "description": "Focuses the text area on mount." },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Rendered inside the box above the text area, for attachments."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Other div props are spread onto it."
+        }
+      ]
+    },
+    {
+      "component": "PromptBoxTextArea",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The text (controlled). Also accepts defaultValue, onChange, isDisabled and every other prop of the react-aria-components TextField."
+        },
+        { "name": "onSubmit", "type": "() => void", "description": "Called on Enter without Shift." },
+        { "name": "placeholder", "type": "string", "default": "\"Ask anything\"", "description": "Placeholder text." },
+        { "name": "minRows", "type": "number", "default": "1", "description": "Lines shown when empty." },
+        { "name": "maxRows", "type": "number", "default": "8", "description": "Lines it grows to before it scrolls." },
+        { "name": "aria-label", "type": "string", "default": "\"Message\"", "description": "Accessible name." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the element that clips and animates the height."
+        },
+        {
+          "name": "textAreaClassName",
+          "type": "string",
+          "description": "Classes for the textarea, e.g. to change its padding."
+        },
+        { "name": "ref", "type": "Ref<HTMLTextAreaElement>", "description": "The textarea element." }
+      ]
+    },
+    {
+      "component": "PromptBoxSendButton",
+      "props": [
+        {
+          "name": "status",
+          "type": "\"idle\" | \"streaming\"",
+          "default": "\"idle\"",
+          "description": "Idle shows an up arrow; streaming morphs it into a stop square."
+        },
+        { "name": "onSend", "type": "() => void", "description": "Called when pressed while idle." },
+        { "name": "onStop", "type": "() => void", "description": "Called when pressed while streaming." },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables sending. Ignored while streaming, so stop always works."
+        }
+      ]
+    },
+    {
+      "component": "PromptBoxModelPicker",
+      "props": [
+        {
+          "name": "models",
+          "type": "{ id: string; name: string; description?: ReactNode }[]",
+          "description": "The choices, shown in a dropdown with their descriptions."
+        },
+        { "name": "model", "type": "string", "description": "The chosen id (controlled)." },
+        {
+          "name": "defaultModel",
+          "type": "string",
+          "default": "the first model",
+          "description": "Starting id when uncontrolled."
+        },
+        { "name": "onModelChange", "type": "(id: string) => void", "description": "Called when a model is chosen." },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Model\"",
+          "description": "Names the menu and prefixes the trigger's accessible name."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the trigger." }
+      ]
+    },
+    {
+      "component": "PromptBoxAttachButton",
+      "props": [
+        {
+          "name": "onAttach",
+          "type": "(files: File[]) => void",
+          "description": "Called with the files chosen in the system picker."
+        },
+        { "name": "accept", "type": "string[]", "description": "File types the picker offers." },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Add files\"",
+          "description": "Accessible name and tooltip."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the button." }
+      ]
+    },
+    {
+      "component": "PromptBoxContextRow",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id?: string; label: ReactNode; icon?: ReactNode }[]",
+          "description": "The chips, each with an optional 14 pixel icon."
+        },
+        { "name": "className", "type": "string", "description": "Extra classes for the list." }
+      ]
+    }
+  ]
+}

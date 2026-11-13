@@ -1,0 +1,86 @@
+{
+  "name": "Heatmap Chart",
+  "category": "charts",
+  "description": "A matrix of rounded cells on a five-step water ramp, such as days by hour blocks, with a tooltip per cell and a ramp legend.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "HeatmapChart",
+      "props": [
+        { "name": "rows", "type": "string[]", "description": "Short labels down the left, one per row, e.g. days." },
+        {
+          "name": "columns",
+          "type": "string[]",
+          "description": "Short labels along the bottom, one per column, e.g. hour blocks. Crowded labels thin out."
+        },
+        { "name": "data", "type": "number[][]", "description": "One array per row with a value per column." },
+        {
+          "name": "rowTitles",
+          "type": "string[]",
+          "description": "Longer row names for the tooltip and the screen-reader table."
+        },
+        {
+          "name": "columnTitles",
+          "type": "string[]",
+          "description": "Longer column names for the tooltip, e.g. \"06:00–08:00\"."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "What the values are, shown in the tooltip and legend. Defaults to the card label."
+        },
+        {
+          "name": "colors",
+          "type": "readonly string[]",
+          "description": "The ramp from the lowest step to the highest. Defaults to five evenly spaced water steps, from a quiet empty cell to brand-strong."
+        },
+        {
+          "name": "thresholds",
+          "type": "number[]",
+          "description": "Lower bounds of every step after the first, ascending. Defaults to even, rounded steps up to the largest value."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatLegend",
+          "type": "(value: number) => string",
+          "description": "Writes the step bounds under the ramp legend."
+        },
+        {
+          "name": "cellHeight",
+          "type": "number",
+          "default": "22",
+          "description": "Height of each cell in pixels. Cell width follows the card, and cells get shorter when it is narrow."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the ramp legend under the plot."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value, e.g. \"last 7 days\"." },
+        { "name": "footer", "type": "ReactNode", "description": "Replaces the legend under the plot." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts note, action, invertDelta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Testimonial Stack",
+  "category": "media",
+  "description": "A pile of portraits beside a quotation; stepping through brings the next portrait to the top.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "TestimonialStack",
+      "props": [
+        {
+          "name": "testimonials",
+          "type": "{ quote: string; name: string; designation: string; src: string }[]",
+          "description": "The people and what they said. src is a portrait, shown square; designation is the line under the name."
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean",
+          "default": "false",
+          "description": "Step to the next testimonial by itself. It holds while hovered or focused and stays off under reduced motion."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "5000",
+          "description": "Milliseconds between steps when autoplay is on."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Testimonials\"",
+          "description": "Names the carousel for assistive technology."
+        },
+        {
+          "name": "labels",
+          "type": "{ previous?: string; next?: string; slide?: (name, index, count) => string }",
+          "description": "Text for assistive technology, for translation. slide is announced when someone steps."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root, a two-column grid from the md breakpoint. Also accepts every other prop of a section."
+        }
+      ]
+    }
+  ]
+}

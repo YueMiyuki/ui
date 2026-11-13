@@ -1,0 +1,52 @@
+{
+  "name": "Ticket Stub",
+  "category": "cards",
+  "original": true,
+  "description": "A paper ticket with a perforated stub that swings open as you pull it, breaking one perforation after another, then comes away and falls, leaving the ticket marked as used.",
+  "demos": [{ "name": "default", "title": "Rail ticket" }, { "name": "bottom", "title": "Stub at the bottom" }],
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "TicketStub",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The main part of the ticket: route, time, seat." },
+        { "name": "stub", "type": "ReactNode", "description": "What is printed on the stub." },
+        {
+          "name": "torn",
+          "type": "boolean",
+          "description": "Controlled state. Setting it to true tears the stub off with the same motion as a pull; setting it back to false puts a whole stub back."
+        },
+        {
+          "name": "defaultTorn",
+          "type": "boolean",
+          "default": "false",
+          "description": "Starts with the stub already gone."
+        },
+        { "name": "onTear", "type": "() => void", "description": "Called when the perforation has torn through." },
+        {
+          "name": "side",
+          "type": "\"right\" | \"bottom\"",
+          "default": "\"right\"",
+          "description": "Where the stub sits. Pull it away from the ticket, or along the perforation, and the tear follows the pull; let go part way and the stub hangs by what is left, ready to be pulled again."
+        },
+        {
+          "name": "tearLabel",
+          "type": "string",
+          "default": "\"Tear ticket\"",
+          "description": "Accessible name of the stub, which is a button: Enter or Space tears it."
+        },
+        {
+          "name": "usedLabel",
+          "type": "ReactNode",
+          "default": "\"Used\"",
+          "description": "Text of the stamp that lands on the ticket once the stub is gone. It is also announced."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the ticket. It is 460px wide (300px with the stub at the bottom); give it an aria-label."
+        }
+      ]
+    }
+  ]
+}

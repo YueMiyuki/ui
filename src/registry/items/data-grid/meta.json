@@ -1,0 +1,40 @@
+{
+  "name": "Data grid",
+  "category": "blocks",
+  "description": "An editable spreadsheet with typed columns, range selection, in-place editing, column menus, resizing, and tab-separated copy and paste.",
+  "demos": [{ "name": "default", "title": "Accounts" }, { "name": "large", "title": "Four hundred rows" }],
+  "preview": { "layout": "fill", "height": 520 },
+  "props": [
+    {
+      "component": "DataGrid",
+      "props": [
+        {
+          "name": "columns",
+          "type": "{ id: string; name: string; type?: \"text\" | \"number\" | \"select\" | \"status\"; width?: number; options?: (string | { value: string; label?: string; tone?: \"neutral\" | \"brand\" | \"success\" | \"warning\" | \"destructive\" })[]; format?: (value: number) => string }[]",
+          "description": "The columns. Numbers are right-aligned and summed in the footer; select and status cells pick from options, and a status shows its option as a tinted badge. Widths default by type and can be dragged at the header edge; double-click the edge to reset."
+        },
+        {
+          "name": "rows",
+          "type": "Record<string, unknown>[]",
+          "description": "The rows, keyed by column id. Passing a different array resets the grid's copy, its undo history and its sorted order."
+        },
+        {
+          "name": "onChange",
+          "type": "(rows: T[]) => void",
+          "description": "Called with a new array after every edit, paste, cut, clear, undo or redo. The grid keeps working without it."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Data grid\"",
+          "description": "Names the grid for assistive technology."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the frame. Give it a height; rows scroll inside and only the visible ones are rendered."
+        }
+      ]
+    }
+  ]
+}

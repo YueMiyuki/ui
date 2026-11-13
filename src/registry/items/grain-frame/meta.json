@@ -1,0 +1,58 @@
+{
+  "name": "Grain Frame",
+  "category": "backgrounds",
+  "description": "A frame of slowly drifting colour under a fine layer of grain, used as a living border or a full background.",
+  "preview": { "layout": "center", "height": 320 },
+  "props": [
+    {
+      "component": "GrainFrame",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content placed over the colour. Give it its own surface and a few pixels of container padding to leave only a border showing."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\", \"var(--chart-3)\"]",
+          "description": "Colours of the three drifting patches, and of the gradient beneath them."
+        },
+        {
+          "name": "noiseIntensity",
+          "type": "number",
+          "default": "0.2",
+          "description": "Opacity of the grain, from 0 to 1. It is blended as an overlay, so it reads softer than the number suggests."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "0.1",
+          "description": "Drift speed. At 0.1 a patch takes about 20 seconds to circle once."
+        },
+        {
+          "name": "animating",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let the colour drift. It holds still under reduced motion."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blur what shows through the content wrapper, for children with a translucent surface."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the content wrapper, a one-cell grid that stretches its child."
+        },
+        {
+          "name": "containerClassName",
+          "type": "string",
+          "description": "Classes for the outer frame: radius, padding and size. Other div props go to the frame."
+        }
+      ]
+    }
+  ]
+}

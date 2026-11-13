@@ -1,0 +1,94 @@
+{
+  "name": "Ice Blocks",
+  "category": "backgrounds",
+  "description": "A field of ice blocks that rise and fall as waves spread out from the pointer, with drops that start ripples when it rests.",
+  "demos": [{ "name": "default", "title": "Isometric" }, { "name": "perspective", "title": "Perspective" }],
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "IceBlocks",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"isometric\" | \"perspective\"",
+          "default": "\"isometric\"",
+          "description": "A flat isometric field that fills the frame, or a field that recedes toward a horizon and fades into the background."
+        },
+        {
+          "name": "cellSize",
+          "type": "number",
+          "default": "28",
+          "description": "Edge of each cube in pixels. In perspective, the size at the near edge is about half again as large."
+        },
+        { "name": "gap", "type": "number", "default": "2", "description": "Space between cubes in pixels." },
+        {
+          "name": "amplitude",
+          "type": "number",
+          "default": "18",
+          "description": "How far a cube rises or sinks at the height of a wave, in pixels."
+        },
+        {
+          "name": "damping",
+          "type": "number",
+          "default": "0.96",
+          "description": "How long waves last, from 0 to 1. At 0.96 a ripple crosses the field and fades in about two seconds; lower values calm the surface sooner."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for how fast the simulation runs and waves travel."
+        },
+        {
+          "name": "idleRipples",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let random drops start ripples when the pointer has been still for idleDelay."
+        },
+        {
+          "name": "idleDelay",
+          "type": "number",
+          "default": "2500",
+          "description": "Milliseconds without pointer movement before the drops begin."
+        },
+        {
+          "name": "topColor",
+          "type": "string",
+          "description": "Colour of the top faces. Defaults to snow by day and a lighter deep blue at night."
+        },
+        {
+          "name": "leftColor",
+          "type": "string",
+          "description": "Colour of the left faces. Defaults to a pale water shade by day and deep blue at night."
+        },
+        {
+          "name": "rightColor",
+          "type": "string",
+          "description": "Colour of the right faces. Defaults to a deeper water shade by day and near-background blue at night."
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": "true",
+          "description": "Light the rims of cubes riding a crest. Additive at night, a fine ink line by day."
+        },
+        {
+          "name": "glowColor",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the crest rim light."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the field. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the field. The pointer is tracked on the window, so content does not block the waves."
+        }
+      ]
+    }
+  ]
+}

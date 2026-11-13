@@ -1,0 +1,47 @@
+{
+  "name": "Rain on Glass",
+  "category": "backgrounds",
+  "original": true,
+  "description": "Rain on a misted window: drops gather, run and merge, leave trails of beads that slowly dry, and each one holds a small upside-down view of the world behind the glass.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "RainOnGlass",
+      "props": [
+        {
+          "name": "intensity",
+          "type": "number",
+          "default": "0.5",
+          "description": "How hard it rains, from 0 to 1. More rain means more and larger drops and more runs. At 0 the drops already on the glass dry out."
+        },
+        {
+          "name": "fog",
+          "type": "number",
+          "default": "0.4",
+          "description": "How misted the glass is, from 0 (clear) to 1. Running drops wipe clear trails that mist over again after about ten seconds."
+        },
+        {
+          "name": "wind",
+          "type": "number",
+          "default": "0",
+          "description": "Sideways lean of the running drops, from -1 (to the left) to 1 (to the right)."
+        },
+        {
+          "name": "overlay",
+          "type": "ReactNode",
+          "description": "Content on the room side of the glass, above the rain. It stays sharp and clickable, and the root's layout classes place it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the glass. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The world behind the glass, filling the root. Images, videos and canvases in it are what the drops refract; give an image `object-cover` and `size-full`."
+        }
+      ]
+    }
+  ]
+}

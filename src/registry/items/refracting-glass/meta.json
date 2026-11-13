@@ -1,0 +1,58 @@
+{
+  "name": "Refracting Glass",
+  "category": "backgrounds",
+  "description": "A clear panel that bends whatever is behind it, strongest at the rim, with frosted glass as the fallback.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "RefractingGlass",
+      "props": [
+        {
+          "name": "radius",
+          "type": "number | \"pill\"",
+          "default": "24",
+          "description": "Corner radius in pixels, or `pill` for fully rounded ends."
+        },
+        {
+          "name": "bevel",
+          "type": "number",
+          "default": "20",
+          "description": "Width of the curved rim in pixels. Inside it the glass is flat and nearly undistorted."
+        },
+        {
+          "name": "refraction",
+          "type": "number",
+          "default": "36",
+          "description": "How far the rim bends the backdrop, in pixels at the very edge."
+        },
+        {
+          "name": "aberration",
+          "type": "number",
+          "default": "0.35",
+          "description": "Colour fringing at the rim, from 0 (none) to 1."
+        },
+        {
+          "name": "frost",
+          "type": "number",
+          "default": "1",
+          "description": "Blur of the backdrop in pixels. Where refraction is not supported, the panel falls back to frosted glass with at least 14px of blur."
+        },
+        {
+          "name": "tint",
+          "type": "string",
+          "description": "Colour laid over the backdrop. Without it, a faint snow tint by day and a faint ink tint at night. Use a translucent colour."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the panel. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content on the glass. It stays crisp; only the backdrop is bent."
+        }
+      ]
+    }
+  ]
+}

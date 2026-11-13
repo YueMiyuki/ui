@@ -1,0 +1,63 @@
+{
+  "name": "Before and After",
+  "category": "media",
+  "description": "Two images in one frame with a divider you move to compare them.",
+  "demos": [{ "name": "default", "title": "Drag" }, { "name": "autoplay", "title": "Autoplay and hover" }],
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "BeforeAfter",
+      "props": [
+        {
+          "name": "first",
+          "type": "string | ReactNode",
+          "description": "The image on the left of the divider. A string is used as an image URL; anything else is placed as it is and should fill its box."
+        },
+        {
+          "name": "second",
+          "type": "string | ReactNode",
+          "description": "The image on the right, clipped at the divider."
+        },
+        {
+          "name": "initial",
+          "type": "number",
+          "default": "50",
+          "description": "Where the divider starts, as a percentage of the width from the left."
+        },
+        {
+          "name": "mode",
+          "type": "\"drag\" | \"hover\"",
+          "default": "\"drag\"",
+          "description": "Drag: press anywhere and drag to move the divider. Hover: the divider follows the pointer. Touch always drags."
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean",
+          "default": "false",
+          "description": "Sweep the divider slowly back and forth until someone takes over. It holds while hovered or focused and stays off under reduced motion."
+        },
+        {
+          "name": "autoplayDuration",
+          "type": "number",
+          "default": "5000",
+          "description": "Milliseconds for one sweep from side to side."
+        },
+        {
+          "name": "labels",
+          "type": "[string, string]",
+          "description": "Small labels for the top corners, which fade as the divider passes over them. They also name the images and the divider for assistive technology."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Name of the divider, which is a slider for assistive technology. Defaults to one built from labels."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the frame, which is 16:10 and full width by default. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

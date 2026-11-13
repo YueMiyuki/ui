@@ -1,0 +1,67 @@
+{
+  "name": "Tilt Card",
+  "category": "cards",
+  "description": "A card that tilts toward the pointer while its contents lift off the surface at different depths.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "TiltCard",
+      "props": [
+        {
+          "name": "maxTilt",
+          "type": "number",
+          "default": "10",
+          "description": "Largest tilt on each axis, in degrees."
+        },
+        {
+          "name": "perspective",
+          "type": "number",
+          "default": "1000",
+          "description": "CSS perspective distance in pixels. Smaller values look more dramatic."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the hover area, which also sets the card's width."
+        }
+      ]
+    },
+    {
+      "component": "TiltCardBody",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the tilting surface. It is a card by default: rounded-2xl, hairline border, bg-card, p-5. Avoid overflow-hidden, opacity and filter here; they flatten the 3D effect."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The card's content, with TiltCardItem around anything that should lift."
+        }
+      ]
+    },
+    {
+      "component": "TiltCardItem",
+      "props": [
+        {
+          "name": "depth",
+          "type": "number",
+          "default": "0",
+          "description": "How far the item rises toward the viewer while the card is hovered or focused, in pixels, from 0 to 100."
+        },
+        {
+          "name": "as",
+          "type": "ElementType",
+          "default": "\"div\"",
+          "description": "The element to render, for example \"h3\" or \"p\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Any wrapper between the body and an item needs [transform-style:preserve-3d] to keep the depth."
+        }
+      ]
+    }
+  ]
+}

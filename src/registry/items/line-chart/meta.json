@@ -1,0 +1,116 @@
+{
+  "name": "Line Chart",
+  "category": "charts",
+  "description": "One line over a soft water area in a card, smooth or straight, with a crosshair tooltip.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "axis-titles", "title": "Axis titles" }],
+  "preview": {
+    "layout": "center",
+    "height": 420
+  },
+  "props": [
+    {
+      "component": "LineChart",
+      "props": [
+        {
+          "name": "data",
+          "type": "number[]",
+          "description": "One value per label. A new data set is revealed again from the left."
+        },
+        {
+          "name": "labels",
+          "type": "string[]",
+          "description": "One label per point along the bottom. Crowded labels thin out."
+        },
+        {
+          "name": "curve",
+          "type": "\"smooth\" | \"linear\"",
+          "default": "\"smooth\"",
+          "description": "Bend through the points without overshooting, or join them with straight lines."
+        },
+        {
+          "name": "baseline",
+          "type": "number | \"auto\"",
+          "default": "0",
+          "description": "Where the value axis starts. The default of 0 keeps proportions honest; \"auto\" starts just under the lowest value, which suits a series that sits far above zero, such as a balance or a pressure reading."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "What the values are, shown in the tooltip. Defaults to the card label."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--chart-1)\"",
+          "description": "Line and area colour."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "200",
+          "description": "Plot height in pixels. The width follows the card."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatAxis",
+          "type": "(value: number) => string",
+          "description": "Writes the tick labels on the left. Defaults to compact numbers such as 1.5M."
+        },
+        {
+          "name": "titles",
+          "type": "string[]",
+          "description": "Longer names for the tooltip title, one per label."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the vertical axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data when left out."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Small muted label at the top of the card."
+        },
+        {
+          "name": "value",
+          "type": "ReactNode",
+          "description": "The headline number, already formatted."
+        },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "description": "A control on the right of the header, such as a segmented control that swaps the data set."
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "description": "A row under the plot."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card, e.g. a width. Also accepts caption, note, invertDelta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

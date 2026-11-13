@@ -1,0 +1,41 @@
+{
+  "name": "Resort status",
+  "category": "templates",
+  "original": true,
+  "description": "A ski resort's live status page: the morning snow report, lifts whose status and queues flip as they change, runs by difficulty, webcams, a trail map and pass prices.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "ResortStatus",
+      "props": [
+        {
+          "name": "webcams",
+          "type": "{ src: string; name: string; altitude: string; time: string }[]",
+          "default": "[]",
+          "description": "Up to four webcam frames, each with the camera's name, altitude and the time the frame was taken. Without any, the webcam section is left out."
+        },
+        {
+          "name": "trailMap",
+          "type": "string",
+          "description": "Image drawn under the trail map, such as a contour map of the mountain. Without one the map sits on a plain well."
+        },
+        {
+          "name": "forecaster",
+          "type": "{ name: string; role?: string; avatar?: string }",
+          "description": "Who wrote the morning report, shown under its note."
+        },
+        {
+          "name": "live",
+          "type": "boolean",
+          "default": "true",
+          "description": "Play a scripted run of lift changes every few seconds: queues flip on split-flap digits, statuses flip over, and the open counts in the report follow. Pauses while the tab is hidden."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

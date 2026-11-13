@@ -1,0 +1,108 @@
+{
+  "name": "Dot Mosaic",
+  "category": "cards",
+  "description": "An image rebuilt as a mosaic of dots in its own colours, sized by tone, which scatter around the pointer and spring back.",
+  "preview": {
+    "layout": "center",
+    "height": 520
+  },
+  "props": [
+    {
+      "component": "DotMosaic",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "The image to rebuild. It is drawn on a canvas, so it must be same-origin or a data URI."
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "description": "Description of the picture. When set, the box is exposed to screen readers as an image with this name."
+        },
+        {
+          "name": "cellSize",
+          "type": "number",
+          "default": "4",
+          "description": "Size of each grid cell, in CSS pixels."
+        },
+        {
+          "name": "dotScale",
+          "type": "number",
+          "default": "0.9",
+          "description": "Size of the largest dots as a fraction of the cell. Each dot's size follows its tone: by day it grows with darkness, like ink on paper; at night it grows with light, and the dots glow softly."
+        },
+        {
+          "name": "shape",
+          "type": "\"circle\" | \"square\"",
+          "default": "\"circle\"",
+          "description": "Shape of each dot."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "Lets the pointer disturb the dots. Off under reduced motion."
+        },
+        {
+          "name": "distortionMode",
+          "type": "\"repel\" | \"attract\" | \"swirl\"",
+          "default": "\"repel\"",
+          "description": "Dots near the pointer are pushed aside, pulled in or carried round it."
+        },
+        {
+          "name": "distortionRadius",
+          "type": "number",
+          "default": "90",
+          "description": "Reach of the pointer, in CSS pixels."
+        },
+        {
+          "name": "distortionStrength",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for how far the dots move."
+        },
+        {
+          "name": "dropout",
+          "type": "number",
+          "default": "0.3",
+          "description": "From 0 to 1. Leaves out the dots that would be smallest, the brightest areas by day and the darkest at night, so the mosaic has air without breaking up smooth areas."
+        },
+        {
+          "name": "grayscale",
+          "type": "boolean",
+          "default": "false",
+          "description": "Draws the dots in grey tones of the image."
+        },
+        {
+          "name": "tint",
+          "type": "string",
+          "description": "A colour mixed into every dot. Any CSS colour, including a token variable; it is read again when the theme changes."
+        },
+        {
+          "name": "tintStrength",
+          "type": "number",
+          "default": "0.35",
+          "description": "How much of the tint is mixed in, from 0 to 1."
+        },
+        {
+          "name": "objectFit",
+          "type": "\"cover\" | \"contain\" | \"fill\"",
+          "default": "\"cover\"",
+          "description": "How the image fits the box. The box takes the image's aspect ratio unless you give it one."
+        },
+        {
+          "name": "maxFps",
+          "type": "number",
+          "default": "60",
+          "description": "Upper limit for the frame rate while dots are moving. Nothing is drawn while they rest."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the box. The background is transparent, so the page shows through the gaps. The night rendering follows the dark class."
+        }
+      ]
+    }
+  ]
+}

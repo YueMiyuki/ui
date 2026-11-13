@@ -1,0 +1,46 @@
+{
+  "name": "Mask Reveal",
+  "category": "backgrounds",
+  "description": "A second version of the content, a water-blue layer seen through a round hole that follows the pointer and opens wide over the text.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "MaskReveal",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The base content, centred. The hole opens to revealSize while the pointer is over any element inside it."
+        },
+        {
+          "name": "reveal",
+          "type": "ReactNode",
+          "description": "The content of the layer under the ice, centred in the same box. Lay it out like the base so the two line up."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Diameter of the hole in pixels while the pointer is over empty space."
+        },
+        {
+          "name": "revealSize",
+          "type": "number",
+          "default": "320",
+          "description": "Diameter of the hole in pixels while the pointer is over the content."
+        },
+        {
+          "name": "feather",
+          "type": "number",
+          "default": "2",
+          "description": "Width of the soft edge of the hole, in pixels."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, a focusable group. Give it a size; a radius is passed on to the revealed layer. Keyboard focus opens the whole layer. Other div props are passed through, including aria-label."
+        }
+      ]
+    }
+  ]
+}

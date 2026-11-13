@@ -1,0 +1,36 @@
+{
+  "name": "Ripple Cursor",
+  "category": "cursor",
+  "original": true,
+  "description": "A surface that answers the pointer with thin light and dark rings that spread and fade along its path, and a stronger double ring where you click.",
+  "preview": { "layout": "center", "height": 440 },
+  "props": [
+    {
+      "component": "RippleCursor",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Tint of the rings. The light band is a pale wash of it and the dark band a deep shade of it. Any CSS colour or token."
+        },
+        {
+          "name": "strength",
+          "type": "number",
+          "default": "1",
+          "description": "How strongly the rings show. 0 turns the effect off."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content above the surface. The rings are drawn beneath it, and the pointer is tracked through it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and sets the size and background of the surface. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

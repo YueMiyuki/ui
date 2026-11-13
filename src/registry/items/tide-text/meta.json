@@ -1,0 +1,54 @@
+{
+  "name": "Tide Text",
+  "category": "text",
+  "original": true,
+  "description": "An outlined headline that holds water inside its letters, with a moving surface that sloshes when the level changes.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Controlled"
+    },
+    {
+      "name": "scroll",
+      "title": "Follows scroll"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 420
+  },
+  "props": [
+    {
+      "component": "TideText",
+      "props": [
+        {
+          "name": "children",
+          "type": "string",
+          "description": "The text. It stays real text laid out by the page in the inherited font; the outline and the water are painted over it in the same shapes."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Water level from 0 (empty) to 100 (full), measured over the height of the letters. When set, it controls the level and scroll is ignored. The level follows with a spring, and the surface sloshes as it moves."
+        },
+        {
+          "name": "scroll",
+          "type": "boolean",
+          "default": "true",
+          "description": "Without a value, fill as the headline is scrolled up through its scrolling container, or the window: empty when it has just come into view at the bottom, full when it reaches the top."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the water. It deepens toward the bottom of each line. The outline takes the text colour."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, an inline block. Other span props are passed through. Under reduced motion the plain text is shown."
+        }
+      ]
+    }
+  ]
+}

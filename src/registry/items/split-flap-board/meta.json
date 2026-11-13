@@ -1,0 +1,58 @@
+{
+  "name": "Split-flap Board",
+  "category": "text",
+  "description": "A split-flap departure board whose flaps fall through a few characters to each new letter, rippling across the columns.",
+  "preview": { "layout": "center", "height": 380 },
+  "props": [
+    {
+      "component": "SplitFlapBoard",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text to show. It is uppercased and word-wrapped to the board, and \\n starts a new row. Screen readers get it as written, one paragraph per line."
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "default": "4",
+          "description": "Number of rows. Text beyond the last row is cut off."
+        },
+        {
+          "name": "cols",
+          "type": "number",
+          "default": "22",
+          "description": "Flaps per row. The board fills its container's width and the flaps scale to fit."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1200",
+          "description": "Longest time in milliseconds a flap takes to reach its new character. Each flip is a sixth of it. Columns start 26ms apart, so the change ripples across. Under reduced motion, and while the board is off screen, the new text shows at once."
+        },
+        {
+          "name": "sound",
+          "type": "boolean",
+          "default": "false",
+          "description": "Play a soft synthesised clack for each flip. The browser only allows sound after the visitor has interacted with the page."
+        },
+        {
+          "name": "accent",
+          "type": "RegExp | string",
+          "description": "Words matching this are shown in camellia. A string matches without regard to case; a match inside a word marks the whole word."
+        },
+        {
+          "name": "charset",
+          "type": "string",
+          "default": "\" A–Z 0–9 :.-/'&\"",
+          "description": "The order of characters on each flap. A flap passes through the few characters before its target in this order."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the board's housing. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

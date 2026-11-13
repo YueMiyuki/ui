@@ -1,0 +1,82 @@
+{
+  "name": "Data table",
+  "category": "blocks",
+  "description": "A table wired up with search, filters, sortable columns, row selection with bulk actions, column visibility and pagination.",
+  "preview": { "layout": "center", "height": 820 },
+  "props": [
+    {
+      "component": "DataTable",
+      "props": [
+        {
+          "name": "columns",
+          "type": "{ id: string; header: string; cell?: (row) => ReactNode; value?: (row) => string | number | null; sortable?: boolean; align?: \"start\" | \"end\"; width?: number | string; isRowHeader?: boolean; hideable?: boolean; defaultHidden?: boolean }[]",
+          "description": "The columns, in order. value is used for sorting, for search when searchKeys is left out, and as the cell when cell is left out. The row header column cannot be hidden."
+        },
+        { "name": "rows", "type": "T[]", "description": "The rows. Each needs a stable id; see getRowId." },
+        {
+          "name": "getRowId",
+          "type": "(row: T) => Key",
+          "default": "row => row.id",
+          "description": "Reads a row's id for selection."
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "default": "10",
+          "description": "Rows per page at first. People can change it below the table."
+        },
+        {
+          "name": "pageSizes",
+          "type": "number[]",
+          "default": "[10, 20, 50]",
+          "description": "Choices in the rows-per-page menu."
+        },
+        {
+          "name": "searchKeys",
+          "type": "(keyof T)[]",
+          "description": "Fields the search box looks in, ignoring case and accents. Defaults to every column's value."
+        },
+        {
+          "name": "searchPlaceholder",
+          "type": "string",
+          "description": "Placeholder and label for the search box. Defaults to \"Search\" and the plural noun."
+        },
+        {
+          "name": "filters",
+          "type": "{ id: string; label: string; allLabel?: string; value: (row) => string; options: { id: string; label: string; tone?: \"neutral\" | \"brand\" | \"success\" | \"warning\" | \"destructive\" }[] }[]",
+          "description": "A select for each filter beside the search box. A tone adds a coloured dot to the option."
+        },
+        {
+          "name": "rowActions",
+          "type": "{ id: string; label: string; icon?: ReactNode; tone?: \"default\" | \"destructive\" }[]",
+          "default": "View, Delete",
+          "description": "Items in each row's menu. A destructive item gets a separator above it."
+        },
+        {
+          "name": "bulkActions",
+          "type": "{ id: string; label: string; icon?: ReactNode; tone?: \"default\" | \"destructive\" }[]",
+          "default": "Export, Delete",
+          "description": "Buttons in the bar that appears above the table while rows are selected."
+        },
+        {
+          "name": "onAction",
+          "type": "(action: string, rows: T[]) => void",
+          "description": "Called with the action's id and the rows it applies to: one row from a row menu, or every selected row from the bar. The selection clears after a bulk action."
+        },
+        {
+          "name": "noun",
+          "type": "[singular: string, plural: string]",
+          "default": "[\"row\", \"rows\"]",
+          "description": "Words for the count above the table, as in \"48 customers\" or \"12 of 48 customers\"."
+        },
+        { "name": "title", "type": "ReactNode", "description": "Replaces the count above the table." },
+        { "name": "description", "type": "ReactNode", "description": "A muted line under the count." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Other props go to the root element."
+        }
+      ]
+    }
+  ]
+}

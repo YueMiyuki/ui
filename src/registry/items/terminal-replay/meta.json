@@ -1,0 +1,60 @@
+{
+  "name": "Terminal Replay",
+  "category": "cards",
+  "description": "A terminal window that types out commands after a prompt and prints their output line by line.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "TerminalReplay",
+      "props": [
+        {
+          "name": "lines",
+          "type": "{ type: \"command\" | \"output\"; text: string; tone?: \"default\" | \"muted\" | \"brand\" | \"success\" | \"warning\" | \"error\" }[]",
+          "description": "The session, in order. Commands are typed after the prompt with a light syntax tint; output lines appear whole, in their tone."
+        },
+        { "name": "prompt", "type": "string", "default": "\"~ $\"", "description": "Text shown before each command." },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Terminal\"",
+          "description": "Centred in the title bar, and the accessible name of the scrolling body."
+        },
+        {
+          "name": "typingSpeed",
+          "type": "number",
+          "default": "45",
+          "description": "Average milliseconds per typed character. Each keystroke varies a little around it."
+        },
+        {
+          "name": "lineDelay",
+          "type": "number",
+          "default": "400",
+          "description": "Pause before a command starts and before its output, in milliseconds. Consecutive output lines follow at about a third of this."
+        },
+        {
+          "name": "startOnView",
+          "type": "boolean",
+          "default": "true",
+          "description": "Waits until the window is scrolled into view before typing. When false it starts on mount."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Starts again a few seconds after the last line."
+        },
+        {
+          "name": "sound",
+          "type": "boolean",
+          "default": "false",
+          "description": "Plays a faint synthesised tick for each typed character."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the window. It is h-80 by default; the body scrolls and follows the newest line."
+        }
+      ]
+    }
+  ]
+}

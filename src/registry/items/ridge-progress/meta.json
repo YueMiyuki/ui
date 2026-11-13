@@ -1,0 +1,55 @@
+{
+  "name": "Ridge Progress",
+  "category": "navigation",
+  "original": true,
+  "description": "A thin band across the top of the page with a mountain ridge in silhouette that fills with water as you read, a marker that climbs the ridgeline and a flag that waves once at the summit.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "panel", "title": "In a scrolling panel" }],
+  "preview": { "layout": "fill", "height": 520, "iframe": true },
+  "props": [
+    {
+      "component": "RidgeProgress",
+      "props": [
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "\"ridge\"",
+          "description": "Shapes the ridge. The same seed always draws the same mountains; the summit falls between 72% and 86% of the way across."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "28",
+          "description": "Height of the band in pixels. The top 11 pixels are kept for the flag."
+        },
+        {
+          "name": "container",
+          "type": "RefObject<HTMLElement | null>",
+          "description": "A scrolling element to follow instead of the window. Render the band as the first child inside that element: it then sticks to the top of the element instead of being fixed to the window, and takes its height in the flow."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the water that fills the part already read."
+        },
+        {
+          "name": "flagColor",
+          "type": "string",
+          "default": "\"var(--chart-5)\"",
+          "description": "Colour the summit flag takes when it is reached."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Reading progress\"",
+          "description": "Names the progress bar for assistive technology."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the band, which is fixed to the top of the window, or sticky inside container when one is given. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

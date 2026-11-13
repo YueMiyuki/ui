@@ -1,0 +1,41 @@
+{
+  "name": "Station Nav",
+  "category": "navigation",
+  "original": true,
+  "description": "A table of contents drawn as a railway line, with a station for each section and a small train that runs down the line as the page scrolls.",
+  "preview": { "layout": "fill", "height": 560, "iframe": true },
+  "props": [
+    {
+      "component": "StationNav",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label: ReactNode; detail?: ReactNode }[]",
+          "description": "One station per section. `id` is the id of the section element on the page; `detail` is a short time-like note under the name, such as a time or a reading length."
+        },
+        {
+          "name": "container",
+          "type": "RefObject<HTMLElement | null>",
+          "description": "A scrolling element to follow instead of the window. Sections are looked up inside it."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the travelled line and of passed and current stations."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"On this page\"",
+          "description": "Names the navigation landmark."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the nav element. Below 9rem wide the names are hidden and only the line shows. Other nav props are passed through."
+        }
+      ]
+    }
+  ]
+}

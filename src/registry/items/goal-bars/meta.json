@@ -1,0 +1,82 @@
+{
+  "name": "Goal Bars",
+  "category": "charts",
+  "description": "Daily bars in tubes against a goal tick, water when the goal is reached and paler water when not, with a week switcher.",
+  "preview": { "layout": "center", "height": 440 },
+  "props": [
+    {
+      "component": "GoalBars",
+      "props": [
+        { "name": "labels", "type": "string[]", "description": "One label per day." },
+        { "name": "data", "type": "number[]", "description": "One value per day. New data refills the tubes." },
+        {
+          "name": "goal",
+          "type": "number",
+          "description": "The daily goal, marked with a short tick across each tube."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default": "\"Steps\"",
+          "description": "What is counted, for the tooltip and table."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--chart-1)\"",
+          "description": "Water colour of days that reach the goal. The others take a paler mix of it."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip and legend. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatAxis",
+          "type": "(value: number) => string",
+          "description": "Writes the tick labels on the left. Defaults to compact numbers."
+        },
+        { "name": "height", "type": "number", "default": "200", "description": "Plot height in pixels." },
+        {
+          "name": "titles",
+          "type": "string[]",
+          "description": "Longer names for the tooltip title, e.g. \"Monday 29 Jun\"."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a legend for reached, below and the goal."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the vertical axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated when left out."
+        },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "description": "A control on the right of the header, such as a PeriodStepper from @/components/miyuki-ui/lib/chart for the week."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value, e.g. \"total steps\"." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts delta, note, footer and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

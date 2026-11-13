@@ -1,0 +1,61 @@
+{
+  "name": "Pond Grid",
+  "category": "backgrounds",
+  "description": "A grid of cells like a still pond: clicking a cell sends a ring of light outward across the grid.",
+  "preview": {
+    "layout": "fill",
+    "height": 480
+  },
+  "props": [
+    {
+      "component": "PondGrid",
+      "props": [
+        {
+          "name": "cellSize",
+          "type": "number",
+          "default": "56",
+          "description": "Side of a cell, in pixels."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the water: the ripple, the hover tint and the borders that catch the ring. Any CSS colour or token."
+        },
+        {
+          "name": "borderColor",
+          "type": "string",
+          "default": "\"var(--border-strong)\"",
+          "description": "Colour of the hairlines between cells."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "Tint the cell under the pointer and start a ripple on click. Clicks on links, buttons and fields above the grid stay with them."
+        },
+        {
+          "name": "idle",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let a raindrop land on a random cell every few seconds and start a smaller ripple. Off under reduced motion."
+        },
+        {
+          "name": "onCellClick",
+          "type": "(cell: { row: number; column: number }) => void",
+          "description": "Called with the clicked cell, counted from the top left of the grid. Pointer only: the grid is decoration and takes no keyboard focus, so anything that matters needs its own control."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the grid. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the grid."
+        }
+      ]
+    }
+  ]
+}

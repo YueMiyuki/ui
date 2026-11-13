@@ -1,0 +1,64 @@
+{
+  "name": "Ripple menu",
+  "category": "overlays",
+  "original": true,
+  "description": "A menu that spreads in rings from where you press and hold, right-click or tap its button, choosing the action you move toward.",
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "RippleMenu",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; icon?: ReactNode; ring?: number; tone?: \"default\" | \"destructive\" }[]",
+          "description": "The actions, commonest first. Without ring, up to five go on the inner ring and the rest on the outer one; ring 0, 1 or 2 places one by hand."
+        },
+        {
+          "name": "onAction",
+          "type": "(id: string, point: { x: number; y: number }) => void",
+          "description": "Called when an action is chosen, with the press point relative to the area, so it can act on that spot."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The target area, such as a map. The wrapper is relative and takes className; it does not pan by touch, so the press can be held."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Actions\"",
+          "description": "Names the menu for assistive technology."
+        },
+        {
+          "name": "trigger",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows a round button in the bottom corner that opens the menu around itself. It is also the keyboard way in, along with Shift+F10."
+        },
+        {
+          "name": "triggerLabel",
+          "type": "string",
+          "default": "\"Open actions\"",
+          "description": "Accessible name of that button."
+        },
+        {
+          "name": "holdDelay",
+          "type": "number",
+          "default": "380",
+          "description": "Milliseconds to press and hold before the menu opens. Moving more than 8 pixels first cancels it."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Leaves the area alone and disables the button."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the area. The wrapper has data-open while its menu is open."
+        }
+      ]
+    }
+  ]
+}

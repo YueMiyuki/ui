@@ -1,0 +1,35 @@
+{
+  "name": "Zoom Grid",
+  "category": "layout",
+  "description": "A grid of image cards where choosing one brings it forward and large while the rest of the grid dims behind it.",
+  "preview": { "layout": "fill", "height": 560 },
+  "props": [
+    {
+      "component": "ZoomGrid",
+      "props": [
+        {
+          "name": "cards",
+          "type": "{ id: string; src: string; title: string; description: ReactNode; alt?: string; className?: string }[]",
+          "description": "The cards. className sets each card's span in the grid with container variants, for example @2xl:col-span-2."
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "default": "\"Close\"",
+          "description": "Accessible label for the close button on the open card."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default: the browser redraws the blur on every frame while anything behind it changes, which stalls on large pages, most of all in Firefox."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the outer element. It is a size container with three columns from 42rem wide, and the open card is centred inside it."
+        }
+      ]
+    }
+  ]
+}

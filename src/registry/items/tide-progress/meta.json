@@ -1,0 +1,68 @@
+{
+  "name": "Tide Progress",
+  "category": "display",
+  "original": true,
+  "description": "A vessel that fills with water to show progress, with a surface that sloshes when the value changes and a percentage that changes colour where the water covers it.",
+  "preview": { "layout": "center", "height": 440 },
+  "props": [
+    {
+      "component": "TideProgress",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "default": "0",
+          "description": "How far it has got. The level follows with a spring and the surface sloshes."
+        },
+        { "name": "minValue", "type": "number", "default": "0", "description": "Start of the range." },
+        { "name": "maxValue", "type": "number", "default": "100", "description": "End of the range." },
+        {
+          "name": "shape",
+          "type": "\"circle\" | \"pill\" | \"bar\"",
+          "default": "\"circle\"",
+          "description": "The vessel: a round flask, an upright capsule, or a wide tank three times as long as it is tall."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "120",
+          "description": "Height of the vessel in pixels. The width follows from the shape."
+        },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the value in the middle. It is drawn in ink above the water and in the water's foreground below it, split along the surface."
+        },
+        {
+          "name": "isIndeterminate",
+          "type": "boolean",
+          "default": "false",
+          "description": "There is no known end: the level rocks slowly around the middle and the value is hidden."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the water. With a custom colour, set `--miyuki-tide-progress-under` to the text colour that reads on it."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Visible label under the vessel, which also names the progress bar. Without it, pass aria-label."
+        },
+        {
+          "name": "formatOptions",
+          "type": "Intl.NumberFormatOptions",
+          "default": "{ style: \"percent\" }",
+          "description": "How the value is written."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components ProgressBar."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Social Button",
+  "category": "buttons",
+  "description": "Sign-in buttons for 24 common providers, with their marks.",
+  "demos": [
+    { "name": "default", "title": "Default" },
+    { "name": "all", "title": "All providers" },
+    { "name": "solid", "title": "Solid" }
+  ],
+  "preview": { "layout": "center", "height": 300 },
+  "props": [
+    {
+      "component": "SocialButton",
+      "props": [
+        {
+          "name": "provider",
+          "type": "\"google\" | \"apple\" | \"github\" | \"x\" | \"facebook\" | \"discord\" | \"gitlab\" | \"bitbucket\" | \"twitch\" | \"spotify\" | \"notion\" | \"figma\" | \"dropbox\" | \"reddit\" | \"line\" | \"kakao\" | \"wechat\" | \"yahoo\" | \"okta\" | \"auth0\" | \"atlassian\" | \"paypal\" | \"steam\" | \"telegram\"",
+          "description": "Selects the mark, its colour and the label \"Continue with {Name}\"."
+        },
+        {
+          "name": "variant",
+          "type": "\"outline\" | \"solid\" | \"icon\"",
+          "default": "\"outline\"",
+          "description": "Outline is the secondary button with the mark in its own colour (or the text colour where that colour would be too faint). Solid fills with the provider's colour. Icon is a square holding only the mark, labelled for assistive tech."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Replaces the label." },
+        {
+          "name": "isPending",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows a spinner in place of the mark and blocks presses."
+        },
+        {
+          "name": "onPress",
+          "type": "(event: PressEvent) => void",
+          "description": "Called when the button is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of Button."
+        }
+      ]
+    }
+  ]
+}

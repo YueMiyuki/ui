@@ -1,0 +1,43 @@
+{
+  "name": "Goal Rings",
+  "category": "charts",
+  "description": "Concentric rings that sweep towards each goal on pale tracks, with a tile per ring above them.",
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "GoalRings",
+      "props": [
+        {
+          "name": "rings",
+          "type": "{ name: string; value: number; goal: number; color?: string; format?: (value: number) => string }[]",
+          "description": "One ring per entry, outermost first. A ring sweeps value ÷ goal of a turn and laps itself in a deeper shade past the goal. Colours follow the chart palette unless given."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "196",
+          "description": "Diameter of the outer ring in pixels. Shrinks to fit a narrow card."
+        },
+        { "name": "thickness", "type": "number", "default": "16", "description": "Width of each ring." },
+        { "name": "gap", "type": "number", "default": "4", "description": "Space between neighbouring rings." },
+        {
+          "name": "tiles",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a tile per ring above the rings with its colour, name and formatted value."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the rings when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts value, delta, caption, note, action, footer and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

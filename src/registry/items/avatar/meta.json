@@ -1,0 +1,77 @@
+{
+  "name": "Avatar",
+  "category": "display",
+  "description": "A person's picture in five sizes, with initials on a soft tint when there is none, a status dot, and overlapping groups.",
+  "demos": [
+    { "name": "default", "title": "Sizes" },
+    { "name": "fallback", "title": "Initials" },
+    { "name": "status", "title": "Status" },
+    { "name": "group", "title": "Group" }
+  ],
+  "preview": { "layout": "center", "height": 280 },
+  "props": [
+    {
+      "component": "Avatar",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "The picture. When it is missing or fails to load, initials are shown instead."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "The person's name: the accessible label, the source of the initials, and the seed for their tint."
+        },
+        {
+          "name": "size",
+          "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+          "default": "\"md\"",
+          "description": "20, 24, 32, 40 or 56 pixels. Inside an AvatarGroup the group's size wins."
+        },
+        {
+          "name": "shape",
+          "type": "\"circle\" | \"rounded\"",
+          "default": "\"circle\"",
+          "description": "A circle, or a rounded square whose corner follows its size."
+        },
+        {
+          "name": "status",
+          "type": "\"online\" | \"away\" | \"busy\" | \"offline\"",
+          "description": "A dot at the lower right in pine, yuzu, camellia or grey-blue, ringed in the page colour. Added to the accessible label."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Also accepts every other prop of a span."
+        }
+      ]
+    },
+    {
+      "component": "AvatarGroup",
+      "props": [
+        {
+          "name": "max",
+          "type": "number",
+          "description": "Avatars shown before the rest collapse into a \"+N\" tile."
+        },
+        {
+          "name": "size",
+          "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+          "default": "\"md\"",
+          "description": "Size of every avatar in the group."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Avatar elements. Each gets a ring in the page colour where it overlaps the one before."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Also accepts every other prop of a div; give it an aria-label."
+        }
+      ]
+    }
+  ]
+}

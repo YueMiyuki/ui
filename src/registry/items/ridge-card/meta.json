@@ -1,0 +1,43 @@
+{
+  "name": "Ridge Card",
+  "category": "cards",
+  "original": true,
+  "description": "A card holding a mountain range in depth: five ridges that shift with parallax as the card tilts, with haze drifting between them.",
+  "demos": [{ "name": "default", "title": "Dawn" }, { "name": "moods", "title": "Moods" }],
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "RidgeCard",
+      "props": [
+        {
+          "name": "mood",
+          "type": "\"dawn\" | \"day\" | \"dusk\" | \"night\" | \"aurora\" | \"snow\"",
+          "default": "\"day\"",
+          "description": "Light and colour of the scene: the sky, the sun or moon, the haze and the colour of the snow."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "\"northern-alps\"",
+          "description": "Shapes the five ridgelines, their snowfields and forests."
+        },
+        {
+          "name": "maxTilt",
+          "type": "number",
+          "default": "5",
+          "description": "Largest tilt of the card toward the pointer, in degrees. Near ridges shift more than far ones."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content placed over the lower ridges, in a padded layer at the bottom. It reads light text over the dark foothills, and ink in the snow mood."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the outer element. Set the width here; the card keeps a 19:23 shape. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

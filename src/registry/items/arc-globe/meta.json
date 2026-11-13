@@ -1,0 +1,67 @@
+{
+  "name": "Arc Globe",
+  "category": "maps",
+  "description": "A globe of dots, turning slowly, with arcs leaping between cities.",
+  "preview": { "layout": "fill", "height": 520 },
+  "props": [
+    {
+      "component": "ArcGlobe",
+      "props": [
+        {
+          "name": "arcs",
+          "type": "{ from: [lat: number, lng: number]; to: [lat: number, lng: number]; color?: string }[]",
+          "default": "[]",
+          "description": "Arcs to draw along great circles. Each rises above the surface in the middle, a bright segment travels along it, and a ring widens where it lands."
+        },
+        {
+          "name": "autoRotate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Turn the globe on its own. It pauses while dragged and under reduced motion."
+        },
+        {
+          "name": "autoRotateSpeed",
+          "type": "number",
+          "default": "0.4",
+          "description": "Turning speed in degrees per frame at 60 frames a second."
+        },
+        {
+          "name": "initialRotation",
+          "type": "[lng: number, lat: number]",
+          "default": "[130, 22]",
+          "description": "The longitude and latitude facing the viewer at the start. Latitude is kept within 60 degrees."
+        },
+        {
+          "name": "dotColor",
+          "type": "string",
+          "default": "\"var(--foreground)\"",
+          "description": "Colour of the land dots, which fade toward the edge of the globe."
+        },
+        {
+          "name": "arcColors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\", \"var(--chart-3)\"]",
+          "description": "Colours given to the arcs in turn. An arc's own color wins."
+        },
+        {
+          "name": "showAtmosphere",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draw a soft glow round the globe."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "0.8",
+          "description": "Land dots per degree of latitude and longitude, from 0.2 to 2."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. The globe is drawn centred in it, as large as fits. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content placed over the globe." }
+      ]
+    }
+  ]
+}

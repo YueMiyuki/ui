@@ -1,0 +1,49 @@
+{
+  "name": "Reading Stream",
+  "category": "backgrounds",
+  "description": "A line down the side of an article that fills with water as you read, with a droplet at its end and a ring for each section.",
+  "preview": { "layout": "fill", "height": 560, "iframe": true },
+  "props": [
+    {
+      "component": "ReadingStream",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the filled line, the droplet and passed markers. Any CSS colour or token."
+        },
+        {
+          "name": "container",
+          "type": "RefObject<HTMLElement | null>",
+          "description": "A scrolling element to follow instead of the window."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which reserves a 40px gutter on the left (64px from the sm breakpoint) for the line. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The article. The line fills down to a reading line 40% of the way down the view, which moves to the bottom edge as the page reaches its end."
+        }
+      ]
+    },
+    {
+      "component": "ReadingStreamSection",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A section of the article. It adds a ring to the line, level with the middle of its first line of text, that fills once the line reaches it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the section element. Other section props are passed through, including ref."
+        }
+      ]
+    }
+  ]
+}

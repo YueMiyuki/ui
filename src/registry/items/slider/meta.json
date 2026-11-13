@@ -1,0 +1,69 @@
+{
+  "name": "Slider",
+  "category": "inputs",
+  "description": "A slider for a single value or a range, with a value bubble while dragging and optional tick marks.",
+  "demos": [{ "name": "default", "title": "Single value" }, { "name": "range", "title": "Range" }],
+  "preview": { "layout": "center", "height": 260 },
+  "props": [
+    {
+      "component": "Slider",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the track, on the left." },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the formatted value above the track, on the right."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number | [number, number]",
+          "description": "Starting value when uncontrolled. Two numbers give a range with two thumbs."
+        },
+        { "name": "value", "type": "number | [number, number]", "description": "The value (controlled)." },
+        {
+          "name": "onChange",
+          "type": "(value: number | number[]) => void",
+          "description": "Called continuously while the value changes."
+        },
+        {
+          "name": "onChangeEnd",
+          "type": "(value: number | number[]) => void",
+          "description": "Called when a drag or key press ends."
+        },
+        { "name": "minValue", "type": "number", "default": "0", "description": "Lowest value." },
+        { "name": "maxValue", "type": "number", "default": "100", "description": "Highest value." },
+        { "name": "step", "type": "number", "default": "1", "description": "Increment between values." },
+        {
+          "name": "formatOptions",
+          "type": "Intl.NumberFormatOptions",
+          "description": "How values are written, e.g. { style: \"unit\", unit: \"meter\" } or { style: \"currency\", currency: \"JPY\" }."
+        },
+        { "name": "marks", "type": "number[]", "description": "Values drawn as small ticks under the track." },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Track of 4 or 6 pixels with a 16 or 18 pixel thumb."
+        },
+        {
+          "name": "thumbLabels",
+          "type": "[string, string]",
+          "default": "[\"Minimum\", \"Maximum\"]",
+          "description": "Accessible names for the two thumbs of a range."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the slider and dims it to 50%."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components Slider."
+        }
+      ]
+    }
+  ]
+}

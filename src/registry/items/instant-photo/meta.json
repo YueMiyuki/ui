@@ -1,0 +1,50 @@
+{
+  "name": "Instant Photo",
+  "category": "cards",
+  "original": true,
+  "description": "An instant print that develops while you watch: shadows first out of a grey-green haze, colours last.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "InstantPhoto",
+      "props": [
+        { "name": "src", "type": "string", "description": "The picture. A new src starts a new print." },
+        {
+          "name": "alt",
+          "type": "string",
+          "description": "Describes the picture. It names the print for assistive technology."
+        },
+        { "name": "caption", "type": "ReactNode", "description": "Written in the wide bottom margin." },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "8",
+          "description": "Seconds the print takes to develop. Shaking it shortens this a little."
+        },
+        {
+          "name": "developed",
+          "type": "boolean",
+          "description": "Controls the print: true shows it developed, false holds it blank. Leave it out to let the print develop by itself when it appears."
+        },
+        {
+          "name": "eject",
+          "type": "boolean",
+          "default": "false",
+          "description": "Plays the print sliding out of the camera slot before it starts to develop."
+        },
+        {
+          "name": "tilt",
+          "type": "number",
+          "default": "0",
+          "description": "Resting angle in degrees, as if laid on a table."
+        },
+        { "name": "onDeveloped", "type": "() => void", "description": "Called when a self-developing print is done." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the print. Set its width here; it is 14rem by default. Dragging it quickly, or pressing Space while it has focus, shakes it."
+        }
+      ]
+    }
+  ]
+}

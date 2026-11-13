@@ -1,0 +1,45 @@
+{
+  "name": "Snow Globe",
+  "category": "cards",
+  "original": true,
+  "description": "A glass dome on a lacquered base with a scene inside; shake it and the snow lifts off the floor, swirls with the water and settles again.",
+  "preview": {
+    "layout": "center",
+    "height": 460
+  },
+  "props": [
+    {
+      "component": "SnowGlobe",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The scene inside the dome. It fills a circle the size of the globe; keep its ground about a fifth of the way up from the bottom, where the snow lies."
+        },
+        {
+          "name": "flakes",
+          "type": "number",
+          "default": "220",
+          "description": "How many flakes, a few of them glitter. They start at rest on the floor of the globe."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "260",
+          "description": "Diameter of the dome in pixels. The base adds about a sixth below it."
+        },
+        {
+          "name": "shakeLabel",
+          "type": "string",
+          "default": "\"Shake\"",
+          "description": "Text of the button on the base. Pressing it shakes the globe; so does dragging the globe quickly."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, a group; give it an aria-label."
+        }
+      ]
+    }
+  ]
+}

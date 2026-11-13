@@ -1,0 +1,81 @@
+{
+  "name": "Button Group",
+  "category": "buttons",
+  "description": "Buttons joined into one connected row or column, optionally working as a toggle group.",
+  "demos": [
+    { "name": "default", "title": "Single selection" },
+    { "name": "icons", "title": "Icons, multiple selection" },
+    { "name": "split", "title": "Split button" }
+  ],
+  "preview": { "layout": "center", "height": 220 },
+  "props": [
+    {
+      "component": "ButtonGroup",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "A row, or a column of equal-width buttons."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Size of every button in the group, unless one sets its own."
+        },
+        {
+          "name": "selectionMode",
+          "type": "\"single\" | \"multiple\"",
+          "description": "Turns the group into a toggle group of ButtonGroupItem children. Leave it out for ordinary Buttons."
+        },
+        { "name": "selectedKeys", "type": "Iterable<Key>", "description": "The selected items' ids (controlled)." },
+        {
+          "name": "defaultSelectedKeys",
+          "type": "Iterable<Key>",
+          "description": "The items selected at first (uncontrolled)."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(keys: Set<Key>) => void",
+          "description": "Called with the new set of selected ids."
+        },
+        {
+          "name": "disallowEmptySelection",
+          "type": "boolean",
+          "default": "false",
+          "description": "Keep at least one item selected."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables every button in the group."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the group. Without a selection mode it also accepts every prop of a div; give it an aria-label."
+        }
+      ]
+    },
+    {
+      "component": "ButtonGroupItem",
+      "props": [
+        { "name": "id", "type": "Key", "description": "Identifies the item in selectedKeys." },
+        { "name": "children", "type": "ReactNode", "description": "The label. Leave it out for an icon-only square." },
+        {
+          "name": "iconStart",
+          "type": "ReactNode",
+          "description": "Icon before the label, sized to 16 pixels. Give an icon-only item an aria-label."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables this item." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components ToggleButton."
+        }
+      ]
+    }
+  ]
+}

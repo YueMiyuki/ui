@@ -1,0 +1,94 @@
+---
+title: Installation
+description: Add components with the shadcn CLI, or copy them by hand.
+---
+
+Each component is a file you copy into your project and then own. The shadcn CLI copies it for you, or you can copy it by hand.
+
+## Requirements
+
+- React 19, in Next.js or any other React 19 app.
+- Tailwind CSS v4. The tokens use its CSS-first configuration, so there is no config file.
+- TypeScript, with the `@/` alias pointing at your source folder.
+
+## Install with the CLI [#cli]
+
+<Steps>
+<Step>
+
+### Set up shadcn
+
+Run this once in your app. It creates `components.json` and the `cn()` helper, and adds a theme to your stylesheet.
+
+```npm
+npx shadcn@latest init
+```
+
+</Step>
+<Step>
+
+### Add the registry [#registry]
+
+Tell the CLI where to find the `@miyuki-ui` components.
+
+<RegistryAdd />
+
+[Using the shadcn CLI](/docs/shadcn-cli) shows the entry this writes to `components.json`.
+
+</Step>
+<Step>
+
+### Add a component
+
+```npm
+npx shadcn@latest add @miyuki-ui/button
+```
+
+The CLI copies the source into `components/miyuki-ui/`, installs the packages it imports and adds any other components it uses.
+
+</Step>
+</Steps>
+
+Every component also brings `base`: the few colours, easings and the display font stack that a stock shadcn theme lacks. It adds them and leaves your own variables alone. For the full palette, see [Theming](/docs/theming).
+
+### Without the registry entry
+
+Every component also has its own URL, which works without the registry in `components.json`.
+
+<AddByUrl slug="button" />
+
+## Date and time controls in Next.js [#nextjs-dates]
+
+The [date picker](/docs/components/date-picker), [date calendar](/docs/components/date-calendar) and [time field](/docs/components/time-field) are built on React Aria, which reads today's date while they render. With Cache Components turned on, Next.js prerenders your pages at build time and stops with an error when something reads the clock outside a Suspense boundary. Wrap each of these controls in React's `<Suspense>` with a fallback the size of the control: Next.js then prerenders the page with the fallback in its place, and the control appears as the page loads in the browser. Their pages show the code, and our blocks and templates that use them already include the boundary.
+
+## Copy it by hand [#manual]
+
+<Steps>
+<Step>
+
+### Add the theme tokens
+
+Every component reads its colours, radii, shadows and fonts from CSS variables. Paste [the stylesheet](/docs/theming#stylesheet) into your global CSS, after `@import "tailwindcss";`.
+
+</Step>
+<Step>
+
+### Add the cn helper
+
+Components merge their classes with yours through `cn()`. It needs two small packages.
+
+```npm
+npm install clsx tailwind-merge
+```
+
+<UtilsSource />
+
+</Step>
+<Step>
+
+### Copy the component
+
+Open a component's page and choose **Manual** under Install. It lists the packages to add, the other components it uses, and every file with the path to put it at. Copy them, and change the imports if your alias is not `@/`.
+
+</Step>
+</Steps>

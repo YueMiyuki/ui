@@ -1,0 +1,54 @@
+{
+  "name": "Station Clock",
+  "category": "display",
+  "original": true,
+  "description": "An analogue wall clock with bar markers, a sweeping second hand and a minute hand that steps once a minute.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Three cities"
+    },
+    {
+      "name": "sizes",
+      "title": "Sizes"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 380
+  },
+  "props": [
+    {
+      "component": "StationClock",
+      "props": [
+        {
+          "name": "timeZone",
+          "type": "string",
+          "description": "An IANA time zone such as \"Asia/Tokyo\". Defaults to the visitor's own. The clock reads the time after it mounts; before that it shows 10:09:36 so the server and the browser agree, then the hands swing round to the real time."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "180",
+          "description": "Width and height in pixels. Markers and hands keep a minimum width so the dial stays crisp from about 96 pixels up; below 72 the minute ticks are left out. It shrinks to fit a narrower container."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Caption beneath the dial, such as a city. A string label also names the clock for assistive technology, which hears the time as well."
+        },
+        {
+          "name": "seconds",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the second hand, which sweeps continuously. The minute hand steps forward once a minute with a small overshoot either way; without seconds the clock only redraws at each minute. Under reduced motion the second hand ticks once a second and the minute hand steps without overshoot."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the figure. Other figure props are passed through."
+        }
+      ]
+    }
+  ]
+}

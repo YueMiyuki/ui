@@ -1,0 +1,123 @@
+{
+  "name": "Select",
+  "category": "pickers",
+  "description": "A field that opens a list of options and keeps one, with icons, avatars, sections and an optional search.",
+  "demos": [
+    { "name": "default", "title": "Default" },
+    { "name": "avatars", "title": "Avatars and descriptions" },
+    { "name": "searchable", "title": "Searchable, with sections" }
+  ],
+  "preview": { "layout": "center", "height": 360, "thumb": false, "thumbClick": "button[aria-haspopup=listbox]" },
+  "props": [
+    {
+      "component": "Select",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the trigger." },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the trigger. Replaced by the error while the field is invalid."
+        },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the trigger while the field is invalid, with an alert icon."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Select an item\"",
+          "description": "Muted text in the trigger while nothing is chosen."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Trigger height of 32, 36 or 44 pixels, matching Input."
+        },
+        {
+          "name": "searchable",
+          "type": "boolean",
+          "default": "false",
+          "description": "Start the popover with a search field that filters the options, with an empty state."
+        },
+        {
+          "name": "searchPlaceholder",
+          "type": "string",
+          "default": "\"Search\"",
+          "description": "Placeholder and accessible name of the search field."
+        },
+        {
+          "name": "items",
+          "type": "Iterable<T>",
+          "description": "Options for a dynamic list. Render each one with a function as children."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | ((item: T) => ReactNode)",
+          "description": "SelectItem and SelectSection elements, or a function that renders one per entry of items."
+        },
+        {
+          "name": "value",
+          "type": "Key | null",
+          "description": "The chosen option's id (controlled). Use defaultValue when uncontrolled."
+        },
+        { "name": "onChange", "type": "(value: Key | null) => void", "description": "Called when the choice changes." },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the field and dims it to 50%."
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the camellia outline and the error message."
+        },
+        { "name": "triggerClassName", "type": "string", "description": "Extra classes for the trigger button." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components Select (isRequired, name, isOpen, onOpenChange...)."
+        }
+      ]
+    },
+    {
+      "component": "SelectItem",
+      "props": [
+        { "name": "id", "type": "Key", "description": "Identifies the option in value." },
+        { "name": "children", "type": "ReactNode", "description": "The label." },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "A second, muted line under the label. Not shown in the trigger."
+        },
+        { "name": "icon", "type": "ReactNode", "description": "A 16 pixel icon before the label." },
+        { "name": "avatar", "type": "string", "description": "Image source for a round avatar before the label." },
+        {
+          "name": "textValue",
+          "type": "string",
+          "description": "Plain text for typeahead and search. Taken from children when they are a string."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables this option." }
+      ]
+    },
+    {
+      "component": "SelectSection",
+      "props": [
+        { "name": "title", "type": "ReactNode", "description": "The heading above the group." },
+        {
+          "name": "items",
+          "type": "Iterable<T>",
+          "description": "Options for a dynamic section. Render each one with a function as children."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | ((item: T) => ReactNode)",
+          "description": "The section's SelectItem elements."
+        }
+      ]
+    }
+  ]
+}

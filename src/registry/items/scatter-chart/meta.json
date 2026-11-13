@@ -1,0 +1,88 @@
+{
+  "name": "Scatter Chart",
+  "category": "charts",
+  "description": "Dots for correlation, or bubbles sized by a third value, in coloured groups with a legend of counts.",
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "ScatterChart",
+      "props": [
+        {
+          "name": "groups",
+          "type": "{ name: string; points: { x: number; y: number; size?: number; label?: string }[]; color?: string }[]",
+          "description": "Points in groups, one colour per group. When any point has a size, dots become bubbles sized by area."
+        },
+        {
+          "name": "xName",
+          "type": "string",
+          "default": "\"x\"",
+          "description": "What x measures, for the tooltip, and written under the bottom axis unless xLabel is set."
+        },
+        {
+          "name": "yName",
+          "type": "string",
+          "default": "\"y\"",
+          "description": "What y measures, for the tooltip, and written above the left axis unless yLabel is set."
+        },
+        {
+          "name": "sizeName",
+          "type": "string",
+          "default": "\"Size\"",
+          "description": "What the size measures, for the tooltip."
+        },
+        { "name": "formatX", "type": "(value: number) => string", "description": "Writes x in the tooltip." },
+        { "name": "formatY", "type": "(value: number) => string", "description": "Writes y in the tooltip." },
+        { "name": "formatSize", "type": "(value: number) => string", "description": "Writes the size in the tooltip." },
+        {
+          "name": "formatXAxis",
+          "type": "(value: number) => string",
+          "description": "Writes the tick labels along the bottom. Defaults to compact numbers."
+        },
+        {
+          "name": "formatYAxis",
+          "type": "(value: number) => string",
+          "description": "Writes the tick labels on the left. Defaults to compact numbers."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "232",
+          "description": "Plot height in pixels, including the axis names."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a legend with each group's count."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the vertical axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data, including the direction and strength of the relationship, when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts caption, note, action, footer and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

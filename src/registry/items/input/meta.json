@@ -1,0 +1,94 @@
+{
+  "name": "Input",
+  "category": "inputs",
+  "description": "A text field with a label, help text, validation, icons and text addons.",
+  "demos": [
+    { "name": "default", "title": "Default" },
+    { "name": "addons", "title": "Addons" },
+    { "name": "states", "title": "States" },
+    { "name": "password", "title": "Password with a toggle" }
+  ],
+  "preview": { "layout": "center", "height": 320 },
+  "props": [
+    {
+      "component": "TextField",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the field." },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the field. Replaced by the error while the field is invalid."
+        },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the field while it is invalid, with an alert icon. Defaults to the browser's validation message."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels."
+        },
+        { "name": "placeholder", "type": "string", "description": "Hint shown while the field is empty." },
+        {
+          "name": "iconStart",
+          "type": "ReactNode",
+          "description": "Icon inside the field before the text, sized to 16 pixels and muted."
+        },
+        { "name": "iconEnd", "type": "ReactNode", "description": "Icon inside the field after the text." },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "description": "One interactive control at the end of the field, such as a show-password toggle. Pass an unstyled react-aria Button or ToggleButton (or a plain button) with an aria-label; the field sizes it to fit, gives it a hover wash and the focus ring."
+        },
+        {
+          "name": "prefix",
+          "type": "ReactNode",
+          "description": "Text addon before the input, inside the outline and set off by a hairline."
+        },
+        { "name": "suffix", "type": "ReactNode", "description": "Text addon after the input." },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the camellia border and the error message."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the field and dims it to 50%."
+        },
+        {
+          "name": "isReadOnly",
+          "type": "boolean",
+          "default": "false",
+          "description": "The value can be selected and copied but not changed. Shown on a muted fill."
+        },
+        { "name": "fieldClassName", "type": "string", "description": "Extra classes for the outlined box." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components TextField (value, onChange, type, name, validate...)."
+        }
+      ]
+    },
+    {
+      "component": "Input",
+      "props": [
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Accepts every prop of the react-aria-components Input and of a native input."
+        }
+      ]
+    }
+  ]
+}

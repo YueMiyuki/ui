@@ -1,0 +1,92 @@
+{
+  "name": "Lit Fields",
+  "category": "inputs",
+  "description": "A sign-up form whose field borders brighten with water-blue light where the pointer is.",
+  "preview": { "layout": "center", "height": 720 },
+  "props": [
+    {
+      "component": "LitFields",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "default": "\"Create your account\"",
+          "description": "Heading at the top of the panel."
+        },
+        { "name": "description", "type": "ReactNode", "description": "A muted line under the title." },
+        {
+          "name": "submitLabel",
+          "type": "ReactNode",
+          "default": "\"Create account\"",
+          "description": "Label of the full-width submit button."
+        },
+        {
+          "name": "providers",
+          "type": "SocialProvider[]",
+          "default": "[\"github\", \"google\"]",
+          "description": "Sign-in buttons shown under the divider. Pass an empty array to hide the divider and buttons."
+        },
+        {
+          "name": "onSubmit",
+          "type": "(values: LitFieldsValues) => void | Promise<void>",
+          "description": "Called with { firstName, lastName, email, password } once every field is valid. A returned promise shows a spinner on the button until it settles."
+        },
+        {
+          "name": "onProviderPress",
+          "type": "(provider: SocialProvider) => void",
+          "description": "Called when a sign-in button is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the panel. Also accepts every other prop of the react-aria-components Form."
+        }
+      ]
+    },
+    {
+      "component": "GlowInput",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Visible label. Required fields get a mark after it." },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the field, hidden while an error shows."
+        },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | (validation) => ReactNode",
+          "description": "Replaces the message from validate or native validation."
+        },
+        { "name": "placeholder", "type": "string", "description": "Placeholder text." },
+        {
+          "name": "trailing",
+          "type": "ReactNode",
+          "description": "Content at the end of the field, such as a small toggle button."
+        },
+        {
+          "name": "glowColor",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the light that follows the pointer. Turns camellia while the field is invalid."
+        },
+        { "name": "glowRadius", "type": "number", "default": "110", "description": "Radius of the light in pixels." },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "default": "false",
+          "description": "Marks the field as required and validates it."
+        },
+        {
+          "name": "validate",
+          "type": "(value: string) => string | null",
+          "description": "Returns an error message for an invalid value. Shown after the form is submitted."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components TextField."
+        }
+      ]
+    }
+  ]
+}

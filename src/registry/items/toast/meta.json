@@ -1,0 +1,124 @@
+{
+  "name": "Toast",
+  "category": "overlays",
+  "description": "Short messages that stack in a corner, fan out on hover and leave on their own.",
+  "preview": {
+    "layout": "center",
+    "height": 420,
+    "iframe": true,
+    "thumb": false,
+    "thumbClick": [
+      "button:has-text('Sync station')",
+      "button:has-text('Save changes')",
+      "button:has-text('Publish forecast')"
+    ]
+  },
+  "props": [
+    {
+      "component": "toast",
+      "props": [
+        {
+          "name": "toast(message, options?)",
+          "type": "(message: ReactNode | ToastOptions, options?: ToastOptions) => string",
+          "description": "Shows a neutral toast and returns its id. Call it from anywhere, inside React or not."
+        },
+        {
+          "name": "toast.success / error / warning / info",
+          "type": "(message, options?) => string",
+          "description": "The same, with the tone's icon and colour. Errors are announced with role=\"alert\"."
+        },
+        {
+          "name": "toast.promise(promise, messages, options?)",
+          "type": "(promise: Promise<T> | () => Promise<T>, { loading, success, error }) => string",
+          "description": "Shows loading until the promise settles, then turns into success or error in place. success and error may be functions of the result."
+        },
+        {
+          "name": "toast.dismiss(id?)",
+          "type": "(id?: string) => void",
+          "description": "Dismisses one toast, or every toast when called without an id."
+        },
+        {
+          "name": "options.title",
+          "type": "ReactNode",
+          "description": "The message, when passing options as the first argument."
+        },
+        {
+          "name": "options.description",
+          "type": "ReactNode",
+          "description": "A line or two under the title."
+        },
+        {
+          "name": "options.icon",
+          "type": "ReactNode",
+          "description": "Replaces the tone's icon, or gives a neutral toast one."
+        },
+        {
+          "name": "options.action",
+          "type": "{ label: ReactNode; onPress: () => void }",
+          "description": "A small button, e.g. Undo. Pressing it also dismisses the toast."
+        },
+        {
+          "name": "options.duration",
+          "type": "number",
+          "description": "Milliseconds before it leaves. Infinity keeps it until dismissed. Defaults to the Toaster's duration."
+        },
+        {
+          "name": "options.id",
+          "type": "string",
+          "description": "Reuse an id to update a toast in place instead of adding another."
+        },
+        {
+          "name": "options.onDismiss",
+          "type": "(id: string) => void",
+          "description": "Called when the toast is dismissed, by time, swipe or button."
+        }
+      ]
+    },
+    {
+      "component": "Toaster",
+      "props": [
+        {
+          "name": "position",
+          "type": "\"top-left\" | \"top-center\" | \"top-right\" | \"bottom-left\" | \"bottom-center\" | \"bottom-right\"",
+          "default": "\"bottom-right\"",
+          "description": "Corner the stack grows from. Mount one Toaster per app."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "5000",
+          "description": "Default milliseconds before a toast leaves. Timers pause while the stack is hovered or focused, and while the tab is hidden."
+        },
+        {
+          "name": "visibleToasts",
+          "type": "number",
+          "default": "3",
+          "description": "How many toasts show at once. Later ones wait, with their timers paused."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "10",
+          "description": "Space between toasts when the stack fans out."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": "16",
+          "description": "Distance from the edges of the window."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Notifications\"",
+          "description": "Accessible name of the region."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the region."
+        }
+      ]
+    }
+  ]
+}

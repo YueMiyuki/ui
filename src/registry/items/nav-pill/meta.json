@@ -1,0 +1,40 @@
+{
+  "name": "Nav Pill",
+  "category": "navigation",
+  "description": "A pill of links that floats at the top of the page, steps away while you scroll down and returns when you scroll up.",
+  "preview": { "layout": "fill", "height": 520, "iframe": true },
+  "props": [
+    {
+      "component": "NavPill",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ name: string; href: string; icon?: ReactNode; current?: boolean }[]",
+          "description": "The links. The current one gets aria-current=\"page\" and a water dot. Below 640 pixels, items with an icon show only the icon and keep the name for screen readers."
+        },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "description": "One small button or link at the right end, after a hairline."
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "80",
+          "description": "Scroll distance in pixels before scrolling down hides the bar. Above it the bar always shows."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Main\"",
+          "description": "Names the navigation landmark."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the fixed nav element that holds the pill. Also accepts every other nav attribute."
+        }
+      ]
+    }
+  ]
+}

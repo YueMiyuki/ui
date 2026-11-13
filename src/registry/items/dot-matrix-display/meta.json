@@ -1,0 +1,72 @@
+{
+  "name": "Dot Matrix Display",
+  "category": "display",
+  "original": true,
+  "description": "A panel of round dots that spells messages in a 5×7 dot font, like a platform sign.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Platform sign"
+    },
+    {
+      "name": "transitions",
+      "title": "Transitions"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 360
+  },
+  "props": [
+    {
+      "component": "DotMatrixDisplay",
+      "props": [
+        {
+          "name": "text",
+          "type": "string | (string | DotMatrixLine)[]",
+          "description": "The message. A string with \\n between lines, or an array with one entry per line. An entry can be a DotMatrixLine object { text, mode?, color?, align?, tone? } to scroll, colour, align (\"left\", \"center\", \"right\") or dim (tone \"dim\") that line on its own. Text is set in capitals from a 5×7 dot font with digits and common punctuation; accents are dropped."
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "description": "Dots down. Each line is 7 dots tall with 2 between lines. Defaults to fit the lines with a dot of margin."
+        },
+        {
+          "name": "cols",
+          "type": "number",
+          "default": "96",
+          "description": "Dots across. The panel fills its container's width and the dots scale to fit."
+        },
+        {
+          "name": "mode",
+          "type": "\"static\" | \"scroll\"",
+          "default": "\"static\"",
+          "description": "Default for every line. Static holds the text still; scroll holds it for a moment, then moves it left one column at a time and loops."
+        },
+        {
+          "name": "transition",
+          "type": "\"wipe\" | \"rain\" | \"blink\" | \"none\"",
+          "default": "\"wipe\"",
+          "description": "How a line changes when its text does. Wipe sweeps a lit bar across; rain lets the old dots drop away and the new ones fall into place column by column; blink flashes the new text on. Under reduced motion lines change at once, and scrolling lines show their text a page at a time."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the lit dots. Use var(--chart-4) (yuzu) or var(--chart-5) (camellia) for notices."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "20",
+          "description": "Scrolling speed in columns per second."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the housing. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

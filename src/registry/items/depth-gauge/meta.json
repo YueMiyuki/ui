@@ -1,0 +1,50 @@
+{
+  "name": "Depth Gauge",
+  "category": "navigation",
+  "original": true,
+  "description": "A slim gauge at the edge of the page that reads how deep you have scrolled in metres, darkening from pale surface water to the deep; click or drag it to go to a depth.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "panel", "title": "In a scrolling panel" }],
+  "preview": { "layout": "fill", "height": 520, "iframe": true },
+  "props": [
+    {
+      "component": "DepthGauge",
+      "props": [
+        {
+          "name": "max",
+          "type": "number",
+          "default": "100",
+          "description": "The depth at the bottom of the page. The top of the page is 0."
+        },
+        {
+          "name": "side",
+          "type": "\"left\" | \"right\"",
+          "default": "\"right\"",
+          "description": "Which edge of the window the gauge sits on. The readout faces into the page."
+        },
+        {
+          "name": "container",
+          "type": "RefObject<HTMLElement | null>",
+          "description": "A scrolling element to follow instead of the window. Render the gauge as the first child inside that element: it then sticks to the element's side, 12px in from its top and bottom, instead of being fixed to the window. It takes no room in the flow, so pad the content on that side."
+        },
+        { "name": "unit", "type": "string", "default": "\"m\"", "description": "Unit written after the readout." },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "The water. The gauge mixes it with the background at the surface and with ink (or night) at depth."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Depth\"",
+          "description": "Names the gauge, which is a vertical slider for assistive technology: arrow keys move one tick, Page Up and Page Down one major tick, Home and End to the surface and the bottom."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the column that holds the gauge: fixed to the window, or sticky inside container when one is given. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

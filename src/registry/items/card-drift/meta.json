@@ -1,0 +1,44 @@
+{
+  "name": "Card Drift",
+  "category": "cards",
+  "description": "A row of cards that scrolls sideways forever, each one bobbing slightly like something on water.",
+  "preview": { "layout": "fill", "height": 420 },
+  "props": [
+    {
+      "component": "CardDrift",
+      "props": [
+        { "name": "items", "type": "readonly T[]", "description": "The items to show, rendered with renderItem." },
+        { "name": "renderItem", "type": "(item: T, index: number) => ReactNode", "description": "Renders one card." },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The cards themselves, instead of items and renderItem."
+        },
+        {
+          "name": "direction",
+          "type": "\"left\" | \"right\"",
+          "default": "\"left\"",
+          "description": "The way the row travels."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "40",
+          "description": "Seconds for one full pass of the list."
+        },
+        {
+          "name": "pauseOnHover",
+          "type": "boolean",
+          "default": "true",
+          "description": "Stops the row while the pointer is over it or focus is inside it."
+        },
+        { "name": "gap", "type": "number", "default": "16", "description": "Space between cards, in pixels." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the row. Its edges fade out with a mask."
+        }
+      ]
+    }
+  ]
+}

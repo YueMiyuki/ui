@@ -1,0 +1,28 @@
+{
+  "name": "Hiding Banner",
+  "category": "navigation",
+  "description": "A bar at the top of the page that steps aside while you scroll down and returns when you scroll up.",
+  "preview": { "layout": "fill", "height": 480, "iframe": true },
+  "props": [
+    {
+      "component": "HidingBanner",
+      "props": [
+        {
+          "name": "hideOnScroll",
+          "type": "boolean",
+          "default": "true",
+          "description": "Slide away while the page scrolls down and come back on the way up."
+        },
+        { "name": "dismissible", "type": "boolean", "default": "false", "description": "Show a close button." },
+        { "name": "onDismiss", "type": "() => void", "description": "Called after the banner is dismissed." },
+        {
+          "name": "dismissLabel",
+          "type": "string",
+          "default": "\"Dismiss\"",
+          "description": "Accessible label for the close button."
+        },
+        { "name": "children", "type": "ReactNode", "description": "The message. Keep it to one line." }
+      ]
+    }
+  ]
+}

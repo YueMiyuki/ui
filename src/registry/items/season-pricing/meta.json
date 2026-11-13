@@ -1,0 +1,70 @@
+{
+  "name": "Season Pricing",
+  "category": "blocks",
+  "original": true,
+  "description": "Three passes side by side under a season switch, with prices that roll to new figures when the season changes.",
+  "preview": { "layout": "center", "height": 720 },
+  "props": [
+    {
+      "component": "SeasonPricing",
+      "props": [
+        {
+          "name": "plans",
+          "type": "PricingPlan[]",
+          "description": "The passes, shown side by side from 672px and stacked below. Each has an id, a name, an optional description, prices by season id, an optional per line under the price, features, the action label and recommended. Rows line up across the passes: names, prices, lists and actions."
+        },
+        {
+          "name": "plans[].recommended",
+          "type": "boolean | string",
+          "description": "Marks the pass with a water-blue top edge and a short tag; a string replaces the tag text. The pass keeps the same size as the others and its action becomes the water button."
+        },
+        {
+          "name": "seasons",
+          "type": "{ id: string; label: string; dates?: string }[]",
+          "description": "The options in the season switch. The dates of the selected season are shown under it and announced when they change."
+        },
+        { "name": "title", "type": "ReactNode", "description": "A heading at the top left, set in the display face." },
+        { "name": "description", "type": "ReactNode", "description": "A paragraph under the heading." },
+        { "name": "value", "type": "string", "description": "The selected season id (controlled)." },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "default": "the first season",
+          "description": "The season selected at first (uncontrolled)."
+        },
+        {
+          "name": "onValueChange",
+          "type": "(season: string) => void",
+          "description": "Called with the season id when the switch changes. Each digit of each price rolls to its new figure, up when prices rise and down when they fall."
+        },
+        {
+          "name": "onChoose",
+          "type": "(plan: string, season: string) => void",
+          "description": "Called when a pass's action is pressed."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "default": "\"JPY\"",
+          "description": "ISO currency code for the prices."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale used to format the prices."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Small print under the passes, such as dates and conditions."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the section. Other section props are passed through."
+        }
+      ]
+    }
+  ]
+}

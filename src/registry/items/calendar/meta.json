@@ -1,0 +1,69 @@
+{
+  "name": "Calendar",
+  "category": "blocks",
+  "description": "A month of events in a seven-column grid, with colour per calendar, overflow into a day list, and a popover for each event.",
+  "preview": { "layout": "center", "height": 800 },
+  "props": [
+    {
+      "component": "EventCalendar",
+      "props": [
+        {
+          "name": "events",
+          "type": "{ id: string; title: string; start: string | DateValue; end?: string | DateValue; calendar: string; location?: string; notes?: string }[]",
+          "description": "The events. Dates are ISO strings such as \"2027-02-14T09:00\" or @internationalized/date values. A start without a time is an all-day event; an event that ends on a later day is drawn as a bar across the days it covers."
+        },
+        {
+          "name": "calendars",
+          "type": "{ id: string; label: string; color: string }[]",
+          "description": "The calendars events belong to, listed under the month. Timed events show a dot in the calendar's colour; all-day and multi-day events are filled with a tint of it."
+        },
+        {
+          "name": "month",
+          "type": "CalendarDate",
+          "description": "Any day in the month to show (controlled). Use defaultMonth when uncontrolled."
+        },
+        {
+          "name": "defaultMonth",
+          "type": "CalendarDate",
+          "description": "The month shown first. Defaults to the month of today."
+        },
+        {
+          "name": "onMonthChange",
+          "type": "(month: CalendarDate) => void",
+          "description": "Called with the first day of the new month when the arrows, Today or the keyboard change it."
+        },
+        {
+          "name": "today",
+          "type": "CalendarDate",
+          "description": "The day marked with a water circle. When left out it is read from the clock after the first render."
+        },
+        {
+          "name": "firstDayOfWeek",
+          "type": "\"sun\" | \"mon\" | \"tue\" | \"wed\" | \"thu\" | \"fri\" | \"sat\"",
+          "description": "First column of the week. Defaults to the locale's."
+        },
+        {
+          "name": "onEventClick",
+          "type": "(event: CalendarEvent) => void",
+          "description": "Called when an event's details open."
+        },
+        {
+          "name": "onCreate",
+          "type": "(date: CalendarDate) => void",
+          "description": "Called by the New event button with the focused day, and when a day is double-clicked."
+        },
+        {
+          "name": "showNewEvent",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the New event button in the header. Set false for a calendar people only read; double-clicking a day still calls onCreate if you pass it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Other props go to the root element."
+        }
+      ]
+    }
+  ]
+}

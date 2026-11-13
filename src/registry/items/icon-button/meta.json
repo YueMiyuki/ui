@@ -1,0 +1,52 @@
+{
+  "name": "Icon Button",
+  "category": "buttons",
+  "description": "A square button that holds only an icon, in the same six weights and three sizes as Button, with a pending state.",
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "IconButton",
+      "props": [
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Required. The accessible name, since the button has no visible text."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The icon. Sized to 16 pixels, or 18 at the large size."
+        },
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"brand\" | \"secondary\" | \"soft\" | \"ghost\" | \"destructive\"",
+          "default": "\"secondary\"",
+          "description": "Visual weight, the same values as Button."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "A square of 32, 36 or 44 pixels."
+        },
+        {
+          "name": "isPending",
+          "type": "boolean",
+          "default": "false",
+          "description": "Swaps the icon for a spinner, sets aria-busy and blocks presses."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the button." },
+        {
+          "name": "onPress",
+          "type": "(event: PressEvent) => void",
+          "description": "Called when the button is pressed by mouse, touch or keyboard."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components Button except children."
+        }
+      ]
+    }
+  ]
+}

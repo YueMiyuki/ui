@@ -1,0 +1,93 @@
+{
+  "name": "Area Chart",
+  "category": "charts",
+  "description": "Stacked, overlapping or 100% areas in a card, with a crosshair tooltip and a legend of totals.",
+  "demos": [
+    { "name": "default", "title": "Stacked" },
+    { "name": "overlap", "title": "Overlapping" },
+    { "name": "percent", "title": "Percent" }
+  ],
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "AreaChart",
+      "props": [
+        {
+          "name": "series",
+          "type": "{ name: string; data: number[]; color?: string }[]",
+          "description": "One entry per area, with a value per label. Colours follow the chart palette unless given."
+        },
+        {
+          "name": "labels",
+          "type": "string[]",
+          "description": "One label per point along the bottom. Crowded labels thin out."
+        },
+        {
+          "name": "mode",
+          "type": "\"stacked\" | \"overlap\" | \"percent\"",
+          "default": "\"stacked\"",
+          "description": "Pile the series up, lay each from zero, or show each as a share of the total."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "200",
+          "description": "Plot height in pixels. The width follows the card."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip and legend. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "titles",
+          "type": "string[]",
+          "description": "Longer names for the tooltip title, one per label, e.g. \"March 2026\"."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a legend with each series' total under the plot."
+        },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the vertical axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated from the data when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value: 0.082 is +8.2%."
+        },
+        {
+          "name": "invertDelta",
+          "type": "boolean",
+          "default": "false",
+          "description": "Treat a fall as good, for costs or wait times."
+        },
+        { "name": "caption", "type": "ReactNode", "description": "Muted text after the value, e.g. \"this week\"." },
+        { "name": "note", "type": "ReactNode", "description": "A muted line under the value." },
+        { "name": "action", "type": "ReactNode", "description": "A control on the right of the header." },
+        { "name": "footer", "type": "ReactNode", "description": "Replaces the legend under the plot." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card, e.g. a width. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

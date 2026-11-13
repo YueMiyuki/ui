@@ -1,0 +1,34 @@
+{
+  "name": "Name Tag Cursor",
+  "category": "cursor",
+  "description": "Inside this area the cursor becomes a coloured pointer towing a small name tag.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "NameTagCursor",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "Content of the tag that trails the pointer, usually a name. Leave it out for the pointer alone."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Fill of the pointer and the tag. The tag's text uses brand-foreground, so pick a colour that holds contrast with it."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The area where the pointer takes over. The native cursor is hidden here only for a mouse or pen."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the wrapper. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

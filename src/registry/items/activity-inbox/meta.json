@@ -1,0 +1,62 @@
+{
+  "name": "Activity Inbox",
+  "category": "blocks",
+  "description": "An inbox of activity grouped by day, filtered by tabs, with unread marks and inline actions.",
+  "demos": [{ "name": "default", "title": "Inbox" }, { "name": "empty", "title": "Empty tab" }],
+  "preview": { "layout": "center", "height": 640 },
+  "props": [
+    {
+      "component": "ActivityInbox",
+      "props": [
+        {
+          "name": "items",
+          "type": "ActivityItem[]",
+          "description": "The notifications, newest first: { id, kind, group, actor, message, time, avatar?, icon?, tone?, quote?, unread?, actions? }. kind is \"mention\", \"system\" or \"activity\" and decides the tab; group is the heading it sits under, such as \"Today\"."
+        },
+        {
+          "name": "defaultTab",
+          "type": "\"all\" | \"mentions\" | \"system\"",
+          "default": "\"all\"",
+          "description": "The tab shown first. Activity items appear only under All."
+        },
+        {
+          "name": "onMarkAllRead",
+          "type": "() => void",
+          "description": "Called by the \"Mark all read\" button. The unread marks clear in place, top to bottom."
+        },
+        {
+          "name": "onMarkRead",
+          "type": "(id: string) => void",
+          "description": "Called when one item is marked read, from its hover control or by using one of its actions."
+        },
+        {
+          "name": "onAction",
+          "type": "(id: string, action: string) => void",
+          "description": "Called with the item id and the action id when an action button such as Reply is pressed."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "default": "\"Notifications\"",
+          "description": "Heading of the panel."
+        },
+        {
+          "name": "listHeight",
+          "type": "number",
+          "default": "440",
+          "description": "Height of the scrolling list in pixels, kept the same on every tab."
+        },
+        {
+          "name": "emptyStates",
+          "type": "Partial<Record<\"all\" | \"mentions\" | \"system\", { title: ReactNode; description?: ReactNode }>>",
+          "description": "Replaces the text shown when a tab has nothing in it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the panel. Also accepts every other section attribute."
+        }
+      ]
+    }
+  ]
+}

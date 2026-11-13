@@ -1,0 +1,116 @@
+{
+  "name": "Date picker",
+  "category": "pickers",
+  "suspense": true,
+  "description": "A date field typed one part at a time, with a calendar in a popover, for one date or a range.",
+  "demos": [{ "name": "default", "title": "Single date" }, { "name": "range", "title": "Range" }],
+  "preview": { "layout": "center", "height": 300, "thumb": false, "thumbClick": "button[aria-haspopup=dialog]" },
+  "props": [
+    {
+      "component": "DatePicker",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the field." },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the field. Replaced by the error while the field is invalid."
+        },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the field while it is invalid, with an alert icon."
+        },
+        {
+          "name": "value",
+          "type": "DateValue | null",
+          "description": "The date (controlled). Use defaultValue when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: DateValue | null) => void",
+          "description": "Called when the date changes."
+        },
+        { "name": "minValue", "type": "DateValue", "description": "Earliest allowed date." },
+        { "name": "maxValue", "type": "DateValue", "description": "Latest allowed date." },
+        {
+          "name": "isDateUnavailable",
+          "type": "(date: DateValue) => boolean",
+          "description": "Marks days that cannot be chosen in the calendar."
+        },
+        {
+          "name": "granularity",
+          "type": "\"day\" | \"hour\" | \"minute\" | \"second\"",
+          "default": "\"day\"",
+          "description": "Smallest unit shown. Finer than day adds time segments when the value has a time."
+        },
+        {
+          "name": "placeholderValue",
+          "type": "DateValue",
+          "description": "Date the calendar opens on and the segments count from while empty."
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "default": "false",
+          "description": "Requires a date before a form submits."
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the camellia outline and the error message."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the field and dims it to 50%."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components DatePicker (name, isOpen, onOpenChange, shouldCloseOnSelect...)."
+        }
+      ]
+    },
+    {
+      "component": "DateRangePicker",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the field." },
+        { "name": "description", "type": "ReactNode", "description": "Help text under the field." },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the field while it is invalid."
+        },
+        {
+          "name": "value",
+          "type": "{ start: DateValue; end: DateValue } | null",
+          "description": "The range (controlled). Use defaultValue when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: { start: DateValue; end: DateValue } | null) => void",
+          "description": "Called when the range changes."
+        },
+        {
+          "name": "visibleMonths",
+          "type": "1 | 2",
+          "default": "1",
+          "description": "Months shown in the popover calendar."
+        },
+        {
+          "name": "allowsNonContiguousRanges",
+          "type": "boolean",
+          "default": "false",
+          "description": "Let a range run across unavailable days."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Accepts the same props as DatePicker otherwise."
+        }
+      ]
+    }
+  ]
+}

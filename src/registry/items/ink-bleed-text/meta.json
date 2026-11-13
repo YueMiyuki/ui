@@ -1,0 +1,48 @@
+{
+  "name": "Ink Bleed Text",
+  "category": "text",
+  "original": true,
+  "description": "Words that appear the way ink spreads into wet paper: each starts as a soft blot and tightens into crisp letters.",
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "InkBleedText",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "The text. Each word is its own element and stays real, selectable text."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.12",
+          "description": "Seconds between one word landing and the next."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1.1",
+          "description": "Seconds each word takes to tighten from a blot into letters. Its rim darkens as the ink soaks in, then evens out."
+        },
+        {
+          "name": "startOnView",
+          "type": "boolean",
+          "default": "true",
+          "description": "Wait until the text scrolls into view. Set false to start on mount. To play it again, remount it with a new key."
+        },
+        {
+          "name": "as",
+          "type": "ElementType",
+          "default": "\"span\"",
+          "description": "The element to render, such as \"h1\" or \"p\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the element; the ink is the text colour. Other props are passed through. Under reduced motion the words fade in without the blot."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Layered Waves",
+  "category": "backgrounds",
+  "description": "Layers of slow translucent waves filling the lower part of the frame, deepening where they overlap.",
+  "preview": { "layout": "fill", "height": 480 },
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "lines", "title": "Lines" }],
+  "props": [
+    {
+      "component": "LayeredWaves",
+      "props": [
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--chart-2)\", \"var(--chart-1)\", \"var(--chart-2)\", \"var(--brand)\", \"var(--brand-strong)\"]",
+          "description": "Band colours from the back wave to the front one, cycled if there are more waves. Any CSS colour or token."
+        },
+        { "name": "waveCount", "type": "number", "default": "5", "description": "Number of wave bands, from 1 to 8." },
+        {
+          "name": "amplitude",
+          "type": "number",
+          "default": "40",
+          "description": "Height of the front wave above and below its rest line, in pixels. Bands further back are lower."
+        },
+        {
+          "name": "speed",
+          "type": "\"slow\" | \"fast\" | number",
+          "default": "\"slow\"",
+          "description": "`slow`, `fast`, or a multiplier where `slow` is 1 and `fast` is 2.5."
+        },
+        {
+          "name": "blur",
+          "type": "number",
+          "default": "6",
+          "description": "Softness of the filled bands, in pixels. The crest lines stay sharp."
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"lines\"",
+          "default": "\"filled\"",
+          "description": "`filled` draws translucent bands with a line along each crest; `lines` draws the crest lines only."
+        },
+        {
+          "name": "level",
+          "type": "number",
+          "default": "0.55",
+          "description": "Where the water line sits, from 0 (top) to 1 (bottom). The bands spread out below it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the waves. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the waves. Keep it above the water line."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Ticket booking",
+  "category": "templates",
+  "original": true,
+  "description": "Booking a reserved train seat from start to finish: route, time, seats and payment on stepping stones, a running summary beside them, and the ticket with a tear-off stub at the end.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "TicketBooking",
+      "props": [
+        {
+          "name": "defaultRoute",
+          "type": "[string, string]",
+          "default": "[\"otaru\", \"sapporo\"]",
+          "description": "Station ids where the journey starts and ends: otaru, chikko, asari, zenibako, hoshimi, inazumi, teine, kotoni or sapporo. Book another journey returns to it."
+        },
+        {
+          "name": "defaultPassengers",
+          "type": "number",
+          "default": "2",
+          "description": "Passengers to start with, from 1 to 4. The seat step asks for one seat each."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls. Going back through the steps, by the Back button or by a finished stone, keeps every choice; changing the route or date clears the train and seats that no longer fit. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Paper Plane Send",
+  "category": "buttons",
+  "original": true,
+  "description": "A send button whose glyph folds into a paper plane and flies off on a dashed trail, circling while a promise is pending.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "states", "title": "Instant, sent and failed" }],
+  "preview": { "layout": "center", "height": 280 },
+  "props": [
+    {
+      "component": "PaperPlaneSend",
+      "props": [
+        {
+          "name": "onPress",
+          "type": "(event: PressEvent) => unknown",
+          "description": "Called on press by mouse, touch or keyboard. Return a promise and the plane circles until it settles: it flies off when the promise resolves and glides home when it rejects."
+        },
+        { "name": "children", "type": "ReactNode", "description": "The idle label." },
+        {
+          "name": "labels",
+          "type": "{ idle?: ReactNode; sending?: string; sent?: string; failed?: string }",
+          "default": "{ sending: \"Sending\", sent: \"Sent\", failed: \"Try again\" }",
+          "description": "idle replaces children. The others show in turn and are announced to screen readers. The width is kept from the widest, so it never jumps."
+        },
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"brand\" | \"secondary\"",
+          "default": "\"primary\"",
+          "description": "Ink, water or card, as Button."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels, as Button."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the button." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components Button. The button sets aria-busy while it sends."
+        }
+      ]
+    }
+  ]
+}

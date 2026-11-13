@@ -1,0 +1,100 @@
+{
+  "name": "Prompt Console",
+  "category": "ai",
+  "description": "A two-row composer with a permission mode picker, a model picker and a context tab on top for the branch and folder.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "PromptConsole",
+      "props": [
+        {
+          "name": "modes",
+          "type": "{ id: string; label: string; description?: ReactNode; icon?: ReactNode; tone?: \"default\" | \"warning\" }[]",
+          "default": "promptModes",
+          "description": "Permission modes for the picker. The default set is Ask first, Auto, Plan and Bypass all; a warning tone paints the choice and the trigger yuzu."
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "description": "The chosen mode id (controlled). Use defaultMode when uncontrolled."
+        },
+        {
+          "name": "defaultMode",
+          "type": "string",
+          "default": "the first mode",
+          "description": "Starting mode when uncontrolled."
+        },
+        { "name": "onModeChange", "type": "(id: string) => void", "description": "Called when a mode is chosen." },
+        {
+          "name": "context",
+          "type": "{ id?: string; label: ReactNode; icon?: ReactNode }[]",
+          "description": "Chips shown in a tab on top of the panel, such as a branch and a folder."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"What do you need today?\"",
+          "description": "Placeholder for the text area, which starts two lines tall."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The text (controlled). Also takes defaultValue and onChange, as PromptBox does."
+        },
+        {
+          "name": "onSend",
+          "type": "(value: string) => void",
+          "description": "Called with the text on send or Enter. Shift+Enter adds a line."
+        },
+        {
+          "name": "onStop",
+          "type": "() => void",
+          "description": "Called when the stop button is pressed while streaming."
+        },
+        {
+          "name": "status",
+          "type": "\"idle\" | \"streaming\"",
+          "default": "\"idle\"",
+          "description": "While streaming, the send arrow morphs into a stop square."
+        },
+        {
+          "name": "models",
+          "type": "{ id: string; name: string; description?: ReactNode }[]",
+          "description": "Models for the picker beside the send button. Also takes model, defaultModel and onModelChange."
+        },
+        {
+          "name": "onAttach",
+          "type": "(files: File[]) => void",
+          "description": "Called with the files chosen after pressing +. Also takes accept and showAttach."
+        },
+        {
+          "name": "canSend",
+          "type": "boolean",
+          "description": "Overrides whether sending is allowed, which by default needs some text."
+        },
+        {
+          "name": "maxRows",
+          "type": "number",
+          "default": "8",
+          "description": "Lines the text area grows to before it scrolls."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables typing and every control."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Rendered inside the panel above the text area, for attachments."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Other div props are spread onto it."
+        }
+      ]
+    }
+  ]
+}

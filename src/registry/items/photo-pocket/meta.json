@@ -1,0 +1,60 @@
+{
+  "name": "Photo Pocket",
+  "category": "backgrounds",
+  "description": "A badge with up to three photos tucked into a small pocket that rise and fan out on hover or focus.",
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "PhotoPocket",
+      "props": [
+        { "name": "text", "type": "string", "description": "The label beside the pocket." },
+        {
+          "name": "images",
+          "type": "string[]",
+          "default": "[]",
+          "description": "Up to three image URLs. The first stands in the middle, in front. They are decorative, so describe the set in the label."
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "Renders the badge as a link. Without it the badge is a button."
+        },
+        { "name": "target", "type": "string", "description": "Link target, used with href." },
+        {
+          "name": "rel",
+          "type": "string",
+          "description": "Link relationship, used with href. Defaults to \"noreferrer\" when target is \"_blank\"."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "28",
+          "description": "Width of the pocket in pixels. The badge height and the photos scale with it."
+        },
+        {
+          "name": "lift",
+          "type": "number",
+          "default": "12",
+          "description": "How far the photos rise out of the pocket when the badge is hovered or focused, in pixels."
+        },
+        {
+          "name": "spread",
+          "type": "number",
+          "default": "16",
+          "description": "Sideways distance between neighbouring photos when fanned, in pixels."
+        },
+        {
+          "name": "rotation",
+          "type": "number",
+          "default": "12",
+          "description": "Tilt of the outer photos when fanned, in degrees. At rest they lean 40% as far."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the badge. Other anchor or button props are passed through, including onClick and ref."
+        }
+      ]
+    }
+  ]
+}

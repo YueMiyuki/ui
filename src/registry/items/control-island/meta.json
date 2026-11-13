@@ -1,0 +1,76 @@
+{
+  "name": "Control Island",
+  "category": "navigation",
+  "description": "A small floating island of controls that opens into a panel of options when one of them is chosen.",
+  "preview": { "layout": "fill", "height": 440 },
+  "props": [
+    {
+      "component": "ControlIsland",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; icon?: ReactNode; options: { id: string; label: string; icon?: ReactNode }[]; defaultValue?: string; value?: string; onChange?: (value: string) => void }[]",
+          "description": "The triggers in the pill, each with the options its panel lists. Use value and onChange to control an item, or defaultValue to leave it uncontrolled."
+        },
+        {
+          "name": "position",
+          "type": "\"top\" | \"bottom\"",
+          "default": "\"bottom\"",
+          "description": "The edge it is pinned to. The panel grows away from that edge."
+        },
+        {
+          "name": "align",
+          "type": "\"start\" | \"center\" | \"end\"",
+          "default": "\"center\"",
+          "description": "Where along the edge it sits."
+        },
+        {
+          "name": "closeOnSelect",
+          "type": "boolean",
+          "default": "true",
+          "description": "Morph back into the pill once an option is chosen."
+        },
+        {
+          "name": "showSelectedValue",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show each item's chosen option after its label, in a muted tone. Below 640 pixels the label is then kept for screen readers only."
+        },
+        {
+          "name": "showDividers",
+          "type": "boolean",
+          "default": "true",
+          "description": "Dotted dividers between the triggers."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": "16",
+          "description": "Distance in pixels from the edge, and the minimum gap at the sides."
+        },
+        {
+          "name": "contained",
+          "type": "boolean",
+          "default": "false",
+          "description": "Position against the nearest positioned parent instead of the window."
+        },
+        {
+          "name": "onItemChange",
+          "type": "(id: string | null) => void",
+          "description": "Called with an item's id when its panel opens, and with null when the panel closes."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Controls\"",
+          "description": "Names the group of controls."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the positioning wrapper. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

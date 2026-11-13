@@ -1,0 +1,47 @@
+{
+  "name": "Footer Waterline",
+  "category": "blocks",
+  "original": true,
+  "description": "A footer where a very large word stands on a waterline over a slow swell, with its reflection beneath and links and small print below.",
+  "preview": { "layout": "fill", "height": 480, "iframe": true },
+  "props": [
+    {
+      "component": "FooterWaterline",
+      "props": [
+        {
+          "name": "word",
+          "type": "string",
+          "description": "The wordmark. It is sized to fill the width of the footer exactly, so a word of any length fits at every width and is never clipped, and its baseline stands on the waterline with a wavering reflection below."
+        },
+        {
+          "name": "links",
+          "type": "{ label: string; href: string }[]",
+          "default": "[]",
+          "description": "Links in a row under the water."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Small print beside the links, such as an address and a copyright line."
+        },
+        {
+          "name": "maxSize",
+          "type": "number",
+          "default": "320",
+          "description": "The largest the word may be, in pixels, for short words on wide screens."
+        },
+        {
+          "name": "waterHeight",
+          "type": "number | string",
+          "default": "62% of the word size, at least 5.5rem",
+          "description": "Depth of the water band, in pixels or any CSS length."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the footer element. Other footer props are passed through."
+        }
+      ]
+    }
+  ]
+}

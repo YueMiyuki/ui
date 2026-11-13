@@ -1,0 +1,44 @@
+{
+  "name": "Abacus Input",
+  "category": "inputs",
+  "original": true,
+  "description": "A number entered by sliding beads on a wooden abacus, one rod per digit, with each rod also a spin button you can type into.",
+  "preview": { "layout": "center", "height": 400 },
+  "props": [
+    {
+      "component": "AbacusInput",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the number." },
+        { "name": "value", "type": "number", "description": "The number (controlled). Setting it moves the beads." },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "0",
+          "description": "Starting number when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: number) => void",
+          "description": "Called when a bead is clicked or let go, or a rod is changed from the keyboard."
+        },
+        {
+          "name": "rods",
+          "type": "number",
+          "default": "5",
+          "description": "Number of rods, one per digit. The largest value is ten to this power, less one."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Dims the abacus and ignores input."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

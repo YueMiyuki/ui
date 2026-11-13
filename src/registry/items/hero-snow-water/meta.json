@@ -1,0 +1,47 @@
+{
+  "name": "Hero Snow Water",
+  "category": "blocks",
+  "original": true,
+  "description": "A hero section with snow falling through the sky and water below, where the headline's last line stands on the waterline above its wavering reflection.",
+  "preview": { "layout": "fill", "height": 640, "iframe": true },
+  "props": [
+    {
+      "component": "HeroSnowWater",
+      "props": [
+        {
+          "name": "title",
+          "type": "string[]",
+          "description": "The headline, one string per line. Whatever line the text wraps to last stands with its baseline exactly on the waterline at every width; the whole headline is mirrored beneath it, wavering and fading with depth. On first view the earlier lines clear out of a blur and the last one rises out of the water, its reflection moving with it."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Supporting content: a paragraph and actions. It stands on the waterline beside the headline from 768px, and sits in the water below the reflection on narrower screens."
+        },
+        {
+          "name": "waterHeight",
+          "type": "number | string",
+          "default": "\"clamp(7rem, 22cqi, 15rem)\"",
+          "description": "Depth of the water band under the waterline, in pixels or any CSS length."
+        },
+        {
+          "name": "snow",
+          "type": "number",
+          "default": "46",
+          "description": "Snowflakes per 100,000 square pixels of sky. 0 turns the snow off."
+        },
+        {
+          "name": "as",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "The heading element for the headline."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the section, which is at least 36rem tall; the sky grows to fill any extra height. Other section props are passed through."
+        }
+      ]
+    }
+  ]
+}

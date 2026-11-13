@@ -1,0 +1,54 @@
+{
+  "name": "Skeleton",
+  "category": "display",
+  "description": "Loading placeholders with a slow band of light, and a reveal that blurs them into the real content.",
+  "preview": { "layout": "center", "height": 380 },
+  "props": [
+    {
+      "component": "Skeleton",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Size and shape, e.g. h-4 w-32 or rounded-lg. Every skeleton on screen sweeps in phase. Accepts every prop of a div."
+        }
+      ]
+    },
+    {
+      "component": "SkeletonText",
+      "props": [
+        {
+          "name": "lines",
+          "type": "number",
+          "default": "3",
+          "description": "Number of lines. The last one is shorter."
+        },
+        { "name": "lineClassName", "type": "string", "description": "Classes for each line, e.g. a different height." }
+      ]
+    },
+    {
+      "component": "SkeletonCircle",
+      "props": [{ "name": "size", "type": "number", "default": "40", "description": "Diameter in pixels." }]
+    },
+    {
+      "component": "SkeletonReveal",
+      "props": [
+        {
+          "name": "loading",
+          "type": "boolean",
+          "description": "While true the skeleton shows. When it turns false the skeleton blurs out as the content blurs in, over 320ms, in the same box."
+        },
+        {
+          "name": "skeleton",
+          "type": "ReactNode",
+          "description": "The placeholder, shaped like the content so nothing moves."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The content. It stays mounted but inert and hidden while loading."
+        }
+      ]
+    }
+  ]
+}

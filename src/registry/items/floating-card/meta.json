@@ -1,0 +1,34 @@
+{
+  "name": "Floating Card",
+  "category": "cards",
+  "description": "A solid colour card that drifts toward the pointer while its content drifts the other way, as if floating.",
+  "preview": { "layout": "center", "height": 640 },
+  "props": [
+    {
+      "component": "FloatingCard",
+      "props": [
+        {
+          "name": "tone",
+          "type": "\"water\" | \"seafoam\" | \"wisteria\" | \"ink\"",
+          "default": "\"water\"",
+          "description": "The colour of the field. Every tone carries light text; the content sits in a dark theme scope so text-foreground reads light."
+        },
+        {
+          "name": "containerClassName",
+          "type": "string",
+          "description": "Classes for the coloured card: size, minimum height, grid placement."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the content inside the card. It is padded p-6, or p-8 from sm."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The card's content. Absolutely positioned children are placed against the card's edges."
+        }
+      ]
+    }
+  ]
+}

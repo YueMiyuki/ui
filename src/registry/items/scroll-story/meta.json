@@ -1,0 +1,35 @@
+{
+  "name": "Scroll Story",
+  "category": "scroll",
+  "description": "Sections of text scroll past on one side while a panel on the other stays put and changes to match the section in the middle.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "ScrollStory",
+      "props": [
+        {
+          "name": "sections",
+          "type": "{ title: ReactNode; description: ReactNode; content: ReactNode }[]",
+          "description": "The sections. content fills the sticky panel while its section is the one nearest the middle."
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "default": "\"30rem\"",
+          "description": "Height of the scroll area, as any CSS length."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Sections\"",
+          "description": "Accessible name of the scroll area, which can be focused and scrolled with the keyboard."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the scroll area. Its background also backs the panel when it sticks to the top on narrow screens."
+        }
+      ]
+    }
+  ]
+}

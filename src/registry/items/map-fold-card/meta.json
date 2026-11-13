@@ -1,0 +1,70 @@
+{
+  "name": "Map Fold Card",
+  "category": "cards",
+  "original": true,
+  "description": "A folded paper map that pulls open sideways in accordion pleats, then unfolds downward into a sheet that keeps its creases.",
+  "preview": { "layout": "center", "height": 440 },
+  "props": [
+    {
+      "component": "MapFoldCard",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "Printed on the cover panel, the one you see while the map is folded."
+        },
+        {
+          "name": "subtitle",
+          "type": "ReactNode",
+          "description": "A smaller line under the title, such as the scale."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The inside of the sheet: a map, a table, a picture. It fills the whole sheet and is drawn on every panel, so keep it free of controls. The sheet is pale paper in both themes: print on it with var(--miyuki-map-fold-card-ink), and use var(--miyuki-map-fold-card-paper) for halos behind labels."
+        },
+        { "name": "columns", "type": "number", "default": "3", "description": "Accordion pleats across, from 2 to 5." },
+        {
+          "name": "rows",
+          "type": "number",
+          "default": "2",
+          "description": "Panels down, from 1 to 3. The sheet is folded across these first, so they open last."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled state. Opening pulls the pleats apart, then lets the lower panels down; folding goes back the same way."
+        },
+        { "name": "defaultOpen", "type": "boolean", "default": "false", "description": "Starts open." },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the map is opened or folded."
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "default": "480",
+          "description": "Width of the open sheet in pixels. The height follows from the panels; it shrinks to fit a narrower container."
+        },
+        {
+          "name": "openLabel",
+          "type": "string",
+          "default": "\"Open map\"",
+          "description": "Accessible name of the folded map, which is a button; the title is added to it."
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "default": "\"Fold map\"",
+          "description": "Text of the small button that appears in the corner of the open map on hover or focus."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, a group; give it an aria-label."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Stepping Stones",
+  "category": "navigation",
+  "original": true,
+  "description": "Steps in a process as flat stones across a strip of water: wet and dark behind you, rings spreading from the one you stand on, dry and pale ahead.",
+  "demos": [{ "name": "default", "title": "Horizontal" }, { "name": "vertical", "title": "Vertical" }],
+  "preview": { "layout": "center", "height": 340 },
+  "props": [
+    {
+      "component": "SteppingStones",
+      "props": [
+        {
+          "name": "steps",
+          "type": "{ id: string; label: ReactNode }[]",
+          "description": "One stone per step, in order. The id also seeds the stone's shape."
+        },
+        {
+          "name": "current",
+          "type": "number",
+          "description": "Index of the current step. Changing it sends a hop of ripples from the old stone to the new one."
+        },
+        {
+          "name": "onStepChange",
+          "type": "(index: number) => void",
+          "description": "When given, the stones of completed steps become buttons that go back to them."
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "A row of stones with labels beneath, or a column with labels beside."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Progress\"",
+          "description": "Names the navigation landmark. The steps are an ordered list and the current one has aria-current=\"step\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the nav element. Other nav props are passed through."
+        }
+      ]
+    }
+  ]
+}

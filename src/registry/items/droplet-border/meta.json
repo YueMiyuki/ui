@@ -1,0 +1,48 @@
+{
+  "name": "Droplet Border",
+  "category": "buttons",
+  "description": "A button with a droplet of light that runs round its border at a steady pace.",
+  "preview": { "layout": "center", "height": 240 },
+  "props": [
+    {
+      "component": "DropletBorder",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The label, with an optional icon. Icons are sized to 16 pixels."
+        },
+        {
+          "name": "as",
+          "type": "ElementType",
+          "default": "\"button\"",
+          "description": "Element to render, for example \"a\" for a link. Props for that element are passed through."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "3",
+          "description": "Seconds for the droplet to go once round."
+        },
+        {
+          "name": "borderRadius",
+          "type": "number",
+          "default": "10",
+          "description": "Outer corner radius in pixels. The path of the droplet and the inner surface follow it."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the droplet. At night its head is lightened toward white."
+        },
+        { "name": "className", "type": "string", "description": "Classes for the inner surface that holds the label." },
+        {
+          "name": "containerClassName",
+          "type": "string",
+          "description": "Classes for the outer element, which is the button itself."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Drifting Clouds",
+  "category": "backgrounds",
+  "description": "Soft procedural clouds drifting across a winter sky, drawn by a WebGL fragment shader.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "DriftingClouds",
+      "props": [
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the wind and for how fast the clouds change shape. 0 holds them still."
+        },
+        {
+          "name": "coverage",
+          "type": "number",
+          "default": "0.5",
+          "description": "How much of the sky is cloud, from 0 (clear) to 1 (overcast)."
+        },
+        {
+          "name": "softness",
+          "type": "number",
+          "default": "0.5",
+          "description": "Cloud edges from 0 (crisp) to 1 (misty)."
+        },
+        {
+          "name": "skyTop",
+          "type": "string",
+          "description": "Sky colour at the top. Without it, a pale winter blue by day and night navy in the dark theme. Any CSS colour or token."
+        },
+        {
+          "name": "skyBottom",
+          "type": "string",
+          "description": "Sky colour at the horizon. Without it, near-snow by day and a faint blue glow at night."
+        },
+        {
+          "name": "cloudColor",
+          "type": "string",
+          "description": "Colour of the lit tops of the clouds. The undersides are mixed from it. Without it, cream-white by day and moonlit grey at night."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the sky. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the sky." }
+      ]
+    }
+  ]
+}

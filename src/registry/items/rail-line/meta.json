@@ -1,0 +1,25 @@
+{
+  "name": "Rail line",
+  "category": "templates",
+  "original": true,
+  "description": "A railway line's public page: the departure board for a chosen station beside service notices, the line as a strip map, an hour-row timetable for weekdays and weekends, and a fare table.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "RailLine",
+      "props": [
+        {
+          "name": "defaultStation",
+          "type": "string",
+          "default": "\"teine\"",
+          "description": "Id of the station shown first: otaru, chikko, asari, zenibako, hoshimi, inazumi, teine, kotoni or sapporo. The station picker in the header, and the stations on the strip map, change the board, the timetable and the fares together."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls under a sticky header. The board, the clock and the timetable's current hour follow the viewer's clock; dates are fixed in February 2027. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

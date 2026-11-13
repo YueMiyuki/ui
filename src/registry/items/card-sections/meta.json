@@ -1,0 +1,83 @@
+{
+  "name": "Card sections",
+  "category": "blocks",
+  "description": "Three cards for marketing pages: a row of instruments read by a passing line of light, an image card that wakes on hover, and a journal card.",
+  "demos": [
+    { "name": "instruments", "title": "Instruments" },
+    { "name": "overlay", "title": "Overlay" },
+    { "name": "content", "title": "Content" }
+  ],
+  "preview": { "layout": "center", "height": 640 },
+  "props": [
+    {
+      "component": "InstrumentsCard",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "The heading under the instruments, set in the display face."
+        },
+        { "name": "description", "type": "ReactNode", "description": "One line of supporting text." },
+        {
+          "name": "instruments",
+          "type": "{ icon: ReactNode; label: string }[]",
+          "default": "thermometer, wind, gauge, snowfall, waves",
+          "description": "The instruments, each shown in a circle with its label. Each one swells and takes the light colour as the line passes it."
+        },
+        { "name": "duration", "type": "number", "default": "2.8", "description": "Seconds for one sweep of the line." },
+        { "name": "pause", "type": "number", "default": "1.6", "description": "Seconds between sweeps." },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the line and of an instrument while it is lit."
+        }
+      ]
+    },
+    {
+      "component": "OverlayCard",
+      "props": [
+        { "name": "src", "type": "string", "description": "The image that fills the card." },
+        { "name": "alt", "type": "string", "default": "\"\"", "description": "Alternative text for the image." },
+        { "name": "title", "type": "ReactNode", "description": "The card's heading, at the bottom over the image." },
+        { "name": "description", "type": "ReactNode", "description": "A sentence under the heading." },
+        {
+          "name": "meta",
+          "type": "ReactNode",
+          "description": "A short line above the heading, such as a region and season."
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "Makes the heading a link that covers the whole card. Keyboard focus starts the same motion as hover."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\", \"var(--chart-3)\"]",
+          "description": "The three colours of the wash that crosses the image on hover."
+        }
+      ]
+    },
+    {
+      "component": "ContentCard",
+      "props": [
+        { "name": "src", "type": "string", "description": "The article's image." },
+        { "name": "alt", "type": "string", "default": "\"\"", "description": "Alternative text for the image." },
+        { "name": "title", "type": "ReactNode", "description": "The article's title, set in the display face." },
+        { "name": "excerpt", "type": "ReactNode", "description": "The opening of the article, clamped to two lines." },
+        {
+          "name": "author",
+          "type": "{ name: string; avatar?: string }",
+          "description": "Shown with a small avatar above the title. Without an image the avatar shows initials."
+        },
+        {
+          "name": "readingTime",
+          "type": "string",
+          "description": "Shown after the author's name, for example \"7 min read\"."
+        },
+        { "name": "href", "type": "string", "description": "Makes the title a link that covers the whole card." }
+      ]
+    }
+  ]
+}

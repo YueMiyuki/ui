@@ -1,0 +1,76 @@
+{
+  "name": "Tooltip",
+  "category": "overlays",
+  "description": "A short hint in ink that shows on hover and focus, with an optional arrow and key hint.",
+  "demos": [{ "name": "default", "title": "Placements" }, { "name": "shortcut", "title": "With shortcut" }],
+  "preview": { "layout": "center", "height": 260 },
+  "props": [
+    {
+      "component": "TooltipTrigger",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A focusable element, usually a Button or IconButton, then the Tooltip."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "500",
+          "description": "Milliseconds of hover before the tooltip shows. Keyboard focus shows it at once, and so does moving from one tooltip to the next."
+        },
+        {
+          "name": "closeDelay",
+          "type": "number",
+          "default": "500",
+          "description": "Milliseconds before it hides after the pointer leaves."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Never show the tooltip." },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Open state (controlled). Use defaultOpen when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the tooltip shows or hides."
+        }
+      ]
+    },
+    {
+      "component": "Tooltip",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The hint. At most 240 pixels wide; keep it short." },
+        {
+          "name": "placement",
+          "type": "Placement",
+          "default": "\"top\"",
+          "description": "Where it shows relative to the trigger. It flips when there is no room."
+        },
+        {
+          "name": "shortcut",
+          "type": "ReactNode",
+          "description": "A key or key combination shown after the text in a lighter chip, e.g. \"⌘K\"."
+        },
+        {
+          "name": "arrow",
+          "type": "boolean",
+          "default": "false",
+          "description": "Draws a small arrow pointing at the trigger."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": "6, or 9 with an arrow",
+          "description": "Gap from the trigger in pixels."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Tooltip."
+        }
+      ]
+    }
+  ]
+}

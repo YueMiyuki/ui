@@ -1,0 +1,49 @@
+{
+  "name": "Low Sun",
+  "category": "backgrounds",
+  "description": "A cone of low sunlight that sweeps in from a top corner, settles on your content and breathes slowly.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "LowSun",
+      "props": [
+        {
+          "name": "from",
+          "type": "\"top-left\" | \"top-right\" | \"top\"",
+          "default": "\"top-left\"",
+          "description": "Where the light enters. The cone always points at the centre of the box."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the outer light. At night the core is mixed toward snow white; by day the cone is a pale wash of this colour."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the length and width of the cone."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "0.3",
+          "description": "Seconds before the light sweeps in. The sweep takes about 1.5 seconds."
+        },
+        {
+          "name": "follow",
+          "type": "boolean",
+          "default": "false",
+          "description": "Let the far end of the cone lean toward the pointer, through a spring, by up to 14 degrees."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the light. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the light." }
+      ]
+    }
+  ]
+}

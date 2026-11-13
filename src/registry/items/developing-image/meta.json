@@ -1,0 +1,65 @@
+{
+  "name": "Developing Image",
+  "category": "display",
+  "description": "A frame that develops an image: a band of shimmering water-toned cells sweeps down, turning a pixel haze into the picture.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "DevelopingImage",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "The finished image. It is shown with object-fit: cover. Changing it starts the sweep again."
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Text alternative for the image. The frame sets aria-busy until the image is revealed."
+        },
+        {
+          "name": "progress",
+          "type": "number",
+          "description": "Controlled progress from 0 to 1. The band eases toward it. Leave it out to sweep on a timer instead."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "4",
+          "description": "Seconds for the sweep when progress is not given."
+        },
+        { "name": "cellSize", "type": "number", "default": "10", "description": "Size of a cell in pixels." },
+        { "name": "gap", "type": "number", "default": "2", "description": "Space between cells in pixels." },
+        {
+          "name": "bandHeight",
+          "type": "number",
+          "default": "0.25",
+          "description": "Height of the scanning band as a fraction of the frame."
+        },
+        {
+          "name": "effect",
+          "type": "\"shimmer\" | \"wave\"",
+          "default": "\"shimmer\"",
+          "description": "How the cells in the band move: each on its own beat, or in a wave travelling across. They hold still under reduced motion."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\", \"var(--brand-soft)\"]",
+          "description": "Water tones for the band. The first also colours its leading edge."
+        },
+        {
+          "name": "onDone",
+          "type": "() => void",
+          "description": "Called once the band has reached the bottom and the overlay has faded."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the frame, which needs a size, for example aspect-[4/3] w-full rounded-2xl. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "Settings Dialog",
+  "category": "blocks",
+  "description": "Settings in one dialog: a column of sections with a sliding highlight, and rows of controls for the chosen one.",
+  "preview": { "layout": "center", "height": 640, "iframe": true, "thumb": false, "thumbClick": "button" },
+  "props": [
+    {
+      "component": "SettingsDialog",
+      "props": [
+        { "name": "isOpen", "type": "boolean", "description": "Open state (controlled)." },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the dialog opens or closes, from the close button, Escape or the scrim."
+        },
+        {
+          "name": "section",
+          "type": "\"general\" | \"appearance\" | \"notifications\" | \"plan\" | \"integrations\"",
+          "description": "The section shown (controlled). Use defaultSection when uncontrolled."
+        },
+        {
+          "name": "defaultSection",
+          "type": "SettingsSection",
+          "default": "\"general\"",
+          "description": "The section shown first when uncontrolled."
+        },
+        {
+          "name": "onSectionChange",
+          "type": "(section: SettingsSection) => void",
+          "description": "Called when another section is chosen, by click or with the arrow keys."
+        },
+        {
+          "name": "defaultSettings",
+          "type": "Partial<SettingsValues>",
+          "description": "Starting values for the controls: workspaceName, language, timeZone, units, theme, mapStyle, compact, clock24, reduceMotion, avalancheBulletins, stormWarnings, mentions, morningSummary, weeklyReport, integrations."
+        },
+        {
+          "name": "onSettingChange",
+          "type": "(key: keyof SettingsValues, value) => void",
+          "description": "Called with the key and new value whenever a control changes."
+        },
+        {
+          "name": "plan",
+          "type": "Partial<SettingsPlan>",
+          "description": "Overrides for the plan card and billing rows: name, price, interval, renews, usageLabel, usage, limit, resets, billingEmail, paymentMethod, invoices, and image, shown fading out of the card's top corner."
+        },
+        { "name": "onUpgrade", "type": "() => void", "description": "Called by the Upgrade button on the plan card." },
+        { "name": "onExport", "type": "() => void", "description": "Called by the Export button under General." },
+        {
+          "name": "isDismissable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close when the scrim is clicked."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the dialog panel. It is 720 pixels wide and 560 tall, less on small screens."
+        }
+      ]
+    }
+  ]
+}

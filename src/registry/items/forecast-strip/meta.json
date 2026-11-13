@@ -1,0 +1,61 @@
+{
+  "name": "Forecast Strip",
+  "category": "blocks",
+  "original": true,
+  "description": "A week of weather in one row of day columns; choosing a day opens its hours beneath, with the temperature drawn as a line through them.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "ForecastStrip",
+      "props": [
+        {
+          "name": "days",
+          "type": "ForecastDay[]",
+          "description": "The days, in order: { id, label, date, title?, kind, summary, high, low, snow }. label and date are the short day name and number shown in the column, title is the full date read out and shown above the hours (\"Sunday 14 February\"), kind is a WeatherIcon kind, summary its words, high and low in degrees, snow the chance of snow from 0 to 100. Each column's bar shows the day's low to high against the coldest low and warmest high of the week."
+        },
+        {
+          "name": "hours",
+          "type": "Record<string, ForecastHour[]>",
+          "description": "Hourly forecasts keyed by day id: { time, kind, temp, snow }[]. A day without hours cannot open. All days share one temperature scale, so switching days shows the real difference and the line flows from one day's shape to the next."
+        },
+        {
+          "name": "value",
+          "type": "string | null",
+          "description": "The id of the open day (controlled). null closes the hours."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string | null",
+          "default": "null",
+          "description": "The id of the day open at first (uncontrolled)."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string | null) => void",
+          "description": "Called when a day is chosen, or with null when the open day is pressed again to close it."
+        },
+        {
+          "name": "startTime",
+          "type": "string",
+          "default": "\"06:00\"",
+          "description": "The hour the strip is scrolled to when the hours open, so the morning is in view. It stays where the reader leaves it when the day changes."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "The place, shown as the heading and used to name the section."
+        },
+        {
+          "name": "caption",
+          "type": "ReactNode",
+          "description": "A short line beside the place, such as the station's height."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Other section props are passed through."
+        }
+      ]
+    }
+  ]
+}

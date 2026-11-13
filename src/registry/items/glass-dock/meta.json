@@ -1,0 +1,41 @@
+{
+  "name": "Glass Dock",
+  "category": "navigation",
+  "description": "A glass dock of round icons that swell in a wave as the pointer passes over them.",
+  "preview": { "layout": "center", "height": 300 },
+  "props": [
+    {
+      "component": "GlassDock",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ title: string; icon: ReactNode; href?: string; onClick?: () => void; current?: boolean }[]",
+          "description": "The icons. An item with href is a link, otherwise a button. The title is its accessible name and the label shown above it. The current one gets aria-current=\"page\" and a water dot."
+        },
+        {
+          "name": "magnification",
+          "type": "number",
+          "default": "1.8",
+          "description": "How large the icon under the pointer grows, as a multiple of its 40 pixel resting size."
+        },
+        {
+          "name": "distance",
+          "type": "number",
+          "default": "140",
+          "description": "How far from the pointer, in pixels along the bar, the wave reaches."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Dock\"",
+          "description": "Names the navigation landmark."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the nav element. Also accepts every other nav attribute. Below 768 pixels the dock is a single button that opens the items as a stack above it."
+        }
+      ]
+    }
+  ]
+}

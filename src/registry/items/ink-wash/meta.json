@@ -1,0 +1,42 @@
+{
+  "name": "Ink Wash",
+  "category": "backgrounds",
+  "original": true,
+  "description": "Ink blooming in clear water: each press releases a bloom that billows, folds on itself and thins as a slow current swirls it away.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "InkWash",
+      "props": [
+        {
+          "name": "colors",
+          "type": "string[]",
+          "description": "Up to three inks, used in turn for each bloom. Without it, deep ink by day and pale water-blue light at night. Any CSS colours or tokens."
+        },
+        {
+          "name": "spread",
+          "type": "number",
+          "default": "1",
+          "description": "How far a bloom pushes out before the current takes over. 2 is about twice as wide."
+        },
+        { "name": "fade", "type": "number", "default": "20", "description": "Seconds until a bloom has thinned away." },
+        {
+          "name": "auto",
+          "type": "boolean",
+          "default": "true",
+          "description": "Open two blooms on their own when the component first comes into view."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the ink. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the water. Presses on links, buttons and fields stay with them; a press anywhere else releases ink, and dragging lets a little more out along the way."
+        }
+      ]
+    }
+  ]
+}

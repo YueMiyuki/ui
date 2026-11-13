@@ -1,0 +1,54 @@
+{
+  "name": "Drifting Ice",
+  "category": "backgrounds",
+  "original": true,
+  "description": "Ice floes on open water that drift and turn on a slow current and bump into each other; the pointer pushes them aside and a click cracks one.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "DriftingIce",
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "12",
+          "description": "Roughly how many floes are in view at once. Floes are sized so that together they cover `coverage` of the frame."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the current. 0 leaves the floes resting until the pointer moves them."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "\"drifting-ice\"",
+          "description": "Seed for the floe shapes, their placement and the current. The same seed gives the same ice."
+        },
+        {
+          "name": "coverage",
+          "type": "number",
+          "default": "0.4",
+          "description": "Share of the water covered by ice, from 0.05 to 0.7. Four tenths is 0.4."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let the pointer push floes aside, leaving a wake, and let a click crack the floe under it into two or three pieces. Clicks on links, buttons and fields stay with them."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the ice. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the ice. Mark a descendant with `data-ice-clear` to keep floes drifting around it, so text there always sits over open water."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Snowflake Like",
+  "category": "buttons",
+  "original": true,
+  "description": "A favourite toggle whose snow crystal fills from its centre and throws six tiny flakes along its arms, with an optional count that ticks.",
+  "preview": { "layout": "center", "height": 260 },
+  "props": [
+    {
+      "component": "SnowflakeLike",
+      "props": [
+        { "name": "isSelected", "type": "boolean", "description": "Whether it is on, when controlled." },
+        {
+          "name": "defaultSelected",
+          "type": "boolean",
+          "default": "false",
+          "description": "Whether it starts on, when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(selected: boolean) => void",
+          "description": "Called with the new state when pressed."
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": "How many others have favourited it. One is added while it is on, and the number rolls when it changes. Leave it out for an icon-only button."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels, with a 16, 20 or 24 pixel crystal."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Favourite\"",
+          "description": "The accessible name. The count is added to it."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the button." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of the react-aria-components ToggleButton."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "name": "Comparison Area",
+  "category": "charts",
+  "description": "This period as a water area over the last as a dashed line, in a card with the comparison in the tooltip.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "ComparisonArea",
+      "props": [
+        { "name": "labels", "type": "string[]", "description": "One label per point along the bottom." },
+        { "name": "current", "type": "number[]", "description": "This period's values, drawn as a water area." },
+        {
+          "name": "previous",
+          "type": "number[]",
+          "description": "The comparison period's values, drawn as a dashed line."
+        },
+        {
+          "name": "currentName",
+          "type": "string",
+          "default": "\"This year\"",
+          "description": "Name of the current period in the legend and tooltip."
+        },
+        {
+          "name": "previousName",
+          "type": "string",
+          "default": "\"Last year\"",
+          "description": "Name of the comparison period."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--chart-1)\"",
+          "description": "Colour of the current area."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes values in the tooltip. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "formatAxis",
+          "type": "(value: number) => string",
+          "description": "Writes the tick labels on the left. Defaults to compact numbers."
+        },
+        { "name": "height", "type": "number", "default": "200", "description": "Plot height in pixels." },
+        { "name": "titles", "type": "string[]", "description": "Longer names for the tooltip title." },
+        {
+          "name": "xLabel",
+          "type": "ReactNode",
+          "description": "A title under the horizontal axis. The chart makes room for it."
+        },
+        {
+          "name": "yLabel",
+          "type": "ReactNode",
+          "description": "A title beside the vertical axis, set sideways. The chart makes room for it."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the chart shows, for screen readers. Generated when left out."
+        },
+        { "name": "action", "type": "ReactNode", "description": "Replaces the legend at the top right." },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "value", "type": "ReactNode", "description": "The headline number, already formatted." },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change as a signed fraction, shown as a chip beside the value."
+        },
+        { "name": "note", "type": "ReactNode", "description": "A muted line under the value, e.g. last year's total." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts caption, footer, invertDelta and every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

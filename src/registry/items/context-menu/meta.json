@@ -1,0 +1,118 @@
+{
+  "name": "Context menu",
+  "category": "overlays",
+  "description": "A menu that opens where you right-click, or from the keyboard with Shift+F10, with icons, shortcuts and submenus.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "ContextMenu",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The area that opens the menu. Right-click, long-press, Shift+F10 or the Menu key on anything focused inside it."
+        },
+        {
+          "name": "menu",
+          "type": "ReactNode",
+          "description": "ContextMenuItem, ContextMenuSection, ContextMenuSeparator and ContextMenuSubmenu elements."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Context menu\"",
+          "description": "Names the menu for assistive technology, e.g. \"File actions\"."
+        },
+        {
+          "name": "onAction",
+          "type": "(key: Key) => void",
+          "description": "Called when an item is chosen, including items in submenus."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the menu opens or closes."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Leaves the browser's own context menu in place."
+        },
+        { "name": "disabledKeys", "type": "Iterable<Key>", "description": "Items that cannot be chosen." },
+        {
+          "name": "menuClassName",
+          "type": "string",
+          "description": "Classes for the floating surface, e.g. a width. It is at least 200 pixels wide."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapper around the area. Also accepts every other div prop. The wrapper has data-open while its menu is open."
+        }
+      ]
+    },
+    {
+      "component": "ContextMenuItem",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The label." },
+        { "name": "id", "type": "Key", "description": "Identifies the item in onAction." },
+        { "name": "icon", "type": "ReactNode", "description": "A 16 pixel icon before the label." },
+        { "name": "description", "type": "ReactNode", "description": "A line under the label." },
+        { "name": "shortcut", "type": "ReactNode", "description": "A key hint at the end of the row, e.g. \"⌘D\"." },
+        {
+          "name": "tone",
+          "type": "\"default\" | \"destructive\"",
+          "default": "\"default\"",
+          "description": "Destructive paints the row camellia, with a camellia-soft highlight."
+        },
+        { "name": "onAction", "type": "() => void", "description": "Called when the item is chosen." },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the item." }
+      ]
+    },
+    {
+      "component": "ContextMenuSubmenu",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label of the item that opens the submenu." },
+        { "name": "children", "type": "ReactNode", "description": "The items in the submenu." },
+        { "name": "icon", "type": "ReactNode", "description": "A 16 pixel icon before the label." },
+        { "name": "id", "type": "Key", "description": "Identifies the item that opens the submenu." },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "200",
+          "description": "Milliseconds of hover before it opens. The right arrow key opens it at once."
+        },
+        { "name": "isDisabled", "type": "boolean", "default": "false", "description": "Disables the submenu." },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Names the submenu. Defaults to the label when it is a string."
+        },
+        { "name": "menuClassName", "type": "string", "description": "Classes for the submenu's floating surface." }
+      ]
+    },
+    {
+      "component": "ContextMenuSection",
+      "props": [
+        { "name": "title", "type": "ReactNode", "description": "A small heading over the group." },
+        { "name": "children", "type": "ReactNode", "description": "The items in the group." },
+        {
+          "name": "selectionMode",
+          "type": "\"none\" | \"single\" | \"multiple\"",
+          "description": "Lets the items in this group be chosen. Chosen items show a dot (single) or a check (multiple)."
+        },
+        { "name": "selectedKeys", "type": "Iterable<Key>", "description": "Chosen items in this group (controlled)." },
+        {
+          "name": "onSelectionChange",
+          "type": "(keys: Selection) => void",
+          "description": "Called when the chosen items change."
+        }
+      ]
+    },
+    {
+      "component": "ContextMenuSeparator",
+      "props": [{ "name": "className", "type": "string", "description": "Extra classes for the hairline." }]
+    }
+  ]
+}

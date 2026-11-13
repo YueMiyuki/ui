@@ -1,0 +1,41 @@
+{
+  "name": "Weather Icon",
+  "category": "display",
+  "original": true,
+  "description": "Eleven animated weather symbols drawn as lines on a 24 grid, each with its own small, slow loop.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "WeatherIcon",
+      "props": [
+        {
+          "name": "kind",
+          "type": "\"clear\" | \"partly-cloudy\" | \"cloudy\" | \"fog\" | \"rain\" | \"sleet\" | \"snow\" | \"heavy-snow\" | \"wind\" | \"thunder\" | \"clear-night\"",
+          "description": "The symbol. Each has a loop: rays pulse in turn, cloud edges breathe, rain falls in sequence, flakes drift and turn, fog bands shift, gusts slide through the wind lines, lightning flickers, stars twinkle."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Strokes are 1.5 units of the 24 grid, so they scale with the size."
+        },
+        {
+          "name": "animate",
+          "type": "\"always\" | \"hover\" | \"never\"",
+          "default": "\"always\"",
+          "description": "When the loop plays. Hover plays it only while the pointer is over the icon. Every kind rests on a complete still frame, which is also what reduced motion shows."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Accessible name, such as \"Heavy snow\". Without it the icon is decorative and hidden from assistive technology."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the svg. Lines are currentColor. The sun and lightning use --miyuki-weather-icon-sun (yuzu by default) and rain and snow use --miyuki-weather-icon-water (water by default); set either on the icon or a parent. Other svg props are passed through."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Frost Text",
+  "category": "text",
+  "original": true,
+  "description": "Letters that freeze into being: fine branching crystals grow along each outline from a few seeds, then the face fills with sparkling frost.",
+  "preview": { "layout": "center", "height": 400 },
+  "props": [
+    {
+      "component": "FrostText",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "The text. It stays real text laid out by the page in the inherited font; the frost is grown on the outlines of those same glyphs."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.09",
+          "description": "Seconds between one letter starting to freeze and the next."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1.6",
+          "description": "Seconds each letter takes: about the first half to close its outline, the rest to freeze its face from the edges inward."
+        },
+        {
+          "name": "thaw",
+          "type": "boolean",
+          "default": "false",
+          "description": "Run the freeze backwards, last letter first: the faces clear to the outline, then the crystals retreat to their seeds. Setting it back to false freezes the text again from wherever it is."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, an inline block. The freeze starts when the text first scrolls into view. Other span props are passed through. Under reduced motion the plain text is shown."
+        }
+      ]
+    }
+  ]
+}

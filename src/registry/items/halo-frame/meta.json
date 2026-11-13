@@ -1,0 +1,44 @@
+{
+  "name": "Halo Frame",
+  "category": "backgrounds",
+  "description": "A frame that puts a slowly turning gradient ring and a soft halo around one child.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "HaloFrame",
+      "props": [
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\", \"var(--chart-3)\", \"var(--chart-6)\"]",
+          "description": "Colours of the conic gradient, in order. The first is repeated at the end to close the circle."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Turn the gradient. It holds still under reduced motion."
+        },
+        { "name": "duration", "type": "number", "default": "8", "description": "Seconds per full turn." },
+        { "name": "glow", "type": "number", "default": "0.6", "description": "Strength of the halo, from 0 to 1." },
+        { "name": "borderWidth", "type": "number", "default": "1.5", "description": "Width of the ring in pixels." },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "18",
+          "description": "Outer corner radius in pixels. The child's corners are set to this minus the ring width."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the frame. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "One child with its own surface, such as a bg-card panel. Its corners are rounded to sit inside the ring."
+        }
+      ]
+    }
+  ]
+}

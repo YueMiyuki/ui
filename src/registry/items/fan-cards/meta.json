@@ -1,0 +1,42 @@
+{
+  "name": "Fan cards",
+  "category": "labs",
+  "description": "A tight stack of cards that fans open along a shallow arc when you reach for it, with a band of light crossing the title.",
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "FanCards",
+      "props": [
+        {
+          "name": "cards",
+          "type": "ReactNode[]",
+          "description": "Three to five cards, each filling the card size. The last one is on top of the stack."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "A heading under the stack. A band of water-blue light passes across it once each time the fan opens."
+        },
+        {
+          "name": "spread",
+          "type": "number",
+          "default": "132",
+          "description": "Distance in pixels between neighbouring cards when open. It shrinks to fit a narrow container."
+        },
+        {
+          "name": "rotation",
+          "type": "number",
+          "default": "7",
+          "description": "Degrees each card turns from its neighbour when open."
+        },
+        { "name": "cardWidth", "type": "number", "default": "180", "description": "Width of a card, in pixels." },
+        { "name": "cardHeight", "type": "number", "default": "240", "description": "Height of a card, in pixels." },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Names the stack, which is focusable. Defaults to the title when it is a string. Focus or Enter opens it; on touch a tap toggles it."
+        }
+      ]
+    }
+  ]
+}

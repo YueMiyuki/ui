@@ -1,0 +1,42 @@
+{
+  "name": "Weather Card",
+  "category": "cards",
+  "original": true,
+  "description": "A forecast card whose background is a small live scene of the weather, from clear sky to thunder.",
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "WeatherCard",
+      "props": [
+        {
+          "name": "condition",
+          "type": "\"clear\" | \"cloudy\" | \"rain\" | \"snow\" | \"fog\" | \"storm\"",
+          "default": "\"clear\"",
+          "description": "The weather in the scene. A change passes through the weather in between: cloud gathers before rain starts, rain stops before cloud breaks."
+        },
+        {
+          "name": "night",
+          "type": "boolean",
+          "default": "false",
+          "description": "Darkens the scene, swaps the sun for a crescent moon and brings out stars on clear nights."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "\"hakuba\"",
+          "description": "Shapes the ridgelines, cloud bands and stars."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The forecast. It sits in a padded layer that switches to light text over dark skies, so text-foreground stays readable."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Set its width here; it is at least 17rem tall. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Input OTP",
+  "category": "inputs",
+  "description": "Boxes for a one-time code, drawn over one real input so typing, pasting and autofill all work.",
+  "preview": { "layout": "center", "height": 260 },
+  "props": [
+    {
+      "component": "InputOTP",
+      "props": [
+        { "name": "length", "type": "number", "default": "6", "description": "Number of boxes." },
+        { "name": "value", "type": "string", "description": "The code (controlled)." },
+        { "name": "defaultValue", "type": "string", "description": "The code at first (uncontrolled)." },
+        {
+          "name": "onChange",
+          "type": "(value: string) => void",
+          "description": "Called with the code, cleaned of spaces and dashes, as it changes."
+        },
+        { "name": "onComplete", "type": "(value: string) => void", "description": "Called once every box is filled." },
+        { "name": "groups", "type": "number[]", "description": "Box counts between separators, for example [3, 3]." },
+        {
+          "name": "mask",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show dots instead of the characters."
+        },
+        {
+          "name": "inputMode",
+          "type": "\"numeric\" | \"text\"",
+          "default": "\"numeric\"",
+          "description": "Digits only, or letters and digits. Also picks the on-screen keyboard."
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "default": "false",
+          "description": "Camellia borders and the error message; the boxes give a small shake as it turns on."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the input and dims the boxes."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Label above the boxes. Without one, give it an aria-label."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "A line under the boxes. Replaced by the error while invalid."
+        },
+        { "name": "errorMessage", "type": "ReactNode", "description": "Shown under the boxes while invalid." },
+        { "name": "name", "type": "string", "description": "Name of the input for form submission." },
+        { "name": "autoFocus", "type": "boolean", "default": "false", "description": "Focus the input on mount." },
+        { "name": "inputRef", "type": "Ref<HTMLInputElement>", "description": "Ref to the real input." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

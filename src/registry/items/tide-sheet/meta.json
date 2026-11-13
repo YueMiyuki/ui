@@ -1,0 +1,87 @@
+{
+  "name": "Tide sheet",
+  "category": "overlays",
+  "original": true,
+  "description": "A bottom sheet whose top edge is a slow wave, resting at three heights and dragged like a water level.",
+  "preview": { "layout": "center", "height": 480, "iframe": true, "thumb": false, "thumbClick": "button" },
+  "props": [
+    {
+      "component": "TideSheetTrigger",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A button that opens the sheet, then the TideSheet."
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Open state (controlled). Use defaultOpen when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the sheet opens or closes."
+        }
+      ]
+    },
+    {
+      "component": "TideSheet",
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Open state, when used without a TideSheetTrigger. Use defaultOpen when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the open state changes, when used without a TideSheetTrigger."
+        },
+        {
+          "name": "snap",
+          "type": "\"peek\" | \"half\" | \"full\"",
+          "description": "The height it rests at (controlled). Use defaultSnap when uncontrolled; it opens at half."
+        },
+        {
+          "name": "onSnapChange",
+          "type": "(snap: \"peek\" | \"half\" | \"full\") => void",
+          "description": "Called when it settles at another height, after a drag or from the keyboard."
+        },
+        {
+          "name": "snapPoints",
+          "type": "{ peek?: number; half?: number; full?: number }",
+          "default": "{ peek: 0.3, half: 0.56, full: 1 }",
+          "description": "Each height as a share of the window, less room for the wave at the top. Peek is at least 150 pixels."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | ({ close }) => ReactNode",
+          "description": "The content. It scrolls only once the sheet is at full height; below that, dragging anywhere moves the water level. Use TideSheetTitle to name it."
+        },
+        {
+          "name": "isDismissable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close when the scrim is clicked. Escape always closes unless isKeyboardDismissDisabled is set. A fast or long drag down closes it too."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default: the browser redraws the blur on every frame while anything behind it changes, which stalls on large pages, most of all in Firefox."
+        },
+        { "name": "aria-label", "type": "string", "description": "Labels the sheet when it has no TideSheetTitle." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the sheet. It is 640 pixels wide at most."
+        }
+      ]
+    },
+    {
+      "component": "TideSheetTitle",
+      "props": [{ "name": "children", "type": "ReactNode", "description": "The sheet's name. Labels the dialog." }]
+    }
+  ]
+}

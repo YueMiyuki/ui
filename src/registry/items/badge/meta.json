@@ -1,0 +1,38 @@
+{
+  "name": "Badge",
+  "category": "display",
+  "description": "A small pill that labels a status or a count, in five tones and three styles.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "Badge",
+      "props": [
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"brand\" | \"success\" | \"warning\" | \"destructive\"",
+          "default": "\"neutral\"",
+          "description": "The colour family: ink, water, pine, yuzu or camellia."
+        },
+        {
+          "name": "variant",
+          "type": "\"soft\" | \"solid\" | \"outline\"",
+          "default": "\"soft\"",
+          "description": "A tint with strong text, a full fill for counts and dots, or a hairline outline."
+        },
+        { "name": "size", "type": "\"sm\" | \"md\"", "default": "\"md\"", "description": "Height of 20 or 24 pixels." },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "default": "false",
+          "description": "A 6 pixel dot before the text, in the tone's colour."
+        },
+        { "name": "icon", "type": "ReactNode", "description": "An icon before the text, sized to 12 pixels." },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes, merged with cn(). Also accepts every other prop of a span."
+        }
+      ]
+    }
+  ]
+}

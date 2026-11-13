@@ -1,0 +1,54 @@
+{
+  "name": "Sun Arc",
+  "category": "display",
+  "original": true,
+  "description": "The sun's path for one day: an arc from sunrise to sunset with the sun at a time you can scrub.",
+  "preview": { "layout": "center", "height": 400 },
+  "props": [
+    {
+      "component": "SunArc",
+      "props": [
+        { "name": "sunrise", "type": "string", "description": "Sunrise as \"HH:MM\", 24-hour." },
+        { "name": "sunset", "type": "string", "description": "Sunset as \"HH:MM\", 24-hour." },
+        {
+          "name": "time",
+          "type": "string",
+          "description": "The time the sun shows, \"HH:MM\". Controlled; pair with onTimeChange."
+        },
+        {
+          "name": "defaultTime",
+          "type": "string",
+          "description": "Starting time when uncontrolled. Defaults to solar noon, halfway between sunrise and sunset."
+        },
+        {
+          "name": "onTimeChange",
+          "type": "(time: string) => void",
+          "description": "Called as the sun is dragged, the sky is clicked, or the arrow keys move it a minute at a time (Page Up and Page Down a tenth of the range, Home and End to the ends). The range runs from a little before sunrise to a little after sunset."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "default": "\"Time of day\"",
+          "description": "Heading, also the slider's accessible name. Assistive technology hears the time and how long until sunrise or sunset."
+        },
+        {
+          "name": "twilight",
+          "type": "number",
+          "default": "30",
+          "description": "Minutes of twilight shaded at each end of the day, where the arc dips below the horizon."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "196",
+          "description": "Height of the sky in pixels. The arc fills the width of its container."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapper. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

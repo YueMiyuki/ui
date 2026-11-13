@@ -1,0 +1,52 @@
+{
+  "name": "File dropzone",
+  "category": "inputs",
+  "description": "A drop area with a small stack of paper that lifts on hover and fans out when files are dragged over, listing the chosen files below.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "FileDropzone",
+      "props": [
+        {
+          "name": "onChange",
+          "type": "(files: File[]) => void",
+          "description": "Called with every accepted file whenever the list changes. Files that break accept or maxSize stay in the list with a note and are left out."
+        },
+        {
+          "name": "accept",
+          "type": "string[]",
+          "description": "Accepted types: extensions such as \".gpx\", MIME types such as \"image/png\", or \"image/*\". Also limits the file picker."
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "default": "true",
+          "description": "Allow several files. When false, a new file replaces the list."
+        },
+        {
+          "name": "maxSize",
+          "type": "number",
+          "description": "Largest file in bytes. Also writes the size limit into the default hint."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "default": "\"Drop files here\"",
+          "description": "The main line under the paper stack. Also names the drop target for assistive technology."
+        },
+        {
+          "name": "hint",
+          "type": "ReactNode",
+          "description": "Replaces the muted line, which by default reads \"or choose files\" followed by the size limit."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Turns off dropping and choosing, and dims the component."
+        },
+        { "name": "className", "type": "string", "description": "Extra classes for the root." }
+      ]
+    }
+  ]
+}

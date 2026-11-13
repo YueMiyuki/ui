@@ -1,0 +1,88 @@
+{
+  "name": "Barometer",
+  "category": "charts",
+  "original": true,
+  "description": "Air pressure on an aneroid dial, with a settable marker needle for the earlier reading and the trend written beneath.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "day", "title": "Through the day" }],
+  "preview": { "layout": "center", "height": 560 },
+  "props": [
+    {
+      "component": "Barometer",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "description": "The current reading. The main needle springs to it whenever it changes."
+        },
+        {
+          "name": "previous",
+          "type": "number",
+          "description": "The earlier reading, shown by the marker needle. The trend is the gap between the two. Defaults to the current value."
+        },
+        { "name": "min", "type": "number", "default": "960", "description": "The value at the left end of the scale." },
+        {
+          "name": "max",
+          "type": "number",
+          "default": "1060",
+          "description": "The value at the right end of the scale."
+        },
+        {
+          "name": "hours",
+          "type": "number",
+          "default": "3",
+          "description": "How long ago the previous reading was taken, for the trend line."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "default": "\"hPa\"",
+          "description": "Unit written on the dial and after values."
+        },
+        {
+          "name": "words",
+          "type": "{ label: string; at: number }[]",
+          "description": "The weather words set round the dial and the readings they sit at. Defaults to Stormy, Rain, Change, Fair and Very dry."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "296",
+          "description": "Largest dial diameter in pixels. The dial shrinks to fit the card."
+        },
+        {
+          "name": "settable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a Set marker button that moves the marker needle onto the current reading."
+        },
+        {
+          "name": "onPreviousChange",
+          "type": "(value: number) => void",
+          "description": "Called when the marker is set from the button."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "description": "Writes readings. Defaults to grouped whole numbers."
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "What the dial shows, for screen readers. Generated from the readings when left out."
+        },
+        { "name": "label", "type": "ReactNode", "description": "Small muted label at the top of the card." },
+        { "name": "note", "type": "ReactNode", "description": "A muted line under the label." },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "description": "Replaces the Set marker button on the right of the header."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

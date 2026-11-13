@@ -1,0 +1,65 @@
+{
+  "name": "Sensu Fan",
+  "category": "cards",
+  "original": true,
+  "description": "A folding fan that spreads its ribs from a pivot and unfolds a pleated leaf with a picture, or a menu, printed across it.",
+  "demos": [{ "name": "default", "title": "Picture" }, { "name": "items", "title": "Menu" }],
+  "preview": { "layout": "center", "height": 440 },
+  "props": [
+    {
+      "component": "SensuFan",
+      "props": [
+        { "name": "open", "type": "boolean", "description": "Whether the fan is open (controlled)." },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Whether it starts open (uncontrolled)."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the fan is pressed, or Escape is pressed while it is open."
+        },
+        {
+          "name": "angle",
+          "type": "number",
+          "default": "140",
+          "description": "The arc the fan spreads through when open, in degrees, from 40 to 180."
+        },
+        {
+          "name": "ribs",
+          "type": "number",
+          "default": "11",
+          "description": "Number of ribs, the two guard sticks included. Each gap holds one pleat of two faces."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The picture printed across the leaf, usually an img with object-cover. It fills a 480 by 276 box whose bottom centre is the pivot."
+        },
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; icon?: ReactNode }[]",
+          "description": "Menu mode: one item per pleat, set along the pleat. The fan then has one rib more than items, and only its handle toggles it."
+        },
+        {
+          "name": "onAction",
+          "type": "(id: string) => void",
+          "description": "Called with the id of the pressed item. Arrow keys move between items; Escape folds the fan."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Folding fan\"",
+          "description": "Accessible name of the fan, and of the menu in menu mode. Describe the picture here."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is up to 480 pixels wide and scales down to fit. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}

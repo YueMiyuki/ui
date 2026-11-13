@@ -1,0 +1,68 @@
+{
+  "name": "Wavering Text",
+  "category": "text",
+  "description": "Text that wobbles as if drawn by hand, or wavers as if seen through moving water, using an SVG displacement filter.",
+  "preview": {
+    "layout": "center",
+    "height": 340
+  },
+  "props": [
+    {
+      "component": "WaveringText",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The text. It stays real text: selectable, searchable and read as is."
+        },
+        {
+          "name": "mode",
+          "type": "\"boil\" | \"ripple\"",
+          "default": "\"boil\"",
+          "description": "Boil steps through a few fixed filter frames like hand-drawn animation. Ripple changes the turbulence continuously for a slow underwater waver."
+        },
+        {
+          "name": "steps",
+          "type": "number",
+          "default": "5",
+          "description": "Number of frames in a boil."
+        },
+        {
+          "name": "stepDuration",
+          "type": "number",
+          "default": "110",
+          "description": "Milliseconds each boil frame is held."
+        },
+        {
+          "name": "scale",
+          "type": "number",
+          "default": "4, or 8 in ripple mode",
+          "description": "Largest displacement, in pixels."
+        },
+        {
+          "name": "baseFrequency",
+          "type": "number",
+          "default": "0.02",
+          "description": "Turbulence frequency. Lower values give broader, smoother waves."
+        },
+        {
+          "name": "numOctaves",
+          "type": "number",
+          "default": "3, or 1 in ripple mode",
+          "description": "Turbulence detail."
+        },
+        {
+          "name": "as",
+          "type": "ElementType",
+          "default": "\"span\"",
+          "description": "The element to render, e.g. \"h1\" or \"p\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the element. Other props are passed through. The filter pauses off screen and holds one frame under reduced motion."
+        }
+      ]
+    }
+  ]
+}

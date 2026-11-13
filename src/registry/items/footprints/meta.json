@@ -1,0 +1,47 @@
+{
+  "name": "Footprints",
+  "category": "backgrounds",
+  "original": true,
+  "description": "A snow field that keeps a track of where the pointer has been, pressed into the surface, while falling snow slowly fills it in.",
+  "preview": { "layout": "fill", "height": 480 },
+  "demos": [
+    { "name": "default", "title": "Boots" },
+    { "name": "ski", "title": "Skis" },
+    { "name": "paw", "title": "Paws" }
+  ],
+  "props": [
+    {
+      "component": "Footprints",
+      "props": [
+        {
+          "name": "mode",
+          "type": "\"boot\" | \"ski\" | \"paw\"",
+          "default": "\"boot\"",
+          "description": "What leaves the track: paired boot prints with tread, two parallel ski grooves with pole marks, or a fox's small prints in a line."
+        },
+        {
+          "name": "fill",
+          "type": "number",
+          "default": "14",
+          "description": "Seconds until falling snow has filled a track in. Fine detail goes first, then the edges soften and the hollow rises."
+        },
+        {
+          "name": "intro",
+          "type": "boolean",
+          "default": "true",
+          "description": "Leave one track across the field when it first comes into view, which then fills in like any other. Under reduced motion the track appears at once."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the snow field. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the snow. The pointer leaves tracks anywhere over the component, including over this content."
+        }
+      ]
+    }
+  ]
+}

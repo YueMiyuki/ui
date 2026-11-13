@@ -1,0 +1,48 @@
+{
+  "name": "Clock Face Picker",
+  "category": "inputs",
+  "original": true,
+  "description": "Pick a time by dragging the hands of an analogue clock, with the time shown digitally above and an AM/PM switch for 12-hour use.",
+  "preview": { "layout": "center", "height": 480 },
+  "props": [
+    {
+      "component": "ClockFacePicker",
+      "props": [
+        { "name": "label", "type": "ReactNode", "description": "Label above the readout." },
+        {
+          "name": "value",
+          "type": "Time",
+          "description": "The time (controlled), a Time from @internationalized/date. Seconds are ignored."
+        },
+        {
+          "name": "defaultValue",
+          "type": "Time",
+          "default": "new Time(9, 0)",
+          "description": "Starting time when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: Time) => void",
+          "description": "Called as a hand moves to a new hour or minute, from a drag, a key press or the AM/PM switch."
+        },
+        { "name": "step", "type": "number", "default": "5", "description": "Minutes between the minute hand's stops." },
+        {
+          "name": "hourCycle",
+          "type": "12 | 24",
+          "description": "12 shows the AM/PM switch; 24 writes hours 00 to 23. Defaults to the locale's preference."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Dims the picker and ignores input."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

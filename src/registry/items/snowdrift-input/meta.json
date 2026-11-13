@@ -1,0 +1,59 @@
+{
+  "name": "Snowdrift Input",
+  "category": "inputs",
+  "description": "A pill search field with rotating placeholders whose text blows away like drifting snow when submitted.",
+  "preview": { "layout": "center", "height": 300 },
+  "props": [
+    {
+      "component": "SnowdriftInput",
+      "props": [
+        {
+          "name": "placeholders",
+          "type": "string[]",
+          "default": "[\"Search\"]",
+          "description": "Placeholders shown in turn while the field is empty. Each slides up and out as the next slides in."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "3000",
+          "description": "Milliseconds each placeholder stays."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string) => void",
+          "description": "Called with the text on every change, and with an empty string after a submit."
+        },
+        {
+          "name": "onSubmit",
+          "type": "(value: string) => void",
+          "description": "Called with the text when the form is submitted. The text then turns to drifting grains and the field empties."
+        },
+        {
+          "name": "submitLabel",
+          "type": "string",
+          "default": "\"Search\"",
+          "description": "Accessible name of the round submit button."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Accessible name of the field. Defaults to the placeholder shown. Prefer aria-labelledby when there is a visible label."
+        },
+        { "name": "aria-labelledby", "type": "string", "description": "Id of the element that labels the field." },
+        { "name": "name", "type": "string", "description": "Name of the input, for form data." },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Turns the field off and dims it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the pill, which is a form element. Other props go to the form."
+        }
+      ]
+    }
+  ]
+}

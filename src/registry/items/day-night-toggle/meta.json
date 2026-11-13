@@ -1,0 +1,52 @@
+{
+  "name": "Day Night Toggle",
+  "category": "inputs",
+  "original": true,
+  "description": "A switch drawn as a small snow landscape where the sun sets behind the ridge, the moon rises and the stars come out.",
+  "preview": { "layout": "center", "height": 320 },
+  "props": [
+    {
+      "component": "DayNightToggle",
+      "props": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Visible label to the right of the switch. Without it the switch is named \"Night\" unless you pass aria-label."
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "description": "Night when true (controlled). Use defaultSelected when uncontrolled."
+        },
+        {
+          "name": "defaultSelected",
+          "type": "boolean",
+          "default": "false",
+          "description": "Starts at night when true."
+        },
+        {
+          "name": "onChange",
+          "type": "(isSelected: boolean) => void",
+          "description": "Called with true for night and false for day. The switch never changes the page theme itself."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Scene of 48×24, 64×32 or 80×40 pixels."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the switch and dims it to 50%."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components SwitchField."
+        }
+      ]
+    }
+  ]
+}

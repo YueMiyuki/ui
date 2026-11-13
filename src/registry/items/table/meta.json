@@ -1,0 +1,142 @@
+{
+  "name": "Table",
+  "category": "display",
+  "description": "A data table in a rounded frame with sortable columns, row selection and a sticky header.",
+  "preview": { "layout": "center", "height": 420 },
+  "props": [
+    {
+      "component": "Table",
+      "props": [
+        { "name": "aria-label", "type": "string", "description": "Names the table for assistive technology." },
+        {
+          "name": "maxHeight",
+          "type": "number | string",
+          "description": "Height past which the body scrolls under a sticky header."
+        },
+        {
+          "name": "density",
+          "type": "\"comfortable\" | \"compact\"",
+          "default": "\"comfortable\"",
+          "description": "Row padding of 12 or 8 pixels."
+        },
+        {
+          "name": "selectionMode",
+          "type": "\"none\" | \"single\" | \"multiple\"",
+          "default": "\"none\"",
+          "description": "Adds a checkbox column. Multiple selection gets a select-all box in the header."
+        },
+        {
+          "name": "selectedKeys",
+          "type": "Iterable<Key> | \"all\"",
+          "description": "The ids of the selected rows (controlled). Use defaultSelectedKeys when uncontrolled."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(keys: Selection) => void",
+          "description": "Called when the selection changes."
+        },
+        {
+          "name": "sortDescriptor",
+          "type": "{ column: Key; direction: \"ascending\" | \"descending\" }",
+          "description": "The column the rows are sorted by. Sort the data yourself in onSortChange."
+        },
+        {
+          "name": "onSortChange",
+          "type": "(descriptor: SortDescriptor) => void",
+          "description": "Called when a sortable column is pressed."
+        },
+        { "name": "onRowAction", "type": "(key: Key) => void", "description": "Called when a row is activated." },
+        { "name": "className", "type": "string", "description": "Extra classes for the outer frame." },
+        {
+          "name": "tableClassName",
+          "type": "string",
+          "description": "Extra classes for the table element. Every other prop goes to the react-aria-components Table."
+        }
+      ]
+    },
+    {
+      "component": "Column",
+      "props": [
+        { "name": "id", "type": "Key", "description": "Identifies the column in sortDescriptor." },
+        {
+          "name": "allowsSorting",
+          "type": "boolean",
+          "default": "false",
+          "description": "Pressing the heading sorts by this column; an arrow shows the direction."
+        },
+        {
+          "name": "isRowHeader",
+          "type": "boolean",
+          "default": "false",
+          "description": "Marks the column that names each row. Set it on one column."
+        },
+        { "name": "children", "type": "ReactNode", "description": "The heading." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Column, such as width."
+        }
+      ]
+    },
+    {
+      "component": "TableHeader",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode | ((column) => ReactElement)",
+          "description": "Column elements, or a function of each item in columns."
+        },
+        { "name": "columns", "type": "Iterable<T>", "description": "Column data for a dynamic header." }
+      ]
+    },
+    {
+      "component": "TableBody",
+      "props": [
+        {
+          "name": "items",
+          "type": "Iterable<T>",
+          "description": "Row data for a dynamic body; render each with children."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode | ((item) => ReactElement)",
+          "description": "Row elements, or a function of each item."
+        },
+        {
+          "name": "renderEmptyState",
+          "type": "() => ReactNode",
+          "description": "Shown when there are no rows. Defaults to \"No results\"."
+        }
+      ]
+    },
+    {
+      "component": "Row",
+      "props": [
+        { "name": "id", "type": "Key", "description": "Identifies the row in the selection." },
+        { "name": "children", "type": "ReactNode", "description": "Cell elements, one per column." },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "The row cannot be selected or activated."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Row."
+        }
+      ]
+    },
+    {
+      "component": "Cell",
+      "props": [
+        { "name": "children", "type": "ReactNode", "description": "The cell's content." },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes. Also accepts every other prop of the react-aria-components Cell."
+        }
+      ]
+    }
+  ]
+}

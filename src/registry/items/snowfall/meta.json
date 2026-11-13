@@ -1,0 +1,77 @@
+{
+  "name": "Snowfall",
+  "category": "backgrounds",
+  "original": true,
+  "description": "Snow falling in three depths that settles into soft caps on any element marked as a ledge.",
+  "preview": {
+    "layout": "fill",
+    "height": 480
+  },
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "clear",
+      "title": "Clearing"
+    }
+  ],
+  "props": [
+    {
+      "component": "Snowfall",
+      "props": [
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the number of flakes. Settling speeds up with it."
+        },
+        {
+          "name": "wind",
+          "type": "number",
+          "default": "0.15",
+          "description": "How far the snow leans, from -1 (blowing left) to 1 (blowing right). It gusts a little around this value."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the fall, the sway and the settling."
+        },
+        {
+          "name": "accumulate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let snow settle on descendants marked with `data-snow-ledge`. Each collects a cap along its top edge that follows its corner radius."
+        },
+        {
+          "name": "maxDepth",
+          "type": "number",
+          "default": "14",
+          "description": "Deepest a cap can grow, in pixels. Full caps stop growing and slowly settle."
+        },
+        {
+          "name": "resetKey",
+          "type": "string | number",
+          "description": "Change it to melt every cap away."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<{ clear: () => void }>",
+          "description": "Call `clear()` to melt every cap away."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the snow. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content the snow falls behind, onto and in front of. The nearest flakes and the settled snow are drawn above it."
+        }
+      ]
+    }
+  ]
+}

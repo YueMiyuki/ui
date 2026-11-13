@@ -1,0 +1,60 @@
+{
+  "name": "Vertical Text",
+  "category": "text",
+  "original": true,
+  "description": "Text set top to bottom in columns that run right to left, with Latin turned or upright, numerals stood upright in pairs and punctuation hung outside the measure.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Poster"
+    },
+    {
+      "name": "upright",
+      "title": "Upright Latin"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 560
+  },
+  "props": [
+    {
+      "component": "VerticalText",
+      "props": [
+        {
+          "name": "children",
+          "type": "string | string[]",
+          "description": "The text. Each array item or line break starts a new column; a column longer than the available height wraps on to the next."
+        },
+        {
+          "name": "latin",
+          "type": "\"upright\" | \"sideways\"",
+          "default": "\"sideways\"",
+          "description": "Sideways turns Latin letters a quarter turn so words read down the column, as in mixed setting. Upright stacks each letter on its own, and turns dashes, brackets and quotes to run along the column."
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "description": "When the text has no breaks of its own, split it at word boundaries into this many columns of even length."
+        },
+        {
+          "name": "reveal",
+          "type": "boolean",
+          "default": "false",
+          "description": "When it first scrolls into view, bring the columns in one after another from the right, each descending from the top. Under reduced motion the text is shown at once."
+        },
+        {
+          "name": "gap",
+          "type": "number | string",
+          "default": "\"0.9em\"",
+          "description": "Space between columns. A number is in pixels."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. Font, size and leading are inherited by the columns. Set a height to make long columns wrap. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

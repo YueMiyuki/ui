@@ -1,0 +1,7 @@
+{
+  "name": "Color",
+  "category": "foundations",
+  "description": "The six named colours, every semantic token, contrast for each fill and its text, and the shadow scale, read live from the theme.",
+  "files": [],
+  "preview": { "layout": "center", "height": 1400 }
+}

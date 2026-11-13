@@ -1,0 +1,89 @@
+{
+  "name": "Diamond Dust",
+  "category": "backgrounds",
+  "description": "Tiny crystals that hang in the air, flicker and drift: dots and four-point glints, as a full background or a strip under a title.",
+  "preview": {
+    "layout": "fill",
+    "height": 480
+  },
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "snowfall",
+      "title": "Snowfall"
+    }
+  ],
+  "props": [
+    {
+      "component": "DiamondDust",
+      "props": [
+        {
+          "name": "density",
+          "type": "number",
+          "default": "80",
+          "description": "Particles per 100,000 square pixels. A strip under a title wants several hundred."
+        },
+        {
+          "name": "minSize",
+          "type": "number",
+          "default": "0.4",
+          "description": "Radius of the smallest particle, in pixels."
+        },
+        {
+          "name": "maxSize",
+          "type": "number",
+          "default": "1.8",
+          "description": "Radius of the largest particle, in pixels. Particles in the upper part of the range are drawn as four-point glints."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for drift and flicker."
+        },
+        {
+          "name": "direction",
+          "type": "\"none\" | \"up\" | \"down\"",
+          "default": "\"none\"",
+          "description": "`down` is light snowfall, `up` is rising mist, `none` hovers in place."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "Particle colour. Without it, water by day and a blue-white at night. Any CSS colour or token."
+        },
+        {
+          "name": "twinkle",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let each particle flicker at its own rate."
+        },
+        {
+          "name": "glints",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draws the largest sparkles as four-point glints. Turn it off for round flakes, which read as falling snow rather than stars."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "false",
+          "description": "Ease particles away from the pointer. Off under reduced motion."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the particles. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the particles."
+        }
+      ]
+    }
+  ]
+}

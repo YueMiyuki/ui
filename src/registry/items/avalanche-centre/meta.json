@@ -1,0 +1,36 @@
+{
+  "name": "Avalanche centre",
+  "category": "templates",
+  "original": true,
+  "description": "A regional avalanche bulletin site: region tabs, today's danger level with its rose and problems, a map of zones tinted by level, a seven-day history and a searchable archive.",
+  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "props": [
+    {
+      "component": "AvalancheCentre",
+      "props": [
+        {
+          "name": "avatars",
+          "type": "Record<string, string>",
+          "default": "{}",
+          "description": "Portraits keyed by forecaster name (Yuna Sato, Kenta Hoshino, Mio Arai, Daichi Kudo), shown beside each region's forecaster note."
+        },
+        {
+          "name": "map",
+          "type": "string",
+          "description": "Image drawn faintly under the region map, such as contour lines. Without one the zones sit on a plain well."
+        },
+        {
+          "name": "defaultRegion",
+          "type": "\"hakuba\" | \"otari\" | \"nozawa\" | \"kiso\"",
+          "default": "\"hakuba\"",
+          "description": "The region shown first. The tabs, the zones on the map and the archive all follow the chosen region."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root. It is at least the height of the viewport and the page scrolls; the region tabs stay pinned to the top. Also accepts every other div attribute."
+        }
+      ]
+    }
+  ]
+}

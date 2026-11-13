@@ -1,0 +1,43 @@
+{
+  "name": "Departure Board",
+  "category": "blocks",
+  "original": true,
+  "description": "A station board on split flaps whose top train departs on a timer while the rows below move up, with delays in camellia and a flap clock.",
+  "preview": { "layout": "center", "height": 520 },
+  "props": [
+    {
+      "component": "DepartureBoard",
+      "props": [
+        {
+          "name": "departures",
+          "type": "{ time: string; destination: string; train: string; track: string | number; delay?: number }[]",
+          "description": "The timetable in order. Times are \"HH:MM\" and delay is in minutes. It may be longer than the board: when the top train departs every row takes the next one's place and the next departure enters at the bottom, and the list loops when it runs out. A delay shows as \"+6 MIN\" in camellia."
+        },
+        { "name": "interval", "type": "number", "default": "7000", "description": "Milliseconds between departures." },
+        { "name": "rows", "type": "number", "default": "6", "description": "Number of departures shown." },
+        {
+          "name": "station",
+          "type": "string",
+          "default": "\"Departures\"",
+          "description": "Station name in the header, also used for the accessible name and the table caption."
+        },
+        {
+          "name": "caption",
+          "type": "ReactNode",
+          "default": "\"Departures\"",
+          "description": "Muted line under the station name, such as the board's name and the date."
+        },
+        {
+          "name": "time",
+          "type": "string",
+          "description": "Starting station time as \"HH:MM\". The clock then runs as a time lapse: it steps minute by minute toward the top train's departure (plus its delay) and the train leaves when the clock reaches it. Without it the clock shows the device's local time, read after mounting and updated each minute."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the card. Below 520px wide the train column is dropped and the status becomes a short delay column (\"+6\", blank when on time) so the flaps stay legible. Other section props are passed through."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "name": "Agent Persona",
+  "category": "ai",
+  "description": "A form for giving an agent a face, a name and a voice, with a water-droplet character whose eyes follow the pointer.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "avatar", "title": "Moods" }],
+  "preview": { "layout": "center", "height": 760 },
+  "props": [
+    {
+      "component": "AgentPersona",
+      "props": [
+        {
+          "name": "defaultValue",
+          "type": "Partial<AgentConfig>",
+          "description": "Starting configuration: name, role, description, language, notifications, mood and color. Missing fields fall back to an unnamed calm water agent with the first role and language."
+        },
+        {
+          "name": "onChange",
+          "type": "(config: AgentConfig) => void",
+          "description": "Called with the whole configuration whenever any part of it changes."
+        },
+        {
+          "name": "roles",
+          "type": "string[]",
+          "default": "[\"Route planner\", …]",
+          "description": "Options for the Role select."
+        },
+        {
+          "name": "languages",
+          "type": "string[]",
+          "default": "[\"English\", \"日本語\", …]",
+          "description": "Options for the Language select."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the card. Other props go to the root section element."
+        }
+      ]
+    },
+    {
+      "component": "AgentAvatar",
+      "props": [
+        {
+          "name": "mood",
+          "type": "\"calm\" | \"happy\" | \"focused\" | \"sleepy\" | \"surprised\"",
+          "default": "\"calm\"",
+          "description": "Shapes the eyes and mouth. Changing it morphs the face from one mood to the next."
+        },
+        {
+          "name": "color",
+          "type": "\"water\" | \"seafoam\" | \"wisteria\" | \"yuzu\" | \"camellia\" | \"plum\" | string",
+          "default": "\"water\"",
+          "description": "A palette colour by name, or any CSS colour. A new colour fills the drop from the bottom."
+        },
+        { "name": "size", "type": "number", "default": "48", "description": "Width and height in pixels." },
+        {
+          "name": "followPointer",
+          "type": "boolean",
+          "default": "true",
+          "description": "Turns the face toward the pointer anywhere on the page."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Accessible name. Without it the avatar is hidden from assistive technology."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the svg. Other props go to the svg element."
+        }
+      ]
+    }
+  ]
+}

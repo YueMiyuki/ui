@@ -1,0 +1,51 @@
+{
+  "name": "Layered poster",
+  "category": "labs",
+  "description": "A poster built from flat layers that assemble back to front around a large title, then drift apart with the pointer.",
+  "preview": { "layout": "fill", "height": 560 },
+  "props": [
+    {
+      "component": "LayeredPoster",
+      "props": [
+        {
+          "name": "layers",
+          "type": "{ content: ReactNode; depth: number }[]",
+          "description": "The layers, each filling the poster. Depth runs from 0, far and still, to 1, nearest. They arrive in depth order and shift with the pointer in proportion to their depth, so draw each a little past the edges."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "The title. Its letters reveal one by one between the layers behind it and the layers in front."
+        },
+        {
+          "name": "titleDepth",
+          "type": "number",
+          "default": "0.35",
+          "description": "Where the title sits in the stack. Layers with a greater depth pass in front of it."
+        },
+        {
+          "name": "titleClassName",
+          "type": "string",
+          "description": "Classes for the title: its position, size and colour. It is centred, 19% of the poster's width tall, near the top by default."
+        },
+        {
+          "name": "shift",
+          "type": "number",
+          "default": "26",
+          "description": "How far, in pixels, a layer of depth 1 moves with the pointer at the poster's edge."
+        },
+        {
+          "name": "replayLabel",
+          "type": "string",
+          "default": "\"Replay\"",
+          "description": "Accessible label of the replay button in the bottom-right corner."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the poster. Give it a size or aspect ratio; it is a size container, so layers can size text in cqw."
+        }
+      ]
+    }
+  ]
+}

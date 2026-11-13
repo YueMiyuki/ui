@@ -1,0 +1,55 @@
+{
+  "name": "Edge Glint",
+  "category": "backgrounds",
+  "description": "A short bright arc on a card's border that turns to face the pointer as it comes near.",
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "EdgeGlint",
+      "props": [
+        {
+          "name": "spread",
+          "type": "number",
+          "default": "40",
+          "description": "Length of the arc in degrees around the card's centre."
+        },
+        {
+          "name": "proximity",
+          "type": "number",
+          "default": "64",
+          "description": "How far outside the card, in pixels, the pointer can be and still light the arc."
+        },
+        {
+          "name": "inactiveZone",
+          "type": "number",
+          "default": "0.5",
+          "description": "Radius of the still area at the centre, as a fraction of half the card's shorter side. The arc fades out while the pointer is inside it."
+        },
+        { "name": "borderWidth", "type": "number", "default": "1.5", "description": "Thickness of the arc in pixels." },
+        {
+          "name": "blur",
+          "type": "number",
+          "default": "0",
+          "description": "Radius in pixels of a soft halo around the arc. 0 draws the arc alone."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\", \"var(--chart-3)\"]",
+          "description": "Colours along the arc, in clockwise order."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Render nothing and stop listening."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the layer, which covers the parent's border box and inherits its radius. Place it inside a relative, rounded container. Other div props are passed through."
+        }
+      ]
+    }
+  ]
+}

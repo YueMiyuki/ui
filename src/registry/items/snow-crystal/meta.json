@@ -1,0 +1,59 @@
+{
+  "name": "Snow Crystal",
+  "category": "display",
+  "original": true,
+  "description": "A snowflake grown from a seed with six-fold symmetry, for identicons, decoration or a loader.",
+  "preview": { "layout": "center", "height": 600 },
+  "props": [
+    {
+      "component": "SnowCrystal",
+      "props": [
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "1",
+          "description": "Every seed grows a different crystal: a stellar dendrite, a fern, a plate or a star, with its own branches and tips. Pass a name to use it as an identicon."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "48",
+          "description": "Width and height in pixels. Below about 56 pixels the finest twigs are left out, and below 36 only the two longest branch pairs remain, so the crystal stays readable at 24."
+        },
+        {
+          "name": "complexity",
+          "type": "number",
+          "default": "3",
+          "description": "From 1 (a spine with a branch pair) to 5 (many branches with twigs and tip plates)."
+        },
+        {
+          "name": "strokeWidth",
+          "type": "number",
+          "description": "Width of the spines in pixels. Side branches and twigs are a little finer. Defaults to a width that suits the size, from 1.25 to 3.5."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "false",
+          "description": "Grow the crystal from the centre outward, branch by branch, over about 1.5 seconds. Regrows when the seed changes. Shown complete under reduced motion."
+        },
+        {
+          "name": "spin",
+          "type": "boolean",
+          "default": "false",
+          "description": "Turn slowly, once every nine seconds, for use as a loader. Still under reduced motion."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Accessible name. Without it the crystal is decorative and hidden from assistive technology."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the svg. The colour is currentColor. Other svg props are passed through."
+        }
+      ]
+    }
+  ]
+}

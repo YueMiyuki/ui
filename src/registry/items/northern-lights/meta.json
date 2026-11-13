@@ -1,0 +1,43 @@
+{
+  "name": "Northern Lights",
+  "category": "backgrounds",
+  "description": "Slow curtains of northern light hanging from the top edge, behind your content.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "NorthernLights",
+      "props": [
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-2)\", \"var(--chart-3)\"]",
+          "description": "Band colours, cycled across the curtains. Any CSS colour or token."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the drift speed. The three depths loop in 88, 62 and 41 seconds at 1."
+        },
+        {
+          "name": "intensity",
+          "type": "number",
+          "default": "0.6",
+          "description": "Strength of the light, from 0 to 1."
+        },
+        {
+          "name": "position",
+          "type": "\"top\" | \"bottom\"",
+          "default": "\"top\"",
+          "description": "The edge the curtains hang from. The light fades out toward the opposite edge."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the effect. Other div props are passed through."
+        },
+        { "name": "children", "type": "ReactNode", "description": "Content rendered above the light." }
+      ]
+    }
+  ]
+}
