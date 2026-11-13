@@ -2,11 +2,12 @@ import { DocsBody, DocsPage } from "fumadocs-ui/layouts/notebook/page";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
-import { Suspense } from "react";
+import { Suspense, ViewTransition } from "react";
 import { ComponentPage } from "@/site/docs/component-page";
 import { GalleryPage } from "@/site/docs/gallery-page";
 import { getMDXComponents } from "@/site/docs/mdx";
 import { PageDescription, PageTitle, pageFooterClass } from "@/site/docs/page-parts";
+import { DocsPageSkeleton } from "@/site/docs/page-skeleton";
 import { source } from "@/site/docs/source";
 import { docsHref } from "@/site/docs/urls";
 import { getItem } from "@/site/registry";
@@ -43,8 +44,16 @@ export async function generateMetadata({ params }: PageProps<"/docs/[[...slug]]"
 
 export default function Page({ params }: PageProps<"/docs/[[...slug]]">) {
   return (
-    <Suspense fallback={<div className="[grid-area:main]" />}>
-      <Content params={params} />
+    <Suspense
+      fallback={
+        <ViewTransition exit="page-out" default="none">
+          <DocsPageSkeleton />
+        </ViewTransition>
+      }
+    >
+      <ViewTransition enter="page-in" exit="page-out" default="none">
+        <Content params={params} />
+      </ViewTransition>
     </Suspense>
   );
 }

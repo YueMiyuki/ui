@@ -11,13 +11,16 @@ const ink = "#122230";
 const water = "#0079b5";
 const surface = "#4ab8e8";
 
-const [semibold, icon] = await Promise.all([
+const assets = await Promise.all([
   readFile(join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans/Geist-SemiBold.ttf")),
   readFile(join(process.cwd(), "src/app/icon.svg"), "utf8"),
-]);
-const markPaths = [...icon.matchAll(/\sd="([^"]+)"/g)].map((match) => match[1]);
+]).catch(() => null);
 
 export default function Image() {
+  if (!assets) throw new Error("opengraph-image: the font or the icon file could not be read");
+  const [semibold, icon] = assets;
+  const markPaths = [...icon.matchAll(/\sd="([^"]+)"/g)].map((match) => match[1]);
+
   return new ImageResponse(
     <div
       style={{

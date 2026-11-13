@@ -122,7 +122,7 @@ export function SiteHeader({ menu, className, ...props }: ComponentProps<"header
     <header
       {...props}
       className={cn(
-        "sticky top-0 z-40 h-14",
+        "sticky top-0 z-40 h-14 [:root:active-view-transition_&]:[view-transition-name:site-header]",
         "before:pointer-events-none before:absolute before:inset-y-0 before:left-1/2 before:-z-10 before:w-screen before:-translate-x-1/2 before:border-b before:border-border before:bg-background/80 before:backdrop-blur-md",
         className,
       )}

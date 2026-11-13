@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import { Hero } from "@/site/home/hero";
 import { Install } from "@/site/home/install";
 import { Backgrounds, Cards, Charts, Controls, Index, Pickers, Text } from "@/site/home/showcase";
@@ -55,25 +56,27 @@ export default function HomePage() {
   const slugs = installSlugs.filter((slug) => getItem(slug));
 
   return (
-    <main>
-      <Hero total={catalogueCounts().components} command={installCommand(slugs[0] ?? "button")} />
-      <Wall items={wall} />
-      <Backgrounds count={count("backgrounds")} />
-      <Controls count={count("inputs")} />
-      <Cards count={count("cards")} />
-      <Text count={count("text")} />
-      <Pickers count={count("pickers")} />
-      <Charts count={count("charts")} />
-      <Index
-        groups={groups.map((group) => ({
-          id: group.id,
-          label: group.label,
-          blurb: group.blurb,
-          count: group.items.length,
-        }))}
-      />
-      <Install slugs={slugs.length > 0 ? slugs : ["button"]} namespace={REGISTRY_NAMESPACE} />
-      <Waterline />
-    </main>
+    <ViewTransition enter="page-in" exit="page-out" default="none">
+      <main>
+        <Hero total={catalogueCounts().components} command={installCommand(slugs[0] ?? "button")} />
+        <Wall items={wall} />
+        <Backgrounds count={count("backgrounds")} />
+        <Controls count={count("inputs")} />
+        <Cards count={count("cards")} />
+        <Text count={count("text")} />
+        <Pickers count={count("pickers")} />
+        <Charts count={count("charts")} />
+        <Index
+          groups={groups.map((group) => ({
+            id: group.id,
+            label: group.label,
+            blurb: group.blurb,
+            count: group.items.length,
+          }))}
+        />
+        <Install slugs={slugs.length > 0 ? slugs : ["button"]} namespace={REGISTRY_NAMESPACE} />
+        <Waterline />
+      </main>
+    </ViewTransition>
   );
 }
