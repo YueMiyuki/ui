@@ -7,8 +7,11 @@ import { DiamondDust } from "@/components/miyuki-ui/diamond-dust";
 import { LayeredWaves } from "@/components/miyuki-ui/layered-waves";
 import { cn } from "@/lib/utils";
 import { CopyButton } from "@/site/copy-button";
+import { sectionHref } from "@/site/docs/urls";
 import { IdleStyle, useIdleOffscreen } from "@/site/home/idle";
 import { Reflection } from "@/site/home/reflection";
+import { useDictionary, useLocale } from "@/site/i18n/context";
+import { format } from "@/site/i18n/format";
 import { inkLinkClass } from "@/site/link-button";
 
 const headline = "font-pixel text-[clamp(2.2rem,6.2vw,5.5rem)] leading-[1.04]";
@@ -17,6 +20,8 @@ const settle = [0.22, 1, 0.36, 1] as const;
 export function Hero({ total, command }: { total: number; command: string }) {
   const still = useReducedMotion() ?? false;
   const ref = useIdleOffscreen<HTMLElement>();
+  const locale = useLocale();
+  const t = useDictionary();
 
   return (
     <section
@@ -46,7 +51,7 @@ export function Hero({ total, command }: { total: number; command: string }) {
               animate={{ opacity: 1, filter: "blur(0px)" }}
               transition={{ duration: 1.2, ease: settle }}
             >
-              Still as snow.
+              {t.pixel.still}
             </motion.span>
             <span className="block overflow-clip pt-[0.08em]">
               <motion.span
@@ -55,7 +60,7 @@ export function Hero({ total, command }: { total: number; command: string }) {
                 animate={{ y: 0 }}
                 transition={{ type: "spring", stiffness: 90, damping: 18, delay: 0.45 }}
               >
-                Moves like water.
+                {t.pixel.moves}
               </motion.span>
             </span>
           </h1>
@@ -66,18 +71,16 @@ export function Hero({ total, command }: { total: number; command: string }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: settle, delay: 0.95 }}
           >
-            <p className="text-[1.0625rem] leading-relaxed text-muted-foreground">
-              miyuki-ui is a library of <span className="text-foreground tabular-nums">{total}</span> React components
-              for Next.js: backgrounds and effects, everyday controls, charts, AI blocks and full templates. Copy the
-              source into your project and make it yours.
+            <p className="text-[1.0625rem] leading-relaxed text-muted-foreground zh:text-balance">
+              {format(t.hero.body, { total: <span className="text-foreground tabular-nums">{total}</span> })}
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Link href="/docs/components" className={inkLinkClass()}>
-                Browse components
+              <Link href={sectionHref("components", locale)} className={inkLinkClass()}>
+                {t.hero.browse}
               </Link>
               <div className="flex h-11 min-w-0 items-center gap-1 rounded-lg border border-border-strong bg-card/90 pr-1 pl-3.5 shadow-xs">
                 <code className="truncate font-mono text-[13px] text-foreground">{command}</code>
-                <CopyButton text={command} label="Copy the install command" />
+                <CopyButton text={command} label={t.hero.copyCommand} />
               </div>
             </div>
           </motion.div>
@@ -94,7 +97,7 @@ export function Hero({ total, command }: { total: number; command: string }) {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.6, delay: 1.1 }}
           >
-            <Reflection strips={10}>Moves like water.</Reflection>
+            <Reflection strips={10}>{t.pixel.moves}</Reflection>
           </motion.div>
         </div>
       </div>

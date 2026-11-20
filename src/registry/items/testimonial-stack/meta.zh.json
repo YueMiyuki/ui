@@ -1,0 +1,18 @@
+{
+  "source": "0be5c2a3",
+  "name": "评价堆叠",
+  "description": "引言旁边是一叠肖像照片；逐条切换时，下一张肖像会移到最上面。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "TestimonialStack": {
+      "testimonials": "评价人以及他们说的话。src 是肖像照片，以正方形显示；designation 是名字下方的那一行文字。",
+      "autoplay": "自动切换到下一条评价。悬停或获得焦点时暂停，开启“减少动态效果”时保持关闭。",
+      "interval": "开启 autoplay 时每次切换的间隔，单位为毫秒。",
+      "aria-label": "供辅助技术读取的轮播名称。",
+      "labels": "供辅助技术读取的文字，便于翻译。每次切换时会播报 slide。",
+      "className": "根元素的额外类名，从 md 断点起为两列网格。也接受 section 的其他所有属性。"
+    }
+  }
+}

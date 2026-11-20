@@ -45,6 +45,52 @@ function formatTokens(n: number) {
   return String(Math.round(n));
 }
 
+export interface PlanLimitListProps extends Omit<ComponentProps<"ul">, "children"> {
+  limits: PlanLimit[];
+  warnAt?: number;
+  criticalAt?: number;
+}
+
+export function PlanLimitList({ limits, warnAt = 75, criticalAt = 90, className, ...props }: PlanLimitListProps) {
+  return (
+    <ul {...props} className={cn("@container", className)}>
+      {limits.map((limit, i) => {
+        const value = Math.min(100, Math.max(0, limit.value));
+        const tone = value >= criticalAt ? "critical" : value >= warnAt ? "warn" : "calm";
+        return (
+          <li
+            key={i}
+            className="grid grid-cols-[minmax(0,1fr)_2.75rem] items-center gap-x-4 gap-y-2 border-b border-border py-3 last:border-b-0 last:pb-0 @sm:grid-cols-[minmax(0,1fr)_9rem_2.75rem]"
+          >
+            <div className="min-w-0">
+              <p className="truncate text-sm leading-5 text-foreground">{limit.label}</p>
+              <p className="truncate text-[13px] leading-5 text-muted-foreground">Resets {limit.resetsIn}</p>
+            </div>
+            <ProgressBar
+              size="sm"
+              value={value}
+              showValue={false}
+              aria-label={typeof limit.label === "string" ? limit.label : "Usage"}
+              tone={tone === "critical" ? "destructive" : tone === "warn" ? "warning" : "brand"}
+              className="col-span-2 row-start-2 @sm:col-span-1 @sm:row-start-auto"
+            />
+            <p
+              className={cn(
+                "text-end text-sm leading-5 tabular-nums transition-colors duration-300",
+                tone === "calm" && "text-muted-foreground",
+                tone === "warn" && "font-medium text-warning-strong",
+                tone === "critical" && "font-medium text-destructive",
+              )}
+            >
+              {Math.round(value)}%
+            </p>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 export function ContextMeter({
   context,
   limits = [],
@@ -150,41 +196,7 @@ export function ContextMeter({
       {limits.length > 0 && (
         <div className="mt-5 border-t border-border pt-4">
           <h3 className="text-sm leading-5 font-medium text-foreground">Plan limits</h3>
-          <ul className="@container mt-1">
-            {limits.map((limit, i) => {
-              const value = Math.min(100, Math.max(0, limit.value));
-              const tone = value >= criticalAt ? "critical" : value >= warnAt ? "warn" : "calm";
-              return (
-                <li
-                  key={i}
-                  className="grid grid-cols-[minmax(0,1fr)_2.75rem] items-center gap-x-4 gap-y-2 border-b border-border py-3 last:border-b-0 last:pb-0 @sm:grid-cols-[minmax(0,1fr)_9rem_2.75rem]"
-                >
-                  <div className="min-w-0">
-                    <p className="truncate text-sm leading-5 text-foreground">{limit.label}</p>
-                    <p className="truncate text-[13px] leading-5 text-muted-foreground">Resets {limit.resetsIn}</p>
-                  </div>
-                  <ProgressBar
-                    size="sm"
-                    value={value}
-                    showValue={false}
-                    aria-label={typeof limit.label === "string" ? limit.label : "Usage"}
-                    tone={tone === "critical" ? "destructive" : tone === "warn" ? "warning" : "brand"}
-                    className="col-span-2 row-start-2 @sm:col-span-1 @sm:row-start-auto"
-                  />
-                  <p
-                    className={cn(
-                      "text-end text-sm leading-5 tabular-nums transition-colors duration-300",
-                      tone === "calm" && "text-muted-foreground",
-                      tone === "warn" && "font-medium text-warning-strong",
-                      tone === "critical" && "font-medium text-destructive",
-                    )}
-                  >
-                    {Math.round(value)}%
-                  </p>
-                </li>
-              );
-            })}
-          </ul>
+          <PlanLimitList limits={limits} warnAt={warnAt} criticalAt={criticalAt} className="mt-1" />
         </div>
       )}
     </section>

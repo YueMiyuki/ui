@@ -1,0 +1,54 @@
+{
+  "source": "49a6def1",
+  "name": "命令面板",
+  "description": "包含所有页面和操作的可搜索列表，通过 ⌘K 或 Ctrl+K 打开，用键盘操作。",
+  "demos": {
+    "inline": "内嵌面板",
+    "default": "对话框"
+  },
+  "props": {
+    "CommandPalette": {
+      "children": "CommandGroup 和 CommandItem 元素。",
+      "onAction": "选中某一项时调用，参数为该项的 id。随后命令面板关闭。",
+      "isOpen": "打开状态（受控）。放在 DialogTrigger 中时改为跟随触发器。",
+      "defaultOpen": "首次渲染时的打开状态（非受控）。",
+      "onOpenChange": "命令面板打开或关闭时调用。",
+      "shortcut": "与 ⌘ 或 Ctrl 组合、用于打开和关闭命令面板的按键。设为 null 时关闭快捷键。",
+      "placeholder": "搜索栏的占位文字。",
+      "emptyState": "没有匹配项时显示。默认是一条带有搜索词的简短提示。",
+      "inputValue": "搜索词（受控）。非受控时使用 defaultInputValue。",
+      "onInputChange": "搜索词变化时调用。",
+      "isDismissable": "点击遮罩层时关闭。按 Escape 会先清空搜索词，再按一次则关闭。",
+      "backdropBlur": "模糊遮罩层后面的页面。默认关闭：只要后面有内容在变化，浏览器就会每一帧重绘模糊效果，在大型页面上会卡顿，在 Firefox 中尤其明显。",
+      "aria-label": "对话框的无障碍名称。",
+      "className": "面板的类名。",
+      "overlayClassName": "遮罩层的类名。"
+    },
+    "CommandPalettePanel": {
+      "children": "CommandGroup 和 CommandItem 元素。",
+      "onAction": "选中某一项时调用，参数为该项的 id。",
+      "placeholder": "搜索栏的占位文字。",
+      "emptyState": "没有匹配项时显示。",
+      "inputValue": "搜索词（受控）。非受控时使用 defaultInputValue。",
+      "onInputChange": "搜索词变化时调用。",
+      "autoFocus": "挂载时让搜索栏获得焦点。",
+      "aria-label": "结果列表的无障碍名称。",
+      "className": "面板的类名，例如宽度。面板最宽 560 像素。"
+    },
+    "CommandGroup": {
+      "title": "分组上方的小标题。筛选时，没有匹配项的分组会被隐藏。",
+      "children": "CommandItem 元素。"
+    },
+    "CommandItem": {
+      "children": "标签。会与搜索词进行匹配。",
+      "id": "在 onAction 中用于识别该项。",
+      "icon": "标签前 16 像素的图标。",
+      "shortcut": "行末的按键提示。按键之间用空格分隔，例如“⌘ ⇧ L”。",
+      "keywords": "同样参与匹配的额外词语，例如为主题切换项设置 [\"dark\", \"light\"]。",
+      "textValue": "标签不是纯字符串时用于匹配的文本。",
+      "onAction": "选中该项时调用。",
+      "href": "使该项成为链接。",
+      "isDisabled": "禁用该项。"
+    }
+  }
+}

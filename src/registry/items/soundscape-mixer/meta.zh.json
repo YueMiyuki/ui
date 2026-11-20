@@ -1,0 +1,17 @@
+{
+  "source": "8111544f",
+  "name": "声景混音器",
+  "description": "用 WebAudio 现场合成天气声音、无需音频文件的小型混音器：雨、风、溪流和篝火，每种声音都有自己的音量和实时画面。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "SoundscapeMixer": {
+      "title": "混音器的名称，显示在播放按钮旁边。",
+      "sources": "混音器提供的声音，始终按 rain、wind、stream、fire 的固定顺序显示。",
+      "defaultLevels": "每种声音的初始音量，取值 0 到 1。",
+      "defaultVolume": "初始主音量，取值 0 到 1。",
+      "className": "卡片的类名。其他 section 属性会透传。"
+    }
+  }
+}

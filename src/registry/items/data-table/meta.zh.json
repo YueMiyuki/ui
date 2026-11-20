@@ -1,0 +1,27 @@
+{
+  "source": "9c44b4d5",
+  "name": "数据表格",
+  "description": "集成了搜索、筛选、可排序列、行选择与批量操作、列显示控制和分页的表格。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "DataTable": {
+      "columns": "列定义，按顺序排列。value 用于排序，在省略 searchKeys 时用于搜索，在省略 cell 时作为单元格内容。行标题列不能隐藏。",
+      "rows": "行数据。每一行都需要稳定的 id；参见 getRowId。",
+      "getRowId": "读取行的 id，用于选择。",
+      "pageSize": "初始的每页行数。用户可以在表格下方修改。",
+      "pageSizes": "每页行数菜单中的选项。",
+      "searchKeys": "搜索框检索的字段，不区分大小写和重音符号。默认检索每一列的 value。",
+      "searchPlaceholder": "搜索框的占位文字和标签。默认为“Search”加上复数名词。",
+      "filters": "每个筛选条件在搜索框旁对应一个选择框。tone 会为选项添加一个彩色圆点。",
+      "rowActions": "每行菜单中的项目。破坏性操作项上方会加一条分隔线。",
+      "bulkActions": "选中行时出现在表格上方的操作栏中的按钮。",
+      "onAction": "调用时传入操作 id 和它作用的行：来自行菜单时为单行，来自操作栏时为所有选中的行。批量操作后会清除选择。",
+      "noun": "表格上方计数所用的词，如“48 customers”或“12 of 48 customers”。",
+      "title": "替换表格上方的计数。",
+      "description": "计数下方的一行弱化文字。",
+      "className": "根元素的额外类名。其他属性会传给根元素。"
+    }
+  }
+}

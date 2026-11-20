@@ -1,0 +1,17 @@
+{
+  "source": "d694386d",
+  "name": "手电卡片",
+  "description": "一张素净的卡片，柔光跟随指针移动，照出平时看不见的图案。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "TorchCard": {
+      "radius": "光照的半径，单位为像素。",
+      "color": "光、边框辉光和图案的颜色。可以是任意 CSS 颜色，包括主题变量。",
+      "pattern": "光照范围内显现的图案。",
+      "className": "卡片的额外类名。卡片默认带 rounded-2xl 圆角、边框和内边距。",
+      "children": "卡片的内容。"
+    }
+  }
+}

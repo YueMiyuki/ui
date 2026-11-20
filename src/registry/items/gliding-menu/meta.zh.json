@@ -1,0 +1,36 @@
+{
+  "source": "030f6f60",
+  "name": "滑动菜单",
+  "description": "一排共用同一个面板的菜单，从一个菜单移到下一个时，面板会滑动并改变形状。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "GlidingMenu": {
+      "children": "GlidingMenuItem 元素，按顺序排列。",
+      "aria-label": "导航地标的无障碍名称。",
+      "className": "nav 元素的类名。也接受 nav 的其他所有属性。"
+    },
+    "GlidingMenuItem": {
+      "label": "顶层菜单项的文字。",
+      "children": "面板内容，通常是由 GlidingMenuLink 或 GlidingMenuFeature 组成的定宽网格。有子元素时，该项是一个带 aria-expanded 的按钮，悬停、获得焦点或按下时打开面板。",
+      "href": "没有子元素时，该项是指向此地址的普通链接。",
+      "current": "用 aria-current 标记当前页面所属栏目对应的菜单项。",
+      "className": "列表项的类名。也接受 li 的其他所有属性。"
+    },
+    "GlidingMenuLink": {
+      "href": "链接指向的地址。",
+      "children": "链接文字。",
+      "description": "文字下方的一行弱化说明。",
+      "current": "用 aria-current 和水蓝色文字标记当前页面。",
+      "className": "额外的类名。也接受 a 元素的其他所有属性。"
+    },
+    "GlidingMenuFeature": {
+      "href": "链接指向的地址。",
+      "image": "缩略图 URL，以 96×64 像素显示。",
+      "title": "缩略图旁的标题。",
+      "description": "标题下方最多两行弱化文字。",
+      "className": "额外的类名。也接受 a 元素的其他所有属性。"
+    }
+  }
+}

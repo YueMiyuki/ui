@@ -1,0 +1,27 @@
+{
+  "source": "7728b3f8",
+  "name": "键盘按键",
+  "description": "键盘按键和快捷键，按读者所用的平台显示为符号或文字。",
+  "demos": {
+    "default": "快捷键面板",
+    "listen": "监听按键"
+  },
+  "props": {
+    "Kbd": {
+      "children": "按键上的标签，例如 Esc、⌘ 或 K。",
+      "size": "高度为 20 或 24 像素。",
+      "variant": "keycap 带有描边和较厚的下边缘，看起来像一个按键。flat 是没有边框的弱化填充。inverse 用于墨色表面，例如提示框。",
+      "isPressed": "显示按键被按住的状态：下沉 1 像素，下边缘变平，标签颜色变深。",
+      "className": "额外的类名。也接受 kbd 元素的所有属性。"
+    },
+    "KbdCombo": {
+      "keys": "用 + 连接的按键，例如 \"mod+shift+p\"。mod 在 Apple 系统上为 ⌘，在其他系统上为 Ctrl。还能识别 ctrl、alt（或 option）、shift、meta、enter、esc、tab、backspace、delete、space、方向键（arrowup 或 up）、home、end、pageup、pagedown、F1 到 F12 以及任意单个字符。",
+      "size": "每个按键的尺寸。",
+      "variant": "每个按键的变体。",
+      "separator": "显示在按键之间的内容。默认情况下，在 Apple 系统上不显示任何内容，按键紧挨在一起；在其他系统上显示弱化的 +。传入 null 可在所有系统上去掉分隔符。",
+      "listen": "监听键盘：按住某个键时，对应的按键显示为按下状态；整个组合同时按下时，会闪现一次水蓝色光环。按键自动重复会被忽略。",
+      "platform": "显示哪个平台的名称。auto 在水合之后读取平台，在服务端渲染 Apple 符号。",
+      "className": "外层 kbd 元素的额外类名。也接受它的其他属性。"
+    }
+  }
+}

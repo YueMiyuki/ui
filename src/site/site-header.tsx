@@ -8,26 +8,49 @@ import { usePathname } from "next/navigation";
 import { type ComponentProps, type ReactNode, Suspense, useState } from "react";
 import { MorphIcon, morphIcons } from "@/components/miyuki-ui/path-morph";
 import { cn } from "@/lib/utils";
-import { DOCS_HOME, GITHUB_URL, type Section, sectionHref } from "@/site/docs/urls";
+import { DOCS_HOME, docsPath, GITHUB_URL, type Section, sectionHref, sectionPath } from "@/site/docs/urls";
 import { HomeLink } from "@/site/home-link";
+import { useDictionary, useLocale } from "@/site/i18n/context";
+import { stripLocale } from "@/site/i18n/href";
 import { iconButtonClass } from "@/site/icon-button";
+import { LanguageSwitch } from "@/site/language-switch";
+import { preloadSiteSearch } from "@/site/search-dialog";
 import { ThemeToggle } from "@/site/theme-toggle";
 
 const inSection = (pathname: string, section: Section) =>
-  pathname === sectionHref(section) || pathname.startsWith(`${sectionHref(section)}/`);
+  pathname === sectionPath(section) || pathname.startsWith(`${sectionPath(section)}/`);
 
-const siteLinks = [
-  { href: sectionHref("components"), label: "Components", match: (p: string) => inSection(p, "components") },
-  { href: sectionHref("templates"), label: "Templates", match: (p: string) => inSection(p, "templates") },
-  {
-    href: DOCS_HOME,
-    label: "Get started",
-    match: (p: string) =>
-      (p === DOCS_HOME || p.startsWith(`${DOCS_HOME}/`)) && !inSection(p, "components") && !inSection(p, "templates"),
-  },
-];
+function useSiteLinks() {
+  const locale = useLocale();
+  const t = useDictionary();
+  return [
+    {
+      href: sectionHref("components", locale),
+      label: t.nav.components,
+      match: (p: string) => inSection(stripLocale(p), "components"),
+    },
+    {
+      href: sectionHref("templates", locale),
+      label: t.nav.templates,
+      match: (p: string) => inSection(stripLocale(p), "templates"),
+    },
+    {
+      href: docsPath(locale),
+      label: t.nav.getStarted,
+      match: (p: string) => {
+        const path = stripLocale(p);
+        return (
+          (path === DOCS_HOME || path.startsWith(`${DOCS_HOME}/`)) &&
+          !inSection(path, "components") &&
+          !inSection(path, "templates")
+        );
+      },
+    },
+  ];
+}
 
 function Links({ pathname, className }: { pathname: string | null; className?: string }) {
+  const siteLinks = useSiteLinks();
   return (
     <ul className={cn("flex items-center gap-1", className)}>
       {siteLinks.map((link) => {
@@ -68,16 +91,22 @@ function NavLinks(props: { className?: string }) {
 
 function SearchButton() {
   const { setOpenSearch, enabled, hotKey } = useSearchContext();
+  const t = useDictionary();
+  const locale = useLocale();
+  const preload = () => preloadSiteSearch(locale);
   if (!enabled) return null;
   return (
     <>
       <button
         type="button"
         onClick={() => setOpenSearch(true)}
+        onPointerEnter={preload}
+        onPointerDown={preload}
+        onFocus={preload}
         className="hidden h-9 w-60 shrink-0 cursor-default items-center gap-2 rounded-lg border border-input bg-card pr-1.5 pl-3 text-sm text-muted-foreground shadow-xs outline-none transition-[border-color,box-shadow] duration-150 hover:border-border-strong focus-visible:ring-[3px] focus-visible:ring-ring lg:inline-flex"
       >
         <Search aria-hidden="true" className="size-4" />
-        Search
+        {t.nav.search}
         <span className="ml-auto flex gap-0.5">
           {hotKey.map((key, i) => (
             <kbd
@@ -91,8 +120,11 @@ function SearchButton() {
       </button>
       <button
         type="button"
-        aria-label="Search"
+        aria-label={t.nav.search}
         onClick={() => setOpenSearch(true)}
+        onPointerEnter={preload}
+        onPointerDown={preload}
+        onFocus={preload}
         className={iconButtonClass("size-9 lg:hidden")}
       >
         <Search aria-hidden="true" />
@@ -102,12 +134,13 @@ function SearchButton() {
 }
 
 function GitHubLink() {
+  const t = useDictionary();
   return (
     <a
       href={GITHUB_URL}
       target="_blank"
       rel="noreferrer"
-      aria-label="miyuki-ui on GitHub"
+      aria-label={t.nav.github}
       className={iconButtonClass("size-9")}
     >
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
@@ -133,6 +166,7 @@ export function SiteHeader({ menu, className, ...props }: ComponentProps<"header
         <div className="ml-auto flex items-center gap-1">
           <SearchButton />
           <div className="ml-1 flex items-center">
+            <LanguageSwitch />
             <GitHubLink />
             <ThemeToggle />
             {menu}
@@ -146,16 +180,18 @@ export function SiteHeader({ menu, className, ...props }: ComponentProps<"header
 function HomeMenu() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const siteLinks = useSiteLinks();
+  const t = useDictionary();
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger
-        aria-label={open ? "Close menu" : "Open menu"}
+        aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
         className={iconButtonClass("-mr-1.5 size-9 md:hidden")}
       >
         <MorphIcon shapes={morphIcons.menuClose} shape={open ? "close" : "menu"} />
       </PopoverTrigger>
       <PopoverContent align="end" sideOffset={10} className="w-60 min-w-0 bg-popover p-1.5 backdrop-blur-none">
-        <nav aria-label="Main">
+        <nav aria-label={t.nav.main}>
           <ul className="flex flex-col gap-px">
             {siteLinks.map((link) => {
               const current = link.match(pathname);

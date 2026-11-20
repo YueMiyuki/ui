@@ -1,0 +1,15 @@
+{
+  "source": "bf5bb4cf",
+  "name": "操作日志",
+  "description": "持续更新的智能体操作日志，每项操作一行，最新的一行正在进行中。",
+  "demos": {
+    "default": "默认",
+    "states": "全部状态"
+  },
+  "props": {
+    "ActionLog": {
+      "items": "按顺序排列的操作。kind 决定图标，label 是动词，detail 是文件名或来源名，显示为等宽字体的胶囊标签。进行中的行带有一道掠过的光带和计时器；完成后，计时器停在最终用时。失败的行变为山茶红并显示“Failed”；跳过的行加上删除线并显示“Skipped”。",
+      "className": "列表的额外类名。其他属性（如 aria-label）会传给 ol 元素，它是一个 polite 实时区域，用于播报新增的行。"
+    }
+  }
+}

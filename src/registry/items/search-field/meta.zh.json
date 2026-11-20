@@ -1,0 +1,28 @@
+{
+  "source": "4978a7f3",
+  "name": "搜索框",
+  "description": "带清除按钮、等待状态和键盘快捷键提示的搜索框。",
+  "demos": {
+    "default": "默认",
+    "filter": "筛选列表"
+  },
+  "props": {
+    "SearchField": {
+      "label": "输入框上方的标签。没有标签时，请为它设置 aria-label。",
+      "description": "输入框下方的帮助文字。",
+      "errorMessage": "输入框无效时显示在其下方。",
+      "placeholder": "输入框为空时显示的提示文字。",
+      "size": "高度为 32、36 或 44 像素。",
+      "isPending": "放大镜收起手柄，变成旋转的圆环，直到结果返回。",
+      "shortcut": "输入框为空时显示在右侧的按键提示，例如“/”或“⌘K”。在页面任意位置按下该键都会聚焦输入框。",
+      "value": "查询内容（受控）。",
+      "defaultValue": "初始查询内容（非受控）。",
+      "onChange": "查询内容改变时调用。",
+      "onSubmit": "按下 Enter 时调用。",
+      "onClear": "通过 Escape 键或清除按钮清空输入框时调用。",
+      "isDisabled": "禁用输入框。",
+      "fieldClassName": "带边框外框的额外类名。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 SearchField 的其他所有属性。"
+    }
+  }
+}

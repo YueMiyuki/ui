@@ -1,0 +1,22 @@
+{
+  "source": "3dd4f77b",
+  "name": "动态收件箱",
+  "description": "按天分组的动态收件箱，可用标签页筛选，带未读标记和行内操作。",
+  "demos": {
+    "default": "收件箱",
+    "empty": "空标签页"
+  },
+  "props": {
+    "ActivityInbox": {
+      "items": "通知列表，最新的在前：{ id, kind, group, actor, message, time, avatar?, icon?, tone?, quote?, unread?, actions? }。kind 为 \"mention\"、\"system\" 或 \"activity\"，决定通知所在的标签页；group 是它所属的分组标题，例如“今天”。",
+      "defaultTab": "最初显示的标签页。activity 类通知只出现在 All 标签页下。",
+      "onMarkAllRead": "由“Mark all read”按钮调用。未读标记会原地从上到下依次清除。",
+      "onMarkRead": "单条通知被标记为已读时调用，无论是通过它悬停时出现的控件，还是因为使用了它的某个操作。",
+      "onAction": "按下操作按钮（例如“回复”）时调用，参数为通知 id 和操作 id。",
+      "title": "面板标题。",
+      "listHeight": "滚动列表的高度，单位为像素，在每个标签页上保持一致。",
+      "emptyStates": "替换标签页为空时显示的文字。",
+      "className": "面板的类名。也接受 section 的其他所有属性。"
+    }
+  }
+}

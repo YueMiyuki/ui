@@ -1,0 +1,23 @@
+{
+  "source": "1d3b04d4",
+  "name": "潮水进度",
+  "description": "以注水表示进度的容器，值改变时水面晃动，百分比数字被水淹没的部分会变色。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "TideProgress": {
+      "value": "当前进度。水位以弹簧动画跟随，水面随之晃动。",
+      "minValue": "范围的起点。",
+      "maxValue": "范围的终点。",
+      "shape": "容器形状：圆形烧瓶、竖直的胶囊，或长度为高度三倍的宽水槽。",
+      "size": "容器的高度，单位为像素。宽度由形状决定。",
+      "showValue": "在中央显示数值。水面以上的部分用墨色绘制，水面以下的部分用水的前景色绘制，两者沿水面分开。",
+      "isIndeterminate": "终点未知：水位在中间附近缓慢摇晃，并隐藏数值。",
+      "color": "水的颜色。使用自定义颜色时，请将 `--miyuki-tide-progress-under` 设为在该颜色上清晰可读的文字颜色。",
+      "label": "容器下方的可见标签，同时也是进度条的名称。没有标签时，请传入 aria-label。",
+      "formatOptions": "数值的格式化方式。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 ProgressBar 的其他所有属性。"
+    }
+  }
+}

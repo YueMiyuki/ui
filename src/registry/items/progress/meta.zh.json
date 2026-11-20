@@ -1,0 +1,32 @@
+{
+  "source": "662aa7d4",
+  "name": "进度条",
+  "description": "以条形或环形显示进展，终点可以已知，也可以未知。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "ProgressBar": {
+      "label": "轨道上方左侧的标签。",
+      "value": "当前进度。值改变时，填充以弹簧动画移动。",
+      "minValue": "范围的起点。",
+      "maxValue": "范围的终点。",
+      "isIndeterminate": "终点未知：一道柔和的水蓝色光带沿轨道扫过。",
+      "showValue": "在轨道上方右侧显示格式化后的值。终点未知时隐藏。",
+      "size": "轨道粗 4 或 6 像素。",
+      "tone": "填充颜色：水蓝色，或用于反映健康状况的状态色，例如用量接近上限的进度条。",
+      "formatOptions": "数值的格式。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 ProgressBar 的其他所有属性。"
+    },
+    "ProgressRing": {
+      "label": "无障碍名称。进度环没有可见标签。",
+      "value": "当前进度。弧线从顶部开始顺时针填充。",
+      "minValue": "范围的起点。",
+      "maxValue": "范围的终点。",
+      "isIndeterminate": "终点未知：一段弧线绕着圆环旋转。",
+      "size": "20、32 或 56 像素。",
+      "showValue": "在中间显示数值。只有大尺寸的进度环有足够空间。",
+      "className": "额外的类名。弧线颜色为 currentColor，默认为水蓝色。也接受 react-aria-components 中 ProgressBar 的其他所有属性。"
+    }
+  }
+}

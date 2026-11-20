@@ -301,7 +301,7 @@ export function TypingKeys({ sound = false, showPreview = true, onKey, className
       className={cn(
         "w-full select-none",
         "[--miyuki-typing-keys-edge:var(--border-strong)] [--miyuki-typing-keys-shade:oklch(0.42_0.09_250/0.12)]",
-        "dark:[--miyuki-typing-keys-edge:oklch(0.13_0.024_250)] dark:[--miyuki-typing-keys-shade:oklch(0.05_0.02_250/0.5)]",
+        "dark:[--miyuki-typing-keys-edge:oklch(0.13_0.024_250)] ink:[--miyuki-typing-keys-edge:oklch(0.13_0_0)] dark:[--miyuki-typing-keys-shade:oklch(0.05_0.02_250/0.5)] ink:[--miyuki-typing-keys-shade:oklch(0.05_0_0/0.5)]",
         className,
       )}
     >

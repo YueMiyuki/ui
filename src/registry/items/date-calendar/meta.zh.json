@@ -1,0 +1,33 @@
+{
+  "source": "6d7ac1c6",
+  "name": "月历",
+  "description": "直接显示在页面上的月历，用于选择单个日期或日期范围，可并排显示一个或两个月。",
+  "demos": {
+    "default": "单个日期",
+    "range": "日期范围",
+    "two-months": "两个月"
+  },
+  "props": {
+    "Calendar": {
+      "visibleMonths": "并排显示的月数。空间不足时折成两行。",
+      "value": "选中的日期（受控）。非受控时使用 defaultValue。",
+      "onChange": "选择日期时调用。",
+      "minValue": "可选择的最早日期。更早的日期会变暗。",
+      "maxValue": "可选择的最晚日期。",
+      "isDateUnavailable": "标记可以获得焦点但不能选择的日期。这些日期以弱化样式显示并带删除线。",
+      "focusedValue": "获得焦点的日期，决定显示哪个月（受控）。非受控时使用 defaultFocusedValue。",
+      "firstDayOfWeek": "每周第一列是星期几。默认取当前语言区域的设置。",
+      "pageBehavior": "点击箭头时是按所有可见月份翻页，还是一次翻一个月。",
+      "isDisabled": "禁用日历，并将其不透明度降到 50%。",
+      "isReadOnly": "显示值但不允许修改。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 Calendar 的其他所有属性；请为它设置 aria-label。"
+    },
+    "RangeCalendar": {
+      "visibleMonths": "并排显示的月数。",
+      "value": "选中的日期范围（受控）。非受控时使用 defaultValue。",
+      "onChange": "范围的两端都选定后调用。",
+      "allowsNonContiguousRanges": "允许范围跨越不可选的日期。",
+      "className": "根元素的额外类名。其余属性与 Calendar 相同。"
+    }
+  }
+}

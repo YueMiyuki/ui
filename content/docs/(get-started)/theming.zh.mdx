@@ -1,0 +1,83 @@
+---
+title: 主题
+description: 所有组件读取的主题变量、完整色板，以及两套深色主题。
+---
+
+组件使用指向主题变量的 Tailwind 工具类来设置样式：`bg-background`、`text-foreground`、`bg-brand` 等。修改一个变量，所有组件都会随之改变。
+
+## 两个注册表项 [#two-registry-items]
+
+**base** 随每个组件一起安装。它会添加 shadcn 默认主题中没有的主题变量：`brand`、`success` 和 `warning` 及其 soft 与 strong 色阶、`destructive-soft`、`destructive-strong`、`border-strong`、`chart-6`、两种缓动曲线和展示字体栈。它从不改动你已有的变量。
+
+**theme** 是可选的。它会用雪与水色板替换你的颜色、圆角层级和阴影，包含浅色、夜间和深色三套主题，并添加 `ink` 变体。
+
+```npm
+npx shadcn@latest add @miyuki-ui/theme
+```
+
+## 主题变量 [#tokens]
+
+| 工具类 | 用途 |
+| --- | --- |
+| `bg-background`、`text-foreground` | 页面和正文文字 |
+| `bg-card` | 凸起的表面：卡片、输入框、次要按钮 |
+| `bg-popover` | 菜单、弹出层、提示框和对话框 |
+| `bg-muted`、`text-muted-foreground` | 凹陷区域和轨道、次要文字 |
+| `bg-secondary` | 柔和填充的控件 |
+| `bg-accent` | 悬停和高亮的行 |
+| `bg-primary`、`text-primary-foreground` | 墨色：主要操作 |
+| `bg-brand`、`text-brand-foreground` | 水蓝：选中、开启、进行中 |
+| `bg-brand-soft`、`text-brand-strong` | 文字背后的淡水蓝底色、水蓝色的文字和链接 |
+| `bg-destructive`、`bg-destructive-soft`、`text-destructive-strong` | 错误和破坏性操作 |
+| `bg-success`、`bg-success-soft`、`text-success-strong` | 成功 |
+| `bg-warning`、`bg-warning-soft`、`text-warning-strong` | 警告 |
+| `border-border` | 细线 |
+| `border-border-strong`、`border-input` | 控件边框 |
+| `ring-ring` | 焦点环 |
+| `chart-1` 到 `chart-6` | 数据和特效的色相 |
+
+每个 `-foreground` 都与对应的实色填充搭配使用。`-soft` 底色上的文字使用对应的 `-strong` 色阶。不透明度修饰符适用于所有主题变量，例如 `bg-brand/15`。
+
+### 圆角 [#radius]
+
+| 工具类 | 尺寸 | 用途 |
+| --- | --- | --- |
+| `rounded-sm` | 6px | 控件内的胶囊标签、复选框 |
+| `rounded-md` | 8px | 小按钮、菜单项 |
+| `rounded-lg` | 10px | 按钮、输入框、选择框 |
+| `rounded-xl` | 14px | 卡片、弹出层、菜单 |
+| `rounded-2xl` | 18px | 对话框、抽屉、大卡片 |
+| `rounded-3xl` | 22px | 首屏主视觉面板 |
+
+每一级都随 `--radius` 变化。
+
+### 阴影 [#shadows]
+
+`shadow-xs` 到 `shadow-2xl` 都带有蓝色调。在夜间和深色两套主题中，它们还会沿顶部边缘加上一道细细的霜线；在深色主题下，阴影为中性色。
+
+## 深色主题 [#dark-themes]
+
+共有两套。**夜间**带蓝色调，即 `<html>` 上的 `dark` 类。**深色**为中性色，以黑色和灰色为主，搭配白色：它在 `dark` 之外再加上 `ink`，例如 `<html class="dark ink">`。深色叠加在夜间之上，因此所有 `dark:` 工具类在深色主题下依然生效，变化的只有主题变量。状态颜色和图表颜色在两者中相同，代码也保留语法高亮的颜色，因此数据和代码差异依然带有颜色。
+
+请在页面绘制之前，通过 `<head>` 中的一小段内联脚本设置这些类，以免页面闪烁。
+
+你也可以只切换页面的一部分：给任意元素加上 `light`、`dark` 或 `dark ink` 类。主题变量和变体会以离它最近的那个为准。
+
+```css title="globals.css"
+@custom-variant dark (&:where(.dark, .dark *):not(:where(.light, .light *)));
+@custom-variant ink (&:where(.dark.ink, .dark.ink *, .ink .dark, .ink .dark *):not(:where(.light, .light *)));
+```
+
+### ink 变体 [#the-ink-variant]
+
+`ink:` 只在深色主题的变量生效的地方起作用。在少数需要让深色与夜间有所区别的地方使用它，例如在 `dark:` 类中手写的颜色。在同一个元素上，它优先于普通的 `dark:` 工具类。如果 `dark:` 工具类带有状态，例如 `dark:hover:`，请为它另配一个 `ink:hover:`，这样在深色主题下状态依然会变化。
+
+```tsx
+<div className="shadow-lg dark:shadow-[0_8px_24px_oklch(0.05_0.02_250/0.6)] ink:shadow-[0_8px_24px_oklch(0_0_0/0.6)]" />
+```
+
+## 样式表 [#stylesheet]
+
+如果要手动设置主题，把下面的内容粘贴到你的全局样式表中，放在 `@import "tailwindcss";` 之后。它包含的变量与 `theme` 注册表项安装的相同。
+
+<ThemeCss />

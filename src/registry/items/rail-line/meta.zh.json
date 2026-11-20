@@ -1,0 +1,14 @@
+{
+  "source": "d7823892",
+  "name": "铁路线",
+  "description": "铁路线路的公共页面：所选车站的发车信息板与运行通知并排、线路的条形示意图、工作日和周末按小时分行的时刻表，以及票价表。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "RailLine": {
+      "defaultStation": "最先显示的车站 id：otaru、chikko、asari、zenibako、hoshimi、inazumi、teine、kotoni 或 sapporo。页头中的车站选择器和条形示意图上的车站会同时切换信息板、时刻表和票价。",
+      "className": "根元素的类名。根元素至少与视口等高，页面在吸顶页头下方滚动。信息板、时钟和时刻表的当前小时跟随访问者的时钟；日期固定在 2027 年 2 月。也接受 div 的其他所有属性。"
+    }
+  }
+}

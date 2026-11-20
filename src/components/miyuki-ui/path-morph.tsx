@@ -701,7 +701,7 @@ export function MorphPath({ d, transition, ref, ...props }: MorphPathProps) {
   return <path ref={setRef} d={first} {...props} />;
 }
 
-export type MorphShapePath = string | { d: string; fill?: boolean };
+export type MorphShapePath = string | { d: string; fill?: boolean; stroke?: boolean };
 export type MorphShape = MorphShapePath | MorphShapePath[] | { paths: MorphShapePath[]; rotate?: number };
 export type MorphShapes = Record<string, MorphShape>;
 
@@ -789,10 +789,24 @@ export function MorphIcon({
       return entry != null && typeof entry === "object" && entry.fill === true;
     }),
   );
+  const unstroked = Array.from({ length: count }, (_, i) =>
+    all.some((p) => {
+      const entry = p[i];
+      return entry != null && typeof entry === "object" && entry.stroke === false;
+    }),
+  );
   const paths = Array.from({ length: count }, (_, i) => {
     const entry = current[i];
     const d = entry == null ? "" : typeof entry === "string" ? entry : entry.d;
-    return <MorphPath key={i} d={d} fill={filled || fills[i] ? "currentColor" : "none"} transition={transition} />;
+    return (
+      <MorphPath
+        key={i}
+        d={d}
+        fill={filled || fills[i] ? "currentColor" : "none"}
+        stroke={unstroked[i] ? "none" : undefined}
+        transition={transition}
+      />
+    );
   });
   const turns = all.length > 0 && Object.values(shapes).some((s) => rotationOf(s) !== 0);
 
@@ -910,6 +924,15 @@ const ribbonRolled =
 const lockBody =
   "M7 11L17 11C18.1 11 19 11.9 19 13L19 18C19 19.1 18.1 20 17 20L7 20C5.9 20 5 19.1 5 18L5 13C5 11.9 5.9 11 7 11Z";
 
+const ring = `M12 ${round(12 - MOON_R)}${arc(12, 12, MOON_R, -90, -360, 3)}${arc(12, 12, MOON_R, 0, -90, 1)}Z`;
+const ringRays = RAYS.map((a) => {
+  const x = 12 + MOON_R * Math.cos(rad(a));
+  const y = 12 + MOON_R * Math.sin(rad(a));
+  return `M${P(x, y)}L${P(x, y)}`;
+}).join("");
+const NEW_MOON_R = 5;
+const newMoon = (r: number) => ({ d: pupil(r, 12, 12), fill: true, stroke: false });
+
 export const morphIcons = {
   playPause: {
     play: ["M8.5 5.5L8.5 18.5", "M8.5 5.5L19 12L8.5 18.5"],
@@ -937,6 +960,11 @@ export const morphIcons = {
   sunMoon: {
     sun: [disc, sunRays],
     moon: [crescent, moonRays],
+  },
+  sunMoonDisc: {
+    sun: [disc, sunRays, newMoon(0)],
+    moon: [crescent, moonRays, newMoon(0)],
+    disc: [ring, ringRays, newMoon(NEW_MOON_R)],
   },
   chevron: {
     down: { paths: ["M6 9L12 15L18 9"], rotate: 0 },

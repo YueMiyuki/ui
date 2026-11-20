@@ -182,7 +182,7 @@ export function InstantPhoto({
       aria-description="Press Space to shake it."
       className={cn(
         "group/print relative m-0 w-56 shrink-0 touch-none rounded-[4px] outline-none select-none",
-        "[--miyuki-instant-photo-paper:oklch(0.986_0.004_240)] dark:[--miyuki-instant-photo-paper:oklch(0.875_0.008_240)]",
+        "[--miyuki-instant-photo-paper:oklch(0.986_0.004_240)] dark:[--miyuki-instant-photo-paper:oklch(0.875_0.008_240)] ink:[--miyuki-instant-photo-paper:oklch(0.875_0_0)]",
         "focus-visible:ring-[3px] focus-visible:ring-ring",
         className,
       )}
@@ -235,7 +235,7 @@ export function InstantPhoto({
       {ejecting ? (
         <motion.span
           aria-hidden="true"
-          className="absolute -inset-x-4 -top-2.5 z-10 h-3.5 rounded-full bg-[oklch(0.24_0.025_252)] shadow-[inset_0_1px_0_oklch(1_0_0/0.16),inset_0_-2px_0_oklch(0.12_0.02_252),0_3px_8px_oklch(0.25_0.05_252/0.35)] dark:bg-[oklch(0.3_0.025_252)] dark:shadow-[inset_0_1px_0_oklch(1_0_0/0.12),inset_0_-2px_0_oklch(0.16_0.02_252),0_3px_8px_oklch(0.02_0.02_252/0.6)]"
+          className="absolute -inset-x-4 -top-2.5 z-10 h-3.5 rounded-full bg-[oklch(0.24_0.025_252)] shadow-[inset_0_1px_0_oklch(1_0_0/0.16),inset_0_-2px_0_oklch(0.12_0.02_252),0_3px_8px_oklch(0.25_0.05_252/0.35)] dark:bg-[oklch(0.3_0.025_252)] ink:bg-[oklch(0.3_0_0)] dark:shadow-[inset_0_1px_0_oklch(1_0_0/0.12),inset_0_-2px_0_oklch(0.16_0.02_252),0_3px_8px_oklch(0.02_0.02_252/0.6)] ink:shadow-[inset_0_1px_0_oklch(1_0_0/0.12),inset_0_-2px_0_oklch(0.16_0_0),0_3px_8px_oklch(0.02_0_0/0.6)]"
           initial={{ opacity: 0, scaleX: 0.92 }}
           animate={{ opacity: [0, 1, 1, 0], scaleX: [0.92, 1, 1, 1], y: [0, 0, 0, -8] }}
           transition={{ duration: EJECT_MS / 1000 + 0.35, times: [0, 0.08, 0.78, 1] }}
@@ -244,7 +244,7 @@ export function InstantPhoto({
       {ejecting ? (
         <motion.span
           aria-hidden="true"
-          className="pointer-events-none absolute -inset-x-1 -top-1 z-[5] h-5 bg-linear-to-b from-[oklch(0.25_0.05_252/0.38)] to-transparent"
+          className="pointer-events-none absolute -inset-x-1 -top-1 z-[5] h-5 bg-linear-to-b from-[oklch(0.25_0.05_252/0.38)] ink:from-[oklch(0.25_0_0/0.38)] to-transparent"
           animate={{ opacity: [1, 1, 0] }}
           transition={{ duration: EJECT_MS / 1000 + 0.2, times: [0, 0.85, 1] }}
         />
@@ -262,7 +262,7 @@ export function InstantPhoto({
           }}
         >
           <motion.div
-            className="light relative bg-(--miyuki-instant-photo-paper) px-[6%] pt-[6%] pb-[5%] shadow-[0_1px_1px_oklch(0.42_0.09_250/0.12),0_6px_16px_-4px_oklch(0.42_0.09_250/0.22),0_22px_40px_-18px_oklch(0.42_0.09_250/0.32)] dark:shadow-[0_1px_1px_oklch(0.05_0.02_250/0.5),0_8px_18px_-4px_oklch(0.05_0.02_250/0.6),0_26px_44px_-16px_oklch(0.05_0.02_250/0.75)]"
+            className="light relative bg-(--miyuki-instant-photo-paper) px-[6%] pt-[6%] pb-[5%] shadow-[0_1px_1px_oklch(0.42_0.09_250/0.12),0_6px_16px_-4px_oklch(0.42_0.09_250/0.22),0_22px_40px_-18px_oklch(0.42_0.09_250/0.32)] dark:shadow-[0_1px_1px_oklch(0.05_0.02_250/0.5),0_8px_18px_-4px_oklch(0.05_0.02_250/0.6),0_26px_44px_-16px_oklch(0.05_0.02_250/0.75)] ink:shadow-[0_1px_1px_oklch(0.05_0_0/0.5),0_8px_18px_-4px_oklch(0.05_0_0/0.6),0_26px_44px_-16px_oklch(0.05_0_0/0.75)]"
             style={{ x, y, rotate: ejecting ? 0 : rotate, borderRadius: 4 }}
           >
             <span

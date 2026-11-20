@@ -1,0 +1,38 @@
+{
+  "source": "aef07a7d",
+  "name": "复选框",
+  "description": "选中时被水注满的复选框，支持分组、不确定状态和卡片变体。",
+  "demos": {
+    "default": "分组",
+    "cards": "卡片"
+  },
+  "props": {
+    "Checkbox": {
+      "children": "标签，位于方框右侧。",
+      "description": "标签下方的帮助文字。",
+      "size": "方框为 16 或 18 像素。在组内时默认使用组的尺寸。",
+      "isSelected": "选中状态（受控）。非受控时使用 defaultSelected。",
+      "isIndeterminate": "显示一条短横线，用于子项部分选中的父项。",
+      "value": "此复选框添加到所在组的值。",
+      "onChange": "选中状态改变时调用。",
+      "isDisabled": "禁用复选框，并将其不透明度降到 50%。",
+      "isInvalid": "为未选中的方框加上山茶红轮廓。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 CheckboxField 的其他所有属性。"
+    },
+    "CheckboxGroup": {
+      "label": "组上方的标签。",
+      "description": "组下方的帮助文字。",
+      "errorMessage": "组无效时显示在其下方。",
+      "size": "组内所有复选框和卡片的尺寸。",
+      "value": "选中的值（受控）。非受控时使用 defaultValue。",
+      "onChange": "选中的值改变时调用。",
+      "className": "额外的类名。也接受 react-aria-components 中 CheckboxGroup 的其他所有属性。"
+    },
+    "CheckboxCard": {
+      "children": "标题。",
+      "description": "标题下方的一行文字。",
+      "size": "右侧方框的尺寸。",
+      "className": "卡片的额外类名。接受与 Checkbox 相同的属性。"
+    }
+  }
+}

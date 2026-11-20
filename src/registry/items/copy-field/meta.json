@@ -1,0 +1,85 @@
+{
+  "name": "Copy Field",
+  "category": "inputs",
+  "description": "A read-only value with a copy button, for invite links, API keys and commands.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Links and keys"
+    },
+    {
+      "name": "command",
+      "title": "Command"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 420
+  },
+  "props": [
+    {
+      "component": "CopyField",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The text to show and copy."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Label above the field."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the field."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels."
+        },
+        {
+          "name": "masked",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows dots and the last four characters, with a toggle to reveal the rest. Copying, with the button or the keyboard, always copies the real value."
+        },
+        {
+          "name": "prefix",
+          "type": "ReactNode",
+          "description": "Text addon before the value, set off by a hairline, such as $ before a command."
+        },
+        {
+          "name": "onCopy",
+          "type": "(value: string) => void",
+          "description": "Called after the copy button has put the value on the clipboard."
+        },
+        {
+          "name": "copyLabel",
+          "type": "string",
+          "default": "\"Copy\"",
+          "description": "Accessible name of the copy button."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the field and its buttons and dims them to 50%."
+        },
+        {
+          "name": "fieldClassName",
+          "type": "string",
+          "description": "Extra classes for the outlined box."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts the other props of the react-aria-components TextField, such as name and aria-label."
+        }
+      ]
+    }
+  ]
+}

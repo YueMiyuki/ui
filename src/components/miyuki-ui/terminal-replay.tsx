@@ -22,6 +22,7 @@ export interface TerminalReplayProps extends Omit<ComponentProps<"div">, "title"
   startOnView?: boolean;
   loop?: boolean;
   sound?: boolean;
+  startFrom?: number;
 }
 
 const TONES: Record<TerminalReplayTone, string> = {
@@ -108,6 +109,7 @@ export function TerminalReplay({
   startOnView = true,
   loop = false,
   sound = false,
+  startFrom = 0,
   className,
   ...props
 }: TerminalReplayProps) {
@@ -117,7 +119,10 @@ export function TerminalReplay({
   const tickerRef = useRef<ReturnType<typeof createTicker> | null>(null);
   const [inView, setInView] = useState(!startOnView);
   const [run, setRun] = useState(0);
-  const [cursor, setCursor] = useState<Cursor>({ line: 0, chars: 0 });
+  const [cursor, setCursor] = useState<Cursor>(() => ({
+    line: Math.min(Math.max(0, startFrom), lines.length),
+    chars: 0,
+  }));
 
   const total = lines.length;
   const started = inView;

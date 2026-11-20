@@ -1,0 +1,74 @@
+---
+title: 使用 shadcn CLI
+description: 把注册表添加到你的项目中，并按名称安装组件。
+---
+
+miyuki-ui 是一个 shadcn 注册表。CLI 会读取它，把文件复制到你的项目中，并安装这些文件所需的依赖。
+
+## 添加命名空间 [#add-the-namespace]
+
+把 `@miyuki-ui` 注册表添加到 `components.json` 中：
+
+<RegistryJson />
+
+或者让 CLI 来添加：
+
+<RegistryAdd />
+
+## 添加组件 [#add-components]
+
+写出一个或多个组件的名称：
+
+```npm
+npx shadcn@latest add @miyuki-ui/button @miyuki-ui/northern-lights
+```
+
+对每个组件，CLI 会：
+
+- 把组件复制到 `components/miyuki-ui/`；
+- 把它用到的共享辅助函数添加到 `components/miyuki-ui/lib/`；
+- 安装它导入的软件包；
+- 添加它用到的其他 miyuki-ui 组件；
+- 把 `base` 主题变量添加到你的样式表中。
+
+## 文件存放位置 [#where-the-files-go]
+
+这些组件放在单独的文件夹中，与 shadcn 的 `components/ui/` 并列。它们不会覆盖 shadcn 的文件，所以两者可以同时使用。
+
+<Files>
+  <Folder name="components" defaultOpen>
+    <Folder name="miyuki-ui" defaultOpen>
+      <Folder name="lib" defaultOpen>
+        <File name="prng.ts" />
+      </Folder>
+      <File name="button.tsx" />
+      <File name="northern-lights.tsx" />
+    </Folder>
+    <Folder name="ui" defaultOpen>
+      <File name="button.tsx" />
+    </Folder>
+  </Folder>
+  <Folder name="lib" defaultOpen>
+    <File name="utils.ts" />
+  </Folder>
+</Files>
+
+从这里导入它们：
+
+```tsx
+import { Button } from "@/components/miyuki-ui/button";
+```
+
+## 不使用命名空间 [#without-the-namespace]
+
+每个组件也都有自己的 URL，无需注册表条目即可使用：
+
+<AddByUrl slug="button" />
+
+## 更新组件 [#update-a-component]
+
+带上 `--overwrite` 再次运行 add 命令，用当前版本替换你的副本。你对该文件所做的修改会丢失，所以请先提交。
+
+```npm
+npx shadcn@latest add @miyuki-ui/button --overwrite
+```

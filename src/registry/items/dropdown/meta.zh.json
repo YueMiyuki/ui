@@ -1,0 +1,57 @@
+{
+  "source": "01f609a1",
+  "name": "下拉菜单",
+  "description": "从按钮打开的操作或选项菜单，支持图标、描述、快捷键、分组和子菜单。",
+  "demos": {
+    "team": "团队切换器",
+    "model": "带描述的选项",
+    "actions": "操作与子菜单"
+  },
+  "props": {
+    "Dropdown": {
+      "children": "打开菜单的按钮，然后是 DropdownMenu。",
+      "trigger": "按钮打开菜单的方式。",
+      "isOpen": "打开状态（受控）。非受控时使用 defaultOpen。",
+      "onOpenChange": "菜单打开或关闭时调用。"
+    },
+    "DropdownMenu": {
+      "children": "DropdownItem、DropdownSection、DropdownSeparator 和 DropdownSubmenu 元素，或为 items 中每一项进行渲染的函数。",
+      "items": "动态菜单的数据项。",
+      "onAction": "选中某一项时调用。",
+      "selectionMode": "允许选择菜单项。选中的项显示圆点（single）或对勾（multiple）。",
+      "selectedKeys": "选中的项（受控）。非受控时使用 defaultSelectedKeys。",
+      "onSelectionChange": "选中项改变时调用。",
+      "indicator": "覆盖选中项使用的标记。",
+      "placement": "菜单打开的位置。空间不足时会翻转。",
+      "offset": "与触发器之间的间距，单位为像素。",
+      "popoverClassName": "浮动面板的类名，例如宽度。浮动面板至少 200 像素宽，且不窄于触发器。",
+      "className": "浮动面板内列表的类名。也接受 react-aria-components 中 Menu 的其他所有属性。"
+    },
+    "DropdownItem": {
+      "children": "标签。",
+      "id": "在 onAction 和 selectedKeys 中用于识别该项。",
+      "icon": "标签前 16 像素的图标或小头像。",
+      "description": "标签下方的一行文字。",
+      "shortcut": "行末的按键提示，例如“⌘D”。",
+      "tone": "destructive 将该行显示为山茶红，高亮为浅山茶红。warning 将其显示为柚子黄，用于允许但有风险的选项，高亮为浅柚子黄。",
+      "textValue": "标签不是纯字符串时，用于键入查找的文本。",
+      "onAction": "选中该项时调用。",
+      "href": "使该项成为链接。",
+      "isDisabled": "禁用该项。"
+    },
+    "DropdownSection": {
+      "title": "分组上方的小标题。",
+      "children": "分组中的项，或为 items 中每一项进行渲染的函数。",
+      "selectionMode": "允许选择该分组中的项，独立于菜单的其他部分。",
+      "selectedKeys": "该分组中选中的项（受控）。",
+      "onSelectionChange": "该分组中的选中项改变时调用。"
+    },
+    "DropdownSeparator": {
+      "className": "分隔细线的额外类名。"
+    },
+    "DropdownSubmenu": {
+      "children": "打开子菜单的 DropdownItem，然后是子菜单的 DropdownMenu。",
+      "delay": "悬停多少毫秒后打开。按右方向键会立即打开。"
+    }
+  }
+}

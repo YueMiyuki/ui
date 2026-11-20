@@ -1,0 +1,17 @@
+{
+  "source": "a6b7557f",
+  "name": "故事卡片轮播",
+  "description": "一排可以横向滚动的竖长卡片；打开其中一张，它会展开成一篇文章。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "StoryCardsCarousel": {
+      "items": "故事列表。content 是卡片打开时显示在图片下方的文章；相邻段落会自动留出间距。",
+      "aria-label": "供辅助技术读取的轮播名称。",
+      "labels": "供辅助技术读取的文字，便于翻译。这一排卡片停止滚动时会播报 position。",
+      "backdropBlur": "模糊遮罩层后面的页面。默认关闭：只要后面有内容在变化，浏览器就会每帧重绘模糊，在大型页面上会造成卡顿，在 Firefox 中尤其明显。",
+      "className": "根元素的额外类名。设置 --miyuki-story-cards-inset 可修改这一排两端的内边距（默认为 1.5rem）。也接受 section 的其他所有属性。"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "name": "Tag Input",
+  "category": "inputs",
+  "description": "A text field where each entry turns into a removable tag, with validation, a limit and an optional suggestion list.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "suggestions",
+      "title": "Suggestions and a limit"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 360
+  },
+  "props": [
+    {
+      "component": "TagInput",
+      "props": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Label above the field. Clicking it focuses the text input."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the field. Replaced by the error while the field is invalid."
+        },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode",
+          "description": "Shows the field as invalid with this message, whatever the tags are. Without it, the message of the first tag that fails validate is shown."
+        },
+        {
+          "name": "value",
+          "type": "string[]",
+          "description": "The tags, when controlled."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string[]",
+          "default": "[]",
+          "description": "The starting tags, when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(tags: string[]) => void",
+          "description": "Called with the new list whenever a tag is added or removed."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "Hint shown while there are no tags."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Minimum height 32, 36 or 44 pixels. The field grows as tags wrap."
+        },
+        {
+          "name": "delimiters",
+          "type": "string[]",
+          "default": "[\",\", \";\", \"\\n\"]",
+          "description": "Pasted text is split on these. Typing a one-character delimiter turns the text so far into a tag, as Enter and Tab do."
+        },
+        {
+          "name": "validate",
+          "type": "(tag: string) => true | string",
+          "description": "Return true for a good tag or a message for a bad one. Bad tags are kept and shown in camellia, and the first message becomes the field's error."
+        },
+        {
+          "name": "maxTags",
+          "type": "number",
+          "description": "Most tags allowed. The text input hides once it is reached, and the help row counts \"n of max\"."
+        },
+        {
+          "name": "suggestions",
+          "type": "string[]",
+          "description": "Values offered in a list under the field, filtered as you type. Up and Down move through it, Enter or Tab picks, Escape closes. Tags already added are left out."
+        },
+        {
+          "name": "allowDuplicates",
+          "type": "boolean",
+          "default": "false",
+          "description": "Allow the same tag twice. When false, a repeat (ignoring case) is not added and the existing tag flashes instead."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the field and dims it to 50%."
+        },
+        {
+          "name": "isReadOnly",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the tags on a muted fill with no input and no remove buttons."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Accessible name when there is no visible label."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Other props are spread onto the root element."
+        }
+      ]
+    }
+  ]
+}

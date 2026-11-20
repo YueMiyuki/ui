@@ -120,7 +120,7 @@ export function FoilTicket({
         aria-hidden="true"
         className={cn(
           "pointer-events-none absolute inset-x-[8%] top-[10%] bottom-0 rounded-[28px] blur-2xl",
-          "bg-[oklch(0.42_0.09_250/0.5)] dark:bg-[oklch(0.04_0.02_250/0.9)]",
+          "bg-[oklch(0.42_0.09_250/0.5)] dark:bg-[oklch(0.04_0.02_250/0.9)] ink:bg-[oklch(0.04_0_0/0.9)]",
         )}
         style={{ x: shadowX, y: shadowY, opacity: shadowOpacity, scale: shadowScale }}
       />

@@ -458,7 +458,7 @@ export function SnowGlobe({
         "relative isolate flex flex-col items-center select-none",
         "[--miyuki-snow-globe-lacquer:color-mix(in_oklab,var(--foreground)_90%,var(--brand))] [--miyuki-snow-globe-lacquer-lit:color-mix(in_oklab,var(--foreground)_58%,var(--brand))]",
         "dark:[--miyuki-snow-globe-lacquer:color-mix(in_oklab,var(--background)_70%,var(--brand)_6%)] dark:[--miyuki-snow-globe-lacquer-lit:color-mix(in_oklab,var(--foreground)_30%,var(--background))]",
-        "[--miyuki-snow-globe-shade:oklch(0.42_0.09_250/0.3)] dark:[--miyuki-snow-globe-shade:oklch(0.02_0.02_250/0.75)]",
+        "[--miyuki-snow-globe-shade:oklch(0.42_0.09_250/0.3)] dark:[--miyuki-snow-globe-shade:oklch(0.02_0.02_250/0.75)] ink:[--miyuki-snow-globe-shade:oklch(0.02_0_0/0.75)]",
         className,
       )}
       style={{ ...vars, width: S, ...style }}
@@ -524,7 +524,7 @@ export function SnowGlobe({
           onClick={() => engine.current?.shake()}
           className={cn(
             "absolute left-1/2 h-6 -translate-x-1/2 cursor-default rounded-[5px] px-3 text-xs font-medium outline-none",
-            "bg-[color-mix(in_oklab,var(--warning)_62%,var(--card))] text-warning-foreground shadow-[inset_0_1px_0_oklch(1_0_0/0.5),0_1px_2px_oklch(0.1_0.03_250/0.45)]",
+            "bg-[color-mix(in_oklab,var(--warning)_62%,var(--card))] text-warning-foreground shadow-[inset_0_1px_0_oklch(1_0_0/0.5),0_1px_2px_oklch(0.1_0.03_250/0.45)] ink:shadow-[inset_0_1px_0_oklch(1_0_0/0.5),0_1px_2px_oklch(0.1_0_0/0.45)]",
             "transition-[transform,filter] duration-150 ease-settle hover:brightness-105 active:scale-[0.97]",
             "focus-visible:ring-[3px] focus-visible:ring-ring",
           )}

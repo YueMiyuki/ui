@@ -8,6 +8,14 @@
   )
 );
 
+@custom-variant ink (
+  &:where(.dark.ink, .dark.ink *, .ink .dark, .ink .dark *):not(
+    :where(.dark.ink .light, .dark.ink .light *, .ink .dark .light, .ink .dark .light *):not(
+      :where(.dark.ink .light .dark, .dark.ink .light .dark *, .ink .dark .light .dark, .ink .dark .light .dark *)
+    )
+  )
+);
+
 :root,
 .light {
   color-scheme: light;
@@ -162,6 +170,56 @@
   --shiki-token-link: oklch(0.79 0.1 228);
 }
 
+.dark.ink,
+.ink .dark {
+  --background: oklch(0.175 0 0);
+  --foreground: oklch(0.965 0 0);
+
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.965 0 0);
+  --popover: oklch(0.225 0 0);
+  --popover-foreground: oklch(0.965 0 0);
+
+  --primary: oklch(0.965 0 0);
+  --primary-foreground: oklch(0.19 0 0);
+
+  --secondary: oklch(0.255 0 0);
+  --secondary-foreground: oklch(0.965 0 0);
+  --muted: oklch(0.235 0 0);
+  --muted-foreground: oklch(0.715 0 0);
+  --accent: oklch(0.275 0 0);
+  --accent-foreground: oklch(0.965 0 0);
+
+  --brand: oklch(0.93 0 0);
+  --brand-foreground: oklch(0.18 0 0);
+  --brand-soft: oklch(0.305 0 0);
+  --brand-strong: oklch(0.985 0 0);
+
+  --border: oklch(0.285 0 0);
+  --border-strong: oklch(0.37 0 0);
+  --input: oklch(0.33 0 0);
+  --ring: oklch(0.93 0 0 / 0.35);
+
+  --miyuki-shadow-2xs: 0 1px 0 oklch(0 0 0 / 0.35);
+  --miyuki-shadow-xs: 0 1px 2px oklch(0 0 0 / 0.45);
+  --miyuki-shadow-sm:
+    inset 0 1px 0 oklch(1 0 0 / 0.04), 0 1px 2px oklch(0 0 0 / 0.45), 0 3px 8px -3px oklch(0 0 0 / 0.55);
+  --miyuki-shadow-md:
+    inset 0 1px 0 oklch(1 0 0 / 0.05), 0 1px 2px oklch(0 0 0 / 0.45), 0 8px 20px -6px oklch(0 0 0 / 0.65);
+  --miyuki-shadow-lg:
+    inset 0 1px 0 oklch(1 0 0 / 0.06), 0 2px 4px oklch(0 0 0 / 0.45), 0 18px 40px -12px oklch(0 0 0 / 0.75);
+  --miyuki-shadow-xl:
+    inset 0 1px 0 oklch(1 0 0 / 0.06), 0 4px 8px oklch(0 0 0 / 0.45), 0 32px 64px -16px oklch(0 0 0 / 0.8);
+  --miyuki-shadow-2xl: inset 0 1px 0 oklch(1 0 0 / 0.06), 0 48px 96px -24px oklch(0 0 0 / 0.85);
+
+  --shiki-foreground: oklch(0.9 0 0);
+  --shiki-token-comment: oklch(0.56 0 0);
+  --shiki-token-parameter: oklch(0.84 0 0);
+  --shiki-token-punctuation: oklch(0.64 0 0);
+  --shiki-token-function: oklch(0.86 0.05 230);
+  --shiki-token-link: oklch(0.86 0.05 230);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -302,4 +360,28 @@
 
 .prose {
   --tw-prose-links: var(--brand-strong);
+}
+
+@custom-variant zh (&:lang(zh-CN));
+
+html:lang(zh-CN) {
+  --font-sans:
+    var(--font-geist-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC",
+    ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    var(--font-geist-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC",
+    ui-sans-serif, system-ui, sans-serif;
+  --font-pixel: var(--font-pixel-zh, var(--font-geist-pixel-square)), var(--font-geist-mono), ui-monospace, monospace;
+}
+
+.font-sans:lang(zh-CN) {
+  font-family: var(--font-sans);
+}
+
+.font-display:lang(zh-CN) {
+  font-family: var(--font-display);
+}
+
+.font-pixel:lang(zh-CN) {
+  font-family: var(--font-pixel);
 }

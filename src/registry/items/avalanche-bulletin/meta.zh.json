@@ -1,0 +1,25 @@
+{
+  "source": "b7ca0372",
+  "name": "雪崩公告",
+  "description": "公开发布的雪崩公告：危险等级及其名称、在玫瑰图上按坡向和海拔显示的危险程度、雪崩问题以及预报员的说明。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "AvalancheBulletin": {
+      "bulletin": "公告显示的全部内容，详见下文。",
+      "bulletin.region": "标题，例如某座山脉。",
+      "bulletin.areas": "公告覆盖的地点，显示在标题下方。",
+      "bulletin.issued": "公告的撰写时间，需传入已格式化的内容。",
+      "bulletin.validUntil": "公告的失效时间，需传入已格式化的内容。",
+      "bulletin.level": "危险等级。以大号数字显示在对应颜色的方块上，并附带等级名称（Low、Moderate、Considerable、High、Very high）、在五级量表中的位置和一句含义说明。",
+      "bulletin.levels": "八个坡向（从北开始顺时针）和三个海拔带（从低到高）各自的危险等级。绘制在玫瑰图上；用指针指向或用方向键移到某一格时会显示其读数，整个网格也会以表格形式提供给读屏软件。",
+      "bulletin.bands": "三个海拔带的名称，从玫瑰图中心到外缘。",
+      "bulletin.headline": "关于主要危险的一句话，位于危险等级下方。",
+      "bulletin.tendency": "关于危险将如何变化的简短说明。",
+      "bulletin.problems": "雪崩问题，以卡片显示。kind 为 wind-slab、persistent-weak-layer、wet-snow、new-snow 或 gliding-snow，决定插图和默认标题。aspects 和 bands 填充一个小玫瑰图，表示发生的位置；hours（[from, to]，0 到 24）填充一个小型全天表盘，表示发生的时间。",
+      "bulletin.forecaster": "底部预报员的说明，带署名。",
+      "className": "article 元素的类名。其他 article 属性会透传。如果放在页面背景以外的表面上，请将 --miyuki-avalanche-bulletin-gap 设为该表面的颜色。"
+    }
+  }
+}

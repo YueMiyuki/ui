@@ -1,4 +1,6 @@
 import type { CategoryId } from "@/registry/schema";
+import type { Locale } from "@/site/i18n/config";
+import { localeHref } from "@/site/i18n/href";
 
 export type Section = "components" | "templates";
 
@@ -9,16 +11,24 @@ export function sectionOf(item: { category: CategoryId | string }): Section {
   return item.category === "templates" ? "templates" : "components";
 }
 
-export function sectionHref(section: Section) {
+export function sectionPath(section: Section) {
   return `${DOCS_HOME}/${section}`;
 }
 
-export function docsHref(item: { slug: string; category: CategoryId | string }) {
-  return `${sectionHref(sectionOf(item))}/${item.slug}`;
+export function docsPath(locale: Locale, path = "") {
+  return localeHref(locale, `${DOCS_HOME}${path}`);
 }
 
-export function categoryHref(id: string) {
-  return id === "templates" ? sectionHref("templates") : `${sectionHref("components")}#${id}`;
+export function sectionHref(section: Section, locale: Locale) {
+  return localeHref(locale, sectionPath(section));
+}
+
+export function docsHref(item: { slug: string; category: CategoryId | string }, locale: Locale) {
+  return localeHref(locale, `${sectionPath(sectionOf(item))}/${item.slug}`);
+}
+
+export function categoryHref(id: string, locale: Locale) {
+  return id === "templates" ? sectionHref("templates", locale) : `${sectionHref("components", locale)}#${id}`;
 }
 
 export function headingId(prefix: string, name: string) {

@@ -1,0 +1,27 @@
+{
+  "source": "39fa4bc2",
+  "name": "多行文本框",
+  "description": "随内容增高并统计字符数的多行文本输入框。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "TextArea": {
+      "label": "输入框上方的标签。",
+      "description": "输入框下方的帮助文字。输入框无效时由错误信息取代。",
+      "errorMessage": "输入框无效时显示在其下方。默认为浏览器的校验信息。",
+      "placeholder": "输入框为空时显示的提示文字。",
+      "size": "文字和内边距的尺寸。",
+      "autoGrow": "随内容增高，而不是显示滚动条。",
+      "minRows": "为空时的高度，以行数计。",
+      "maxRows": "增高到这一行数后停止，改为滚动。",
+      "maxLength": "字符数上限。同时会开启计数器。",
+      "showCount": "在输入框右下角显示计数器。达到上限的 90% 时变为柚子黄，达到上限时变为山茶红。",
+      "isInvalid": "显示山茶红边框和错误信息。",
+      "isDisabled": "禁用输入框，并将其不透明度降到 50%。",
+      "isReadOnly": "文字可以选中，但不能修改。以弱化的填充色显示。",
+      "fieldClassName": "带边框外框的额外类名。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 TextField 的其他所有属性（value、onChange、name、validate 等）。"
+    }
+  }
+}

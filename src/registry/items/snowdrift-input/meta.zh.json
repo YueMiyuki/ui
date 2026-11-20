@@ -1,0 +1,22 @@
+{
+  "source": "2baffa3c",
+  "name": "飘雪输入框",
+  "description": "胶囊形搜索框，占位文字轮流切换，提交时输入的文字像飘雪一样被吹散。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "SnowdriftInput": {
+      "placeholders": "输入框为空时轮流显示的占位文字。每条向上滑出，同时下一条滑入。",
+      "interval": "每条占位文字停留的毫秒数。",
+      "onChange": "每次改变时传入文字调用，提交后传入空字符串调用。",
+      "onSubmit": "表单提交时传入文字调用。随后文字化作飘散的颗粒，输入框清空。",
+      "submitLabel": "圆形提交按钮的无障碍名称。",
+      "aria-label": "输入框的无障碍名称。默认为当前显示的占位文字。有可见标签时优先使用 aria-labelledby。",
+      "aria-labelledby": "为输入框提供标签的元素的 id。",
+      "name": "输入框的 name，用于表单数据。",
+      "disabled": "禁用输入框并使其变暗。",
+      "className": "胶囊的额外类名，它是一个 form 元素。其他属性会传给 form。"
+    }
+  }
+}

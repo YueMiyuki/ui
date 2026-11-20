@@ -138,6 +138,13 @@ interface ResolvedDemo {
 
 type RegistryItemType = "registry:ui" | "registry:block";
 
+export interface ItemTranslation {
+  name?: string;
+  description?: string;
+  demos?: Record<string, string>;
+  props?: Record<string, Record<string, string>>;
+}
+
 export interface RegistryItem {
   slug: string;
   name: string;

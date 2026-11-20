@@ -16,12 +16,15 @@ const HELP = `Usage: node scripts/review.mjs <slug>[:<demo>] [...more]
 
 Opens ${BASE_URL}/review?slugs=... with twelve components per sheet, waits for
 the demos to mount, and saves full-page screenshots to
-.shots/review-<label>-<n>.png. Each component shows a light and a dark tile.
+.shots/review-<label>-<n>.png. Each component shows a light and a Night tile, or the
+themes named with --themes.
 
 Options
   --wait 3000   milliseconds to wait for demos after the network is idle
   --zoom 2      one component per row at twice the size, four per sheet
   --label name  file label instead of "custom"
+  --themes t,t  tiles to show per component, from light, dark (Night) and ink (Dark);
+                default light,dark
   --help        show this text
 
 Env: MIYUKI_URL (default http://localhost:3210), MIYUKI_BROWSER (chrome or webkit;
@@ -38,6 +41,7 @@ let all = false;
 let wait = 3000;
 let zoom = 1;
 let customLabel = null;
+let themes = ["light", "dark"];
 const slugs = [];
 for (let i = 0; i < argv.length; i++) {
   const arg = argv[i];
@@ -49,7 +53,11 @@ for (let i = 0; i < argv.length; i++) {
   else if (arg === "--wait") wait = Number(argv[++i]);
   else if (arg === "--zoom") zoom = Number(argv[++i]) || 1;
   else if (arg === "--label") customLabel = argv[++i];
-  else if (arg.startsWith("--")) fail(`Unknown option ${arg}. See --help.`);
+  else if (arg === "--themes") {
+    themes = (argv[++i] ?? "").split(",").filter(Boolean);
+    if (!themes.length || themes.some((t) => !["light", "dark", "ink"].includes(t)))
+      fail("--themes takes a comma-separated list of light, dark and ink.");
+  } else if (arg.startsWith("--")) fail(`Unknown option ${arg}. See --help.`);
   else slugs.push(arg);
 }
 
@@ -87,11 +95,16 @@ try {
     const batch = targets.slice(n * perSheet, (n + 1) * perSheet);
     const rows = zoom > 1 ? batch.length : Math.ceil(batch.length / 2);
     const height = Math.max(1000, rows * (225 * zoom + 34) + 40);
-    const context = await browser.newContext({ viewport: { width: 1500, height }, colorScheme: "light" });
+    const columns = zoom > 1 ? 1 : 2;
+    const width = Math.max(
+      1500,
+      columns * (themes.length * 360 * zoom + (themes.length - 1) * 8) + (columns - 1) * 16 + 40,
+    );
+    const context = await browser.newContext({ viewport: { width, height }, colorScheme: "light" });
     const page = await context.newPage();
     const seen = watchPage(page);
     await page.goto(
-      `${BASE_URL}/review?slugs=${batch.map(encodeURIComponent).join(",")}${zoom > 1 ? `&zoom=${zoom}` : ""}`,
+      `${BASE_URL}/review?slugs=${batch.map(encodeURIComponent).join(",")}${zoom > 1 ? `&zoom=${zoom}` : ""}${themes.join(",") === "light,dark" ? "" : `&themes=${themes.join(",")}`}`,
       {
         waitUntil: "load",
         timeout: 90_000,

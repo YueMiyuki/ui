@@ -1,0 +1,49 @@
+{
+  "source": "5298f64d",
+  "name": "表格",
+  "description": "带圆角外框的数据表格，支持列排序、行选择和吸顶表头。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "Table": {
+      "aria-label": "表格的无障碍名称。",
+      "maxHeight": "超过此高度时，表体在吸顶表头下方滚动。",
+      "density": "行内边距为 12 或 8 像素。",
+      "selectionMode": "添加一列复选框。多选时表头中会有一个全选复选框。",
+      "selectedKeys": "选中行的 id（受控）。非受控时使用 defaultSelectedKeys。",
+      "onSelectionChange": "选择改变时调用。",
+      "sortDescriptor": "行排序所依据的列。需要在 onSortChange 中自行对数据排序。",
+      "onSortChange": "按下可排序的列时调用。",
+      "onRowAction": "激活某一行时调用。",
+      "className": "外框的额外类名。",
+      "tableClassName": "table 元素的额外类名。其他所有属性都会传给 react-aria-components 中的 Table。"
+    },
+    "Column": {
+      "id": "在 sortDescriptor 中标识该列。",
+      "allowsSorting": "按下列标题时按此列排序；箭头表示排序方向。",
+      "isRowHeader": "标记用来命名每一行的列。只在一列上设置。",
+      "children": "列标题。",
+      "className": "额外的类名。也接受 react-aria-components 中 Column 的其他所有属性，例如 width。"
+    },
+    "TableHeader": {
+      "children": "Column 元素，或一个以 columns 中每一项为参数的函数。",
+      "columns": "动态表头的列数据。"
+    },
+    "TableBody": {
+      "items": "动态表体的行数据；用 children 渲染每一行。",
+      "children": "Row 元素，或一个以每一项为参数的函数。",
+      "renderEmptyState": "没有行时显示。默认为 \"No results\"。"
+    },
+    "Row": {
+      "id": "在选择中标识该行。",
+      "children": "Cell 元素，每列一个。",
+      "isDisabled": "该行不能被选中或激活。",
+      "className": "额外的类名。也接受 react-aria-components 中 Row 的其他所有属性。"
+    },
+    "Cell": {
+      "children": "单元格的内容。",
+      "className": "额外的类名。也接受 react-aria-components 中 Cell 的其他所有属性。"
+    }
+  }
+}

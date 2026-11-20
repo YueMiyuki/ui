@@ -1,0 +1,20 @@
+{
+  "source": "d2f845cf",
+  "name": "漂流卡片",
+  "description": "一行无限横向滚动的卡片，每张卡片都像浮在水面上一样轻轻起伏。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "CardDrift": {
+      "items": "要显示的数据项，通过 renderItem 渲染。",
+      "renderItem": "渲染一张卡片。",
+      "children": "直接传入卡片，代替 items 和 renderItem。",
+      "direction": "卡片行的移动方向。",
+      "duration": "列表完整滚过一轮所需的秒数。",
+      "pauseOnHover": "指针悬停在卡片行上或焦点位于其中时暂停。",
+      "gap": "卡片间距，单位为像素。",
+      "className": "卡片行的额外类名。卡片行两端通过遮罩渐隐。"
+    }
+  }
+}

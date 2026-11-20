@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { sectionHref } from "@/site/docs/urls";
 import { IdleSection } from "@/site/home/idle";
 import { componentHref } from "@/site/home/links";
+import type { Locale } from "@/site/i18n/config";
+import type { Dictionary } from "@/site/i18n/dictionaries";
 import { LiveThumb } from "@/site/live-thumb";
 import type { ItemSummary } from "@/site/registry";
 
-function Row({ items, reverse = false }: { items: ItemSummary[]; reverse?: boolean }) {
+function Row({ items, locale, reverse = false }: { items: ItemSummary[]; locale: Locale; reverse?: boolean }) {
   const loop = [...items, ...items];
   return (
     <div
@@ -21,7 +24,7 @@ function Row({ items, reverse = false }: { items: ItemSummary[]; reverse?: boole
           >
             <LiveThumb item={item} play="always" />
             <Link
-              href={componentHref(item.slug)}
+              href={componentHref(item.slug, locale)}
               tabIndex={copy ? -1 : undefined}
               className="group/link absolute inset-0 rounded-2xl outline-none"
             >
@@ -36,30 +39,30 @@ function Row({ items, reverse = false }: { items: ItemSummary[]; reverse?: boole
   );
 }
 
-export function Wall({ items }: { items: ItemSummary[] }) {
+export function Wall({ items, locale, t }: { items: ItemSummary[]; locale: Locale; t: Dictionary }) {
   if (items.length < 6) return null;
   const half = Math.ceil(items.length / 2);
   return (
-    <IdleSection aria-label="Live components" className="pt-6 pb-24">
+    <IdleSection aria-label={t.home.wallLabel} className="pt-6 pb-24">
       <style
         href="miyuki-home-wall"
         precedence="miyuki"
       >{`@keyframes miyuki-wall { to { transform: translateX(-50%); } }`}</style>
       <div className="mx-auto mb-8 flex max-w-[1240px] items-baseline justify-between gap-6 px-6 lg:px-10">
-        <p className="text-[15px] text-muted-foreground">Every tile is the real component, running.</p>
+        <p className="text-[15px] text-muted-foreground">{t.home.wallNote}</p>
         <Link
-          href="/docs/components"
+          href={sectionHref("components", locale)}
           className="shrink-0 rounded-sm text-sm font-medium text-brand-strong underline-offset-4 outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-ring"
         >
-          See all {items.length > 0 ? "components" : ""}
+          {t.home.wallAll}
         </Link>
       </div>
       <div
         className="group/wall relative flex flex-col gap-5 overflow-hidden"
         style={{ "--wall-duration": `${Math.max(60, half * 11)}s` } as React.CSSProperties}
       >
-        <Row items={items.slice(0, half)} />
-        <Row items={items.slice(half)} reverse />
+        <Row items={items.slice(0, half)} locale={locale} />
+        <Row items={items.slice(half)} locale={locale} reverse />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-0 w-[7%] bg-linear-to-r from-background to-transparent"

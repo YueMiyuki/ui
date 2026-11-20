@@ -1,0 +1,99 @@
+{
+  "name": "Alert",
+  "category": "display",
+  "description": "A message set inside the page for information, success, a warning or an error.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "actions",
+      "title": "Actions"
+    },
+    {
+      "name": "outline",
+      "title": "Outline"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 560
+  },
+  "props": [
+    {
+      "component": "Alert",
+      "props": [
+        {
+          "name": "tone",
+          "type": "\"info\" | \"success\" | \"warning\" | \"error\" | \"neutral\"",
+          "default": "\"info\"",
+          "description": "Colour and default icon: water, pine, yuzu, camellia, or plain with no icon."
+        },
+        {
+          "name": "variant",
+          "type": "\"soft\" | \"outline\"",
+          "default": "\"soft\"",
+          "description": "Soft fills the alert with the tone's tint. Outline sits on the card colour with a hairline and a light shadow, and only the icon carries the tone."
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "description": "Replaces the tone's icon, shown at 16 pixels beside the first line. Pass null to show no icon."
+        },
+        {
+          "name": "onDismiss",
+          "type": "() => void",
+          "description": "Adds a close button in the top end corner. Dismissing folds the alert away over 200ms, then calls this. A button inside the alert with slot=\"dismiss\" dismisses it the same way."
+        },
+        {
+          "name": "dismissLabel",
+          "type": "string",
+          "default": "\"Dismiss\"",
+          "description": "Accessible name of the close button."
+        },
+        {
+          "name": "live",
+          "type": "boolean",
+          "default": "false",
+          "description": "Gives error and warning alerts role=\"alert\", so screen readers announce them as soon as they appear. Other tones never take a live role."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Accepts every div prop. An alert that mounts after the page has loaded settles in from 4 pixels above."
+        }
+      ]
+    },
+    {
+      "component": "AlertTitle",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The first line, in medium weight; accepts every div prop."
+        }
+      ]
+    },
+    {
+      "component": "AlertDescription",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Text under the title; links in it are underlined. Accepts every div prop."
+        }
+      ]
+    },
+    {
+      "component": "AlertActions",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A row of buttons under the text. Buttons from button default to the small size here."
+        }
+      ]
+    }
+  ]
+}

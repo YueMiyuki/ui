@@ -1,0 +1,19 @@
+{
+  "source": "89e646d6",
+  "name": "智能体提问",
+  "description": "智能体逐步提出的问题，支持单选或多选、“Other”选项和步骤胶囊按钮，切换步骤时横向滑动。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "AgentQuestions": {
+      "questions": "按顺序排列的步骤。allowOther 会添加一行“Other”选项，选中后展开一个文本输入框。",
+      "onComplete": "在最后一步按下“Start”时调用，参数按问题 id 列出选中的选项 id 和填写的“Other”文本。",
+      "onClose": "在角落显示关闭按钮，按下时调用。",
+      "defaultAnswers": "初始答案。",
+      "otherLabel": "“Other”行的标签。",
+      "otherPlaceholder": "“Other”文本输入框的占位文字。在输入框中按 Enter 会进入下一步。",
+      "className": "卡片的额外类名。其他 section 属性会透传到卡片上。"
+    }
+  }
+}

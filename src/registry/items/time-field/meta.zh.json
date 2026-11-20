@@ -1,0 +1,27 @@
+{
+  "source": "e5432713",
+  "name": "时间输入框",
+  "description": "逐段输入的时间，可用方向键逐段增减，采用 12 小时制或 24 小时制。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "TimeField": {
+      "label": "输入框上方的标签。",
+      "description": "输入框下方的帮助文字。输入框无效时由错误信息取代。",
+      "errorMessage": "输入框无效时显示在其下方，带有警示图标。",
+      "hourCycle": "带上午、下午时段的 12 小时制，或 24 小时制。默认采用区域设置的时制。",
+      "granularity": "显示的最小单位。",
+      "shouldForceLeadingZeros": "写作 08:30 而不是 8:30。",
+      "value": "时间（受控），例如 new Time(9, 0)。非受控时使用 defaultValue。",
+      "onChange": "时间改变时调用。",
+      "minValue": "最早的有效时间。",
+      "maxValue": "最晚的有效时间。",
+      "size": "输入框高度为 32、36 或 44 像素，与 Input 一致。",
+      "isRequired": "表单提交前必须填写时间。",
+      "isInvalid": "显示山茶红边框和错误信息。",
+      "isDisabled": "禁用输入框，并将其不透明度降到 50%。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 TimeField 的其他所有属性。"
+    }
+  }
+}

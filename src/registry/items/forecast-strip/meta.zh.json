@@ -1,0 +1,21 @@
+{
+  "source": "ff2eb420",
+  "name": "天气预报条",
+  "description": "一行按天分列的一周天气；选择某一天会在下方展开它的逐小时预报，气温以一条贯穿各小时的曲线绘制。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "ForecastStrip": {
+      "days": "按顺序排列的各天：{ id, label, date, title?, kind, summary, high, low, snow }。label 和 date 是列中显示的星期简称和日期数字；title 是完整日期，会被读出并显示在逐小时预报上方（“2 月 14 日星期日”）；kind 是 WeatherIcon 的类型，summary 是它的文字描述；high 和 low 以度为单位；snow 是降雪概率，取值 0 到 100。每列的温度条以一周中最低的低温和最高的高温为范围，显示当天从低温到高温的区间。",
+      "hours": "逐小时预报，以日期的 id 为键：{ time, kind, temp, snow }[]。没有逐小时数据的日期无法展开。所有日期共用同一个温度刻度，因此切换日期时能看出真实差异，曲线也会从一天的形状过渡到下一天。",
+      "value": "展开日期的 id（受控）。为 null 时收起逐小时预报。",
+      "defaultValue": "初始展开日期的 id（非受控）。",
+      "onChange": "选择某一天时调用；再次按下已展开的日期将其收起时，以 null 调用。",
+      "startTime": "展开逐小时预报时滚动到的时刻，让早晨处于可见范围。切换日期时保持在读者离开时的位置。",
+      "label": "地点，显示为标题，并用作 section 的名称。",
+      "caption": "地点旁的一行简短文字，例如观测站的海拔。",
+      "className": "卡片的类名。其他 section 属性会透传。"
+    }
+  }
+}

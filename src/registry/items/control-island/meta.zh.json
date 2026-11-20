@@ -1,0 +1,23 @@
+{
+  "source": "ab30f172",
+  "name": "控件岛",
+  "description": "一座悬浮的小型控件岛，选择其中某个控件时会展开成选项面板。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "ControlIsland": {
+      "items": "胶囊中的触发按钮，每个都带有其面板列出的选项。用 value 和 onChange 控制某一项，或用 defaultValue 让它保持非受控。",
+      "position": "固定在哪条边缘。面板朝远离该边缘的方向展开。",
+      "align": "沿边缘所处的位置。",
+      "closeOnSelect": "选择选项后变形回胶囊。",
+      "showSelectedValue": "在每项标签后以弱化色调显示其选中的选项。宽度小于 640 像素时，标签只保留给读屏软件。",
+      "showDividers": "触发按钮之间的点状分隔线。",
+      "offset": "与边缘的距离，也是两侧的最小间距，单位为像素。",
+      "contained": "相对最近的已定位父元素定位，而不是相对窗口。",
+      "onItemChange": "某项的面板打开时以其 id 调用，面板关闭时以 null 调用。",
+      "aria-label": "控件组的无障碍名称。",
+      "className": "定位容器的类名。也接受 div 的其他所有属性。"
+    }
+  }
+}

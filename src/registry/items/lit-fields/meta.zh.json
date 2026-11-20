@@ -1,0 +1,31 @@
+{
+  "source": "d98677a1",
+  "name": "光照输入框",
+  "description": "注册表单，输入框边框在指针所在处被水蓝色的光照亮。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "LitFields": {
+      "title": "面板顶部的标题。",
+      "description": "标题下方的一行弱化文字。",
+      "submitLabel": "全宽提交按钮的标签。",
+      "providers": "分隔线下方显示的登录按钮。传入空数组可隐藏分隔线和这些按钮。",
+      "onSubmit": "所有输入框都有效时调用，参数为 { firstName, lastName, email, password }。若返回 Promise，按钮上会显示加载指示器，直到它完成。",
+      "onProviderPress": "按下登录按钮时调用。",
+      "className": "面板的额外类名。也接受 react-aria-components 中 Form 的其他所有属性。"
+    },
+    "GlowInput": {
+      "label": "可见的标签。必填输入框会在标签后加一个标记。",
+      "description": "输入框下方的帮助文字，显示错误时隐藏。",
+      "errorMessage": "替换来自 validate 或原生校验的信息。",
+      "placeholder": "占位文字。",
+      "trailing": "输入框末端的内容，例如一个小的切换按钮。",
+      "glowColor": "跟随指针的光的颜色。输入框无效时变为山茶红。",
+      "glowRadius": "光的半径，单位为像素。",
+      "isRequired": "将输入框标记为必填并进行校验。",
+      "validate": "值无效时返回错误信息。表单提交后才显示。",
+      "className": "额外的类名。也接受 react-aria-components 中 TextField 的其他所有属性。"
+    }
+  }
+}

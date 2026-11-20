@@ -1,0 +1,20 @@
+{
+  "source": "7ad372eb",
+  "name": "表盘时间选择器",
+  "description": "通过拖动指针式时钟的指针来选择时间，上方以数字显示时间，12 小时制下提供 AM/PM 开关。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "ClockFacePicker": {
+      "label": "读数上方的标签。",
+      "value": "时间（受控），为 @internationalized/date 中的 Time。秒会被忽略。",
+      "defaultValue": "非受控时的初始时间。",
+      "onChange": "拖动、按键或 AM/PM 开关使指针移到新的小时或分钟时调用。",
+      "step": "分针相邻停靠位置之间的分钟数。",
+      "hourCycle": "为 12 时显示 AM/PM 开关；为 24 时小时显示为 00 到 23。默认遵循区域设置的偏好。",
+      "isDisabled": "使选择器变暗并忽略输入。",
+      "className": "根元素的额外类名。其他 div 属性会透传。"
+    }
+  }
+}

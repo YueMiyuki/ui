@@ -1,0 +1,24 @@
+{
+  "source": "69b7508d",
+  "name": "倾斜卡片",
+  "description": "朝指针倾斜的卡片，卡片内容同时以不同的深度从卡面浮起。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "TiltCard": {
+      "maxTilt": "每个轴上的最大倾斜角度，单位为度。",
+      "perspective": "CSS 透视距离，单位为像素。值越小，效果越强烈。",
+      "className": "悬停区域的类名，同时决定卡片的宽度。"
+    },
+    "TiltCardBody": {
+      "className": "倾斜表面的类名。默认是一张卡片：rounded-2xl、细边框、bg-card、p-5。不要在这里使用 overflow-hidden、opacity 和 filter；它们会压平 3D 效果。",
+      "children": "卡片的内容，需要浮起的部分用 TiltCardItem 包裹。"
+    },
+    "TiltCardItem": {
+      "depth": "卡片被悬停或获得焦点时，该项朝观看者升起的距离，单位为像素，取值 0 到 100。",
+      "as": "要渲染的元素，例如 \"h3\" 或 \"p\"。",
+      "className": "额外的类名。卡片主体与各项之间的任何包裹元素都需要 [transform-style:preserve-3d] 才能保持深度。"
+    }
+  }
+}

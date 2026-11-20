@@ -1,0 +1,30 @@
+{
+  "source": "aa9b5733",
+  "name": "暖帘抽屉",
+  "description": "从顶部边缘滑入的抽屉，内容被挂在横杆上的三片布帘遮住，打开时布帘分开，关闭时落回原位。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "NorenDrawerTrigger": {
+      "children": "打开抽屉的按钮，然后是 NorenDrawer。",
+      "isOpen": "打开状态（受控）。非受控时使用 defaultOpen。",
+      "onOpenChange": "抽屉打开或关闭时调用。"
+    },
+    "NorenDrawer": {
+      "open": "不配合 NorenDrawerTrigger 使用时的打开状态。非受控时使用 defaultOpen。",
+      "onOpenChange": "不配合 NorenDrawerTrigger 使用时，在打开状态改变时调用。",
+      "children": "布帘后面的内容。可以使用 Drawer 中的 DrawerHeader、DrawerTitle、DrawerBody 和 DrawerFooter。任何带 slot=\"close\" 的按钮都会关闭抽屉。",
+      "mark": "印在三片布帘上的徽纹，被布帘之间的开缝分割。使用 currentColor 绘制的 SVG 会采用布帘的墨色。",
+      "closeButton": "在顶部角落、横杆下方显示关闭按钮。",
+      "isDismissable": "点击遮罩层时关闭。除非设置了 isKeyboardDismissDisabled，否则按 Escape 总会关闭。",
+      "backdropBlur": "模糊遮罩层后面的页面。默认关闭：只要后面有内容在变化，浏览器就会每一帧重绘模糊效果，在大型页面上会卡顿，在 Firefox 中尤其明显。",
+      "aria-label": "没有标题时为对话框提供无障碍名称。",
+      "className": "面板的类名，例如宽度。面板最宽 560 像素。",
+      "clothClassName": "布帘的类名。设置 --miyuki-noren-cloth 和 --miyuki-noren-ink 可以给布帘染色。"
+    },
+    "NorenMark": {
+      "className": "默认徽纹：一个圆环围着三排波浪。"
+    }
+  }
+}

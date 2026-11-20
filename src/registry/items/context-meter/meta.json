@@ -2,8 +2,20 @@
   "name": "Context Meter",
   "category": "ai",
   "description": "How much of an agent's context window is in use, by category, and how close the plan's usage limits are.",
-  "demos": [{ "name": "default", "title": "Default" }, { "name": "near-limit", "title": "Near the limit" }],
-  "preview": { "layout": "center", "height": 460 },
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "near-limit",
+      "title": "Near the limit"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 460
+  },
   "props": [
     {
       "component": "ContextMeter",
@@ -35,6 +47,33 @@
           "name": "className",
           "type": "string",
           "description": "Extra classes for the card. Other props go to the root section element."
+        }
+      ]
+    },
+    {
+      "component": "PlanLimitList",
+      "props": [
+        {
+          "name": "limits",
+          "type": "{ label: ReactNode; resetsIn: ReactNode; value: number }[]",
+          "description": "The plan-limit rows on their own, as ContextMeter draws them, for a settings or billing page. resetsIn follows the word \"Resets\"; value is the percentage used."
+        },
+        {
+          "name": "warnAt",
+          "type": "number",
+          "default": "75",
+          "description": "Percentage at which a limit's bar and number turn yuzu."
+        },
+        {
+          "name": "criticalAt",
+          "type": "number",
+          "default": "90",
+          "description": "Percentage at which a limit's bar and number turn camellia."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the list. Other props go to the root ul element."
         }
       ]
     }

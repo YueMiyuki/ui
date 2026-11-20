@@ -2,8 +2,20 @@
   "name": "Floating sidebar",
   "category": "blocks",
   "description": "App navigation in a floating panel with a team switcher, quick search, a sliding current-page highlight and an icon-only mode.",
-  "demos": [{ "name": "default", "title": "Default" }, { "name": "drawer", "title": "In a drawer" }],
-  "preview": { "layout": "fill", "height": 600 },
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "drawer",
+      "title": "In a drawer"
+    }
+  ],
+  "preview": {
+    "layout": "fill",
+    "height": 600
+  },
   "props": [
     {
       "component": "FloatingSidebar",
@@ -30,14 +42,14 @@
         },
         {
           "name": "items",
-          "type": "{ id: string; label: string; icon: ReactNode; count?: number; countTone?: \"neutral\" | \"solid\"; href?: string }[]",
-          "description": "The main navigation. A solid count is a water pill, and stays on the icon when collapsed. With href an item renders as a link."
+          "type": "{ id: string; label: string; icon: ReactNode; count?: number; countTone?: \"neutral\" | \"solid\"; href?: string; meta?: ReactNode }[]",
+          "description": "The main navigation. A solid count is a water pill, and stays on the icon when collapsed. With href an item renders as a link. meta adds a short muted note at the end of the row, such as an age."
         },
         {
           "name": "groups",
-          "type": "{ label: string; items: FloatingSidebarItem[] }[]",
+          "type": "{ label: string; items: FloatingSidebarItem[]; id?: string; icon?: ReactNode; collapsible?: boolean; expanded?: boolean; defaultExpanded?: boolean }[]",
           "default": "[]",
-          "description": "Further labelled groups under the main items."
+          "description": "Further labelled groups under the main items. A collapsible group is a folder row that opens and closes its list; expanded controls it and defaultExpanded sets how it starts."
         },
         {
           "name": "footerItems",
@@ -60,7 +72,11 @@
           "type": "string",
           "description": "Id of the current item (controlled). The highlight slides to it. Use defaultCurrent when uncontrolled."
         },
-        { "name": "onNavigate", "type": "(id: string) => void", "description": "Called when an item is pressed." },
+        {
+          "name": "onNavigate",
+          "type": "(id: string) => void",
+          "description": "Called when an item is pressed."
+        },
         {
           "name": "collapsed",
           "type": "boolean",
@@ -86,6 +102,49 @@
           "name": "onSearch",
           "type": "(query: string) => void",
           "description": "Called when Enter is pressed in the quick search field."
+        },
+        {
+          "name": "searchValue",
+          "type": "string",
+          "description": "The search text (controlled)."
+        },
+        {
+          "name": "onSearchChange",
+          "type": "(query: string) => void",
+          "description": "Called as the search text changes."
+        },
+        {
+          "name": "searchPlaceholder",
+          "type": "string",
+          "default": "\"Quick search\"",
+          "description": "Placeholder and accessible name of the search field."
+        },
+        {
+          "name": "filter",
+          "type": "boolean",
+          "default": "false",
+          "description": "Filters the items in groups by the search text as you type. Groups with no match hide, and Escape clears the search."
+        },
+        {
+          "name": "onGroupExpandedChange",
+          "type": "(id: string, expanded: boolean) => void",
+          "description": "Called when a collapsible group opens or closes, with the group's id, or its label when it has none."
+        },
+        {
+          "name": "teamMenu",
+          "type": "ReactNode",
+          "description": "Extra menu content added at the end of the team menu, such as a section of people."
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode | ((state: { collapsed: boolean; renderItem: (item: FloatingSidebarItem) => ReactNode }) => ReactNode)",
+          "description": "Content pinned above the footer items, such as a usage card. With it, the footer items are pinned too and stop scrolling with the list. Pass a function to render something narrower while the panel is collapsed. The function also gets renderItem, which draws an item as an icon-only navigation link that shares the sliding highlight, for a compact row of footer links."
+        },
+        {
+          "name": "pinItems",
+          "type": "boolean",
+          "default": "false",
+          "description": "Keeps the main items fixed above the groups, so only the groups scroll. The list fades at an edge when more is hidden there, and the current item scrolls into view."
         },
         {
           "name": "aria-label",

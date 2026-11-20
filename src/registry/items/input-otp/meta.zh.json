@@ -1,0 +1,29 @@
+{
+  "source": "16114be9",
+  "name": "验证码输入框",
+  "description": "用于输入一次性验证码的方框，绘制在一个真实的 input 之上，因此键入、粘贴和自动填充都能正常工作。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "InputOTP": {
+      "length": "方框数量。",
+      "value": "验证码（受控）。",
+      "defaultValue": "初始验证码（非受控）。",
+      "onChange": "验证码改变时调用，参数为去除空格和短横线后的验证码。",
+      "onComplete": "所有方框填满时调用。",
+      "groups": "各分隔符之间的方框数量，例如 [3, 3]。",
+      "mask": "以圆点代替字符显示。",
+      "inputMode": "仅数字，或字母与数字。同时决定弹出哪种屏幕键盘。",
+      "isInvalid": "显示山茶红边框和错误信息；开启时方框会轻轻抖动一下。",
+      "isDisabled": "禁用输入并使方框变暗。",
+      "label": "方框上方的标签。没有标签时，请为它提供 aria-label。",
+      "description": "方框下方的一行文字。无效时由错误信息取代。",
+      "errorMessage": "无效时显示在方框下方。",
+      "name": "input 的名称，用于表单提交。",
+      "autoFocus": "挂载时让 input 获得焦点。",
+      "inputRef": "指向真实 input 的 ref。",
+      "className": "根元素的额外类名。也接受 div 的其他所有属性。"
+    }
+  }
+}

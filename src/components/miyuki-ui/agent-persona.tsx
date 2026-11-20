@@ -352,7 +352,7 @@ export function AgentAvatar({
         rx="18"
         ry="2.4"
         className={cn(
-          "fill-[oklch(0.42_0.09_250/0.16)] dark:fill-[oklch(0.05_0.02_250/0.55)]",
+          "fill-[oklch(0.42_0.09_250/0.16)] dark:fill-[oklch(0.05_0.02_250/0.55)] ink:fill-[oklch(0.05_0_0/0.55)]",
           "[transform-box:fill-box] origin-center motion-safe:animate-[miyuki-agent-persona-shadow_4.6s_ease-in-out_infinite]",
         )}
         style={{ animationDelay: delay }}

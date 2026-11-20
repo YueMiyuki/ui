@@ -1,0 +1,21 @@
+{
+  "source": "e806e145",
+  "name": "社交登录按钮",
+  "description": "适用于 24 个常见服务商的登录按钮，带有各自的标志。",
+  "demos": {
+    "default": "默认",
+    "all": "全部服务商",
+    "solid": "实色"
+  },
+  "props": {
+    "SocialButton": {
+      "provider": "决定标志、标志的颜色以及标签“Continue with {Name}”。",
+      "variant": "outline 为 secondary 按钮，标志使用其自身的颜色（该颜色过浅时改用文字颜色）。solid 以服务商的颜色实色填充。icon 为只含标志的方形按钮，并为辅助技术提供标签。",
+      "size": "高度为 32、36 或 44 像素。",
+      "children": "替换标签。",
+      "isPending": "在标志的位置显示加载指示器，并且不再响应按下。",
+      "onPress": "按下按钮时调用。",
+      "className": "额外的类名。也接受 Button 的其他所有属性。"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "source": "9303b226",
+  "name": "收缩页头",
+  "description": "全宽的页头，页面开始滚动后收缩成悬浮的玻璃胶囊。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "ShrinkingHeader": {
+      "logo": "左端的品牌标识，通常是指向首页的链接。",
+      "items": "链接，在栏中居中显示。当前项会获得 aria-current=\"page\" 和一个水蓝色圆点。",
+      "actions": "右端的按钮或链接。宽度小于 1024 像素时，它们会移入菜单面板并平分面板宽度。",
+      "threshold": "栏收缩成胶囊前需要滚过的距离，单位为像素。",
+      "aria-label": "导航地标的无障碍名称。",
+      "className": "粘性定位的 header 元素的类名。也接受 header 的其他所有属性。"
+    }
+  }
+}

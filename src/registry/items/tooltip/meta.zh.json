@@ -1,0 +1,27 @@
+{
+  "source": "96d5188c",
+  "name": "提示框",
+  "description": "悬停或获得焦点时显示的墨色简短提示，可带箭头和按键提示。",
+  "demos": {
+    "default": "位置",
+    "shortcut": "带快捷键"
+  },
+  "props": {
+    "TooltipTrigger": {
+      "children": "一个可获得焦点的元素（通常是 Button 或 IconButton），然后是 Tooltip。",
+      "delay": "悬停多少毫秒后显示提示框。获得键盘焦点时会立即显示，从一个提示框移到下一个时也会立即显示。",
+      "closeDelay": "指针离开后多少毫秒隐藏。",
+      "isDisabled": "始终不显示提示框。",
+      "isOpen": "打开状态（受控）。非受控时使用 defaultOpen。",
+      "onOpenChange": "提示框显示或隐藏时调用。"
+    },
+    "Tooltip": {
+      "children": "提示内容。最宽 240 像素，请保持简短。",
+      "placement": "相对于触发器显示的位置。空间不足时会翻转。",
+      "shortcut": "显示在文字后面的按键或组合键，置于颜色较浅的胶囊标签中，例如“⌘K”。",
+      "arrow": "绘制一个指向触发器的小箭头。",
+      "offset": "与触发器之间的间距，单位为像素。",
+      "className": "额外的类名。也接受 react-aria-components 中 Tooltip 的其他所有属性。"
+    }
+  }
+}

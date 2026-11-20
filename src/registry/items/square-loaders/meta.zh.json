@@ -1,0 +1,41 @@
+{
+  "source": "65c9321c",
+  "name": "方块加载动画",
+  "description": "六个由方形构成的小型加载指示器：翻滚的方块、滑动的拼块、逐渐变圆的方形、嵌套的方框、螺旋点亮的格子和翻转的卡片。",
+  "demos": {
+    "default": "默认",
+    "sizes": "尺寸与颜色"
+  },
+  "props": {
+    "TumbleLoader": {
+      "size": "宽度和高度，单位为像素。实心方块每次翻转四分之一圈。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "ShuffleLoader": {
+      "size": "宽度和高度，单位为像素。2×2 棋盘上的三块拼块轮流滑入空位。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "RoundingLoader": {
+      "size": "宽度和高度，单位为像素。方形轮廓一边旋转，一边变成圆形，再变回方形。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "NestLoader": {
+      "size": "宽度和高度，单位为像素。三个嵌套的方形轮廓从最内层开始，依次转动四分之一圈。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "SpiralLoader": {
+      "size": "宽度和高度，单位为像素。光点沿 3×3 格子的外圈移动，再进入中心。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "FlipLoader": {
+      "size": "宽度和高度，单位为像素。卡片先绕一条轴翻转，再绕另一条轴翻转，一面为实心，另一面为轮廓。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "source": "248b5a56",
+  "name": "提示词输入框",
+  "description": "与智能体对话时使用的消息输入框：逐行增高的文本框、模型选择器，以及在回复流式输出时变为停止按钮的发送按钮。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "PromptBox": {
+      "value": "文本（受控）。非受控时使用 defaultValue，此时消息输入框会在发送后自动清空。",
+      "defaultValue": "非受控时的初始文本。",
+      "onChange": "文本改变时调用。",
+      "onSend": "按下发送按钮或 Enter 键时调用，参数为文本。Shift+Enter 换行，用于确认输入法候选词的 Enter 会被忽略。",
+      "onStop": "流式输出期间按下停止按钮时调用。",
+      "status": "流式输出期间，发送箭头会形变为停止方块，Enter 不再发送。",
+      "models": "工具栏中选择器的模型列表。没有模型时隐藏选择器。",
+      "model": "选中的模型 id（受控）。非受控时使用 defaultModel。",
+      "defaultModel": "非受控时的初始模型。",
+      "onModelChange": "选择模型时调用。",
+      "context": "输入框下方的弱化胶囊标签，例如分支和文件夹。",
+      "placeholder": "文本框的占位文字。",
+      "onAttach": "按下 + 按钮会打开系统文件选择器，选择文件后调用，参数为所选文件。",
+      "accept": "选择器提供的文件类型，以 MIME 类型或扩展名表示。",
+      "showAttach": "显示 + 按钮。",
+      "canSend": "覆盖是否允许发送。默认情况下，文本为空时发送按钮处于禁用状态；传入 true 可在没有文本时发送附件。",
+      "maxRows": "文本框开始滚动前最多增高到的行数。",
+      "isDisabled": "禁用输入和所有控件。",
+      "autoFocus": "挂载时让文本框获得焦点。",
+      "children": "渲染在输入框内、文本框上方，用于放置附件。",
+      "className": "根元素的额外类名。其他 div 属性会透传。"
+    },
+    "PromptBoxTextArea": {
+      "value": "文本（受控）。也接受 defaultValue、onChange、isDisabled 以及 react-aria-components 中 TextField 的其他所有属性。",
+      "onSubmit": "按下 Enter 且未按住 Shift 时调用。",
+      "placeholder": "占位文字。",
+      "minRows": "为空时显示的行数。",
+      "maxRows": "开始滚动前最多增高到的行数。",
+      "aria-label": "无障碍名称。",
+      "className": "负责裁切内容并为高度变化添加动画的元素的类名。",
+      "textAreaClassName": "textarea 的类名，例如用于修改其内边距。",
+      "ref": "textarea 元素。"
+    },
+    "PromptBoxSendButton": {
+      "status": "idle 时显示向上的箭头；streaming 时箭头形变为停止方块。",
+      "onSend": "在 idle 状态下按下时调用。",
+      "onStop": "流式输出期间按下时调用。",
+      "isDisabled": "禁用发送。流式输出期间会被忽略，因此停止始终可用。"
+    },
+    "PromptBoxModelPicker": {
+      "models": "可选项，在下拉菜单中显示，并附带各自的说明。",
+      "model": "选中的 id（受控）。",
+      "defaultModel": "非受控时的初始 id。",
+      "onModelChange": "选择模型时调用。",
+      "aria-label": "菜单的名称，同时作为触发按钮无障碍名称的前缀。",
+      "isDisabled": "禁用触发按钮。"
+    },
+    "PromptBoxAttachButton": {
+      "onAttach": "在系统文件选择器中选择文件后调用，参数为所选文件。",
+      "accept": "选择器提供的文件类型。",
+      "label": "无障碍名称和提示框文字。",
+      "isDisabled": "禁用按钮。"
+    },
+    "PromptBoxContextRow": {
+      "items": "胶囊标签列表，每个可带一个 14 像素的图标。",
+      "className": "列表的额外类名。"
+    }
+  }
+}

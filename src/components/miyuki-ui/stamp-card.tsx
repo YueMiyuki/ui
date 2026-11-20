@@ -271,7 +271,7 @@ function Seal({ onDone }: { onDone: () => void }) {
     <>
       <motion.span
         aria-hidden="true"
-        className="pointer-events-none absolute -inset-1 rounded-full bg-[oklch(0.36_0.07_255/0.42)] blur-[6px] dark:bg-[oklch(0.12_0.04_255/0.6)]"
+        className="pointer-events-none absolute -inset-1 rounded-full bg-[oklch(0.36_0.07_255/0.42)] blur-[6px] dark:bg-[oklch(0.12_0.04_255/0.6)] ink:bg-[oklch(0.12_0_0/0.6)]"
         initial={{ opacity: 0, scale: 1.4, x: 12, y: 18 }}
         animate={{
           opacity: [0, 0.6, 0.65, 0.6, 0.55, 0],

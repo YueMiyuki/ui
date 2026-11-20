@@ -1,0 +1,43 @@
+{
+  "source": "d42ecef7",
+  "name": "选择框",
+  "description": "打开选项列表并选定其中一项的输入框，支持图标、头像、分组和可选的搜索。",
+  "demos": {
+    "default": "默认",
+    "avatars": "头像与描述",
+    "searchable": "可搜索，带分组"
+  },
+  "props": {
+    "Select": {
+      "label": "触发按钮上方的标签。",
+      "description": "触发按钮下方的帮助文字。输入框无效时由错误信息取代。",
+      "errorMessage": "输入框无效时显示在触发按钮下方，带有警示图标。",
+      "placeholder": "未选择任何选项时，触发按钮中显示的弱化文字。",
+      "size": "触发按钮高度为 32、36 或 44 像素，与 Input 一致。",
+      "searchable": "在弹出层顶部显示用于筛选选项的搜索框，并提供空状态。",
+      "searchPlaceholder": "搜索框的占位文字和无障碍名称。",
+      "items": "动态列表的选项。用函数形式的子元素渲染每一项。",
+      "children": "SelectItem 和 SelectSection 元素，或为 items 中每一项渲染一个元素的函数。",
+      "value": "所选选项的 id（受控）。非受控时使用 defaultValue。",
+      "onChange": "所选项改变时调用。",
+      "isDisabled": "禁用输入框，并将其不透明度降到 50%。",
+      "isInvalid": "显示山茶红边框和错误信息。",
+      "triggerClassName": "触发按钮的额外类名。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 Select 的其他所有属性（isRequired、name、isOpen、onOpenChange 等）。"
+    },
+    "SelectItem": {
+      "id": "在 value 中标识该选项。",
+      "children": "标签。",
+      "description": "标签下方的第二行弱化文字。不会显示在触发按钮中。",
+      "icon": "标签前 16 像素的图标。",
+      "avatar": "标签前圆形头像的图片地址。",
+      "textValue": "用于键入查找和搜索的纯文本。children 为字符串时取自 children。",
+      "isDisabled": "禁用该选项。"
+    },
+    "SelectSection": {
+      "title": "分组上方的标题。",
+      "items": "动态分组的选项。用函数形式的子元素渲染每一项。",
+      "children": "该分组中的 SelectItem 元素。"
+    }
+  }
+}

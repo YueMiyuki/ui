@@ -1,0 +1,24 @@
+{
+  "source": "05b92fad",
+  "name": "通知",
+  "description": "状态消息卡片，带色调图标或头像、时间戳、正文和可选的操作。",
+  "demos": {
+    "default": "堆叠",
+    "tones": "色调"
+  },
+  "props": {
+    "Notification": {
+      "title": "用几个词说明发生了什么。同时为卡片提供无障碍名称。",
+      "tone": "决定圆形图块的颜色及其中的图标。",
+      "icon": "替换图块中色调对应的图标。",
+      "avatar": "图片 URL 或 Avatar，代替图块显示。请使用 40 像素的头像。",
+      "time": "标题后的简短时间戳，例如“2 分钟前”。",
+      "children": "正文。",
+      "actions": "正文下方的小按钮，例如设置了 size=\"sm\" 的 secondary 和 brand 两个 Button。",
+      "onClose": "在右上角显示关闭按钮，按下时调用。",
+      "closeLabel": "关闭按钮的无障碍名称。",
+      "unread": "在图标旁显示一个水蓝色圆点，并告知读屏软件该卡片未读。",
+      "className": "额外的类名。也接受 article 的其他所有属性。"
+    }
+  }
+}

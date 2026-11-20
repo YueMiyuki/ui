@@ -356,7 +356,7 @@ export function CompassNav({
           cx="100"
           cy="100"
           r="100"
-          className="fill-[color-mix(in_oklab,var(--muted)_70%,var(--border-strong))] drop-shadow-[0_8px_14px_oklch(0.42_0.09_250/0.2)] dark:fill-[color-mix(in_oklab,var(--muted)_80%,var(--border-strong))] dark:drop-shadow-[0_8px_18px_oklch(0.05_0.02_250/0.65)]"
+          className="fill-[color-mix(in_oklab,var(--muted)_70%,var(--border-strong))] drop-shadow-[0_8px_14px_oklch(0.42_0.09_250/0.2)] dark:fill-[color-mix(in_oklab,var(--muted)_80%,var(--border-strong))] dark:drop-shadow-[0_8px_18px_oklch(0.05_0.02_250/0.65)] ink:drop-shadow-[0_8px_18px_oklch(0.05_0_0/0.65)]"
         />
         <g
           className="origin-center [transform-box:view-box]"
@@ -418,7 +418,7 @@ export function CompassNav({
         <circle cx="100" cy="100" r="99.5" fill="none" strokeWidth="1" className="stroke-border-strong/80" />
         <path d="M100 10 L96.6 4.5 L103.4 4.5 Z" className="fill-brand stroke-card" strokeWidth="0.8" />
         <g
-          className="origin-center drop-shadow-[0_2.5px_1.5px_oklch(0.42_0.09_250/0.28)] [transform-box:view-box] dark:drop-shadow-[0_2.5px_2px_oklch(0.05_0.02_250/0.7)]"
+          className="origin-center drop-shadow-[0_2.5px_1.5px_oklch(0.42_0.09_250/0.28)] [transform-box:view-box] dark:drop-shadow-[0_2.5px_2px_oklch(0.05_0.02_250/0.7)] ink:drop-shadow-[0_2.5px_2px_oklch(0.05_0_0/0.7)]"
           style={{ transform: "rotate(var(--miyuki-compass-nav-needle))" }}
         >
           <path

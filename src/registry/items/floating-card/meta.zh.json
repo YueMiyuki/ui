@@ -1,0 +1,16 @@
+{
+  "source": "7d9449cf",
+  "name": "浮动卡片",
+  "description": "纯色卡片向指针漂移，内容则向相反方向漂移，仿佛漂浮在空中。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "FloatingCard": {
+      "tone": "色块的颜色。每种色调都配浅色文字；内容位于深色主题作用域内，因此 text-foreground 显示为浅色。",
+      "containerClassName": "彩色卡片的类名：尺寸、最小高度、网格位置。",
+      "className": "卡片内部内容的类名。内边距为 p-6，从 sm 起为 p-8。",
+      "children": "卡片的内容。绝对定位的子元素相对于卡片边缘放置。"
+    }
+  }
+}

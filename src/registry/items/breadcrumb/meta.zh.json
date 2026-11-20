@@ -1,0 +1,26 @@
+{
+  "source": "a9801e49",
+  "name": "面包屑",
+  "description": "显示你当前位置的一串链接，层级过多时中间的部分会折叠进菜单。",
+  "demos": {
+    "default": "默认",
+    "collapsed": "折叠"
+  },
+  "props": {
+    "Breadcrumbs": {
+      "children": "Breadcrumb 元素，从层级顶端一直到当前页面。",
+      "maxItems": "最多显示的面包屑项数，包括“…”按钮在内。超过时，中间的面包屑项会折叠进菜单，保留第一项和最后一项。",
+      "aria-label": "外层 nav 地标的无障碍名称。",
+      "onAction": "按下某个面包屑项时调用，参数为它的 id。适用于没有 href 的面包屑项。",
+      "isDisabled": "禁用路径中的所有链接。",
+      "className": "列表的额外类名。也接受 react-aria-components 中 Breadcrumbs 的其他所有属性。"
+    },
+    "Breadcrumb": {
+      "href": "面包屑项链接到的地址。在最后一项上会被忽略，因为它就是当前页面。",
+      "children": "页面名称。",
+      "id": "按下该面包屑项时传给 onAction。",
+      "linkProps": "传给内部 react-aria-components Link 的属性，例如 target 或 routerOptions。",
+      "className": "列表项的额外类名。"
+    }
+  }
+}

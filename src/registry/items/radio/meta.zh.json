@@ -1,0 +1,37 @@
+{
+  "source": "d39c4a4a",
+  "name": "单选按钮",
+  "description": "单选按钮组，选中的选项在圆点落入时被水注满，并提供卡片变体。",
+  "demos": {
+    "default": "默认",
+    "cards": "卡片"
+  },
+  "props": {
+    "RadioGroup": {
+      "label": "选项上方的标签。",
+      "description": "选项下方的帮助文字。",
+      "errorMessage": "组无效时显示在选项下方。",
+      "orientation": "将选项纵向堆叠，或排成一行并自动换行。卡片平分整行宽度。",
+      "size": "所有选项的圆圈为 16 或 18 像素。",
+      "value": "选中的值（受控）。非受控时使用 defaultValue。",
+      "onChange": "选择改变时调用。",
+      "isDisabled": "禁用所有选项。",
+      "isInvalid": "为未选中的圆圈加上山茶红轮廓，并显示错误信息。",
+      "className": "额外的类名。也接受 react-aria-components 中 RadioGroup 的其他所有属性。"
+    },
+    "Radio": {
+      "value": "此选项代表的值。必填。",
+      "children": "标签，位于圆圈右侧。",
+      "description": "标签下方的帮助文字。",
+      "size": "覆盖组的尺寸。",
+      "isDisabled": "禁用此选项。"
+    },
+    "RadioCard": {
+      "value": "此卡片代表的值。必填。",
+      "children": "标题。",
+      "description": "标题下方的一行文字。",
+      "trailing": "右侧、圆圈之前的内容，例如价格。使用等宽数字排版。",
+      "size": "覆盖组的尺寸。"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source": "f1fe2106",
+  "name": "复制输入框",
+  "description": "带复制按钮的只读值，用于邀请链接、API 密钥和命令。",
+  "demos": {
+    "default": "链接和密钥",
+    "command": "命令"
+  },
+  "props": {
+    "CopyField": {
+      "value": "要显示和复制的文本。",
+      "label": "输入框上方的标签。",
+      "description": "输入框下方的帮助文字。",
+      "size": "高度为 32、36 或 44 像素。",
+      "masked": "显示圆点和最后四个字符，并提供显示其余部分的切换按钮。无论通过按钮还是键盘复制，复制的始终是真实的值。",
+      "prefix": "值之前的附加文字，以一条细线隔开，例如命令前的 $。",
+      "onCopy": "复制按钮将值放入剪贴板后调用。",
+      "copyLabel": "复制按钮的无障碍名称。",
+      "isDisabled": "禁用输入框及其中的按钮，并将它们的不透明度降到 50%。",
+      "fieldClassName": "带边框外框的额外类名。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 TextField 的其他属性，例如 name 和 aria-label。"
+    }
+  }
+}

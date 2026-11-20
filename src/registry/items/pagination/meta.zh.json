@@ -1,0 +1,23 @@
+{
+  "source": "709d954b",
+  "name": "分页",
+  "description": "带上一页和下一页按钮的页码，较长的连续页码会折叠为省略号。",
+  "demos": {
+    "default": "默认",
+    "compact": "紧凑"
+  },
+  "props": {
+    "Pagination": {
+      "total": "总页数。",
+      "page": "当前页，从 1 开始计数（受控）。",
+      "defaultPage": "初始显示的页（非受控）。",
+      "onChange": "选择某页时调用，参数为所选的页。",
+      "siblings": "当前页两侧各显示的页数。",
+      "boundaries": "开头和结尾始终显示的页数。",
+      "variant": "compact 在两个箭头之间显示“Page 3 of 20”，而不是页码。",
+      "labels": "箭头和页码按钮的无障碍名称，便于翻译。",
+      "aria-label": "nav 地标的无障碍名称。",
+      "className": "额外的类名，通过 cn() 合并。也接受 nav 的其他所有属性。"
+    }
+  }
+}

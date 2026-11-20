@@ -1,6 +1,6 @@
 ---
 title: Theming
-description: The tokens every component reads, the full palette, and dark mode.
+description: The tokens every component reads, the full palette, and the two dark themes.
 ---
 
 Components style themselves with Tailwind utilities that point at CSS variables: `bg-background`, `text-foreground`, `bg-brand` and so on. Change a variable and every component follows.
@@ -9,7 +9,7 @@ Components style themselves with Tailwind utilities that point at CSS variables:
 
 **base** travels with every component. It adds the tokens a stock shadcn theme does not have: `brand`, `success` and `warning` with their soft and strong steps, `destructive-soft`, `destructive-strong`, `border-strong`, `chart-6`, two easings and the display font stack. It never changes a variable you already have.
 
-**theme** is optional. It replaces your colours, radius scale and shadows with the snow-and-water palette, in light and dark.
+**theme** is optional. It replaces your colours, radius scale and shadows with the snow-and-water palette, in Light, Night and Dark, and adds the `ink` variant.
 
 ```npm
 npx shadcn@latest add @miyuki-ui/theme
@@ -53,16 +53,27 @@ Every step follows `--radius`.
 
 ### Shadows
 
-`shadow-xs` to `shadow-2xl` are tinted blue. In the dark theme they add a thin line of frost along the top edge.
+`shadow-xs` to `shadow-2xl` are tinted blue. In the dark themes they add a thin line of frost along the top edge, and under Dark they are neutral.
 
-## Dark mode
+## Dark themes
 
-The dark theme turns on with the `dark` class on `<html>`. Set the class before the page paints, from a small inline script in `<head>`, so the page does not flash.
+There are two. **Night** is the blue-tinted one: the `dark` class on `<html>`. **Dark** is neutral, mainly black and grey with white: it adds `ink` beside `dark`, as in `<html class="dark ink">`. Dark sits on top of Night, so every `dark:` utility still applies under it and only the tokens change. Status and chart colours are the same in both, and code keeps its syntax colours, so data and diffs keep their colour.
 
-You can also switch part of a page: give any element the `dark` or `light` class. The tokens and the `dark:` variant follow the nearest one.
+Set the classes before the page paints, from a small inline script in `<head>`, so the page does not flash.
+
+You can also switch part of a page: give any element the `light`, `dark` or `dark ink` classes. The tokens and the variants follow the nearest one.
 
 ```css title="globals.css"
 @custom-variant dark (&:where(.dark, .dark *):not(:where(.light, .light *)));
+@custom-variant ink (&:where(.dark.ink, .dark.ink *, .ink .dark, .ink .dark *):not(:where(.light, .light *)));
+```
+
+### The ink variant
+
+`ink:` applies only where the Dark tokens are in effect. Use it for the few places where Dark should differ from Night, such as a colour written by hand inside a `dark:` class. It wins over a plain `dark:` utility on the same element. Give a `dark:` utility that has a state, such as `dark:hover:`, an `ink:hover:` of its own, so the state still changes under Dark.
+
+```tsx
+<div className="shadow-lg dark:shadow-[0_8px_24px_oklch(0.05_0.02_250/0.6)] ink:shadow-[0_8px_24px_oklch(0_0_0/0.6)]" />
 ```
 
 ## The stylesheet [#stylesheet]

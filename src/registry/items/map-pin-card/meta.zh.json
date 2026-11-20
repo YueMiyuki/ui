@@ -1,0 +1,17 @@
+{
+  "source": "8ed3cc01",
+  "name": "地图图钉卡片",
+  "description": "一张像桌上的地图那样向后平躺的卡片，同时有一枚图钉从中升起。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "MapPinCard": {
+      "title": "图钉顶部胶囊标签的文字。胶囊标签就是链接。",
+      "href": "胶囊标签链接到的地址。",
+      "children": "卡片的内容。",
+      "className": "会倾斜的卡片的类名：默认为 rounded-2xl、细线边框、bg-card 和 p-2.5。不要在这里使用 overflow-hidden 和 filter，它们会让倾斜效果变平。",
+      "containerClassName": "外层悬停区域的类名，它设置透视并容纳图钉。请在它上方留出约 4rem 的空间放置胶囊标签。其他 div 属性会透传给它。"
+    }
+  }
+}

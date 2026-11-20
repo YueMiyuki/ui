@@ -1,0 +1,20 @@
+{
+  "source": "34adbd46",
+  "name": "雪花点赞",
+  "description": "收藏切换按钮：雪晶从中心开始填满，并沿六条枝杈抛出六片小雪花，可附带一个会滚动变化的计数。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "SnowflakeLike": {
+      "isSelected": "是否处于开启状态（受控）。",
+      "defaultSelected": "初始是否开启（非受控）。",
+      "onChange": "按下时以新状态为参数调用。",
+      "count": "其他人收藏的次数。开启时会加 1，数字改变时滚动显示。省略时为仅含图标的按钮。",
+      "size": "高度为 32、36 或 44 像素，雪晶相应为 16、20 或 24 像素。",
+      "label": "无障碍名称。计数会附加在其后。",
+      "isDisabled": "禁用按钮。",
+      "className": "额外的类名，通过 cn() 合并。也接受 react-aria-components 中 ToggleButton 的其他所有属性。"
+    }
+  }
+}

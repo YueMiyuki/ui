@@ -3,6 +3,8 @@
 import type { SyntheticEvent } from "react";
 import { cn } from "@/lib/utils";
 import { DemoSurface, previewUrl } from "@/site/demo-surface";
+import { useDictionary } from "@/site/i18n/context";
+import { fill } from "@/site/i18n/format";
 import type { ItemSummary } from "@/site/registry";
 import { thumbSize } from "@/site/thumb-size";
 
@@ -31,6 +33,7 @@ export function ThumbFrame({
   className?: string;
 }) {
   const { width, height } = thumbSize(item);
+  const t = useDictionary().demo;
   return (
     <div
       inert
@@ -44,7 +47,7 @@ export function ThumbFrame({
       {item.preview.iframe ? (
         <iframe
           src={previewUrl(item.slug, item.firstDemo)}
-          title={`${item.name} preview`}
+          title={fill(t.previewTitle, { name: item.name })}
           tabIndex={-1}
           onLoad={(event) => whenFrameReady(event, onReady)}
           className="block size-full border-0 bg-transparent"

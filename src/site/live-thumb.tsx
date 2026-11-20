@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { DemoSurface, previewUrl } from "@/site/demo-surface";
+import { useDictionary } from "@/site/i18n/context";
+import { fill } from "@/site/i18n/format";
 import { LAND_EVENT } from "@/site/intent";
 import type { ItemSummary } from "@/site/registry";
 import { ThumbFrame } from "@/site/thumb-frame";
@@ -36,6 +38,7 @@ function AlwaysLive({ item }: { item: ItemSummary }) {
   }, []);
 
   const { slug, firstDemo, preview } = item;
+  const t = useDictionary().demo;
 
   return (
     <div ref={ref} className="absolute inset-0">
@@ -48,7 +51,7 @@ function AlwaysLive({ item }: { item: ItemSummary }) {
           {preview.iframe ? (
             <iframe
               src={previewUrl(slug, firstDemo)}
-              title={`${item.name} preview`}
+              title={fill(t.previewTitle, { name: item.name })}
               tabIndex={-1}
               loading="lazy"
               className="block size-full border-0 bg-transparent"

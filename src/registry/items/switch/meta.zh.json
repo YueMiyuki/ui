@@ -1,0 +1,20 @@
+{
+  "source": "8591fc61",
+  "name": "开关",
+  "description": "开关控件，按下时手柄会拉长，松开时以弹簧动画弹到另一侧。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "Switch": {
+      "children": "标签，位于开关右侧。",
+      "description": "标签下方的帮助文字。",
+      "size": "轨道为 28×16 或 36×20 像素。",
+      "isSelected": "开启状态（受控）。非受控时使用 defaultSelected。",
+      "onChange": "开关打开或关闭时调用。",
+      "isDisabled": "禁用开关，并将其不透明度降到 50%。",
+      "isReadOnly": "显示状态，但不允许更改。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 SwitchField 的其他所有属性。"
+    }
+  }
+}

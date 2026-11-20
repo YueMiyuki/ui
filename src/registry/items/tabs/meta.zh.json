@@ -1,0 +1,37 @@
+{
+  "source": "40293b07",
+  "name": "标签页",
+  "description": "在面板之间切换，用水蓝色下划线或滑到当前标签页的胶囊来指示。",
+  "demos": {
+    "default": "下划线",
+    "pill": "胶囊",
+    "vertical": "垂直"
+  },
+  "props": {
+    "Tabs": {
+      "variant": "underline：标签页位于一条细线上，当前标签页下方有一条 2 像素的水蓝色线。pill：一张在弱化轨道内滑动的卡片。",
+      "orientation": "将标签页排成面板上方的一行，或面板旁边的一列。",
+      "selectedKey": "当前标签页的 id（受控）。",
+      "defaultSelectedKey": "初始显示的标签页的 id（非受控）。默认为第一个标签页。",
+      "onSelectionChange": "选择另一个标签页时调用。",
+      "keyboardActivation": "方向键是立即切换面板，还是只移动焦点，直到按下 Enter 或 Space。",
+      "className": "额外的类名。也接受 react-aria-components 中 Tabs 的其他所有属性。"
+    },
+    "TabList": {
+      "aria-label": "供辅助技术读取的这组标签页的名称。",
+      "children": "Tab 元素。",
+      "className": "额外的类名。也接受 react-aria-components 中 TabList 的其他所有属性。"
+    },
+    "Tab": {
+      "id": "与此标签页所显示的 TabPanel 的 id 相同。",
+      "children": "标签文字，前面可以加一个 lucide 图标。",
+      "count": "标签文字后面小号弱化徽章中的数字。",
+      "isDisabled": "禁用此标签页。"
+    },
+    "TabPanel": {
+      "id": "与对应 Tab 的 id 相同。",
+      "children": "面板内容。它的标签页被选中时淡入。",
+      "shouldForceMount": "面板隐藏时仍保留在 DOM 中。"
+    }
+  }
+}

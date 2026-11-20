@@ -1,0 +1,35 @@
+{
+  "source": "627a5ca9",
+  "name": "潮汐标签页",
+  "description": "位于浅水渠上的标签页，指示器是一汪水，会流向选中的标签页，途中拉长，到达后聚拢。",
+  "demos": {
+    "default": "预报",
+    "vertical": "垂直"
+  },
+  "props": {
+    "TideTabs": {
+      "orientation": "将水渠排成面板上方的一行，或面板旁边的一列。",
+      "selectedKey": "当前标签页的 id（受控）。",
+      "defaultSelectedKey": "初始显示的标签页的 id（非受控）。默认为第一个标签页。",
+      "onSelectionChange": "选择另一个标签页时调用。",
+      "keyboardActivation": "方向键是立即切换面板，还是只移动焦点，直到按下 Enter 或 Space。",
+      "className": "额外的类名。也接受 react-aria-components 中 Tabs 的其他所有属性。"
+    },
+    "TideTabList": {
+      "aria-label": "供辅助技术读取的这组标签页的名称。",
+      "color": "水的颜色。水下的标签文字使用 `brand-foreground`，所以请选择与它搭配时清晰可读的颜色。",
+      "children": "TideTab 元素。",
+      "className": "水渠内那一行标签页的类名。也接受 react-aria-components 中 TabList 的其他所有属性。"
+    },
+    "TideTab": {
+      "id": "与此标签页所显示的 TideTabPanel 的 id 相同。",
+      "children": "标签文字，可以带一个 lucide 图标。文字恰好在被水覆盖的地方改变颜色。",
+      "isDisabled": "禁用此标签页。"
+    },
+    "TideTabPanel": {
+      "id": "与对应 TideTab 的 id 相同。",
+      "children": "面板内容。它的标签页被选中时，会从下方几像素处升起。",
+      "shouldForceMount": "面板隐藏时仍保留在 DOM 中。"
+    }
+  }
+}

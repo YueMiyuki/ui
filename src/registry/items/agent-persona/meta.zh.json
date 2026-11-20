@@ -1,0 +1,26 @@
+{
+  "source": "4c09aeb8",
+  "name": "智能体人设",
+  "description": "为智能体设定面孔、名字和说话风格的表单，附带一个眼睛会跟随指针的水滴角色。",
+  "demos": {
+    "default": "默认",
+    "avatar": "情绪"
+  },
+  "props": {
+    "AgentPersona": {
+      "defaultValue": "初始配置：name、role、description、language、notifications、mood 和 color。缺少的字段会回退为一个未命名、mood 为 calm、color 为 water 的智能体，角色和语言取各自的第一项。",
+      "onChange": "配置的任何部分改变时调用，参数为完整配置。",
+      "roles": "“Role”选择框的选项。",
+      "languages": "“Language”选择框的选项。",
+      "className": "卡片的额外类名。其他属性会传给根 section 元素。"
+    },
+    "AgentAvatar": {
+      "mood": "决定眼睛和嘴巴的形状。改变时，脸部会从一种情绪形变为下一种。",
+      "color": "色板中的颜色名，或任意 CSS 颜色。新颜色会从底部向上填满水滴。",
+      "size": "宽度和高度，单位为像素。",
+      "followPointer": "让脸部朝向指针，指针在页面上任意位置都有效。",
+      "label": "无障碍名称。不提供时，头像会对辅助技术隐藏。",
+      "className": "svg 的额外类名。其他属性会传给 svg 元素。"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "source": "359b5c9d",
+  "name": "潮汐面板",
+  "description": "顶边是一道缓慢波浪的底部面板，可停在三个高度，拖动时像水位一样升降。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "TideSheetTrigger": {
+      "children": "打开面板的按钮，然后是 TideSheet。",
+      "isOpen": "打开状态（受控）。非受控时使用 defaultOpen。",
+      "onOpenChange": "面板打开或关闭时调用。"
+    },
+    "TideSheet": {
+      "open": "不配合 TideSheetTrigger 使用时的打开状态。非受控时使用 defaultOpen。",
+      "onOpenChange": "不配合 TideSheetTrigger 使用时，在打开状态改变时调用。",
+      "snap": "面板停靠的高度（受控）。非受控时使用 defaultSnap；默认以 half 高度打开。",
+      "onSnapChange": "通过拖动或键盘使面板停在另一个高度时调用。",
+      "snapPoints": "各个高度占窗口高度的比例，需扣除顶部波浪所占的空间。peek 至少为 150 像素。",
+      "children": "内容。只有面板处于全高时内容才能滚动；低于全高时，在任意位置拖动都会改变水位。用 TideSheetTitle 为它命名。",
+      "isDismissable": "点击遮罩层时关闭。除非设置了 isKeyboardDismissDisabled，否则按 Escape 总会关闭。快速或长距离向下拖动也会关闭面板。",
+      "backdropBlur": "模糊遮罩层后面的页面。默认关闭：只要后面有内容在变化，浏览器就会每一帧重绘模糊效果，在大型页面上会卡顿，在 Firefox 中尤其明显。",
+      "aria-label": "没有 TideSheetTitle 时为面板提供无障碍名称。",
+      "className": "面板的类名。面板最宽 640 像素。"
+    },
+    "TideSheetTitle": {
+      "children": "面板的名称。为对话框提供无障碍名称。"
+    }
+  }
+}

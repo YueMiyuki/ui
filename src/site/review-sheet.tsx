@@ -4,10 +4,13 @@ import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { DemoSurface, previewUrl } from "@/site/demo-surface";
 import type { ItemSummary } from "@/site/registry";
+import { isSiteTheme, type SiteTheme } from "@/site/theme";
 
-const THEMES = ["light", "dark"] as const;
+const DEFAULT_THEMES: SiteTheme[] = ["light", "dark"];
 
-function Tile({ item, demo, theme, zoom }: { item: ItemSummary; demo: string; theme: "light" | "dark"; zoom: number }) {
+const scopeClass = (theme: SiteTheme) => (theme === "ink" ? "dark ink" : theme);
+
+function Tile({ item, demo, theme, zoom }: { item: ItemSummary; demo: string; theme: SiteTheme; zoom: number }) {
   const close = !item.preview.iframe && item.preview.layout === "center" && (item.preview.height ?? 420) <= 420;
   const base = close ? 0.6 : 0.4;
   const scale = base * zoom;
@@ -16,7 +19,7 @@ function Tile({ item, demo, theme, zoom }: { item: ItemSummary; demo: string; th
   return (
     <div
       className={cn(
-        theme,
+        scopeClass(theme),
         "relative shrink-0 overflow-hidden rounded-lg bg-background text-foreground ring-1 ring-border",
       )}
       style={{ width: 360 * zoom, height: height * scale, transform: "translateZ(0)" }}
@@ -49,6 +52,8 @@ export function ReviewSheet({ items }: { items: ItemSummary[] }) {
     .filter(Boolean);
   const bySlug = new Map(items.map((item) => [item.slug, item]));
   const zoom = Math.min(3, Math.max(1, Number(params.get("zoom")) || 1));
+  const asked = (params.get("themes") ?? "").split(",").filter(isSiteTheme);
+  const themes = asked.length ? [...new Set(asked)] : DEFAULT_THEMES;
 
   if (requested.length === 0) {
     return (
@@ -76,13 +81,13 @@ export function ReviewSheet({ items }: { items: ItemSummary[] }) {
               {item ? "" : " (not in the registry)"}
             </h2>
             <div className="flex gap-2">
-              {THEMES.map((theme) =>
+              {themes.map((theme) =>
                 item && demo ? (
                   <Tile key={theme} item={item} demo={demo} theme={theme} zoom={zoom} />
                 ) : (
                   <div
                     key={theme}
-                    className={cn(theme, "rounded-lg bg-background ring-1 ring-border")}
+                    className={cn(scopeClass(theme), "rounded-lg bg-background ring-1 ring-border")}
                     style={{ width: 360 * zoom, height: 225 * zoom }}
                   />
                 ),

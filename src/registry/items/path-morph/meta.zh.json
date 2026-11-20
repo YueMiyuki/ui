@@ -1,0 +1,55 @@
+{
+  "source": "2068f6a6",
+  "name": "路径变形",
+  "description": "通过弹簧动画从一种形状流畅过渡为另一种形状的 SVG 路径，附带专为平滑变形而绘制的现成成对图标。",
+  "demos": {
+    "default": "播放与切换",
+    "gallery": "全部图标组",
+    "shapes": "任意两个形状"
+  },
+  "props": {
+    "MorphIcon": {
+      "shapes": "在 24×24 网格上绘制的具名形状：一条路径、按位置对应的路径数组，或 { paths, rotate }。可使用 morphIcons 中的一组，也可以自己绘制。",
+      "shape": "要显示的形状名称。更改后从屏幕上当前的形状开始变形。",
+      "size": "宽度和高度。",
+      "strokeWidth": "描边宽度，以网格单位计。线帽和连接处为圆形。",
+      "filled": "在描边之外同时填充每条路径。单条路径可以用 { d, fill: true } 填充，也可以用 { d, stroke: false } 去掉描边。",
+      "label": "无障碍名称。不传时图标对辅助技术隐藏。",
+      "transition": "图标中每条路径和每次旋转的弹簧动画参数。",
+      "className": "svg 的类名。其他 svg 属性会透传。"
+    },
+    "MorphPath": {
+      "d": "路径数据。改变时以弹簧动画变形到新路径，从屏幕上的当前形状开始，包括正在变形途中的形状。空字符串会让形状缩小到其中心。",
+      "transition": "弹簧动画参数。",
+      "...props": "path 的其他任意属性：fill、stroke、className 等。"
+    },
+    "PlayPauseButton": {
+      "playing": "受控状态。省略它并使用 defaultPlaying 即为非受控按钮。",
+      "defaultPlaying": "非受控时的初始状态。",
+      "onChange": "按下时以新状态为参数调用。",
+      "size": "直径，单位为像素。图形随之缩放。",
+      "className": "额外的类名。也接受 react-aria-components 中 Button 的其他所有属性。"
+    },
+    "interpolatePath": {
+      "from": "t = 0 时的路径数据。",
+      "to": "t = 1 时的路径数据。返回 (t: number) => string。命令相同的路径逐个数值插值；其他路径会重新采样，并对齐绕行方向和起点，因此任意两个形状都能变形。"
+    },
+    "morphIcons": {
+      "playPause": "三角形折叠成两根竖条。",
+      "menuClose": "外侧两条线弯折成叉号；中间一条缩短消失。",
+      "plusMinus": "竖线收回到横线中。",
+      "plusCheck": "加号倾倒成对勾。",
+      "copyCheck": "前面的纸张折成对勾。",
+      "sunMoon": "圆盘张开成月牙；光芒收回到边缘上。",
+      "sunMoonDisc": "太阳、月牙，以及细圆环中的实心朔月。月牙合拢成圆环，同时实心圆盘从圆环中心长出。",
+      "chevron": "沿较短的方向旋转。",
+      "arrow": "沿较短的方向旋转。",
+      "soundOnOff": "声波拉直成叉号。",
+      "eyeOpenClosed": "眼睑合上，瞳孔隐没，睫毛长出。",
+      "lockUnlock": "锁梁抬起，脱离锁身。",
+      "heartFilled": "实心的心形从中心胀大。",
+      "bookmark": "书签带从顶部开始填充。",
+      "filterClose": "漏斗收紧，经过星形变成叉号。"
+    }
+  }
+}

@@ -66,7 +66,7 @@ export function withAlpha(value: string, alpha: number, el?: Element | null): st
 }
 
 const themeOf = (node: Element) =>
-  `${node.classList.contains("dark") ? "dark" : ""}${node.classList.contains("light") ? "light" : ""}${node.getAttribute("data-theme") ?? ""}`;
+  `${node.classList.contains("dark") ? "dark" : ""}${node.classList.contains("ink") ? "ink" : ""}${node.classList.contains("light") ? "light" : ""}${node.getAttribute("data-theme") ?? ""}`;
 
 export function onThemeChange(callback: () => void, el?: Element | null): () => void {
   if (!isBrowser() || typeof MutationObserver === "undefined") return () => {};

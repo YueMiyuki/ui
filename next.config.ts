@@ -25,6 +25,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/components", destination: "/docs/components", permanent: true },
       { source: "/components/:slug", destination: "/docs/components/:slug", permanent: true },
+      { source: "/zh/components", destination: "/zh/docs/components", permanent: true },
+      { source: "/zh/components/:slug", destination: "/zh/docs/components/:slug", permanent: true },
     ];
   },
 };

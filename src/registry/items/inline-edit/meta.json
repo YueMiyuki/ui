@@ -1,0 +1,105 @@
+{
+  "name": "Inline Edit",
+  "category": "inputs",
+  "description": "Text that turns into a field in place when you click it, and saves when you press Enter or click away.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Page header"
+    },
+    {
+      "name": "list",
+      "title": "Renaming rows"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 520,
+    "thumb": false,
+    "thumbClick": "h2 button"
+  },
+  "props": [
+    {
+      "component": "InlineEdit",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The saved text, when you control it. Use defaultValue to leave it uncontrolled."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "default": "\"\"",
+          "description": "The saved text to start with."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string) => void",
+          "description": "Called with the new text once a save has succeeded. Not called while typing."
+        },
+        {
+          "name": "onSave",
+          "type": "(value: string) => unknown",
+          "description": "Called when the user saves a changed value. Return a promise to keep the field read-only with a spinner until it settles; if it rejects, the field stays open with the error's message below it. Not called when the text is unchanged."
+        },
+        {
+          "name": "onCancel",
+          "type": "() => void",
+          "description": "Called when an edit is abandoned with Escape, the cancel button, or a blur while submitOnBlur is false."
+        },
+        {
+          "name": "validate",
+          "type": "(value: string) => true | string",
+          "description": "Runs before saving. Return a message to keep the field open and show it as an error."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "label",
+          "description": "Muted text shown at rest while the value is empty, and in the empty field."
+        },
+        {
+          "name": "as",
+          "type": "\"span\" | \"p\" | \"h1\" | \"h2\" | \"h3\"",
+          "default": "\"span\"",
+          "description": "The element rendered, at rest and while editing. The text and the field inherit its font, so style it with className."
+        },
+        {
+          "name": "multiline",
+          "type": "boolean",
+          "default": "false",
+          "description": "Edits in a growing textarea. Enter adds a line; ⌘Enter or Ctrl+Enter saves."
+        },
+        {
+          "name": "submitOnBlur",
+          "type": "boolean",
+          "default": "true",
+          "description": "Saves when focus leaves the field. When false, leaving the field cancels the edit."
+        },
+        {
+          "name": "showButtons",
+          "type": "boolean",
+          "default": "false",
+          "description": "Adds small save and cancel buttons after the field."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Accessible name of the field. The text at rest is a button named \"Edit\" followed by the label."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the text without the hover wash, the pencil or the button."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root element, such as its font size and weight. Also accepts the other HTML attributes of that element."
+        }
+      ]
+    }
+  ]
+}

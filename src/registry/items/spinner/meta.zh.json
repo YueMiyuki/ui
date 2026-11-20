@@ -1,0 +1,16 @@
+{
+  "source": "8518cff5",
+  "name": "加载指示器",
+  "description": "以流动的水为造型的进行中指示器，有三种变体和五种尺寸。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "Spinner": {
+      "variant": "ring：带淡色尾迹的弧线，每 0.8 秒转一圈。drops：三个圆点依次胀大、下沉。orbit：一颗水滴拖着渐隐的尾巴绕圈。",
+      "size": "14、16、20、28 或 40 像素。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色；传入 text-current 可沿用周围文字的颜色。"
+    }
+  }
+}

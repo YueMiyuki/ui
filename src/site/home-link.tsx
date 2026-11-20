@@ -2,16 +2,20 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useDictionary, useLocale } from "@/site/i18n/context";
+import { localeHref } from "@/site/i18n/href";
 import { Wordmark } from "@/site/mark";
 
 export function HomeLink() {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
+  const locale = useLocale();
+  const t = useDictionary();
 
   return (
     <Link
-      href="/"
-      aria-label="miyuki-ui home"
+      href={localeHref(locale, "/")}
+      aria-label={t.nav.home}
       onPointerEnter={(e) => e.pointerType === "mouse" && setHovered(true)}
       onPointerLeave={() => setHovered(false)}
       onFocus={() => setFocused(true)}

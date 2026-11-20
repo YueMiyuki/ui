@@ -53,8 +53,8 @@ const tones: Record<IceButtonTone, string> = {
     "[--miyuki-ice-button-shade:color-mix(in_oklab,var(--brand-strong)_62%,transparent)]",
     "[--miyuki-ice-button-sheen:rgb(255_255_255/0.5)]",
     "[--miyuki-ice-button-crack:rgb(255_255_255/0.98)] [--miyuki-ice-button-glint:rgb(255_255_255/0.45)]",
-    "dark:[--miyuki-ice-button-crack:rgb(235_246_255/0.82)] dark:[--miyuki-ice-button-glint:rgb(200_230_255/0.14)]",
-    "dark:[--miyuki-ice-button-top:color-mix(in_oklab,var(--brand)_52%,rgb(190_230_255/0.14))]",
+    "dark:[--miyuki-ice-button-crack:rgb(235_246_255/0.82)] ink:[--miyuki-ice-button-crack:oklch(0.968_0_0/0.82)] dark:[--miyuki-ice-button-glint:rgb(200_230_255/0.14)] ink:[--miyuki-ice-button-glint:oklch(0.911_0_0/0.14)]",
+    "dark:[--miyuki-ice-button-top:color-mix(in_oklab,var(--brand)_52%,rgb(190_230_255/0.14))] ink:[--miyuki-ice-button-top:color-mix(in_oklab,var(--brand)_52%,oklch(0.905_0_0/0.14))]",
     "dark:[--miyuki-ice-button-bottom:color-mix(in_oklab,var(--brand)_30%,transparent)]",
     "dark:[--miyuki-ice-button-rim:color-mix(in_oklab,var(--brand)_40%,transparent)]",
     "dark:[--miyuki-ice-button-edge:rgb(255_255_255/0.12)]",
@@ -70,12 +70,12 @@ const tones: Record<IceButtonTone, string> = {
     "[--miyuki-ice-button-shade:rgb(6_26_70/0.55)]",
     "[--miyuki-ice-button-sheen:rgb(255_255_255/0.3)]",
     "[--miyuki-ice-button-crack:rgb(240_248_255/0.92)] [--miyuki-ice-button-glint:rgb(255_255_255/0.2)]",
-    "dark:[--miyuki-ice-button-crack:rgb(235_246_255/0.82)] dark:[--miyuki-ice-button-glint:rgb(200_230_255/0.14)]",
-    "dark:[--miyuki-ice-button-top:color-mix(in_oklab,var(--brand)_52%,rgb(16_44_96/0.7))]",
-    "dark:[--miyuki-ice-button-bottom:color-mix(in_oklab,var(--brand)_26%,rgb(8_24_60/0.82))]",
+    "dark:[--miyuki-ice-button-crack:rgb(235_246_255/0.82)] ink:[--miyuki-ice-button-crack:oklch(0.968_0_0/0.82)] dark:[--miyuki-ice-button-glint:rgb(200_230_255/0.14)] ink:[--miyuki-ice-button-glint:oklch(0.911_0_0/0.14)]",
+    "dark:[--miyuki-ice-button-top:color-mix(in_oklab,var(--brand)_52%,rgb(16_44_96/0.7))] ink:[--miyuki-ice-button-top:color-mix(in_oklab,var(--brand)_52%,oklch(0.306_0_0/0.7))]",
+    "dark:[--miyuki-ice-button-bottom:color-mix(in_oklab,var(--brand)_26%,rgb(8_24_60/0.82))] ink:[--miyuki-ice-button-bottom:color-mix(in_oklab,var(--brand)_26%,oklch(0.221_0_0/0.82))]",
     "dark:[--miyuki-ice-button-rim:color-mix(in_oklab,var(--brand)_45%,transparent)]",
     "dark:[--miyuki-ice-button-edge:rgb(255_255_255/0.1)]",
-    "dark:[--miyuki-ice-button-shade:rgb(2_10_30/0.6)]",
+    "dark:[--miyuki-ice-button-shade:rgb(2_10_30/0.6)] ink:[--miyuki-ice-button-shade:oklch(0.149_0_0/0.6)]",
     "dark:[--miyuki-ice-button-sheen:rgb(255_255_255/0.2)]",
   ),
 };
@@ -330,8 +330,8 @@ export function IceButton({
               className={cn(
                 "relative truncate",
                 tone === "deep"
-                  ? "[text-shadow:0_0_2px_rgb(8_60_130/0.9),0_0_7px_rgb(8_60_130/0.7)] dark:[text-shadow:0_0_2px_rgb(10_34_74/0.95),0_0_7px_rgb(10_34_74/0.75)]"
-                  : "[text-shadow:0_0_2px_rgb(236_245_255/0.95),0_0_7px_rgb(236_245_255/0.8)] dark:[text-shadow:0_0_2px_rgb(18_42_62/0.95),0_0_7px_rgb(18_42_62/0.75)]",
+                  ? "[text-shadow:0_0_2px_rgb(8_60_130/0.9),0_0_7px_rgb(8_60_130/0.7)] dark:[text-shadow:0_0_2px_rgb(10_34_74/0.95),0_0_7px_rgb(10_34_74/0.75)] ink:[text-shadow:0_0_2px_oklch(0.26_0_0/0.95),0_0_7px_oklch(0.26_0_0/0.75)]"
+                  : "[text-shadow:0_0_2px_rgb(236_245_255/0.95),0_0_7px_rgb(236_245_255/0.8)] dark:[text-shadow:0_0_2px_rgb(18_42_62/0.95),0_0_7px_rgb(18_42_62/0.75)] ink:[text-shadow:0_0_2px_oklch(0.276_0_0/0.95),0_0_7px_oklch(0.276_0_0/0.75)]",
               )}
             >
               {label}

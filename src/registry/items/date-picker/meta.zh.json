@@ -1,0 +1,37 @@
+{
+  "source": "749c90c5",
+  "name": "日期选择器",
+  "description": "逐段输入的日期输入框，在弹出层中提供日历，可选择单个日期或日期范围。",
+  "demos": {
+    "default": "单个日期",
+    "range": "日期范围"
+  },
+  "props": {
+    "DatePicker": {
+      "label": "输入框上方的标签。",
+      "description": "输入框下方的帮助文字。输入框无效时由错误信息取代。",
+      "errorMessage": "输入框无效时显示在其下方，带有警示图标。",
+      "value": "日期（受控）。非受控时使用 defaultValue。",
+      "onChange": "日期改变时调用。",
+      "minValue": "允许的最早日期。",
+      "maxValue": "允许的最晚日期。",
+      "isDateUnavailable": "标记日历中不可选择的日期。",
+      "granularity": "显示的最小单位。比 day 更细时，若值包含时间，会增加时间分段。",
+      "placeholderValue": "输入框为空时，日历打开后显示的日期，也是各分段开始计数的起点。",
+      "isRequired": "表单提交前必须填写日期。",
+      "isInvalid": "显示山茶红边框和错误信息。",
+      "isDisabled": "禁用输入框，并将其不透明度降到 50%。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 DatePicker 的其他所有属性（name、isOpen、onOpenChange、shouldCloseOnSelect 等）。"
+    },
+    "DateRangePicker": {
+      "label": "输入框上方的标签。",
+      "description": "输入框下方的帮助文字。",
+      "errorMessage": "输入框无效时显示在其下方。",
+      "value": "日期范围（受控）。非受控时使用 defaultValue。",
+      "onChange": "日期范围改变时调用。",
+      "visibleMonths": "弹出层日历中显示的月数。",
+      "allowsNonContiguousRanges": "允许范围跨越不可选的日期。",
+      "className": "根元素的额外类名。其余属性与 DatePicker 相同。"
+    }
+  }
+}

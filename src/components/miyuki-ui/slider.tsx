@@ -122,6 +122,7 @@ export function Slider<T extends number | number[]>({
                       <span
                         className={cn(
                           "block size-full rounded-full border border-border-strong bg-white shadow-sm",
+                          "ink:border-brand ink:bg-brand-foreground",
                           "transition-[scale,box-shadow] duration-150 ease-settle",
                           (isDragging || isFocusVisible) && "scale-110 ring-[4px] ring-ring",
                         )}

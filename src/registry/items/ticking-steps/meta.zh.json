@@ -1,0 +1,21 @@
+{
+  "source": "cdbdadfd",
+  "name": "逐步勾选",
+  "description": "在耗时操作进行时显示的浮层，其中的步骤列表逐一勾选完成，当前步骤始终保持在中央。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "TickingSteps": {
+      "steps": "按顺序排列的步骤。已完成的步骤显示注满水的勾号，当前步骤显示加载指示器，其余显示空心圆环。",
+      "loading": "显示浮层。每次打开时都从第一步重新开始。",
+      "duration": "每个步骤停留的时长，单位为毫秒。",
+      "loop": "最后一步完成后从第一步重新开始，直到 loading 被关闭。",
+      "contained": "覆盖最近的定位父元素，而不是视口。父元素需要设置 position: relative。",
+      "backdropBlur": "模糊遮罩层后面的页面。默认关闭：只要后面有内容在变化，浏览器就会在每一帧重绘模糊，这在大型页面上会造成卡顿，在 Firefox 中尤为明显。",
+      "onComplete": "最后一步完成时调用。浮层会一直显示，直到 loading 设为 false。",
+      "onClose": "在右上角显示关闭按钮，同时绑定 Escape 键。浮层打开时焦点移到该按钮上，关闭时焦点返回原处。",
+      "className": "浮层的类名。其他 div 属性（例如 aria-label，默认为 \"Progress\"）会透传。"
+    }
+  }
+}

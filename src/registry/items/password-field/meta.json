@@ -1,0 +1,122 @@
+{
+  "name": "Password Field",
+  "category": "inputs",
+  "description": "A password field with a show toggle, and for new passwords a strength meter and the rules it has to meet.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "New password"
+    },
+    {
+      "name": "sign-in",
+      "title": "Sign in"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 460
+  },
+  "props": [
+    {
+      "component": "PasswordField",
+      "props": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Label above the field."
+        },
+        {
+          "name": "labelAction",
+          "type": "ReactNode",
+          "description": "Something to place at the end of the label row, such as a link to reset the password."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the field. Replaced by the error while the field is invalid."
+        },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          "description": "Shown under the field while it is invalid, with an alert icon. Defaults to the browser's validation message."
+        },
+        {
+          "name": "purpose",
+          "type": "\"new\" | \"current\"",
+          "default": "\"new\"",
+          "description": "\"new\" sets autoComplete to new-password and shows the strength meter and the rules. \"current\" sets current-password and shows neither."
+        },
+        {
+          "name": "rules",
+          "type": "{ label: ReactNode; test: (value: string) => boolean }[]",
+          "default": "defaultPasswordRules",
+          "description": "The rules listed under a new password. Each one is checked off as the value meets it. Pass an empty list to hide the list."
+        },
+        {
+          "name": "strength",
+          "type": "0 | 1 | 2 | 3 | 4",
+          "description": "Overrides the built-in estimate, for example with a score from your server. 0 shows an empty meter."
+        },
+        {
+          "name": "showStrength",
+          "type": "boolean",
+          "default": "purpose === \"new\"",
+          "description": "Shows the four-step strength meter under the field."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height 32, 36 or 44 pixels."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "Hint shown while the field is empty."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The password, when you control it. Use defaultValue to leave it uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string) => void",
+          "description": "Called on every change."
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the camellia border and the error message."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the field and its toggle and dims them to 50%."
+        },
+        {
+          "name": "fieldClassName",
+          "type": "string",
+          "description": "Extra classes for the outlined box."
+        },
+        {
+          "name": "className",
+          "type": "string | ((state) => string)",
+          "description": "Extra classes for the root. Also accepts every other prop of the react-aria-components TextField (name, validate, autoComplete...)."
+        }
+      ]
+    },
+    {
+      "component": "passwordStrength",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Returns 0 for an empty value, otherwise 1 (weak) to 4 (strong). An estimate from the length and the kinds of character used, discounting repeats, runs such as abc or qwerty, years and the most common passwords. Anything under 8 characters is weak."
+        }
+      ]
+    }
+  ]
+}

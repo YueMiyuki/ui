@@ -1,0 +1,36 @@
+{
+  "source": "ae10f16a",
+  "name": "浮现对话框",
+  "description": "从下方浮现的对话框，出现时由后仰变为正立、由模糊变为清晰；打开它的按钮会将标签滑走，换成图标。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "SurfacingModal": {
+      "children": "一个 SurfacingModalTrigger，然后是一个 SurfacingModalBody。",
+      "isOpen": "打开状态（受控）。非受控时使用 defaultOpen。",
+      "onOpenChange": "对话框打开或关闭时调用。"
+    },
+    "SurfacingModalTrigger": {
+      "children": "标签。悬停或获得键盘焦点时向右滑出。",
+      "icon": "从左侧滑入、取代标签的图标。",
+      "variant": "视觉权重，与 Button 相同。",
+      "size": "高度为 32、36 或 44 像素。",
+      "className": "额外的类名。也接受 react-aria-components 中 Button 的其他所有属性。"
+    },
+    "SurfacingModalBody": {
+      "children": "SurfacingModalContent 和 SurfacingModalFooter。传入函数时会收到 close()；任何带 slot=\"close\" 的按钮也会关闭对话框。",
+      "size": "宽度为 400、520 或 720 像素，或占满窗口、四周各留 24 像素。",
+      "isDismissable": "点击遮罩层时关闭。按 Escape 总会关闭。",
+      "closeButton": "在右上角显示关闭按钮。",
+      "className": "面板的类名。",
+      "overlayClassName": "遮罩层的类名。"
+    },
+    "SurfacingModalContent": {
+      "className": "额外的类名。带内边距，子元素纵向排列、间距 20 像素，内容较高时可滚动。在其中放入 ModalTitle 可为对话框命名。"
+    },
+    "SurfacingModalFooter": {
+      "className": "额外的类名。操作按钮靠末端对齐；主要操作放在最后。"
+    }
+  }
+}

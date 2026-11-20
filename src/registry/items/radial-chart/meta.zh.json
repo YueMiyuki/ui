@@ -1,0 +1,30 @@
+{
+  "source": "0fd3e1dc",
+  "name": "径向图",
+  "description": "以圆弧表示数值：同心圆环、中间显示数值的四分之三仪表盘，或分成多段的半圆仪表盘。",
+  "demos": {
+    "default": "堆叠",
+    "rings": "圆环",
+    "gauge": "仪表盘"
+  },
+  "props": {
+    "RadialChart": {
+      "data": "各项数值。gauge 只使用第一项。未指定颜色时使用图表色板。",
+      "variant": "最多扫过四分之三圈的同心圆环、单条四分之三圆弧，或分成多段的半圆仪表盘。",
+      "max": "一条完整圆弧代表的值。默认情况下，stacked 为总量，gauge 为 100，rings 为向上取整后的最大值。",
+      "centerValue": "替换中间的数字：stacked 时默认显示总量，gauge 时默认显示占 max 的比例。",
+      "centerLabel": "与中间数字搭配的一行简短文字，例如“占目标 1,200”。",
+      "name": "所统计内容的名称，用于 rings 的提示框。",
+      "format": "格式化标签、图例和提示框中的数值。默认显示为带千位分隔符的整数。",
+      "formatScale": "格式化 gauge 两端下方的 0 和 max 标签。默认使用紧凑数字格式。",
+      "size": "最大直径，单位为像素：rings 为 236，gauge 为 224，stacked 为 304。会缩小以适应卡片。",
+      "thickness": "每条圆弧的宽度：rings 为 14，gauge 和 stacked 为 18。",
+      "legend": "在图表下方显示带数值的图例。stacked 默认开启；rings 自带标签。",
+      "summary": "供读屏软件读取的图表内容说明。省略时根据数据生成。",
+      "label": "卡片顶部的弱化小标签。",
+      "value": "主数值，需传入已格式化的内容。",
+      "delta": "变化量，以带符号的小数表示，显示为数值旁的胶囊标签。",
+      "className": "卡片的类名。也接受 caption、note、action、footer 以及 div 的其他所有属性。"
+    }
+  }
+}

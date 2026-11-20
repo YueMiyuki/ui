@@ -1,0 +1,32 @@
+{
+  "source": "5a326d11",
+  "name": "密码输入框",
+  "description": "带显示切换按钮的密码输入框；设置新密码时还会显示强度条和需要满足的规则。",
+  "demos": {
+    "default": "新密码",
+    "sign-in": "登录"
+  },
+  "props": {
+    "PasswordField": {
+      "label": "输入框上方的标签。",
+      "labelAction": "放在标签所在行末端的内容，例如重置密码的链接。",
+      "description": "输入框下方的帮助文字。输入框无效时由错误信息取代。",
+      "errorMessage": "输入框无效时显示在其下方，带有警示图标。默认使用浏览器的校验信息。",
+      "purpose": "\"new\" 将 autoComplete 设为 new-password，并显示强度条和规则。\"current\" 设为 current-password，两者都不显示。",
+      "rules": "列在新密码下方的规则。值满足某条规则时，该规则会被勾选。传入空列表可隐藏规则列表。",
+      "strength": "覆盖内置的估算，例如改用你的服务器给出的评分。0 显示空的强度条。",
+      "showStrength": "在输入框下方显示四级强度条。",
+      "size": "高度为 32、36 或 44 像素。",
+      "placeholder": "输入框为空时显示的提示文字。",
+      "value": "密码（受控）。非受控时使用 defaultValue。",
+      "onChange": "值每次改变时调用。",
+      "isInvalid": "显示山茶红边框和错误信息。",
+      "isDisabled": "禁用输入框及其切换按钮，并将它们的不透明度降到 50%。",
+      "fieldClassName": "带边框外框的额外类名。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 TextField 的其他所有属性（name、validate、autoComplete 等）。"
+    },
+    "passwordStrength": {
+      "value": "值为空时返回 0，否则返回 1（弱）到 4（强）。根据长度和所用字符的种类估算，并会因重复字符、abc 或 qwerty 这类连续序列、年份和最常见的密码而降低评分。少于 8 个字符的一律为弱。"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source": "0df81e0d",
+  "name": "自动隐藏横幅",
+  "description": "页面顶部的横幅，向下滚动时让开，向上滚动时回来。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "HidingBanner": {
+      "hideOnScroll": "页面向下滚动时滑走，向上滚动时回来。",
+      "dismissible": "显示关闭按钮。",
+      "onDismiss": "横幅关闭后调用。",
+      "dismissLabel": "关闭按钮的无障碍标签。",
+      "children": "消息内容。请保持在一行以内。"
+    }
+  }
+}

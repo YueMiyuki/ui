@@ -1,0 +1,18 @@
+{
+  "source": "47db4bc9",
+  "name": "关闭按钮",
+  "description": "带叉号的圆形按钮，悬停时叉号旋转四分之一圈，用于关闭横幅、标签和对话框。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "CloseButton": {
+      "size": "直径为 20、24 或 32 像素。",
+      "variant": "ghost 在悬停前保持透明。filled 静止时带有柔和的次要底色。",
+      "aria-label": "无障碍名称。屏幕上有多个关闭按钮时，请说明关闭的是什么。",
+      "onPress": "通过鼠标、触摸或键盘按下按钮时调用。",
+      "isDisabled": "禁用按钮。",
+      "className": "额外的类名，通过 cn() 合并。也接受 react-aria-components 中 Button 除 children 外的其他所有属性。"
+    }
+  }
+}

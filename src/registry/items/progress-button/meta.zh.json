@@ -1,0 +1,19 @@
+{
+  "source": "7ce430b6",
+  "name": "进度按钮",
+  "description": "展示执行过程的按钮：等待时水位上升，成功时注满并显示对勾，失败时闪现山茶红并显示重试标签。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "ProgressButton": {
+      "onClick": "通过鼠标、触摸或键盘按下时调用。返回 promise 可显示进行中、完成和失败状态；返回其他值时按钮保持原样。",
+      "children": "空闲状态的标签，可带一个 16 像素的图标。按钮宽度取它与重试标签中较宽者，因此不会跳动。",
+      "labels": "显示加载指示器和对勾时，会向读屏软件播报 loading 和 success。error 是失败后可见的重试标签，同样会被播报。",
+      "successDuration": "按钮注满并显示对勾后保持的毫秒数，之后水退去，标签恢复。",
+      "size": "高度为 32、36 或 44 像素，与 Button 相同。",
+      "isDisabled": "禁用按钮。",
+      "className": "额外的类名，通过 cn() 合并。也接受 react-aria-components 中 Button 除 onPress 外的其他所有属性。执行期间按钮会设置 aria-busy。"
+    }
+  }
+}

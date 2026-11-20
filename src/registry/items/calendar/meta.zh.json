@@ -1,0 +1,23 @@
+{
+  "source": "73070b3c",
+  "name": "日历",
+  "description": "以七列网格展示一个月的事件，每个日历有各自的颜色，放不下的事件收进当天的列表，每个事件都有弹出层。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "EventCalendar": {
+      "events": "事件列表。日期为 ISO 字符串（例如 \"2027-02-14T09:00\"）或 @internationalized/date 的值。不含时间的 start 表示全天事件；在之后某天结束的事件绘制为横跨其所覆盖日期的长条。",
+      "calendars": "事件所属的日历，列在月视图下方。有时间的事件显示该日历颜色的圆点；全天和跨天事件以该颜色的底色填充。",
+      "month": "要显示的月份中的任意一天（受控）。非受控时使用 defaultMonth。",
+      "defaultMonth": "最初显示的月份。默认为今天所在的月份。",
+      "onMonthChange": "通过箭头按钮、Today 按钮或键盘切换月份时调用，参数为新月份的第一天。",
+      "today": "以水蓝色圆圈标记的日期。省略时在首次渲染后从时钟读取。",
+      "firstDayOfWeek": "一周的第一列。默认跟随语言区域设置。",
+      "onEventClick": "事件详情打开时调用。",
+      "onCreate": "由 New event 按钮调用，参数为当前获得焦点的日期；双击某一天时也会调用。",
+      "showNewEvent": "在头部显示 New event 按钮。只供查看的日历可设为 false；如果传入了 onCreate，双击某一天时仍会调用它。",
+      "className": "根元素的额外类名。其他属性会传给根元素。"
+    }
+  }
+}

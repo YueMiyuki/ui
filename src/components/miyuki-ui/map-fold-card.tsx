@@ -321,8 +321,8 @@ export function MapFoldCard({
       ref={rootRef}
       className={cn(
         "group/map relative isolate max-w-full select-none",
-        "[--miyuki-map-fold-card-dark:oklch(0.26_0.06_252)] dark:[--miyuki-map-fold-card-dark:oklch(0.07_0.03_252)]",
-        "[--miyuki-map-fold-card-valley:oklch(0.42_0.09_250/0.14)] [--miyuki-map-fold-card-lit:oklch(1_0_0/0.6)] dark:[--miyuki-map-fold-card-valley:oklch(0.2_0.05_250/0.2)] dark:[--miyuki-map-fold-card-lit:oklch(1_0_0/0.25)]",
+        "[--miyuki-map-fold-card-dark:oklch(0.26_0.06_252)] dark:[--miyuki-map-fold-card-dark:oklch(0.07_0.03_252)] ink:[--miyuki-map-fold-card-dark:oklch(0.07_0_0)]",
+        "[--miyuki-map-fold-card-valley:oklch(0.42_0.09_250/0.14)] [--miyuki-map-fold-card-lit:oklch(1_0_0/0.6)] dark:[--miyuki-map-fold-card-valley:oklch(0.2_0.05_250/0.2)] ink:[--miyuki-map-fold-card-valley:oklch(0.2_0_0/0.2)] dark:[--miyuki-map-fold-card-lit:oklch(1_0_0/0.25)]",
         "[--miyuki-map-fold-card-paper:color-mix(in_oklab,var(--card)_96%,var(--warning))] dark:[--miyuki-map-fold-card-paper:color-mix(in_oklab,var(--foreground)_86%,var(--background))]",
         "[--miyuki-map-fold-card-ink:var(--foreground)] dark:[--miyuki-map-fold-card-ink:var(--primary-foreground)]",
         "[--miyuki-map-fold-card-cover:color-mix(in_oklab,var(--brand-strong)_88%,var(--foreground))] dark:[--miyuki-map-fold-card-cover:color-mix(in_oklab,var(--brand)_70%,var(--background))]",
@@ -333,7 +333,7 @@ export function MapFoldCard({
       <div
         ref={shadowRef}
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-0 rounded-[2px] shadow-[0_1px_2px_oklch(0.42_0.09_250/0.16),0_16px_30px_-12px_oklch(0.42_0.09_250/0.32)] dark:shadow-[0_1px_2px_oklch(0.02_0.02_250/0.6),0_16px_30px_-12px_oklch(0.02_0.02_250/0.8)]"
+        className="pointer-events-none absolute top-0 left-0 rounded-[2px] shadow-[0_1px_2px_oklch(0.42_0.09_250/0.16),0_16px_30px_-12px_oklch(0.42_0.09_250/0.32)] dark:shadow-[0_1px_2px_oklch(0.02_0.02_250/0.6),0_16px_30px_-12px_oklch(0.02_0.02_250/0.8)] ink:shadow-[0_1px_2px_oklch(0.02_0_0/0.6),0_16px_30px_-12px_oklch(0.02_0_0/0.8)]"
       />
       <div className="absolute inset-0" style={{ perspective: 1400 }}>
         <div ref={assemblyRef} className="absolute inset-0" style={{ transformStyle: "preserve-3d" }}>

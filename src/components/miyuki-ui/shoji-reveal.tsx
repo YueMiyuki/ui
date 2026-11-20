@@ -92,7 +92,7 @@ export function ShojiReveal({
         "[--miyuki-shoji-reveal-paper:oklch(0.985_0.016_84/0.56)] [--miyuki-shoji-reveal-bar:color-mix(in_oklab,var(--border-strong),var(--foreground)_14%)]",
         "[--miyuki-shoji-reveal-frame:color-mix(in_oklab,var(--border-strong),oklch(0.42_0.03_60)_42%)] [--miyuki-shoji-reveal-shade:oklch(0.42_0.08_250/0.3)]",
         "dark:[--miyuki-shoji-reveal-paper:oklch(0.7_0.06_76/0.5)] dark:[--miyuki-shoji-reveal-bar:oklch(0.19_0.02_60/0.92)]",
-        "dark:[--miyuki-shoji-reveal-frame:oklch(0.2_0.018_60)] dark:[--miyuki-shoji-reveal-shade:oklch(0.08_0.02_250/0.55)]",
+        "dark:[--miyuki-shoji-reveal-frame:oklch(0.2_0.018_60)] dark:[--miyuki-shoji-reveal-shade:oklch(0.08_0.02_250/0.55)] ink:[--miyuki-shoji-reveal-shade:oklch(0.08_0_0/0.55)]",
         className,
       )}
       style={style}

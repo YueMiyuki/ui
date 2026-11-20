@@ -1,8 +1,20 @@
 {
   "name": "Coding Assistant",
   "category": "templates",
-  "description": "A chat workspace for a coding assistant, with threads grouped by day, a pinned composer and a side panel that reviews changed files.",
-  "preview": { "layout": "fill", "height": 720, "iframe": true },
+  "description": "A workspace for a coding agent, with chats grouped by project, live reasoning and a plan for each run, a composer with model, voice and context controls, a project panel for changes, preview and terminal, and pages for automations, skills and settings.",
+  "files": [
+    "components/miyuki-ui/coding-assistant.tsx",
+    "components/miyuki-ui/coding-assistant-shared.tsx",
+    "components/miyuki-ui/coding-assistant-reasoning.tsx",
+    "components/miyuki-ui/coding-assistant-automations.tsx",
+    "components/miyuki-ui/coding-assistant-skills.tsx",
+    "components/miyuki-ui/coding-assistant-settings.tsx"
+  ],
+  "preview": {
+    "layout": "fill",
+    "height": 720,
+    "iframe": true
+  },
   "props": [
     {
       "component": "CodingAssistant",
@@ -12,6 +24,12 @@
           "type": "{ name: string; email: string; avatar?: string }",
           "default": "Yuna Sato",
           "description": "The signed-in person shown at the foot of the sidebar."
+        },
+        {
+          "name": "members",
+          "type": "{ name: string; role: string; avatar?: string }[]",
+          "default": "Four people at Hoshizora Weather",
+          "description": "The people listed under People with access in the workspace menu."
         },
         {
           "name": "className",

@@ -208,7 +208,11 @@ export function PostcardFlip({
     table.width = Math.round((W + MARGIN * 2) * dpr);
     table.height = Math.round((H + MARGIN * 2) * dpr);
     const dark = !!rootRef.current?.closest(".dark") || document.documentElement.classList.contains("dark");
-    const shadeInk = dark ? "oklch(0.06 0.02 250)" : "oklch(0.3 0.06 252)";
+    const neutral =
+      dark &&
+      !!rootRef.current &&
+      getComputedStyle(rootRef.current).getPropertyValue("--miyuki-postcard-flip-ink").trim() === "1";
+    const shadeInk = neutral ? "oklch(0.06 0 0)" : dark ? "oklch(0.06 0.02 250)" : "oklch(0.3 0.06 252)";
 
     const paint = () => {
       const g = solve(W, H, pose.current);
@@ -280,7 +284,7 @@ export function PostcardFlip({
       if (ctx) {
         ctx.setTransform(dpr, 0, 0, dpr, MARGIN * dpr, MARGIN * dpr);
         ctx.clearRect(-MARGIN, -MARGIN, W + MARGIN * 2, H + MARGIN * 2);
-        const color = dark ? "rgba(2, 6, 16, 0.7)" : "rgba(40, 62, 110, 0.26)";
+        const color = neutral ? "rgba(6, 6, 6, 0.7)" : dark ? "rgba(2, 6, 16, 0.7)" : "rgba(40, 62, 110, 0.26)";
         for (const { pts, z } of polys) {
           if (pts.length < 3) continue;
           const lift = Math.min(z, 3 * R);
@@ -405,7 +409,7 @@ export function PostcardFlip({
       {...props}
       ref={rootRef}
       className={cn(
-        "group/postcard relative isolate aspect-[148/100] w-[440px] max-w-full cursor-pointer touch-pan-y rounded-[4px] select-none",
+        "group/postcard relative isolate aspect-[148/100] w-[440px] max-w-full cursor-pointer touch-pan-y rounded-[4px] select-none ink:[--miyuki-postcard-flip-ink:1]",
         "[&_img]:pointer-events-none",
         className,
       )}
@@ -466,7 +470,7 @@ export function PostcardFlip({
       <div
         aria-hidden={active || undefined}
         className={cn(
-          "absolute inset-0 overflow-hidden rounded-[4px] shadow-[0_1px_2px_oklch(0.42_0.09_250/0.14),0_12px_26px_-12px_oklch(0.42_0.09_250/0.32)] dark:shadow-[0_1px_2px_oklch(0.02_0.02_250/0.6),0_12px_26px_-12px_oklch(0.02_0.02_250/0.85)]",
+          "absolute inset-0 overflow-hidden rounded-[4px] shadow-[0_1px_2px_oklch(0.42_0.09_250/0.14),0_12px_26px_-12px_oklch(0.42_0.09_250/0.32)] dark:shadow-[0_1px_2px_oklch(0.02_0.02_250/0.6),0_12px_26px_-12px_oklch(0.02_0.02_250/0.85)] ink:shadow-[0_1px_2px_oklch(0.02_0_0/0.6),0_12px_26px_-12px_oklch(0.02_0_0/0.85)]",
           active && "invisible",
         )}
       >

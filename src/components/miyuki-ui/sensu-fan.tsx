@@ -222,12 +222,12 @@ function ItemWedge({
         onKeyDown={onKey}
         className={cn(
           "group/item absolute inset-0 cursor-pointer outline-none",
-          "transition-[background-color] duration-200 hover:bg-[oklch(0.55_0.13_240/0.1)]",
-          "focus-visible:bg-[oklch(0.55_0.13_240/0.16)]",
+          "transition-[background-color] duration-200 hover:bg-[oklch(0.55_0.13_240/0.1)] ink:hover:bg-[oklch(0.55_0_0/0.1)]",
+          "focus-visible:bg-[oklch(0.55_0.13_240/0.16)] ink:focus-visible:bg-[oklch(0.55_0_0/0.16)]",
         )}
       >
         <span
-          className="absolute flex items-center gap-1.5 data-[flip]:flex-col-reverse not-data-[flip]:flex-col text-[oklch(0.3_0.04_250)] transition-[translate,color] duration-200 ease-settle group-hover/item:-translate-y-1 group-focus-visible/item:-translate-y-1 group-focus-visible/item:text-[oklch(0.42_0.13_244)] [&_svg]:size-[18px]"
+          className="absolute flex items-center gap-1.5 data-[flip]:flex-col-reverse not-data-[flip]:flex-col text-[oklch(0.3_0.04_250)] ink:text-[oklch(0.3_0_0)] transition-[translate,color] duration-200 ease-settle group-hover/item:-translate-y-1 group-focus-visible/item:-translate-y-1 group-focus-visible/item:text-[oklch(0.42_0.13_244)] ink:group-focus-visible/item:text-[oklch(0.42_0_0)] [&_svg]:size-[18px]"
           data-flip={center > 1 || undefined}
           style={{
             left: PX + mid * Math.sin(rad(center)),
@@ -323,13 +323,13 @@ export function SensuFan({
         "[--miyuki-sensu-fan-wood-l:oklch(0.86_0.055_80)] [--miyuki-sensu-fan-wood-m:oklch(0.78_0.065_72)] [--miyuki-sensu-fan-wood-d:oklch(0.6_0.07_62)]",
         "dark:[--miyuki-sensu-fan-wood-l:oklch(0.72_0.055_72)] dark:[--miyuki-sensu-fan-wood-m:oklch(0.62_0.06_66)] dark:[--miyuki-sensu-fan-wood-d:oklch(0.45_0.06_56)]",
         "[--miyuki-sensu-fan-fold:oklch(0.32_0.07_262/0.42)] [--miyuki-sensu-fan-crease:oklch(0.32_0.07_262/0.1)] [--miyuki-sensu-fan-edge:oklch(0.5_0.05_70/0.55)]",
-        "dark:[--miyuki-sensu-fan-fold:oklch(0.12_0.05_262/0.55)] dark:[--miyuki-sensu-fan-crease:oklch(0.12_0.05_262/0.14)]",
+        "dark:[--miyuki-sensu-fan-fold:oklch(0.12_0.05_262/0.55)] ink:[--miyuki-sensu-fan-fold:oklch(0.12_0_0/0.55)] dark:[--miyuki-sensu-fan-crease:oklch(0.12_0.05_262/0.14)] ink:[--miyuki-sensu-fan-crease:oklch(0.12_0_0/0.14)]",
         className,
       )}
       style={{ aspectRatio: `${BW} / ${BH}`, ...style }}
     >
       <div
-        className="absolute top-0 left-0 drop-shadow-[0_10px_14px_oklch(0.42_0.09_250/0.24)] dark:drop-shadow-[0_12px_18px_oklch(0.04_0.02_250/0.7)]"
+        className="absolute top-0 left-0 drop-shadow-[0_10px_14px_oklch(0.42_0.09_250/0.24)] dark:drop-shadow-[0_12px_18px_oklch(0.04_0.02_250/0.7)] ink:drop-shadow-[0_12px_18px_oklch(0.04_0_0/0.7)]"
         style={{ width: BW, height: BH, transform: `scale(${scale})`, transformOrigin: "0 0" }}
       >
         <button
@@ -404,7 +404,7 @@ export function SensuFan({
         <Rib g={g} o={o} i={count - 1} count={count} guard />
         <span
           aria-hidden="true"
-          className="absolute size-4 rounded-full shadow-[0_1px_2px_oklch(0.3_0.05_250/0.4)]"
+          className="absolute size-4 rounded-full shadow-[0_1px_2px_oklch(0.3_0.05_250/0.4)] ink:shadow-[0_1px_2px_oklch(0.3_0_0/0.4)]"
           style={{
             left: PX - 8,
             top: PY - 8,

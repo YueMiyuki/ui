@@ -1,0 +1,36 @@
+{
+  "source": "64eda44a",
+  "name": "标签组",
+  "description": "一组带标签的标签项，用于筛选、选择或移除，可用键盘在各项之间移动。",
+  "demos": {
+    "default": "多选",
+    "removable": "可移除"
+  },
+  "props": {
+    "TagGroup": {
+      "label": "标签项上方的标签。没有标签时，请为其提供 aria-label。",
+      "description": "标签项下方的帮助文字。",
+      "errorMessage": "标签项下方的错误文字。",
+      "selectionMode": "允许选择标签项。选中的标签项变为水蓝色底色，并绘出对勾。",
+      "selectedKeys": "选中标签项的 id（受控）。",
+      "defaultSelectedKeys": "初始选中的标签项（非受控）。",
+      "onSelectionChange": "选择改变时调用，参数为新的选择。",
+      "onRemove": "在每个标签项上显示移除按钮，并启用 Delete 和 Backspace 键。标签项会先缩小并淡出；请在此回调中将它从你的 items 中移除。",
+      "items": "标签项的数据，由函数形式的子元素渲染。每一项都需要 id，否则请为每个 Tag 提供 id。",
+      "children": "Tag 元素，或把一项数据映射为 Tag 的函数。",
+      "renderEmptyState": "没有标签项时代替它们显示的内容。",
+      "disabledKeys": "不能获得焦点、不能选择也不能移除的标签项。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 TagGroup 的其他所有属性。"
+    },
+    "Tag": {
+      "id": "在选择和移除中标识该标签项。",
+      "children": "标签。children 不是文本时，请提供 textValue。",
+      "icon": "标签前的图标，尺寸为 14 像素。",
+      "avatar": "标签前 20 像素的头像：可以是图片 URL，也可以是你自己的元素。",
+      "tone": "柔和底色，与 Badge 相同。选中的标签项始终为水蓝色。",
+      "textValue": "children 不是字符串时，供辅助技术和键入查找使用的纯文本标签。",
+      "isDisabled": "禁用该标签项。",
+      "className": "额外的类名。也接受 react-aria-components 中 Tag 的其他所有属性。"
+    }
+  }
+}

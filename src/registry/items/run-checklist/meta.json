@@ -2,7 +2,10 @@
   "name": "Run Checklist",
   "category": "ai",
   "description": "A collapsible checklist that shows how far an agent has got through a task with several steps.",
-  "preview": { "layout": "center", "height": 440 },
+  "preview": {
+    "layout": "center",
+    "height": 440
+  },
   "props": [
     {
       "component": "RunChecklist",
@@ -23,11 +26,31 @@
           "default": "true",
           "description": "Whether the steps are shown at first (uncontrolled)."
         },
-        { "name": "expanded", "type": "boolean", "description": "Whether the steps are shown (controlled)." },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "description": "Whether the steps are shown (controlled)."
+        },
         {
           "name": "onExpandedChange",
           "type": "(expanded: boolean) => void",
           "description": "Called when the collapse button is pressed."
+        },
+        {
+          "name": "summary",
+          "type": "ReactNode",
+          "description": "Replaces the count of steps left in the header, for example to say where a run stopped."
+        },
+        {
+          "name": "strikeDone",
+          "type": "boolean",
+          "default": "false",
+          "description": "Strikes through done steps as well as dimming them."
+        },
+        {
+          "name": "outcome",
+          "type": "\"running\" | \"done\" | \"stopped\"",
+          "description": "Turns the header ring into a run mark: a progress arc while running, a full ring with a check when done, and a small square when stopped. After a stop, steps that never ran stay dimmed."
         },
         {
           "name": "className",

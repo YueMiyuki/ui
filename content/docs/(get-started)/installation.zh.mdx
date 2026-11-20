@@ -1,0 +1,94 @@
+---
+title: 安装
+description: 用 shadcn CLI 添加组件，或手动复制。
+---
+
+每个组件都是一个文件，复制到你的项目后就归你所有。shadcn CLI 可以替你复制，你也可以手动复制。
+
+## 环境要求 [#requirements]
+
+- React 19，可以是 Next.js 或任何其他 React 19 应用。
+- Tailwind CSS v4。主题变量采用它的 CSS 优先配置方式，因此没有配置文件。
+- TypeScript，并让 `@/` 别名指向你的源码目录。
+
+## 使用 CLI 安装 [#cli]
+
+<Steps>
+<Step>
+
+### 初始化 shadcn [#set-up-shadcn]
+
+在你的应用中运行一次。它会创建 `components.json` 和 `cn()` 辅助函数，并在你的样式表中添加一套主题。
+
+```npm
+npx shadcn@latest init
+```
+
+</Step>
+<Step>
+
+### 添加注册表 [#registry]
+
+告诉 CLI 去哪里查找 `@miyuki-ui` 组件。
+
+<RegistryAdd />
+
+[使用 shadcn CLI](/zh/docs/shadcn-cli) 中展示了这条命令写入 `components.json` 的条目。
+
+</Step>
+<Step>
+
+### 添加组件 [#add-a-component]
+
+```npm
+npx shadcn@latest add @miyuki-ui/button
+```
+
+CLI 会把源码复制到 `components/miyuki-ui/`，安装它导入的软件包，并添加它用到的其他组件。
+
+</Step>
+</Steps>
+
+每个组件还会带上 `base`：shadcn 默认主题所缺少的几种颜色、缓动曲线和展示字体栈。它只添加这些内容，不会改动你自己的变量。完整色板请参见[主题](/zh/docs/theming)。
+
+### 不添加注册表条目 [#without-the-registry-entry]
+
+每个组件也都有自己的 URL，即使 `components.json` 中没有注册表也能使用。
+
+<AddByUrl slug="button" />
+
+## Next.js 中的日期和时间控件 [#nextjs-dates]
+
+[日期选择器](/zh/docs/components/date-picker)、[月历](/zh/docs/components/date-calendar) 和 [时间输入框](/zh/docs/components/time-field) 基于 React Aria 构建，渲染时会读取当天的日期。开启 Cache Components 后，Next.js 会在构建时预渲染页面，一旦有代码在 Suspense 边界之外读取时钟，就会报错并停止。请用 React 的 `<Suspense>` 分别包裹每个控件，并提供一个与控件尺寸相同的后备内容：这样 Next.js 会用后备内容占位来预渲染页面，控件则在浏览器加载页面时出现。这些控件的页面中给出了代码；我们的区块和模板凡是用到它们的，都已经包含了这个边界。
+
+## 手动复制 [#manual]
+
+<Steps>
+<Step>
+
+### 添加主题变量 [#add-the-theme-tokens]
+
+每个组件都从主题变量中读取颜色、圆角、阴影和字体。把[样式表](/zh/docs/theming#stylesheet)粘贴到你的全局 CSS 中，放在 `@import "tailwindcss";` 之后。
+
+</Step>
+<Step>
+
+### 添加 cn 辅助函数 [#add-the-cn-helper]
+
+组件通过 `cn()` 把自身的类名与你的类名合并。它需要两个小型软件包。
+
+```npm
+npm install clsx tailwind-merge
+```
+
+<UtilsSource />
+
+</Step>
+<Step>
+
+### 复制组件 [#copy-the-component]
+
+打开组件页面，在“安装”下选择**手动**。页面会列出需要添加的软件包、它用到的其他组件，以及每个文件和它应放置的路径。复制这些文件；如果你的别名不是 `@/`，请修改导入路径。
+
+</Step>
+</Steps>

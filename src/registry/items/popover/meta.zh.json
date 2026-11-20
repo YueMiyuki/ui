@@ -1,0 +1,30 @@
+{
+  "source": "93c6d484",
+  "name": "弹出层",
+  "description": "锚定在触发器旁的富内容，可带箭头，空间不足时会翻转。",
+  "demos": {
+    "default": "释义",
+    "form": "表单",
+    "placements": "位置"
+  },
+  "props": {
+    "PopoverTrigger": {
+      "children": "打开弹出层的按钮，然后是 Popover。",
+      "isOpen": "打开状态（受控）。非受控时使用 defaultOpen。",
+      "onOpenChange": "弹出层打开或关闭时调用。"
+    },
+    "Popover": {
+      "placement": "相对于触发器打开的位置，例如 \"top\"、\"right\"、\"bottom start\"。空间不足时会翻转到对侧。",
+      "offset": "与触发器之间的间距，单位为像素，已为箭头留出空间。",
+      "crossOffset": "沿触发器边缘的偏移量，单位为像素。",
+      "shouldFlip": "空间不足时翻转到另一侧。",
+      "isNonModal": "打开时页面其余部分仍可交互。",
+      "aria-label": "没有带 slot=\"title\" 的标题时为弹出层提供无障碍名称。未设置时使用触发器的标签。",
+      "children": "内容，可以包含 PopoverArrow。传入函数时会收到 close()。",
+      "className": "弹出层表面的额外类名，例如宽度。也接受 react-aria-components 中 Popover 的其他所有属性。"
+    },
+    "PopoverArrow": {
+      "className": "额外的类名。箭头使用弹出层的填充色和细线描边绘制，并会转向朝着触发器。"
+    }
+  }
+}

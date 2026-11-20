@@ -1,0 +1,41 @@
+{
+  "source": "20aa8e0a",
+  "name": "线条加载动画",
+  "description": "六个由直线笔画构成、使用当前颜色的小型加载指示器：均衡器、扫动、滑行、堆叠、十字和充电电池。",
+  "demos": {
+    "default": "默认",
+    "sizes": "尺寸与颜色"
+  },
+  "props": {
+    "EqualizerLoader": {
+      "size": "宽度和高度，单位为像素。五根竖条围绕中线各自按节拍起伏，像音量电平一样。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "SweepLoader": {
+      "size": "宽度和高度，单位为像素。一道波峰从左到右掠过一排九根细刻度线。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "SlideLoader": {
+      "size": "宽度和高度，单位为像素。一段水流穿过细线槽时逐渐拉长，并在末端聚成一颗水珠。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "StackLoader": {
+      "size": "宽度和高度，单位为像素。三条长短不一的线条沿堆叠向下依次传递各自的长度。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "CrossLoader": {
+      "size": "宽度和高度，单位为像素。加号旋转八分之一圈变成叉号，停顿后继续旋转。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "ChargeLoader": {
+      "size": "宽度和高度，单位为像素。四格电量依次充满电池，停留片刻后一起清空。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    }
+  }
+}

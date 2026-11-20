@@ -1,7 +1,12 @@
-import { RootProvider } from "fumadocs-ui/provider/next";
+import { RootProvider } from "fumadocs-ui/provider/base";
 import type { ReactNode } from "react";
-import { DOCS_HOME, sectionHref } from "@/site/docs/urls";
+import { docsPath, sectionHref } from "@/site/docs/urls";
+import { LOCALE_NAMES, LOCALES } from "@/site/i18n/config";
+import { SiteFramework } from "@/site/i18n/framework";
+import { getI18n } from "@/site/i18n/server";
 import { SiteIntent } from "@/site/intent";
+import { SiteSearchDialog } from "@/site/search-dialog";
+import { ThemeSync } from "@/site/theme-toggle";
 
 const settle = "cubic-bezier(0.22,1,0.36,1)";
 
@@ -19,27 +24,39 @@ const transitions = [
   "@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation-duration:0s!important;animation-delay:0s!important}}",
 ].join("");
 
-export function SiteProvider({ children }: { children: ReactNode }) {
+export async function SiteProvider({ children }: { children: ReactNode }) {
+  const { locale, t } = await getI18n();
   return (
-    <RootProvider
-      theme={{ enabled: false }}
-      search={{
-        links: [
-          ["Components", sectionHref("components")],
-          ["Templates", sectionHref("templates")],
-          ["Installation", `${DOCS_HOME}/installation`],
-          ["Theming", `${DOCS_HOME}/theming`],
-        ],
-      }}
-    >
-      <style href="miyuki-site-scroll" precedence="miyuki">
-        {"@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}"}
-      </style>
-      <style href="miyuki-site-transitions" precedence="miyuki">
-        {transitions}
-      </style>
-      <SiteIntent />
-      {children}
-    </RootProvider>
+    <SiteFramework>
+      <RootProvider
+        theme={{ enabled: false }}
+        i18n={{
+          locale,
+          defaultLanguage: "en",
+          hideLocale: "default-locale",
+          translations: t.fumadocs,
+          locales: LOCALES.map((code) => ({ locale: code, name: LOCALE_NAMES[code].label ?? LOCALE_NAMES[code].text })),
+        }}
+        search={{
+          SearchDialog: SiteSearchDialog,
+          links: [
+            [t.search.components, sectionHref("components", locale)],
+            [t.search.templates, sectionHref("templates", locale)],
+            [t.search.installation, docsPath(locale, "/installation")],
+            [t.search.theming, docsPath(locale, "/theming")],
+          ],
+        }}
+      >
+        <style href="miyuki-site-scroll" precedence="miyuki">
+          {"@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}"}
+        </style>
+        <style href="miyuki-site-transitions" precedence="miyuki">
+          {transitions}
+        </style>
+        <SiteIntent />
+        <ThemeSync />
+        {children}
+      </RootProvider>
+    </SiteFramework>
   );
 }

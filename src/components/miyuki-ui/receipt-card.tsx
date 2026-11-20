@@ -273,7 +273,7 @@ export function ReceiptCard({
         "relative isolate w-[300px] max-w-full",
         "[--miyuki-receipt-card-paper:color-mix(in_oklab,var(--card)_97%,var(--warning))] [--miyuki-receipt-card-ink:color-mix(in_oklab,var(--foreground)_92%,var(--chart-3))]",
         "dark:[--miyuki-receipt-card-paper:color-mix(in_oklab,var(--foreground)_88%,var(--warning))] dark:[--miyuki-receipt-card-ink:color-mix(in_oklab,var(--primary-foreground)_90%,var(--chart-3))]",
-        "[--miyuki-receipt-card-shade:oklch(0.42_0.09_250/0.16)] dark:[--miyuki-receipt-card-shade:oklch(0.05_0.02_250/0.55)]",
+        "[--miyuki-receipt-card-shade:oklch(0.42_0.09_250/0.16)] dark:[--miyuki-receipt-card-shade:oklch(0.05_0.02_250/0.55)] ink:[--miyuki-receipt-card-shade:oklch(0.05_0_0/0.55)]",
         className,
       )}
       style={style}
@@ -286,7 +286,7 @@ export function ReceiptCard({
         />
         <span
           aria-hidden="true"
-          className="absolute inset-x-3 bottom-2.5 h-[5px] rounded-full bg-foreground/80 shadow-[inset_0_1.5px_2px_oklch(0_0_0/0.5),0_1px_0_oklch(1_0_0/0.9)] dark:bg-[oklch(0.08_0.02_250)] dark:shadow-[inset_0_1.5px_2px_oklch(0_0_0/0.6),0_1px_0_oklch(1_0_0/0.08)]"
+          className="absolute inset-x-3 bottom-2.5 h-[5px] rounded-full bg-foreground/80 shadow-[inset_0_1.5px_2px_oklch(0_0_0/0.5),0_1px_0_oklch(1_0_0/0.9)] dark:bg-[oklch(0.08_0.02_250)] ink:bg-[oklch(0.08_0_0)] dark:shadow-[inset_0_1.5px_2px_oklch(0_0_0/0.6),0_1px_0_oklch(1_0_0/0.08)]"
         />
       </div>
       <div className="relative -mt-[7.5px] px-[18px] pb-8" style={{ clipPath: "inset(0 -48px -96px -48px)" }}>

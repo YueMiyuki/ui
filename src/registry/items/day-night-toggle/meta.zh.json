@@ -1,0 +1,19 @@
+{
+  "source": "442ed0a4",
+  "name": "昼夜开关",
+  "description": "绘制成小幅雪景的开关，太阳落到山脊之后，月亮升起，星星出现。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "DayNightToggle": {
+      "label": "开关右侧的可见标签。省略时开关的名称为 \"Night\"，除非你传入 aria-label。",
+      "isSelected": "为 true 时表示夜晚（受控）。非受控时使用 defaultSelected。",
+      "defaultSelected": "为 true 时初始为夜晚。",
+      "onChange": "调用时传入 true 表示夜晚，false 表示白天。开关本身从不改变页面主题。",
+      "size": "场景尺寸为 48×24、64×32 或 80×40 像素。",
+      "isDisabled": "禁用开关，并将其不透明度降到 50%。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 SwitchField 的其他所有属性。"
+    }
+  }
+}

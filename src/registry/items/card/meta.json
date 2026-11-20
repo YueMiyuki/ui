@@ -1,0 +1,197 @@
+{
+  "name": "Card",
+  "category": "display",
+  "description": "An everyday card with media, a header, content and a footer, which can also be a link or a selectable option.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "variants",
+      "title": "Variants"
+    },
+    {
+      "name": "linked",
+      "title": "Linked"
+    },
+    {
+      "name": "selectable",
+      "title": "Selectable"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 600
+  },
+  "props": [
+    {
+      "component": "Card",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"outline\" | \"muted\"",
+          "default": "\"default\"",
+          "description": "Default is a raised card with a hairline and a soft shadow. Outline keeps the hairline with no fill or shadow. Muted is a sunken well with no border or shadow."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Padding of the parts and the gap between them: 16 and 12 pixels, or 24 and 16."
+        },
+        {
+          "name": "selectable",
+          "type": "boolean",
+          "default": "false",
+          "description": "Makes the whole card a checkbox. Space or a click toggles it, and a round badge in the top corner fills with water when it is on. Keep the content simple: nothing else inside should be interactive."
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "description": "Whether a selectable card is on (controlled)."
+        },
+        {
+          "name": "defaultSelected",
+          "type": "boolean",
+          "default": "false",
+          "description": "Whether a selectable card starts on (uncontrolled)."
+        },
+        {
+          "name": "onSelectedChange",
+          "type": "(isSelected: boolean) => void",
+          "description": "Called when a selectable card is toggled."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables a selectable card and dims it to 50%."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Form field name of a selectable card."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Value submitted with the form when a selectable card is on."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the card. Also accepts every div prop. A selectable card takes its accessible name from its CardTitle unless you pass aria-label or aria-labelledby."
+        }
+      ]
+    },
+    {
+      "component": "CardHeader",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "CardTitle, then CardDescription under it, and an optional CardAction that sits in the top end corner."
+        }
+      ]
+    },
+    {
+      "component": "CardTitle",
+      "props": [
+        {
+          "name": "href",
+          "type": "string",
+          "description": "Turns the title into a link whose hit area covers the whole card. Hovering the card raises its shadow and colours the title; keyboard focus rings the whole card. Buttons inside the card stay clickable above the link."
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "description": "Link target, used with href."
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "description": "Link relationship, used with href."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Renders an h3 and accepts its props."
+        }
+      ]
+    },
+    {
+      "component": "CardDescription",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Muted text under the title; accepts every p prop."
+        }
+      ]
+    },
+    {
+      "component": "CardAction",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A small button or menu trigger in the header's top end corner, beside the title and aligned with its first line. The description runs the full width under both."
+        }
+      ]
+    },
+    {
+      "component": "CardContent",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The body of the card, padded to match the header; accepts every div prop."
+        }
+      ]
+    },
+    {
+      "component": "CardFooter",
+      "props": [
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "default": "false",
+          "description": "Adds a hairline across the top of the footer, with equal space above and below its content."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. A row with an 8 pixel gap; accepts every div prop."
+        }
+      ]
+    },
+    {
+      "component": "CardMedia",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "Image address. The image covers the box and is cropped to fit."
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Text alternative for the image. Leave it empty when the image is decoration."
+        },
+        {
+          "name": "aspect",
+          "type": "number | string",
+          "default": "\"16 / 9\"",
+          "description": "Aspect ratio of the box, as a number or a CSS ratio."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Anything else to show in the box, such as a video, when src is not set."
+        }
+      ]
+    }
+  ]
+}

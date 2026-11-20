@@ -1,0 +1,29 @@
+{
+  "source": "245ef5d4",
+  "name": "树形视图",
+  "description": "带引导线、键盘导航和选择功能的嵌套文件夹与文件。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "Tree": {
+      "aria-label": "树的无障碍名称。",
+      "selectionMode": "行是否可以选择，以及每次选择一行还是多行。",
+      "selectionBehavior": "replace：点击只选中该行，按住修饰键可追加选择。toggle：每次点击添加或取消选中。",
+      "selectedKeys": "选中行的 id（受控）。非受控时使用 defaultSelectedKeys。",
+      "onSelectionChange": "选择改变时调用。",
+      "expandedKeys": "展开的文件夹的 id（受控）。非受控时使用 defaultExpandedKeys。",
+      "onExpandedChange": "文件夹展开或折叠时调用。",
+      "onAction": "激活某一行时调用：按 Enter，或在可以选择时双击。",
+      "className": "额外的类名。也接受 react-aria-components 中 Tree 的其他所有属性。"
+    },
+    "TreeItem": {
+      "id": "在 selectedKeys 和 expandedKeys 中标识该行。",
+      "title": "行上显示的名称。其扩展名决定文件图标。",
+      "textValue": "用于键入查找和无障碍名称的文本。title 为字符串时默认使用 title。",
+      "icon": "替换文件夹或文件图标。",
+      "children": "嵌套的 TreeItem 元素。有子元素的行即为文件夹，点击该行时展开。",
+      "isDisabled": "该行不能被选中或展开。"
+    }
+  }
+}

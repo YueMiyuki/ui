@@ -1,0 +1,30 @@
+{
+  "source": "5f0dafa2",
+  "name": "飘雪轻提示",
+  "description": "像大片雪花一样从窗口顶部飘落的通知，会堆积在底部的雪堆上，关闭时融化消失。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "snowToast": {
+      "snowToast(message, options?)": "让一条消息落到雪堆上，并返回其 id。可以在任何地方调用，无论是否在 React 中。它会以 polite 方式播报给读屏软件。",
+      "snowToast.dismiss(id?)": "融化一条消息；不传 id 时融化全部消息。",
+      "options.title": "将 options 作为第一个参数传入时的消息内容。",
+      "options.description": "标题下方的一两行文字。",
+      "options.icon": "标题前 18 像素的图标，以水蓝色绘制。",
+      "options.action": "一个小按钮，例如“撤销”。按下它也会融化该消息。",
+      "options.duration": "从落到雪堆上开始计算，停留多少毫秒后融化。设为 Infinity 时会一直保留，直到被关闭。默认使用 SnowToaster 的 duration。",
+      "options.id": "复用某个 id 可以原地更新消息。",
+      "options.onDismiss": "消息开始融化时调用，无论是因为超时、按钮还是键盘。"
+    },
+    "SnowToaster": {
+      "position": "雪堆所在的位置。消息总是从窗口顶部落下。每个应用挂载一个。",
+      "duration": "消息融化前的默认毫秒数。指针悬停在雪堆上或雪堆内有焦点时，以及标签页隐藏时，计时会暂停。",
+      "visibleToasts": "雪堆上最多容纳的消息数。再有消息落下时，最底部最早的一条会融化。",
+      "gap": "雪堆上消息之间的间距。",
+      "offset": "与窗口边缘的距离。",
+      "label": "该区域的无障碍名称。按 Alt+T 将焦点移到最新的消息；按 Escape 或 Delete 融化获得焦点的消息。",
+      "className": "该区域的类名。"
+    }
+  }
+}

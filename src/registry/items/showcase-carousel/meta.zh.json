@@ -1,0 +1,18 @@
+{
+  "source": "ab99d4b8",
+  "name": "展示轮播",
+  "description": "当前幻灯片朝前、两侧相邻幻灯片向外转开的轮播。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "ShowcaseCarousel": {
+      "slides": "幻灯片。标题叠在图片上；action 通常是一个小按钮，只在当前幻灯片上显示。",
+      "defaultIndex": "最先显示的幻灯片。",
+      "onIndexChange": "另一张幻灯片转到前方时调用。",
+      "aria-label": "供辅助技术读取的轮播名称。",
+      "labels": "供辅助技术读取的文字，便于翻译。",
+      "className": "根元素的额外类名，根元素会填满父元素。也接受 section 的其他所有属性。"
+    }
+  }
+}

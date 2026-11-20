@@ -1,0 +1,21 @@
+{
+  "source": "cb4ff7e9",
+  "name": "解码文字",
+  "description": "以乱码字符开始、逐个字符还原为真实内容的文字。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "DecodeText": {
+      "text": "最终显示的文字。从一开始就完整提供给辅助技术。",
+      "revealDelayMs": "相邻两个字符锁定为真实字符之间间隔的毫秒数。空格会被跳过。",
+      "flipDelayMs": "尚未还原的字符每次变化之间间隔的毫秒数。",
+      "charset": "乱码取用的字符。",
+      "trigger": "立即开始、在一半文字进入视口时开始，或每次指针移入时重新打乱并再次还原。",
+      "encryptedClassName": "乱码字符的类名。默认为弱化样式。",
+      "revealedClassName": "已还原字符的类名。默认使用周围文字的颜色。",
+      "onDone": "所有字符还原完成时调用一次。",
+      "className": "外层 span 的类名。其他 span 属性会透传。"
+    }
+  }
+}

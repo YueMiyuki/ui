@@ -1,0 +1,28 @@
+{
+  "source": "132fea8d",
+  "name": "滑块",
+  "description": "用于单个值或范围的滑块，拖动时显示数值气泡，可选显示刻度标记。",
+  "demos": {
+    "default": "单个值",
+    "range": "范围"
+  },
+  "props": {
+    "Slider": {
+      "label": "轨道上方左侧的标签。",
+      "showValue": "在轨道上方右侧显示格式化后的值。",
+      "defaultValue": "非受控时的初始值。传入两个数字时为带两个手柄的范围。",
+      "value": "值（受控）。",
+      "onChange": "值变化过程中持续调用。",
+      "onChangeEnd": "拖动或按键结束时调用。",
+      "minValue": "最小值。",
+      "maxValue": "最大值。",
+      "step": "相邻值之间的步长。",
+      "formatOptions": "数值的格式，例如 { style: \"unit\", unit: \"meter\" } 或 { style: \"currency\", currency: \"JPY\" }。",
+      "marks": "在轨道下方绘制为小刻度的值。",
+      "size": "轨道粗 4 或 6 像素，手柄为 16 或 18 像素。",
+      "thumbLabels": "范围中两个手柄的无障碍名称。",
+      "isDisabled": "禁用滑块，并将其不透明度降到 50%。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 Slider 的其他所有属性。"
+    }
+  }
+}

@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { BASE_URL, checkServer, launchBrowser, watchPage } from "./lib/browser.mjs";
 import { readItems } from "./lib/items.mjs";
-import { THUMB_THEMES, THUMBS_DIR, THUMBS_MODULE, thumbPath, writeThumbsModule } from "./lib/thumbs.mjs";
+import { INK_THEME, THUMB_THEMES, THUMBS_DIR, THUMBS_MODULE, thumbPath, writeThumbsModule } from "./lib/thumbs.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = path.join(ROOT, "src");
@@ -17,9 +17,11 @@ const CLICK_WAIT = 500;
 const HELP = `Usage: node scripts/thumbs.mjs [<slug> ...] [options]   (or pnpm thumbs)
 
 Renders each item's first demo the way its gallery tile shows it, through
-${BASE_URL}/thumb/<slug>, and saves public/thumbs/<slug>.light.webp and
-<slug>.dark.webp at ${WIDTH}x${HEIGHT}. Then rewrites ${path.relative(ROOT, THUMBS_MODULE)},
-which tells the tiles which pictures exist. With no slugs it renders every item.
+${BASE_URL}/thumb/<slug>, and saves public/thumbs/<slug>.light.webp,
+<slug>.dark.webp (Night) and <slug>.ink.webp (Dark) at ${WIDTH}x${HEIGHT}. Then rewrites
+${path.relative(ROOT, THUMBS_MODULE)} and its ink companion, which tell the tiles which pictures
+exist. A tile with no ink picture shows the Night one under Dark. With no slugs it renders
+every item.
 
 An item's meta.json can ask for more: preview.settle (milliseconds) waits that long
 instead of --settle when it is longer, for slow entrances; preview.thumbClick (a CSS
@@ -30,7 +32,8 @@ so overlays fixed to the window land inside the picture.
 Options
   --missing          only items with no picture, or whose component, first demo or
                      meta.json is newer than the picture
-  --theme <t>        light, dark or both (default both)
+  --theme <t>        light, dark, ink, both (light and dark) or all (default all)
+  --skip <slugs>     leave these items out (comma-separated)
   --settle <ms>      time to let entrances finish after fonts and network (default 2000;
                      an item's preview.settle wins when it is longer)
   --jobs <n>         pages rendered at once (default 4)
@@ -41,7 +44,8 @@ Env: MIYUKI_URL (default http://localhost:3210).
 Examples
   node scripts/thumbs.mjs northern-lights
   node scripts/thumbs.mjs --missing
-  node scripts/thumbs.mjs typed-phrases --settle 5000`;
+  node scripts/thumbs.mjs typed-phrases --settle 5000
+  node scripts/thumbs.mjs --theme ink --skip coding-assistant`;
 
 function fail(message) {
   console.error(`thumbs: ${message}`);
@@ -49,7 +53,7 @@ function fail(message) {
 }
 
 function parseArgs(argv) {
-  const opts = { slugs: [], missing: false, theme: "both", settle: 2000, jobs: 4 };
+  const opts = { slugs: [], skip: [], missing: false, theme: "all", settle: 2000, jobs: 4 };
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     const value = () => {
@@ -69,6 +73,9 @@ function parseArgs(argv) {
       case "--theme":
         opts.theme = value();
         break;
+      case "--skip":
+        opts.skip.push(...value().split(",").filter(Boolean));
+        break;
       case "--settle":
         opts.settle = Number(value());
         break;
@@ -80,7 +87,8 @@ function parseArgs(argv) {
         opts.slugs.push(...arg.split(",").filter(Boolean));
     }
   }
-  if (!["light", "dark", "both"].includes(opts.theme)) fail("--theme must be light, dark or both");
+  if (!["light", "dark", "ink", "both", "all"].includes(opts.theme))
+    fail("--theme must be light, dark, ink, both or all");
   if (!Number.isFinite(opts.settle) || opts.settle < 0) fail("--settle must be a number of milliseconds");
   if (!Number.isInteger(opts.jobs) || opts.jobs < 1) fail("--jobs must be a whole number above 0");
   return opts;
@@ -138,9 +146,15 @@ async function capture(browser, item, theme, settle) {
   const context = await browser.newContext({
     viewport: clicks.length ? tile : { width: WIDTH * 2, height: HEIGHT * 2 },
     deviceScaleFactor: iframe ? 1 : 2,
-    colorScheme: theme,
+    colorScheme: theme === INK_THEME ? "dark" : theme,
     reducedMotion: "no-preference",
   });
+  if (theme === INK_THEME)
+    await context.addInitScript((value) => {
+      try {
+        localStorage.setItem("miyuki-theme", value);
+      } catch {}
+    }, INK_THEME);
   const page = await context.newPage();
   const seen = watchPage(page);
   try {
@@ -186,8 +200,11 @@ async function capture(browser, item, theme, settle) {
 
     const crashed = await crashText(target);
     if (crashed) throw new Error(crashed);
-    const dark = await target.evaluate(() => document.documentElement.classList.contains("dark"));
-    if (dark !== (theme === "dark")) throw new Error(`rendered in the ${dark ? "dark" : "light"} theme`);
+    const shown = await target.evaluate(() => {
+      const classes = document.documentElement.classList;
+      return classes.contains("dark") ? (classes.contains("ink") ? "ink" : "dark") : "light";
+    });
+    if (shown !== theme) throw new Error(`rendered in the ${shown} theme`);
 
     const png = await page.screenshot({
       clip: { x: 0, y: 0, ...(iframe ? { width: WIDTH * 2, height: HEIGHT * 2 } : { width: WIDTH, height: HEIGHT }) },
@@ -218,8 +235,13 @@ if (opts.slugs.length) {
   selected = opts.slugs.filter((slug) => bySlug.has(slug)).map((slug) => bySlug.get(slug));
   if (selected.length === 0) process.exit(1);
 }
+if (opts.skip.length) {
+  const skipped = new Set(opts.skip);
+  selected = selected.filter((item) => !skipped.has(item.slug));
+}
 
-const themes = opts.theme === "both" ? THUMB_THEMES : [opts.theme];
+const themes =
+  opts.theme === "both" ? THUMB_THEMES : opts.theme === "all" ? [...THUMB_THEMES, INK_THEME] : [opts.theme];
 const jobs = selected.flatMap((item) =>
   themes.filter((theme) => !opts.missing || isStale(item, theme)).map((theme) => ({ item, theme })),
 );
@@ -227,14 +249,17 @@ const jobs = selected.flatMap((item) =>
 fs.mkdirSync(THUMBS_DIR, { recursive: true });
 
 function finish() {
-  const { versions } = writeThumbsModule(catalogue.map((item) => item.slug));
+  const { versions, ink } = writeThumbsModule(catalogue.map((item) => item.slug));
   const files = fs.readdirSync(THUMBS_DIR).filter((f) => f.endsWith(".webp"));
   const bytes = files.reduce((sum, f) => sum + fs.statSync(path.join(THUMBS_DIR, f)).size, 0);
   const without = catalogue.filter((item) => !versions[item.slug]).map((item) => item.slug);
-  const orphans = [...new Set(files.map((f) => f.replace(/\.(light|dark)\.webp$/, "")))].filter((s) => !bySlug.has(s));
+  const orphans = [...new Set(files.map((f) => f.replace(/\.(light|dark|ink)\.webp$/, "")))].filter(
+    (s) => !bySlug.has(s),
+  );
   console.log(
     `public/thumbs: ${files.length} files, ${(bytes / 1024 / 1024).toFixed(1)} MB. ` +
-      `${Object.keys(versions).length} of ${catalogue.length} items have both pictures.`,
+      `${Object.keys(versions).length} of ${catalogue.length} items have light and Night pictures, ` +
+      `${Object.keys(ink).length} have a Dark picture.`,
   );
   if (without.length) console.log(`  without a picture (the tile shows the placeholder): ${list(without)}`);
   if (orphans.length) console.log(`  pictures for slugs no longer in the registry: ${list(orphans)}`);

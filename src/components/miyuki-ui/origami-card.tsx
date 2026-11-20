@@ -352,7 +352,7 @@ export function OrigamiCard({
 
   const { pw, ph, packet } = geo;
   const lightVars =
-    "[--miyuki-origami-card-dark:oklch(0.28_0.06_252)] dark:[--miyuki-origami-card-dark:oklch(0.08_0.03_252)] [--miyuki-origami-card-crease-dark:oklch(0.42_0.09_250/0.1)] [--miyuki-origami-card-crease-lit:oklch(1_0_0/0.75)] dark:[--miyuki-origami-card-crease-dark:oklch(0.2_0.05_250/0.14)] dark:[--miyuki-origami-card-crease-lit:oklch(1_0_0/0.28)]";
+    "[--miyuki-origami-card-dark:oklch(0.28_0.06_252)] dark:[--miyuki-origami-card-dark:oklch(0.08_0.03_252)] ink:[--miyuki-origami-card-dark:oklch(0.08_0_0)] [--miyuki-origami-card-crease-dark:oklch(0.42_0.09_250/0.1)] [--miyuki-origami-card-crease-lit:oklch(1_0_0/0.75)] dark:[--miyuki-origami-card-crease-dark:oklch(0.2_0.05_250/0.14)] ink:[--miyuki-origami-card-crease-dark:oklch(0.2_0_0/0.14)] dark:[--miyuki-origami-card-crease-lit:oklch(1_0_0/0.28)]";
   const inside: CSSProperties = { width, height: width };
   const creases = creaseImage(geo.creases);
   const insidePaper = (
@@ -384,7 +384,7 @@ export function OrigamiCard({
       <div
         ref={shadowRef}
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-0 rounded-[3px] shadow-[0_1px_2px_oklch(0.42_0.09_250/0.16),0_14px_28px_-10px_oklch(0.42_0.09_250/0.3)] dark:shadow-[0_1px_2px_oklch(0.02_0.02_250/0.6),0_14px_28px_-10px_oklch(0.02_0.02_250/0.8)]"
+        className="pointer-events-none absolute top-0 left-0 rounded-[3px] shadow-[0_1px_2px_oklch(0.42_0.09_250/0.16),0_14px_28px_-10px_oklch(0.42_0.09_250/0.3)] dark:shadow-[0_1px_2px_oklch(0.02_0.02_250/0.6),0_14px_28px_-10px_oklch(0.02_0.02_250/0.8)] ink:shadow-[0_1px_2px_oklch(0.02_0_0/0.6),0_14px_28px_-10px_oklch(0.02_0_0/0.8)]"
       />
       <div className="absolute inset-0" style={{ perspective: 1300 }}>
         <div
@@ -435,14 +435,14 @@ export function OrigamiCard({
                     className="absolute inset-0 grid place-items-center"
                     style={{ transform: `matrix(${geo.label.join(",")},0,0)` }}
                   >
-                    <span className="rounded-[2px] bg-[color-mix(in_oklab,var(--card)_94%,var(--warning))] px-2 py-1 text-xs font-medium whitespace-nowrap text-foreground shadow-[0_1px_1px_oklch(0.2_0.05_250/0.3)] dark:bg-[color-mix(in_oklab,var(--foreground)_90%,var(--background))] dark:text-primary-foreground">
+                    <span className="rounded-[2px] bg-[color-mix(in_oklab,var(--card)_94%,var(--warning))] px-2 py-1 text-xs font-medium whitespace-nowrap text-foreground shadow-[0_1px_1px_oklch(0.2_0.05_250/0.3)] ink:shadow-[0_1px_1px_oklch(0.2_0_0/0.3)] dark:bg-[color-mix(in_oklab,var(--foreground)_90%,var(--background))] dark:text-primary-foreground">
                       {label}
                     </span>
                   </div>
                 ) : null}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 shadow-[inset_0_0_0_0.5px_oklch(1_0_0/0.18),inset_0_-1.5px_2px_oklch(0.15_0.04_250/0.18),inset_1.5px_0_2px_oklch(1_0_0/0.12)]"
+                  className="absolute inset-0 shadow-[inset_0_0_0_0.5px_oklch(1_0_0/0.18),inset_0_-1.5px_2px_oklch(0.15_0.04_250/0.18),inset_1.5px_0_2px_oklch(1_0_0/0.12)] ink:shadow-[inset_0_0_0_0.5px_oklch(1_0_0/0.18),inset_0_-1.5px_2px_oklch(0.15_0_0/0.18),inset_1.5px_0_2px_oklch(1_0_0/0.12)]"
                 />
                 <div data-shade-back="" className="absolute inset-0 opacity-0" />
               </div>

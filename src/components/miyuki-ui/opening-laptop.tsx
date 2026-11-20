@@ -153,11 +153,11 @@ export function OpeningLaptop({ src, alt = "", title, badge, className, style, .
                   }}
                 >
                   <div
-                    className="absolute rounded-full bg-[oklch(0.32_0.03_250)]"
+                    className="absolute rounded-full bg-[oklch(0.32_0.03_250)] ink:bg-[oklch(0.32_0_0)]"
                     style={{ left: u(49.6), top: u(1.1), width: u(0.8), height: u(0.8) }}
                   />
                   <div
-                    className="absolute overflow-clip bg-[oklch(0.15_0.03_252)]"
+                    className="absolute overflow-clip bg-[oklch(0.15_0.03_252)] ink:bg-[oklch(0.15_0_0)]"
                     style={{
                       left: u(SCREEN.left),
                       top: u(SCREEN.top),

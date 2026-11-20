@@ -1128,8 +1128,8 @@ export function TrainWindow({
         className,
       )}
     >
-      <div className="relative min-h-0 flex-1 rounded-[30px] bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--border-strong)_80%,var(--card)),var(--border-strong))] p-[6px] shadow-[inset_0_1px_0_oklch(1_0_0/0.4),0_1px_2px_oklch(0.3_0.05_250/0.12)] dark:shadow-[inset_0_1px_0_oklch(1_0_0/0.08),0_1px_2px_oklch(0.05_0.02_250/0.5)]">
-        <div className="relative size-full overflow-clip rounded-[24px] bg-[oklch(0.2_0.02_260)] shadow-[0_0_0_2px_oklch(0.22_0.02_255/0.85)]">
+      <div className="relative min-h-0 flex-1 rounded-[30px] bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--border-strong)_80%,var(--card)),var(--border-strong))] p-[6px] shadow-[inset_0_1px_0_oklch(1_0_0/0.4),0_1px_2px_oklch(0.3_0.05_250/0.12)] dark:shadow-[inset_0_1px_0_oklch(1_0_0/0.08),0_1px_2px_oklch(0.05_0.02_250/0.5)] ink:shadow-[inset_0_1px_0_oklch(1_0_0/0.08),0_1px_2px_oklch(0.05_0_0/0.5)]">
+        <div className="relative size-full overflow-clip rounded-[24px] bg-[oklch(0.2_0.02_260)] ink:bg-[oklch(0.2_0_0)] shadow-[0_0_0_2px_oklch(0.22_0.02_255/0.85)] ink:shadow-[0_0_0_2px_oklch(0.22_0_0/0.85)]">
           <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0 size-full" />
           <div
             aria-hidden="true"
@@ -1137,20 +1137,20 @@ export function TrainWindow({
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-[24px] shadow-[inset_0_0_20px_oklch(0.15_0.03_255/0.45),inset_0_0_2px_oklch(0.15_0.03_255/0.6)]"
+            className="pointer-events-none absolute inset-0 rounded-[24px] shadow-[inset_0_0_20px_oklch(0.15_0.03_255/0.45),inset_0_0_2px_oklch(0.15_0.03_255/0.6)] ink:shadow-[inset_0_0_20px_oklch(0.15_0_0/0.45),inset_0_0_2px_oklch(0.15_0_0/0.6)]"
           />
           <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[17%]">
             <div className="absolute inset-0 bg-[repeating-linear-gradient(to_bottom,color-mix(in_oklab,var(--secondary)_92%,var(--foreground))_0,color-mix(in_oklab,var(--secondary)_92%,var(--foreground))_5px,color-mix(in_oklab,var(--secondary)_80%,var(--foreground))_5px,color-mix(in_oklab,var(--secondary)_80%,var(--foreground))_6px)] dark:bg-[repeating-linear-gradient(to_bottom,color-mix(in_oklab,var(--secondary)_90%,var(--background))_0,color-mix(in_oklab,var(--secondary)_90%,var(--background))_5px,color-mix(in_oklab,var(--secondary)_70%,var(--background))_5px,color-mix(in_oklab,var(--secondary)_70%,var(--background))_6px)]" />
-            <div className="absolute inset-x-0 -bottom-3 h-3 bg-linear-to-b from-[oklch(0.15_0.03_255/0.35)] to-transparent" />
+            <div className="absolute inset-x-0 -bottom-3 h-3 bg-linear-to-b from-[oklch(0.15_0.03_255/0.35)] ink:from-[oklch(0.15_0_0/0.35)] to-transparent" />
             <div className="absolute inset-x-0 bottom-0 h-[7px] bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--border-strong)_70%,var(--card)),var(--border-strong))] shadow-[inset_0_1px_0_oklch(1_0_0/0.25)]" />
-            <div className="absolute top-full left-1/2 h-[9px] w-7 -translate-x-1/2 rounded-b-md bg-(--border-strong) shadow-[0_1px_2px_oklch(0.2_0.04_250/0.3)]" />
+            <div className="absolute top-full left-1/2 h-[9px] w-7 -translate-x-1/2 rounded-b-md bg-(--border-strong) shadow-[0_1px_2px_oklch(0.2_0.04_250/0.3)] ink:shadow-[0_1px_2px_oklch(0.2_0_0/0.3)]" />
           </div>
           {children ? <div className="absolute inset-0">{children}</div> : null}
         </div>
       </div>
       <div className="relative z-10 -mx-[2.5%] mt-[-2px] h-[11%] min-h-9 shrink-0">
         <div className="absolute inset-x-0 top-0 h-[32%] rounded-t-[6px] bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--card)_72%,var(--border-strong)),var(--card))] shadow-[inset_0_1px_0_oklch(1_0_0/0.5)] dark:bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--card)_80%,var(--background)),color-mix(in_oklab,var(--card)_80%,var(--foreground)))] dark:shadow-[inset_0_1px_0_oklch(1_0_0/0.06)]" />
-        <div className="absolute inset-x-0 top-[32%] bottom-0 flex items-center rounded-b-[5px] bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--card)_86%,var(--border-strong)),color-mix(in_oklab,var(--card)_74%,var(--border-strong)))] px-[3.5%] shadow-[0_8px_14px_-6px_oklch(0.25_0.05_250/0.35)] dark:bg-[linear-gradient(to_bottom,var(--card),color-mix(in_oklab,var(--card)_85%,var(--background)))] dark:shadow-[0_8px_14px_-6px_oklch(0.03_0.02_250/0.7)]">
+        <div className="absolute inset-x-0 top-[32%] bottom-0 flex items-center rounded-b-[5px] bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--card)_86%,var(--border-strong)),color-mix(in_oklab,var(--card)_74%,var(--border-strong)))] px-[3.5%] shadow-[0_8px_14px_-6px_oklch(0.25_0.05_250/0.35)] dark:bg-[linear-gradient(to_bottom,var(--card),color-mix(in_oklab,var(--card)_85%,var(--background)))] dark:shadow-[0_8px_14px_-6px_oklch(0.03_0.02_250/0.7)] ink:shadow-[0_8px_14px_-6px_oklch(0.03_0_0/0.7)]">
           {caption ? (
             <div className="min-w-0 truncate text-xs font-medium text-muted-foreground tabular-nums">{caption}</div>
           ) : null}

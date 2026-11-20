@@ -1,0 +1,20 @@
+{
+  "source": "a14c6425",
+  "name": "纸飞机发送",
+  "description": "发送按钮：图标折成纸飞机，沿虚线轨迹飞出，promise 等待期间会盘旋。",
+  "demos": {
+    "default": "默认",
+    "states": "即时、已发送与失败"
+  },
+  "props": {
+    "PaperPlaneSend": {
+      "onPress": "通过鼠标、触摸或键盘按下时调用。返回 promise 时，纸飞机会一直盘旋直到 promise 完成：promise 兑现时飞走，被拒绝时滑翔回到原位。",
+      "children": "空闲状态的标签。",
+      "labels": "idle 会替换 children。其余标签依次显示，并会播报给读屏软件。按钮宽度按最宽的标签保持不变，因此不会跳动。",
+      "variant": "墨色、水蓝色或卡片样式，与 Button 相同。",
+      "size": "高度为 32、36 或 44 像素，与 Button 相同。",
+      "isDisabled": "禁用按钮。",
+      "className": "额外的类名，通过 cn() 合并。也接受 react-aria-components 中 Button 的其他所有属性。发送期间按钮会设置 aria-busy。"
+    }
+  }
+}

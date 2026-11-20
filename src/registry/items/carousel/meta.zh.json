@@ -1,0 +1,24 @@
+{
+  "source": "7276138b",
+  "name": "轮播",
+  "description": "可滑动浏览的一排卡片，带吸附效果、圆形箭头按钮和圆点指示。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "Carousel": {
+      "children": "CarouselItem 元素。",
+      "slidesPerView": "同时可见的幻灯片数量。按断点设置时，每个值从对应的屏幕宽度起生效。",
+      "gap": "幻灯片之间的间距，单位为像素。",
+      "showArrows": "轨道下方的圆形上一张和下一张按钮。到达两端时会被禁用。",
+      "showDots": "轨道下方每个位置一个圆点；滚动时当前圆点会拉长成水蓝色胶囊。",
+      "aria-label": "为辅助技术提供的轮播名称。",
+      "labels": "供辅助技术读取的文字，便于翻译。",
+      "className": "根元素的额外类名。也接受 section 的其他所有属性。"
+    },
+    "CarouselItem": {
+      "children": "幻灯片的内容。",
+      "className": "额外的类名。也接受 div 的其他所有属性。"
+    }
+  }
+}

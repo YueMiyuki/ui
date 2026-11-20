@@ -1,0 +1,25 @@
+{
+  "source": "22fb298e",
+  "name": "季节定价",
+  "description": "季节切换控件下方并排的三种通票，切换季节时价格会滚动到新的数字。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "SeasonPricing": {
+      "plans": "各种通票，宽度达到 672 像素起并排显示，更窄时上下堆叠。每项包含 id、name、可选的 description、按季节 id 列出的 prices、价格下方可选的 per 说明行、features、操作按钮文字 action 以及 recommended。各通票的行彼此对齐：名称、价格、列表和操作按钮。",
+      "plans[].recommended": "用水蓝色顶边和一个简短标签标记该通票；传入字符串会替换标签文字。该通票与其他通票尺寸相同，它的操作按钮变为水蓝色按钮。",
+      "seasons": "季节切换控件中的选项。所选季节的日期显示在切换控件下方，并在改变时播报。",
+      "title": "左上角的标题，使用展示字体。",
+      "description": "标题下方的一段文字。",
+      "value": "所选季节的 id（受控）。",
+      "defaultValue": "初始选中的季节（非受控）。",
+      "onValueChange": "切换季节时以季节 id 为参数调用。每个价格的每一位数字都会滚动到新的数字，涨价时向上滚动，降价时向下滚动。",
+      "onChoose": "按下某个通票的操作按钮时调用。",
+      "currency": "价格使用的 ISO 货币代码。",
+      "locale": "格式化价格时使用的区域设置。",
+      "children": "通票下方的小字说明，例如日期和条款。",
+      "className": "section 元素的类名。其他 section 属性会透传。"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source": "8cb2a571",
+  "name": "分段控件",
+  "description": "一排选项，胶囊形指示块会滑动到选中的那一项。",
+  "demos": {
+    "default": "默认",
+    "icons": "带图标"
+  },
+  "props": {
+    "SegmentedControl": {
+      "size": "分段高度为 28 或 32 像素。",
+      "fullWidth": "拉伸至容器宽度，各分段等宽。",
+      "selectedKeys": "所选分段的 id，以只含一项的数组传入（受控）。",
+      "defaultSelectedKeys": "初始选中的分段（非受控）。",
+      "onSelectionChange": "调用时传入新选中的 id。始终有一个分段处于选中状态。",
+      "isDisabled": "禁用所有分段。",
+      "className": "轨道的额外类名。也接受 react-aria-components 中 ToggleButtonGroup 的其他所有属性；请为它设置 aria-label。"
+    },
+    "Segment": {
+      "id": "在 selectedKeys 中标识该分段。",
+      "children": "文字，可在前面加一个 lucide 图标。只有图标的分段需要设置 aria-label。",
+      "isDisabled": "禁用此分段。"
+    }
+  }
+}

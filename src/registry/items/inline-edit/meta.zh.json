@@ -1,0 +1,27 @@
+{
+  "source": "641c78f3",
+  "name": "行内编辑",
+  "description": "点击后原地变成输入框的文字，按 Enter 或点击别处即可保存。",
+  "demos": {
+    "default": "页面头部",
+    "list": "重命名列表行"
+  },
+  "props": {
+    "InlineEdit": {
+      "value": "已保存的文本（受控）。非受控时使用 defaultValue。",
+      "defaultValue": "初始的已保存文本。",
+      "onChange": "保存成功后调用，参数为新的文本。输入过程中不会调用。",
+      "onSave": "用户保存修改后的值时调用。返回 promise 时，输入框会保持只读并显示加载指示器，直到它完成；promise 被拒绝时，输入框保持打开，并在下方显示该错误的信息。文本未改变时不会调用。",
+      "onCancel": "通过 Escape、取消按钮，或在 submitOnBlur 为 false 时因失去焦点而放弃编辑时调用。",
+      "validate": "保存前运行。返回一条信息可让输入框保持打开，并将这条信息作为错误显示。",
+      "placeholder": "值为空时，在非编辑状态下显示的弱化文字；输入框为空时也会显示。",
+      "as": "渲染的元素，非编辑状态和编辑时都使用它。文字和输入框会继承它的字体，所以请用 className 设置样式。",
+      "multiline": "在会自动增高的 textarea 中编辑。Enter 换行；⌘Enter 或 Ctrl+Enter 保存。",
+      "submitOnBlur": "焦点离开输入框时保存。为 false 时，离开输入框会取消编辑。",
+      "showButtons": "在输入框后添加小的保存和取消按钮。",
+      "label": "输入框的无障碍名称。非编辑状态下的文字是一个按钮，名称为 \"Edit\" 加上该标签。",
+      "isDisabled": "只显示文字，没有悬停底色、铅笔图标和按钮。",
+      "className": "根元素的类名，例如字号和字重。也接受该元素的其他 HTML 属性。"
+    }
+  }
+}

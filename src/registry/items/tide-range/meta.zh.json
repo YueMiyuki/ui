@@ -1,0 +1,25 @@
+{
+  "source": "d6e03849",
+  "name": "潮汐范围滑块",
+  "description": "绘制成一条流动水带的双手柄范围滑块，手柄是上下浮动的浮标，两个浮标之间的水更深。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "TideRange": {
+      "label": "水面上方的标签。",
+      "value": "范围（受控）。",
+      "defaultValue": "非受控时的初始范围。",
+      "onChange": "浮标移动过程中持续调用。",
+      "onChangeEnd": "拖动或按键结束时调用。",
+      "minValue": "左端的值。",
+      "maxValue": "右端的值。",
+      "step": "相邻值之间的步长。",
+      "formatOptions": "数值小旗和刻度中数值的格式，例如 { style: \"unit\", unit: \"meter\" }。",
+      "thumbLabels": "两个浮标的无障碍名称。",
+      "color": "水的颜色。可以是任意 CSS 颜色或主题变量。",
+      "isDisabled": "禁用滑块，并将其不透明度降到 50%。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 Slider 的其他所有属性。"
+    }
+  }
+}

@@ -79,7 +79,7 @@ function topLevelStatements(css: string): string[] {
   return out.filter(Boolean);
 }
 
-const siteOnly = /@import|fd-|#nd-|\.prose\b/;
+const siteOnly = /@import|fd-|#nd-|\.prose\b|:lang\(/;
 
 export async function readThemeTokens(): Promise<{ code: string; html: string }> {
   "use cache";

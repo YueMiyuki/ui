@@ -1,0 +1,42 @@
+{
+  "source": "1dfc6b55",
+  "name": "抽屉",
+  "description": "从窗口任意一边滑入的面板，底部面板可以向下拖动来关闭。",
+  "demos": {
+    "default": "筛选",
+    "bottom": "底部面板",
+    "left": "导航",
+    "top": "从顶部滑入"
+  },
+  "props": {
+    "DrawerTrigger": {
+      "children": "打开抽屉的按钮，然后是 Drawer。",
+      "isOpen": "打开状态（受控）。非受控时使用 defaultOpen。",
+      "onOpenChange": "抽屉打开或关闭时调用。"
+    },
+    "Drawer": {
+      "side": "滑入时所在的边。左右两侧的面板宽 380 像素、与窗口等高；bottom 为带拖动手柄的底部面板，可向下拖动来关闭。",
+      "isDismissable": "点击遮罩层时关闭。除非设置了 isKeyboardDismissDisabled，否则按 Escape 总会关闭。",
+      "backdropBlur": "模糊遮罩层后面的页面。默认关闭：只要后面有内容在变化，浏览器就会每一帧重绘模糊效果，在大型页面上会卡顿，在 Firefox 中尤其明显。",
+      "closeButton": "在顶部角落显示关闭按钮。",
+      "children": "DrawerHeader、DrawerBody 和 DrawerFooter。传入函数时会收到 close()。任何带 slot=\"close\" 的按钮也会关闭抽屉。",
+      "isOpen": "不配合 DrawerTrigger 使用时的打开状态。",
+      "onOpenChange": "不配合 DrawerTrigger 使用时，在打开状态改变时调用。",
+      "aria-label": "没有 DrawerTitle 时为抽屉提供无障碍名称。",
+      "className": "面板的类名。",
+      "overlayClassName": "铺满窗口、承载遮罩层和面板的那一层的类名。"
+    },
+    "DrawerHeader": {
+      "className": "额外的类名。主体滚动时头部保持不动；在底部面板上，头部也可以用来拖动。"
+    },
+    "DrawerTitle": {
+      "children": "抽屉的名称。为对话框提供无障碍名称。"
+    },
+    "DrawerBody": {
+      "className": "额外的类名。在头部和底部之间滚动，还有更多内容的一侧会显示细线。"
+    },
+    "DrawerFooter": {
+      "className": "额外的类名。操作按钮靠末端对齐；主要操作放在最后。"
+    }
+  }
+}

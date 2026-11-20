@@ -1,0 +1,35 @@
+{
+  "source": "1d128b15",
+  "name": "登录卡片",
+  "description": "登录和注册卡片，带有校验的输入框、显示密码按钮和社交账号登录。",
+  "demos": {
+    "default": "登录",
+    "sign-up": "注册"
+  },
+  "props": {
+    "SignInCard": {
+      "onSubmit": "所有输入框都有效后，以表单值为参数调用。返回 promise 时，按钮上显示加载指示器，并在 promise 完成前禁用表单。",
+      "providers": "分隔线下方的社交账号登录按钮。只有一个时显示完整标签，两个时并排显示名称，三个及以上时只显示标志。传入 [] 则不显示。",
+      "onProvider": "按下社交账号按钮时调用。",
+      "onSwitch": "点击页脚中的“Create one”链接时调用。未提供时隐藏页脚。",
+      "onForgotPassword": "点击“Forgot password?”链接时调用。",
+      "title": "标题，使用展示字体。",
+      "description": "标题下方的一行弱化文字。",
+      "logo": "显示在标题上方的标志。",
+      "submitLabel": "主按钮的标签。",
+      "className": "卡片的类名。也接受 div 的其他所有属性。"
+    },
+    "SignUpCard": {
+      "onSubmit": "所有输入框都有效后，以表单值为参数调用。返回 promise 时，按钮上显示加载指示器，并在 promise 完成前禁用表单。",
+      "providers": "分隔线下方的社交账号注册按钮。传入 [] 则不显示。",
+      "onProvider": "按下社交账号按钮时调用。",
+      "onSwitch": "点击页脚中的“Sign in”链接时调用。未提供时隐藏页脚。",
+      "minPasswordLength": "允许的最短密码长度，也会写在输入框下方的提示中。",
+      "title": "标题，使用展示字体。",
+      "description": "标题下方的一行弱化文字。",
+      "logo": "显示在标题上方的标志。",
+      "submitLabel": "主按钮的标签。",
+      "className": "卡片的类名。也接受 div 的其他所有属性。"
+    }
+  }
+}

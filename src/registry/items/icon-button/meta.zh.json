@@ -1,0 +1,20 @@
+{
+  "source": "314a3b3e",
+  "name": "图标按钮",
+  "description": "只含图标的方形按钮，具有与按钮相同的六种视觉权重和三种尺寸，并支持等待状态。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "IconButton": {
+      "aria-label": "必填。无障碍名称，因为按钮没有可见文字。",
+      "children": "图标。尺寸为 16 像素，大尺寸时为 18 像素。",
+      "variant": "视觉权重，取值与 Button 相同。",
+      "size": "边长为 32、36 或 44 像素的正方形。",
+      "isPending": "将图标换成加载指示器，设置 aria-busy，并且不再响应按下。",
+      "isDisabled": "禁用按钮。",
+      "onPress": "通过鼠标、触摸或键盘按下按钮时调用。",
+      "className": "额外的类名，通过 cn() 合并。也接受 react-aria-components 中 Button 除 children 外的其他所有属性。"
+    }
+  }
+}

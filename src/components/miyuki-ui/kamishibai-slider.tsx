@@ -199,12 +199,12 @@ export function KamishibaiSlider({
           role="group"
           aria-roledescription="sheet"
           aria-label={`${target + 1} of ${slides.length}: ${slides[target]?.alt ?? slides[target]?.caption ?? ""}`}
-          className="relative aspect-[4/3] w-full rounded-[5px] shadow-[0_2px_4px_oklch(0.42_0.09_250/0.12),0_24px_48px_-16px_oklch(0.42_0.09_250/0.38)] outline-none [transform-style:preserve-3d] focus-visible:ring-[3px] focus-visible:ring-ring dark:shadow-[0_2px_4px_oklch(0.05_0.02_250/0.5),0_28px_52px_-16px_oklch(0.04_0.02_250/0.8)] [--t:clamp(12px,4cqw,22px)]"
+          className="relative aspect-[4/3] w-full rounded-[5px] shadow-[0_2px_4px_oklch(0.42_0.09_250/0.12),0_24px_48px_-16px_oklch(0.42_0.09_250/0.38)] outline-none [transform-style:preserve-3d] focus-visible:ring-[3px] focus-visible:ring-ring dark:shadow-[0_2px_4px_oklch(0.05_0.02_250/0.5),0_28px_52px_-16px_oklch(0.04_0.02_250/0.8)] ink:shadow-[0_2px_4px_oklch(0.05_0_0/0.5),0_28px_52px_-16px_oklch(0.04_0_0/0.8)] [--t:clamp(12px,4cqw,22px)]"
         >
           <Door side="left" />
           <Door side="right" />
           <Door side="top" />
-          <div className="absolute inset-(--t) overflow-hidden bg-[oklch(0.22_0.03_250)]">
+          <div className="absolute inset-(--t) overflow-hidden bg-[oklch(0.22_0.03_250)] ink:bg-[oklch(0.22_0_0)]">
             {slides[base] ? (
               <img
                 key={`base-${base}`}
@@ -233,7 +233,7 @@ export function KamishibaiSlider({
               >
                 <motion.span
                   aria-hidden="true"
-                  className="absolute inset-y-0 right-full w-[11%] bg-linear-to-l from-[oklch(0.2_0.06_255/0.42)] via-[oklch(0.2_0.06_255/0.12)] to-transparent dark:from-[oklch(0.05_0.03_255/0.6)]"
+                  className="absolute inset-y-0 right-full w-[11%] bg-linear-to-l from-[oklch(0.2_0.06_255/0.42)] via-[oklch(0.2_0.06_255/0.12)] ink:via-[oklch(0.2_0_0/0.12)] to-transparent dark:from-[oklch(0.05_0.03_255/0.6)] ink:from-[oklch(0.05_0_0/0.6)]"
                   style={{ opacity: shadowOpacity }}
                 />
                 <img
@@ -249,7 +249,7 @@ export function KamishibaiSlider({
                 />
                 <motion.span
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,oklch(1_0_0/0.3),oklch(1_0_0/0.06)_22%,transparent_45%,oklch(0.25_0.05_255/0.12)_100%)]"
+                  className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,oklch(1_0_0/0.3),oklch(1_0_0/0.06)_22%,transparent_45%,oklch(0.25_0.05_255/0.12)_100%)] ink:bg-[linear-gradient(90deg,oklch(1_0_0/0.3),oklch(1_0_0/0.06)_22%,transparent_45%,oklch(0.25_0_0/0.12)_100%)]"
                   style={{ opacity: lift }}
                 />
                 <span aria-hidden="true" className="absolute inset-y-0 left-0 w-px bg-[oklch(1_0_0/0.55)]" />

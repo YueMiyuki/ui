@@ -956,8 +956,8 @@ export function HangingMobile({
         "dark:[--miyuki-hanging-mobile-wire:color-mix(in_oklab,var(--foreground)_76%,var(--background))]",
         "[--miyuki-hanging-mobile-thread:color-mix(in_oklab,var(--foreground)_44%,var(--background))]",
         "dark:[--miyuki-hanging-mobile-thread:color-mix(in_oklab,var(--foreground)_40%,var(--background))]",
-        "[--miyuki-hanging-mobile-shadow:oklch(0.4_0.09_252)] dark:[--miyuki-hanging-mobile-shadow:oklch(0.08_0.02_252)]",
-        "[--miyuki-hanging-mobile-shade:oklch(0.28_0.07_256)] dark:[--miyuki-hanging-mobile-shade:oklch(0.06_0.03_256)]",
+        "[--miyuki-hanging-mobile-shadow:oklch(0.4_0.09_252)] dark:[--miyuki-hanging-mobile-shadow:oklch(0.08_0.02_252)] ink:[--miyuki-hanging-mobile-shadow:oklch(0.08_0_0)]",
+        "[--miyuki-hanging-mobile-shade:oklch(0.28_0.07_256)] dark:[--miyuki-hanging-mobile-shade:oklch(0.06_0.03_256)] ink:[--miyuki-hanging-mobile-shade:oklch(0.06_0_0)]",
         className,
       )}
       style={{ maxWidth: width, aspectRatio: `${width} / ${height}`, ...style }}

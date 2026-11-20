@@ -1,0 +1,45 @@
+{
+  "source": "4422965a",
+  "name": "文字加载动画",
+  "description": "六个由文字构成、使用当前颜色的小型加载指示器：自动打字的单词、对话气泡、滚动的字母、文本选区、段落和秒数计数器。",
+  "demos": {
+    "default": "默认",
+    "sizes": "尺寸与颜色",
+    "text": "自定义文字"
+  },
+  "props": {
+    "TypingLoader": {
+      "text": "在光标后逐字打出、停留片刻后又被删除的单词。始终保留其完整宽度，周围的内容不会移动。",
+      "size": "行高，单位为像素。等宽文字的字号约为行高的 0.6 倍。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"；可见的字母对读屏软件隐藏。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "BubbleLoader": {
+      "size": "宽高，单位为像素。对话气泡中的三个圆点依次升起并变亮。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "LetterRollLoader": {
+      "text": "在一个字母宽的窗口中向上滚动的字母。空格会被跳过。",
+      "size": "行高，单位为像素。字母的字号约为行高的 0.6 倍。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "SelectionLoader": {
+      "text": "一个短单词。光标从上面扫过并留下选区，随后选区再次收拢。",
+      "size": "行高，单位为像素。单词的字号约为行高的 0.6 倍。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "ParagraphLoader": {
+      "size": "宽高，单位为像素。一道光从上到下扫过段落的三行。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "SecondsLoader": {
+      "size": "行高，单位为像素。两位数字统计自出现以来的秒数，变化时向上滚动，到 60 时归零。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    }
+  }
+}

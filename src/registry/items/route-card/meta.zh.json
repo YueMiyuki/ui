@@ -1,0 +1,23 @@
+{
+  "source": "c5d87d76",
+  "name": "路线卡片",
+  "description": "一目了然的路线卡片：等高线地图上绘制的路线、路线数据、可让圆点沿地图移动的紧凑海拔剖面图，以及收藏和 GPX 操作。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "RouteCard": {
+      "route": "路线数据：name、region、distance（千米）、ascent 和 descent（米）、time（文本，例如“9 小时 40 分钟”）、grade（{ label, level }，level 为 1–5，显示为五个小竖条）、points、waypoints，以及可选的 mapKm 和 north。",
+      "route.points": "按顺序排列的轨迹点。x 和 y 以面板尺寸的比例确定点在地图上的位置，面板保持 21:11 的比例；km 是沿路线的距离，m 是海拔。提供 lat 和 lon 时，GPX 下载文件由它们生成。",
+      "route.waypoints": "路线上带名称的地点。山峰在地图上显示为小三角形；每个路点都会在剖面图上显示一个圆点，并在地图上显示标签，除非 label 为 false。游标经过路点时，读数会显示该路点的名称。",
+      "route.mapKm": "地图面板横跨的千米数。提供时会在角落绘制比例尺。",
+      "route.north": "地图上北方的方向，以从正上方顺时针计算的度数表示，用于指北针。",
+      "map": "地图面板的图像 URL，绘制在路线下方。深色主题下会被调暗。",
+      "saved": "Save 切换按钮的收藏状态（受控）。",
+      "defaultSaved": "非受控时的初始收藏状态。",
+      "onSave": "切换 Save 时调用。",
+      "onDownload": "点击 Download GPX 时调用，参数为由轨迹点生成的 GPX 1.1 文档（没有坐标时为 null）。未提供时，卡片会自行将文件保存为 <route-name>.gpx。",
+      "className": "卡片的类名。在剖面图上悬停、触摸或按方向键，会让圆点沿地图上的路线移动。其他 article 属性会透传。"
+    }
+  }
+}

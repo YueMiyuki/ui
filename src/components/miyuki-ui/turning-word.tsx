@@ -134,7 +134,7 @@ export function TurningWord({
         className={cn(
           "inline-block rounded-lg bg-muted px-3 align-baseline [clip-path:inset(0_round_var(--radius-lg,10px))]",
           "shadow-[inset_0_1px_2px_oklch(0.42_0.09_250/0.16),inset_0_0_0_1px_oklch(0.42_0.09_250/0.06)]",
-          "dark:shadow-[inset_0_1px_3px_oklch(0.05_0.02_250/0.7),inset_0_0_0_1px_oklch(0.05_0.02_250/0.35)]",
+          "dark:shadow-[inset_0_1px_3px_oklch(0.05_0.02_250/0.7),inset_0_0_0_1px_oklch(0.05_0.02_250/0.35)] ink:shadow-[inset_0_1px_3px_oklch(0.05_0_0/0.7),inset_0_0_0_1px_oklch(0.05_0_0/0.35)]",
         )}
       >
         <motion.span

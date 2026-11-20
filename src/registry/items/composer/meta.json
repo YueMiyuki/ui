@@ -1,0 +1,135 @@
+{
+  "name": "Composer",
+  "category": "inputs",
+  "description": "A box for writing a message or a comment, with Markdown formatting, mentions, attached files and a send button.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Reply in a thread"
+    },
+    {
+      "name": "attachments",
+      "title": "Attachments"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 520
+  },
+  "props": [
+    {
+      "component": "Composer",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The text, when controlled."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "default": "\"\"",
+          "description": "The starting text, when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string) => void",
+          "description": "Called on every edit, including formatting and mentions."
+        },
+        {
+          "name": "files",
+          "type": "ComposerFile[]",
+          "description": "Attached files, when controlled. Each is { id, name, size, type?, src?, file? }: size in bytes, src a thumbnail address for images, file the picked File when it came from the user."
+        },
+        {
+          "name": "defaultFiles",
+          "type": "ComposerFile[]",
+          "default": "[]",
+          "description": "The starting files, when uncontrolled."
+        },
+        {
+          "name": "onFilesChange",
+          "type": "(files: ComposerFile[]) => void",
+          "description": "Called when files are attached, dropped or removed."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Write a message…\"",
+          "description": "Hint shown while the text is empty."
+        },
+        {
+          "name": "onSubmit",
+          "type": "(value: string, files: ComposerFile[]) => void | Promise<unknown>",
+          "description": "Called on send. If it returns a promise, the send button shows a spinner until it settles; the text and files clear when it resolves and stay when it rejects."
+        },
+        {
+          "name": "submitOn",
+          "type": "\"enter\" | \"mod-enter\"",
+          "default": "\"enter\"",
+          "description": "Enter sends and Shift+Enter starts a line, or Command/Ctrl+Enter sends and Enter starts a line. Nothing is sent while an input method is composing."
+        },
+        {
+          "name": "isPending",
+          "type": "boolean",
+          "description": "Controls the sending state yourself. Overrides the state that a returned promise drives."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the text, the tools and sending, and dims the box to 50%."
+        },
+        {
+          "name": "maxLength",
+          "type": "number",
+          "description": "Most characters allowed. Shows a count beside the send button that turns yuzu near the limit and camellia at it."
+        },
+        {
+          "name": "minRows",
+          "type": "number",
+          "default": "1",
+          "description": "Rows of text shown when empty."
+        },
+        {
+          "name": "maxRows",
+          "type": "number",
+          "default": "8",
+          "description": "Rows the text grows to before it scrolls."
+        },
+        {
+          "name": "tools",
+          "type": "(\"attach\" | \"bold\" | \"italic\" | \"link\" | \"mention\")[]",
+          "default": "[\"attach\", \"bold\", \"italic\", \"link\", \"mention\"]",
+          "description": "Toolbar buttons, in this order. Bold, italic and link wrap the selection in Markdown (also Command/Ctrl+B, I and K). Without attach, files cannot be dropped either."
+        },
+        {
+          "name": "mentions",
+          "type": "{ id: string; name: string; avatar?: string }[]",
+          "description": "People who can be mentioned. Typing @ and letters opens a list of matches above the box; Up and Down move, Enter or Tab inserts \"@Name \", Escape closes. Without it the mention tool is hidden."
+        },
+        {
+          "name": "accept",
+          "type": "string[]",
+          "description": "File types allowed, as MIME types (image/*) or extensions (.pdf). Applies to the picker and to dropped files."
+        },
+        {
+          "name": "maxFiles",
+          "type": "number",
+          "description": "Most files attached at once. Extra files are ignored and the attach tool is disabled at the limit."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Message\"",
+          "description": "Accessible name of the text area."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the box. Other props are spread onto it."
+        }
+      ]
+    }
+  ]
+}

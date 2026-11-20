@@ -1,0 +1,53 @@
+{
+  "source": "189f0709",
+  "name": "卡片",
+  "description": "日常使用的卡片，包含媒体、头部、内容和底部，也可以作为链接或可选择的选项。",
+  "demos": {
+    "default": "默认",
+    "variants": "变体",
+    "linked": "作为链接",
+    "selectable": "可选择"
+  },
+  "props": {
+    "Card": {
+      "variant": "default 是带细线边框和柔和阴影的凸起卡片。outline 保留细线边框，没有填充和阴影。muted 是没有边框和阴影的凹陷内嵌区域。",
+      "size": "各部分的内边距及其间距：16 和 12 像素，或 24 和 16 像素。",
+      "selectable": "让整张卡片成为复选框。按空格键或点击可切换选中状态，选中时顶部角落的圆形徽章会填充为水蓝色。内容请保持简单：卡片内不应再有其他可交互元素。",
+      "isSelected": "可选择卡片是否选中（受控）。",
+      "defaultSelected": "可选择卡片初始是否选中（非受控）。",
+      "onSelectedChange": "切换可选择卡片时调用。",
+      "isDisabled": "禁用可选择卡片，并将其不透明度降到 50%。",
+      "name": "可选择卡片的表单字段名。",
+      "value": "可选择卡片选中时随表单提交的值。",
+      "className": "卡片的额外类名。也接受 div 的所有属性。除非传入 aria-label 或 aria-labelledby，否则可选择卡片以其 CardTitle 作为无障碍名称。"
+    },
+    "CardHeader": {
+      "children": "CardTitle，其下方是 CardDescription，以及位于顶部末端角落的可选 CardAction。"
+    },
+    "CardTitle": {
+      "href": "将标题变成链接，其点击区域覆盖整张卡片。悬停在卡片上时阴影加深、标题变色；键盘焦点会在整张卡片周围显示焦点环。卡片内的按钮位于链接之上，仍可点击。",
+      "target": "链接的打开位置，与 href 一起使用。",
+      "rel": "链接关系，与 href 一起使用。",
+      "className": "额外的类名。渲染为 h3，并接受其属性。"
+    },
+    "CardDescription": {
+      "className": "额外的类名。标题下方的弱化文字；接受 p 的所有属性。"
+    },
+    "CardAction": {
+      "children": "位于卡片头部顶部末端角落的小按钮或菜单触发器，在标题旁边，并与标题第一行对齐。描述在两者下方占满整个宽度。"
+    },
+    "CardContent": {
+      "className": "额外的类名。卡片的主体，内边距与头部一致；接受 div 的所有属性。"
+    },
+    "CardFooter": {
+      "bordered": "在底部顶端添加一条横贯的细线，内容上下留出相同的间距。",
+      "className": "额外的类名。间距为 8 像素的一行；接受 div 的所有属性。"
+    },
+    "CardMedia": {
+      "src": "图片地址。图片会铺满容器，并裁切以适应。",
+      "alt": "图片的替代文字。图片仅作装饰时留空。",
+      "aspect": "容器的宽高比，可以是数字或 CSS 比例。",
+      "children": "未设置 src 时在容器中显示的其他内容，例如视频。"
+    }
+  }
+}

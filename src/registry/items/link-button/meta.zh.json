@@ -1,0 +1,19 @@
+{
+  "source": "bd9754e8",
+  "name": "链接按钮",
+  "description": "样式为链接的行内文字操作，悬停和聚焦时会画出下划线。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "LinkButton": {
+      "href": "提供时渲染为链接（<a>）。未提供时渲染为接收 onPress 的按钮。",
+      "tone": "水蓝色文字、正文墨色，或悬停时变为墨色的弱化文字。",
+      "size": "文字大小为 13 或 14 像素。",
+      "iconEnd": "文字后的图标。悬停时向右微移 2 像素。",
+      "onPress": "通过鼠标、触摸或键盘按下时调用。",
+      "isDisabled": "禁用链接或按钮。",
+      "className": "额外的类名，通过 cn() 合并。也接受 react-aria-components 中 Link 或 Button 的其他所有属性。"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "source": "070a61b8",
+  "name": "加载动画",
+  "description": "六个以当前颜色绘制的小型加载指示器：竖条、波浪、雪晶、涟漪、点阵和文字。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "LoaderBars": {
+      "size": "宽度和高度，单位为像素。五根竖条像潮位计一样依次起落。",
+      "label": "供读屏软件读取的文字。加载指示器带有 role=\"status\"。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    },
+    "LoaderWave": {
+      "size": "宽度和高度，单位为像素。一条正弦曲线横向移动，两端渐隐。",
+      "label": "供读屏软件读取的文字。",
+      "className": "额外的类名。其他 span 属性会透传。"
+    },
+    "LoaderCrystal": {
+      "size": "宽度和高度，单位为像素。雪晶的六条分支依次生长。",
+      "label": "供读屏软件读取的文字。",
+      "className": "额外的类名。其他 span 属性会透传。"
+    },
+    "LoaderRipple": {
+      "size": "宽度和高度，单位为像素。三个圆环从一点向外扩散并淡出。",
+      "label": "供读屏软件读取的文字。",
+      "className": "额外的类名。其他 span 属性会透传。"
+    },
+    "LoaderGrid": {
+      "size": "宽度和高度，单位为像素。3×3 的点阵沿对角线以波浪方式脉动。",
+      "label": "供读屏软件读取的文字。",
+      "className": "额外的类名。其他 span 属性会透传。"
+    },
+    "LoaderText": {
+      "children": "要显示的单词或短语。它会作为状态被读出。",
+      "size": "字号，单位为像素。一道光带从文字上掠过。",
+      "className": "额外的类名。颜色为 currentColor，默认为水蓝色。其他 span 属性会透传。"
+    }
+  }
+}

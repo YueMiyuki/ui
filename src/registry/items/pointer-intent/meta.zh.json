@@ -1,0 +1,34 @@
+{
+  "source": "a4ed64f8",
+  "name": "指针意图",
+  "description": "读取指针的速度和方向，以便提前片刻开始悬停效果、预测指针正前往哪个目标，并判断它何时将停在某个目标上。",
+  "demos": {
+    "default": "默认",
+    "list": "列表中",
+    "hover": "提前开始的悬停"
+  },
+  "props": {
+    "PointerIntent": {
+      "selector": "容器内哪些元素算作目标。可以是任意 CSS 选择器，例如 \"a[href]\" 或 \"button\"。目标通过两个属性标记，因此不需要 React 状态：data-aim 用于悬停样式，data-intent 用于预测。",
+      "onAim": "元素成为瞄准目标时调用：瞄准目标是指针当前所在的目标，或几帧之内将要到达的目标。直到 onAimEnd 为止，该元素会带有 data-aim，同一时间只有一个元素带有它。把原本写成 hover: 的样式改用 data-[aim]: 变体，悬停状态就会在指针到达之前开始。这是最早的信号，因此也适合在这里开始预取之类的低开销预热；它有时会触及指针最终没有到达的相邻目标。",
+      "onAimEnd": "元素不再是瞄准目标时调用。",
+      "onIntent": "引擎预计指针将停在某个元素上时调用。如果是在指针到达之前作出判断，来源为 \"pointer\"；指针已在元素上并正在停稳时为 \"hover\"；键盘焦点为 \"focus\"；触摸为 \"touch\"。提前判断的目标，如果指针随后停在它上面，会以 \"hover\" 再调用一次。直到 onIntentEnd 为止，该元素会带有值相同的 data-intent。它比瞄准目标更晚、更稳定：对于不应闪烁的操作，例如播放预览，请等到 \"hover\" 再开始。",
+      "onIntentEnd": "元素不再是预计目标时调用。",
+      "lead": "瞄准目标领先指针的距离，以按当前速度移动所需的毫秒数表示。值越大，悬停开始得越早，也会触及更多指针最终没有到达的目标。",
+      "horizon": "目的地预测向前看的距离，以按当前速度移动所需的毫秒数表示。",
+      "dwell": "触发 onIntent 之前目标需要积累的证据量，以完全确信时所需的时间表示，单位为毫秒。它也决定指针需要呈现停下的迹象多久，来源才会变为 \"hover\"。值越大，误判越少，意图判定也越晚。",
+      "minSpeed": "速度低于此值时不作任何预测，单位为像素每秒。",
+      "maxReach": "预测落点与指针之间的最大距离，单位为像素。",
+      "disabled": "关闭预测并结束当前意图。",
+      "className": "根元素的类名，根元素是一个相对定位的 div。其他 div 属性会透传。"
+    },
+    "IntentTrace": {
+      "color": "连线和圆环的颜色。可以是任意 CSS 颜色或主题变量。",
+      "className": "浮层的类名。浮层是一个填满 PointerIntent 区域的 svg，从指针向瞄准目标画一条线，并有一个在目标上收紧的圆环。请把它放在 PointerIntent 内。"
+    },
+    "usePointerIntent": {
+      "root": "只在此元素内监听。省略时监听整个文档。",
+      "options": "与 PointerIntent 相同的 selector、onAim、onAimEnd、onIntent、onIntentEnd、lead、horizon、dwell、minSpeed、maxReach 和 disabled。"
+    }
+  }
+}

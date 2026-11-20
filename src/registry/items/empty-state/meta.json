@@ -1,0 +1,73 @@
+{
+  "name": "Empty State",
+  "category": "display",
+  "description": "What a list, a search or a new project shows when there is nothing in it: a small drawing, a title, a line of help and the next step.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Search with no results"
+    },
+    {
+      "name": "variants",
+      "title": "Illustrations"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 480
+  },
+  "props": [
+    {
+      "component": "EmptyState",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "What is missing, in a few words."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "One or two sentences under the title on what to do next."
+        },
+        {
+          "name": "illustration",
+          "type": "\"search\" | \"inbox\" | \"folder\" | \"start\"",
+          "description": "One of four line drawings, each with one slow ambient motion that stops with reduced motion: a lens resting on a snow drift, a letter tray with a flake settling into it, an open folder with one sheet, a flag planted on a ridge."
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "description": "Shown instead of an illustration, in a round muted well. Sized to 24 pixels (20 at sm)."
+        },
+        {
+          "name": "media",
+          "type": "ReactNode",
+          "description": "Any other picture, shown as it is. Used when neither illustration nor icon is set."
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "description": "Buttons under the text, primary first. They wrap and stay centred."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "sm for panels and table bodies: a smaller picture and 32 pixels of padding. md has 48, lg has 64, a larger picture and a larger title."
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "default": "false",
+          "description": "Puts the content in a well with a dashed outline."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root. Also accepts every attribute of a div."
+        }
+      ]
+    }
+  ]
+}

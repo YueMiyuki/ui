@@ -1,0 +1,24 @@
+{
+  "source": "446e48c9",
+  "name": "山脊滑块",
+  "description": "轨道为山脊线的滑块：值改变时标记沿路径攀升，读数给出该处的百分比和海拔。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "RidgeSlider": {
+      "label": "山脊上方左侧的标签。",
+      "value": "沿路线前进的位置，从 0 到 100（受控）。",
+      "defaultValue": "非受控时的初始位置，从 0 到 100。",
+      "onChange": "标记移动过程中持续调用。",
+      "onChangeEnd": "拖动或按键结束时调用。",
+      "step": "相邻位置之间的增量，以路线的百分比计。",
+      "points": "沿路线等距分布的高度，从 0（minAltitude）到 1（maxAltitude）。线条平滑地穿过这些点，不会过冲。省略时根据 seed 生成山脊。",
+      "seed": "生成山脊所用的随机种子，生成的山脊从山谷一路攀升到右侧的山顶。",
+      "minAltitude": "高度为 0 处的海拔，单位为米。",
+      "maxAltitude": "高度为 1 处的海拔，单位为米。",
+      "isDisabled": "禁用滑块，并将其不透明度降到 50%。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 Slider 的其他所有属性。"
+    }
+  }
+}

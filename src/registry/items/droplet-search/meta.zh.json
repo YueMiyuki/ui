@@ -1,0 +1,24 @@
+{
+  "source": "b869e208",
+  "name": "水滴搜索框",
+  "description": "胶囊形搜索框，展开时向外拉伸，同时一颗装着图标的水滴从其末端分离出来。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "DropletSearch": {
+      "placeholder": "胶囊为空时显示在其中，无论收起还是展开。请保持简短；收起的胶囊大约只放得下一个词。",
+      "collapsedWidth": "收起时胶囊的宽度，单位为像素，包括图标。",
+      "expandedWidth": "展开时胶囊的宽度，单位为像素。水滴位于此宽度之外。",
+      "gooeyBlur": "液体滤镜的模糊半径。值越大，形状之间的连接颈越长、越柔和。",
+      "value": "文本（受控）。",
+      "defaultValue": "初始文本（非受控）。不为空时胶囊初始即为展开状态。",
+      "onValueChange": "每次改变时调用，参数为当前文本。按 Escape 会清空文本。",
+      "onOpenChange": "胶囊获得焦点而展开，或在为空时失去焦点而收起时调用。",
+      "disabled": "禁用输入框并使其变暗。",
+      "aria-label": "输入框的无障碍名称。默认使用 placeholder。",
+      "name": "input 的名称，用于表单数据。",
+      "className": "根元素的额外类名。其他属性会传给根元素。"
+    }
+  }
+}

@@ -16,7 +16,7 @@ import {
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(ROOT, ".shots", "probe");
-const USAGE = `Usage: node scripts/probe.mjs <slug>[:demo] <light|dark|both> '<json actions>' [--size 1000x700] [--scale 2] [--slow 0.1] [--reduced]
+const USAGE = `Usage: node scripts/probe.mjs <slug>[:demo] <light|dark|ink|both> '<json actions>' [--size 1000x700] [--scale 2] [--slow 0.1] [--reduced]
 
 Actions run in order. Each is an object with any of these keys:
   wait: ms             pause
@@ -68,7 +68,7 @@ try {
     const context = await browser.newContext(
       contextOptions({
         viewport: { width: w, height: h },
-        colorScheme: theme,
+        colorScheme: theme === "ink" ? "dark" : theme,
         deviceScaleFactor: scale,
         reducedMotion: reduced ? "reduce" : "no-preference",
       }),

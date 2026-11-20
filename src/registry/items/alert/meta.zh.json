@@ -1,0 +1,30 @@
+{
+  "source": "3c332c7b",
+  "name": "警告提示",
+  "description": "嵌在页面中的提示消息，用于信息、成功、警告或错误。",
+  "demos": {
+    "default": "默认",
+    "actions": "操作",
+    "outline": "描边"
+  },
+  "props": {
+    "Alert": {
+      "tone": "颜色和默认图标：水蓝色、松绿、柚子黄、山茶红，或不带图标的中性样式。",
+      "variant": "soft 用色调对应的底色填充提示。outline 以卡片颜色为底，带细线边框和浅阴影，只有图标带有色调。",
+      "icon": "替换色调对应的图标，以 16 像素显示在第一行旁边。传入 null 则不显示图标。",
+      "onDismiss": "在顶部末端角落添加关闭按钮。关闭时提示会在 200 毫秒内折叠收起，然后调用此函数。提示内带 slot=\"dismiss\" 的按钮也会以同样方式关闭它。",
+      "dismissLabel": "关闭按钮的无障碍名称。",
+      "live": "为 error 和 warning 提示设置 role=\"alert\"，让读屏软件在它们出现时立即播报。其他色调不会使用 live 角色。",
+      "className": "额外的类名。接受 div 的所有属性。页面加载完成后才挂载的提示会从上方 4 像素处落入到位。"
+    },
+    "AlertTitle": {
+      "className": "额外的类名。第一行文字，使用中等字重；接受 div 的所有属性。"
+    },
+    "AlertDescription": {
+      "className": "额外的类名。标题下方的文字，其中的链接带下划线。接受 div 的所有属性。"
+    },
+    "AlertActions": {
+      "children": "文字下方的一排按钮。button 组件中的按钮在这里默认使用小尺寸。"
+    }
+  }
+}

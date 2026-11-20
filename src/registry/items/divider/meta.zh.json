@@ -1,0 +1,17 @@
+{
+  "source": "2ffd9ed1",
+  "name": "分隔线",
+  "description": "内容之间的分隔线，可以是单线、双线、虚线或填充色带，可带标签。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "Divider": {
+      "orientation": "线条方向。竖向分隔线会拉伸到所在 flex 行的高度，或从 className 获取高度。",
+      "variant": "一条细线、两条相距 3 像素的细线、一条细虚线，或一条 6 像素的弱化色带。",
+      "label": "嵌在线条中的文字。线条在文字处断开，两侧各留 12 像素间距。",
+      "labelPosition": "标签在线条上的位置。",
+      "className": "额外的类名，通过 cn() 合并。也接受 react-aria-components 中 Separator 的其他属性。"
+    }
+  }
+}

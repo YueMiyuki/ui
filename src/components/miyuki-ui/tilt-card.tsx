@@ -153,7 +153,7 @@ export function TiltCardBody({ className, style, children, ...props }: TiltCardB
       {...props}
       className={cn(
         "relative rounded-2xl border border-border bg-card p-5 text-card-foreground",
-        "[--miyuki-tilt-card-shade:oklch(0.42_0.09_250/0.3)] dark:[--miyuki-tilt-card-shade:oklch(0.05_0.02_250/0.75)]",
+        "[--miyuki-tilt-card-shade:oklch(0.42_0.09_250/0.3)] dark:[--miyuki-tilt-card-shade:oklch(0.05_0.02_250/0.75)] ink:[--miyuki-tilt-card-shade:oklch(0.05_0_0/0.75)]",
         reduced &&
           "shadow-sm transition-shadow duration-200 ease-settle group-hover/tilt-card:shadow-md group-focus-within/tilt-card:shadow-md",
         className,

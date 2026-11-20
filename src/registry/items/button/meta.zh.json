@@ -1,0 +1,22 @@
+{
+  "source": "c78ebc1f",
+  "name": "按钮",
+  "description": "有六种视觉权重和三种尺寸的按钮，支持图标和等待状态。",
+  "demos": {
+    "default": "变体",
+    "sizes": "尺寸",
+    "states": "图标与状态"
+  },
+  "props": {
+    "Button": {
+      "variant": "视觉权重。primary 为墨色，用于主要操作；brand 为水蓝色。",
+      "size": "高度为 32、36 或 44 像素。",
+      "iconStart": "标签前的图标。尺寸为 16 像素。",
+      "iconEnd": "标签后的图标。",
+      "isPending": "在起始图标的位置显示加载指示器（没有起始图标时覆盖在标签上），保持宽度不变，设置 aria-busy，并且不再响应按下。",
+      "isDisabled": "禁用按钮。",
+      "onPress": "通过鼠标、触摸或键盘按下按钮时调用。",
+      "className": "额外的类名，通过 cn() 合并。也接受 react-aria-components 中 Button 的其他所有属性。"
+    }
+  }
+}

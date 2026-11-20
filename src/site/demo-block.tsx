@@ -6,6 +6,8 @@ import { type ReactNode, useState } from "react";
 import { Button } from "react-aria-components";
 import type { RegistryItem } from "@/registry/schema";
 import { DemoSurface, previewUrl } from "@/site/demo-surface";
+import { useDictionary } from "@/site/i18n/context";
+import { fill } from "@/site/i18n/format";
 import { iconButtonClass } from "@/site/icon-button";
 import { Segmented } from "@/site/segmented";
 
@@ -31,25 +33,26 @@ export function DemoBlock({
   const [view, setView] = useState<View>("preview");
   const [run, setRun] = useState(0);
   const reduce = useReducedMotion();
+  const t = useDictionary().demo;
   const href = previewUrl(slug, demo);
   const height = preview.height;
 
   return (
-    <section aria-label={showTitle ? title : `${name} demo`} className="not-prose min-w-0">
+    <section aria-label={showTitle ? title : fill(t.section, { name })} className="not-prose min-w-0">
       <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-2">
         {showTitle ? <h3 className="text-[15px] font-semibold">{title}</h3> : null}
         <Segmented<View>
-          label="View"
+          label={t.view}
           value={view}
           onChange={setView}
           options={[
-            { id: "preview", label: "Preview" },
-            { id: "code", label: "Code" },
+            { id: "preview", label: t.preview },
+            { id: "code", label: t.code },
           ]}
         />
         <div className="ml-auto flex items-center gap-0.5">
           <Button
-            aria-label="Replay"
+            aria-label={t.replay}
             onPress={() => {
               setView("preview");
               setRun((n) => n + 1);
@@ -65,7 +68,7 @@ export function DemoBlock({
               <RotateCcw aria-hidden="true" />
             </motion.span>
           </Button>
-          <a href={href} target="_blank" rel="noreferrer" aria-label="Open in new tab" className={iconButtonClass()}>
+          <a href={href} target="_blank" rel="noreferrer" aria-label={t.openInNewTab} className={iconButtonClass()}>
             <ExternalLink aria-hidden="true" />
           </a>
         </div>
@@ -80,7 +83,7 @@ export function DemoBlock({
           <iframe
             key={run}
             src={href}
-            title={`${name}: ${title}`}
+            title={fill(t.frameTitle, { name, title })}
             loading="lazy"
             className="block w-full border-0 bg-transparent"
             style={{ height }}

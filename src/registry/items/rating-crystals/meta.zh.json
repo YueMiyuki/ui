@@ -1,0 +1,21 @@
+{
+  "source": "f55c3b87",
+  "name": "雪晶评分",
+  "description": "由雪晶组成的评分，从第一颗到第五颗，形态越来越繁复。",
+  "demos": {
+    "default": "粉雪报告",
+    "sizes": "尺寸"
+  },
+  "props": {
+    "RatingCrystals": {
+      "value": "评分，从 0（无）到 max。受控；配合 onChange 使用。",
+      "defaultValue": "非受控时的初始评分。",
+      "onChange": "通过点击、轻触或方向键选中雪晶时调用。",
+      "max": "位置数量。每个位置的雪晶都比前一个更繁复：先是光秃的六臂星，然后加上侧枝，再在中心和各臂末端加上板片。",
+      "size": "每颗雪晶的宽高，单位为像素。其绘制方式保证在 24 像素时依然清晰。",
+      "label": "组的可见标签。没有标签时，请传入 aria-label。",
+      "readOnly": "只显示评分，不允许修改；悬停时也不预览。",
+      "className": "组的类名。react-aria-components 中 RadioGroup 的其他属性（如 isDisabled 和 name）会透传。"
+    }
+  }
+}

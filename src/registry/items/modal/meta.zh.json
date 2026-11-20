@@ -1,0 +1,57 @@
+{
+  "source": "acd15729",
+  "name": "对话框",
+  "description": "覆盖在变暗页面上的对话框，有四种尺寸，支持可滚动的主体和确认变体。",
+  "demos": {
+    "default": "表单",
+    "alert": "警示对话框",
+    "scrolling": "滚动内容",
+    "sizes": "尺寸",
+    "blur": "模糊背景"
+  },
+  "props": {
+    "ModalTrigger": {
+      "children": "打开对话框的按钮，然后是 Modal 或 AlertDialog。",
+      "isOpen": "打开状态（受控）。非受控时使用 defaultOpen。",
+      "onOpenChange": "对话框打开或关闭时调用。"
+    },
+    "Modal": {
+      "size": "宽度为 400、520 或 720 像素，或占满窗口、四周各留 24 像素。",
+      "isDismissable": "点击遮罩层时关闭。除非设置了 isKeyboardDismissDisabled，否则按 Escape 总会关闭。",
+      "backdropBlur": "模糊遮罩层后面的页面。默认关闭：只要后面有内容在变化，浏览器就会每一帧重绘模糊效果，在大型页面上会卡顿，在 Firefox 中尤其明显。",
+      "closeButton": "在右上角显示关闭按钮。",
+      "role": "需要打断用户进行确认时使用 alertdialog。",
+      "children": "ModalHeader、ModalBody 和 ModalFooter。传入函数时会收到 close()。任何带 slot=\"close\" 的按钮也会关闭对话框。",
+      "isOpen": "不配合 ModalTrigger 使用时的打开状态。",
+      "onOpenChange": "不配合 ModalTrigger 使用时，在打开状态改变时调用。",
+      "className": "面板的类名。",
+      "overlayClassName": "遮罩层的类名。"
+    },
+    "ModalHeader": {
+      "className": "额外的类名。头部包含标题和描述，主体滚动时保持不动。"
+    },
+    "ModalTitle": {
+      "children": "对话框的名称。为对话框提供无障碍名称。"
+    },
+    "ModalDescription": {
+      "children": "标题下方的一两行文字。为对话框提供无障碍描述。"
+    },
+    "ModalBody": {
+      "className": "额外的类名。内容较高时在头部和底部之间滚动，还有更多内容的一侧会显示细线。"
+    },
+    "ModalFooter": {
+      "className": "额外的类名。操作按钮靠末端对齐；主要操作放在最后。"
+    },
+    "AlertDialog": {
+      "title": "要询问的问题，例如“删除白马穿越路线？”。",
+      "children": "说明将会发生的事情。",
+      "actionLabel": "确认按钮的标签。写明它会执行的操作。",
+      "cancelLabel": "取消按钮的标签，该按钮会首先获得焦点。",
+      "tone": "destructive 将操作按钮显示为山茶红，并显示警告图标。",
+      "icon": "替换默认图标。传入 null 则不显示图标。",
+      "onAction": "确认时调用。随后对话框关闭；如果返回 promise，会在其完成前显示加载指示器。",
+      "size": "面板宽度。",
+      "isDismissable": "点击遮罩层时关闭。"
+    }
+  }
+}

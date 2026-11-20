@@ -455,7 +455,7 @@ export function PebbleFrame({
       data-slot="pebble-frame"
       className={cn(
         "group/pebble relative isolate block aspect-square w-48 shrink-0",
-        "[--miyuki-pebble-frame-shade:oklch(0.42_0.09_250/0.3)] dark:[--miyuki-pebble-frame-shade:oklch(0.07_0.025_252/0.72)]",
+        "[--miyuki-pebble-frame-shade:oklch(0.42_0.09_250/0.3)] dark:[--miyuki-pebble-frame-shade:oklch(0.07_0.025_252/0.72)] ink:[--miyuki-pebble-frame-shade:oklch(0.07_0_0/0.72)]",
         className,
       )}
       style={{ "--miyuki-pebble-frame-color": color, ...style } as CSSProperties}

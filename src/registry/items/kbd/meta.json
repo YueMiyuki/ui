@@ -1,0 +1,98 @@
+{
+  "name": "Kbd",
+  "category": "display",
+  "description": "Keyboard keys and shortcuts, shown with the symbols or the words of the reader's platform.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Shortcuts panel"
+    },
+    {
+      "name": "listen",
+      "title": "Listening for keys"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 440
+  },
+  "props": [
+    {
+      "component": "Kbd",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The key's label, such as Esc, ⌘ or K."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Height 20 or 24 pixels."
+        },
+        {
+          "name": "variant",
+          "type": "\"keycap\" | \"flat\" | \"inverse\"",
+          "default": "\"keycap\"",
+          "description": "Keycap has an outline and a heavier lower edge so it reads as a key. Flat is a muted fill with no border. Inverse is for ink surfaces such as tooltips."
+        },
+        {
+          "name": "isPressed",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows the key held down: it drops a pixel, the lower edge flattens and the label darkens."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Also accepts every attribute of a kbd element."
+        }
+      ]
+    },
+    {
+      "component": "KbdCombo",
+      "props": [
+        {
+          "name": "keys",
+          "type": "string",
+          "description": "Keys joined with +, such as \"mod+shift+p\". mod is ⌘ on Apple systems and Ctrl elsewhere. Also understands ctrl, alt (or option), shift, meta, enter, esc, tab, backspace, delete, space, the arrows (arrowup or up), home, end, pageup, pagedown, F1 to F12 and any single character."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Size of every key."
+        },
+        {
+          "name": "variant",
+          "type": "\"keycap\" | \"flat\" | \"inverse\"",
+          "default": "\"keycap\"",
+          "description": "Variant of every key."
+        },
+        {
+          "name": "separator",
+          "type": "ReactNode",
+          "description": "Shown between keys. By default nothing on Apple systems, where the keys sit close together, and a muted + elsewhere. Pass null to remove it everywhere."
+        },
+        {
+          "name": "listen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Listens to the keyboard: each key goes down while it is held, and the combo flashes a water ring once when all of it is pressed together. Key repeat is ignored."
+        },
+        {
+          "name": "platform",
+          "type": "\"auto\" | \"apple\" | \"other\"",
+          "default": "\"auto\"",
+          "description": "Which names to show. Auto reads the platform after hydration and renders the Apple symbols on the server."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the outer kbd element. Also accepts its other attributes."
+        }
+      ]
+    }
+  ]
+}

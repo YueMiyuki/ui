@@ -1,0 +1,27 @@
+{
+  "source": "d68a1f7c",
+  "name": "温控旋钮",
+  "description": "可通过拖动、滚动或方向键转动的圆形旋钮，圆弧从冷端的水蓝色过渡到热端的山茶红。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "DialThermostat": {
+      "label": "旋钮上方的标签。",
+      "value": "值（受控）。",
+      "defaultValue": "非受控时的初始值。",
+      "onChange": "旋钮每经过一个步长时调用。",
+      "onChangeEnd": "拖动、滚轮单步或按键结束时调用。",
+      "minValue": "圆弧冷端的值。",
+      "maxValue": "圆弧热端的值。",
+      "step": "相邻挡位之间的增量。其小数位数决定数值的显示格式。",
+      "unit": "写在数值之后。°C 和 °F 还会被读作摄氏度和华氏度。",
+      "coldColor": "圆弧冷端的颜色。",
+      "hotColor": "圆弧热端的颜色。",
+      "size": "旋钮的直径，单位为像素，至少为 160。除两端标签固定为 12 像素以保持清晰可读外，其余部分都随之缩放。",
+      "formatOptions": "覆盖数值的朗读方式。默认依据 unit 和 step。",
+      "isDisabled": "禁用旋钮，并将其不透明度降到 50%。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 Slider 的其他所有属性。"
+    }
+  }
+}

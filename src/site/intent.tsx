@@ -20,7 +20,7 @@ function routeOf(link: HTMLAnchorElement) {
 export function SiteIntent() {
   const router = useRouter();
   const warm = (element: Element) => {
-    if (!(element instanceof HTMLAnchorElement)) return;
+    if (!(element instanceof HTMLAnchorElement) || element.hasAttribute("data-locale-switch")) return;
     const demo = element.dataset.thumbDemo;
     if (demo) preloadDemo(demo);
     const route = routeOf(element);

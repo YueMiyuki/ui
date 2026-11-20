@@ -1,0 +1,22 @@
+{
+  "source": "c50945ce",
+  "name": "便当网格",
+  "description": "由大小不一的磁贴组成的网格，每个磁贴顶部有一小块视觉内容，下面是标题和一行文字。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "BentoGrid": {
+      "children": "磁贴，通常是 BentoGridItem。",
+      "className": "外层元素的额外类名，外层元素是尺寸容器。网格默认为一列，宽度达到 36rem 时为两列，达到 48rem 时为三列。"
+    },
+    "BentoGridItem": {
+      "header": "磁贴顶部的视觉内容，放在高 9rem、带圆角并裁切溢出的内嵌区域中。悬停在磁贴上时它会平移 4px。",
+      "icon": "标题上方的小图标。",
+      "title": "磁贴的标题。",
+      "description": "一行辅助文字。",
+      "tone": "water 用品牌色填充磁贴，用于需要突出显示的那一个磁贴。",
+      "className": "额外的类名，通常是跨列设置，例如 @3xl:col-span-2。"
+    }
+  }
+}

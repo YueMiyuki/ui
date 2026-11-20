@@ -1,0 +1,30 @@
+{
+  "source": "c0d59588",
+  "name": "按钮组",
+  "description": "连接成一行或一列的一组按钮，可用作切换按钮组。",
+  "demos": {
+    "default": "单选",
+    "icons": "图标与多选",
+    "split": "拆分按钮"
+  },
+  "props": {
+    "ButtonGroup": {
+      "orientation": "排成一行，或排成一列等宽按钮。",
+      "size": "组内每个按钮的尺寸，单个按钮自行设置时除外。",
+      "selectionMode": "将按钮组变为由 ButtonGroupItem 子元素组成的切换按钮组。使用普通 Button 时省略。",
+      "selectedKeys": "选中项的 id（受控）。",
+      "defaultSelectedKeys": "初始选中的项（非受控）。",
+      "onSelectionChange": "以新的选中 id 集合为参数调用。",
+      "disallowEmptySelection": "至少保持一项选中。",
+      "isDisabled": "禁用组内所有按钮。",
+      "className": "按钮组的额外类名。未设置选择模式时，也接受 div 的所有属性；请为它设置 aria-label。"
+    },
+    "ButtonGroupItem": {
+      "id": "在 selectedKeys 中标识该项。",
+      "children": "标签。省略时为仅含图标的方形按钮。",
+      "iconStart": "标签前的图标，尺寸为 16 像素。仅含图标的项请设置 aria-label。",
+      "isDisabled": "禁用此项。",
+      "className": "额外的类名。也接受 react-aria-components 中 ToggleButton 的其他所有属性。"
+    }
+  }
+}

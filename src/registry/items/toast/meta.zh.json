@@ -1,0 +1,32 @@
+{
+  "source": "39e295a2",
+  "name": "轻提示",
+  "description": "在角落层叠的简短消息，悬停时展开，并会自行消失。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "toast": {
+      "toast(message, options?)": "显示一条中性轻提示并返回其 id。可以在任何地方调用，无论是否在 React 中。",
+      "toast.success / error / warning / info": "同上，但带有对应色调的图标和颜色。错误会通过 role=\"alert\" 播报。",
+      "toast.promise(promise, messages, options?)": "在 promise 完成前显示 loading 消息，随后原地变为 success 或 error 消息。success 和 error 可以是以结果为参数的函数。",
+      "toast.dismiss(id?)": "关闭一条轻提示；不传 id 时关闭所有轻提示。",
+      "options.title": "将 options 作为第一个参数传入时的消息内容。",
+      "options.description": "标题下方的一两行文字。",
+      "options.icon": "替换色调对应的图标，或为中性轻提示添加图标。",
+      "options.action": "一个小按钮，例如“撤销”。按下它也会关闭该轻提示。",
+      "options.duration": "多少毫秒后消失。设为 Infinity 时会一直保留，直到被关闭。默认使用 Toaster 的 duration。",
+      "options.id": "复用某个 id 可以原地更新轻提示，而不是再添加一条。",
+      "options.onDismiss": "轻提示被关闭时调用，无论是因为超时、滑动还是按钮。"
+    },
+    "Toaster": {
+      "position": "轻提示开始堆叠的角落。每个应用挂载一个 Toaster。",
+      "duration": "轻提示消失前的默认毫秒数。指针悬停在堆叠上或堆叠内有焦点时，以及标签页隐藏时，计时会暂停。",
+      "visibleToasts": "同时显示的轻提示数量。之后的轻提示会排队等待，计时暂停。",
+      "gap": "堆叠展开时轻提示之间的间距。",
+      "offset": "与窗口边缘的距离。",
+      "label": "该区域的无障碍名称。",
+      "className": "该区域的类名。"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "source": "4d5850ab",
+  "name": "数字输入框",
+  "description": "带步进按钮、数字格式化和取值范围限制的数字输入框。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "NumberField": {
+      "label": "输入框上方的标签。",
+      "description": "输入框下方的帮助文字。输入框无效时由错误信息取代。",
+      "errorMessage": "输入框无效时显示在其下方，带有警示图标。",
+      "size": "高度为 32、36 或 44 像素。",
+      "minValue": "最小值。达到最小值时减少按钮变暗。",
+      "maxValue": "最大值。达到最大值时增加按钮变暗。",
+      "step": "按钮、方向键和滚轮每次改变的数值。",
+      "formatOptions": "值的显示方式：货币、百分比、单位、小数位数。",
+      "value": "值（受控）。",
+      "defaultValue": "初始值（非受控）。",
+      "onChange": "值被提交时调用：步进、失去焦点或按下 Enter 时。",
+      "placeholder": "输入框为空时显示的提示。",
+      "isInvalid": "显示山茶红边框和错误信息。",
+      "isDisabled": "禁用输入框。",
+      "isReadOnly": "隐藏步进按钮，并以弱化的填充色显示值。",
+      "fieldClassName": "带边框外框的额外类名。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 NumberField 的其他所有属性。"
+    }
+  }
+}

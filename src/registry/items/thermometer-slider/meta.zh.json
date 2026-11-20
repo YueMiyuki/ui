@@ -1,0 +1,27 @@
+{
+  "source": "037c527f",
+  "name": "温度计滑块",
+  "description": "绘制成玻璃温度计的滑块，液柱以弹簧动画升降到对应值，随着温度升高由水蓝色渐变为山茶红。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "ThermometerSlider": {
+      "label": "温度计上方的标签。",
+      "value": "值（受控）。",
+      "defaultValue": "非受控时的初始值。",
+      "onChange": "值变化过程中持续调用。",
+      "onChangeEnd": "拖动或按键结束时调用。",
+      "minValue": "刻度在玻璃泡一端的值。",
+      "maxValue": "刻度在另一端的值。",
+      "step": "相邻值之间的步长。它的小数位数决定数值的显示方式。",
+      "unit": "显示在数值之后。°C 和 °F 还会分别读作摄氏度和华氏度。",
+      "orientation": "竖立且玻璃泡在底部，或横放且玻璃泡在左侧。",
+      "length": "刻度长度，单位为像素。竖直方向默认为 200；水平方向填满容器。",
+      "coldColor": "冷端液体的颜色。过渡到 warmColor 的途中会经过一个中性色。",
+      "warmColor": "暖端液体的颜色。",
+      "isDisabled": "禁用滑块，并将其不透明度降到 50%。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 Slider 的其他所有属性。"
+    }
+  }
+}

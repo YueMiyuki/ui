@@ -5,6 +5,8 @@ import { type ComponentProps, type ReactNode, useLayoutEffect, useRef, useState 
 import { Button } from "react-aria-components";
 import { cn } from "@/lib/utils";
 import { CopyButton } from "@/site/copy-button";
+import { useDictionary } from "@/site/i18n/context";
+import { fill } from "@/site/i18n/format";
 
 const COLLAPSED = 420;
 
@@ -38,6 +40,7 @@ export function SourceBlock({
   className?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
+  const t = useDictionary().common;
   const [tall, setTall] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -60,7 +63,7 @@ export function SourceBlock({
         ref={ref}
         title={title}
         allowCopy={false}
-        Actions={copyActions(title ? `Copy ${title}` : "Copy")}
+        Actions={copyActions(title ? fill(t.copyNamed, { name: title }) : t.copy)}
         className={cn("my-0", surface)}
         viewportProps={{
           className: cn("py-3", clipped ? "max-h-[420px] overflow-hidden" : expandable && "max-h-none"),
@@ -86,7 +89,7 @@ export function SourceBlock({
             aria-expanded={open}
             className="h-8 cursor-default rounded-lg border border-border-strong bg-card px-3 text-[13px] font-medium text-foreground shadow-xs outline-none transition-colors data-[focus-visible]:ring-[3px] data-[focus-visible]:ring-ring data-[hovered]:bg-accent"
           >
-            {open ? "Show less" : "Show all"}
+            {open ? t.showLess : t.showAll}
           </Button>
         </div>
       ) : null}
@@ -101,13 +104,14 @@ export function MdxPre({
   className,
   ...props
 }: ComponentProps<"pre"> & { title?: string; icon?: ReactNode }) {
+  const t = useDictionary().common;
   return (
     <CodeBlock
       {...(props as Omit<ComponentProps<typeof CodeBlock>, "ref">)}
       title={title}
       icon={icon}
       allowCopy={false}
-      Actions={copyActions(title ? `Copy ${title}` : "Copy")}
+      Actions={copyActions(title ? fill(t.copyNamed, { name: title }) : t.copy)}
       className={cn(surface, className)}
       viewportProps={{ className: "py-3" }}
     >

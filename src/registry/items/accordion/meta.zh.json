@@ -1,0 +1,28 @@
+{
+  "source": "ea3b2783",
+  "name": "折叠面板",
+  "description": "可在原位展开的面板，以细线分隔，或各自成为卡片。",
+  "demos": {
+    "default": "平铺",
+    "separated": "分离"
+  },
+  "props": {
+    "Accordion": {
+      "variant": "flush 用细线分隔各行；separated 让每行各自成为一张卡片。",
+      "allowsMultipleExpanded": "允许同时展开多个面板。",
+      "expandedKeys": "已展开面板的 id（受控）。",
+      "defaultExpandedKeys": "初始展开面板的 id（非受控）。",
+      "onExpandedChange": "面板展开或收起时调用。",
+      "isDisabled": "禁用所有面板。",
+      "className": "额外的类名。也接受 react-aria-components 中 DisclosureGroup 的其他所有属性。"
+    },
+    "AccordionItem": {
+      "id": "在 expandedKeys 中标识该面板。",
+      "title": "该行的标题。整行都是切换按钮。",
+      "children": "面板的内容。",
+      "headingLevel": "title 使用的标题级别，以符合页面的大纲结构。",
+      "isDisabled": "禁用该面板。",
+      "className": "额外的类名。也接受 react-aria-components 中 Disclosure 的其他所有属性。"
+    }
+  }
+}

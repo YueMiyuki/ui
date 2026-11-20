@@ -1,0 +1,28 @@
+{
+  "source": "6403bb77",
+  "name": "明信片翻转",
+  "description": "一张明信片，角在指针下卷起，并随指针被带过整张卡片，直到卡片翻面，露出写字的一面。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "PostcardFlip": {
+      "front": "图片面。内容填满卡片，卡片宽 440px，采用明信片的比例。",
+      "back": "写字面。可用 PostcardBack 排版。",
+      "flipped": "受控状态：true 显示背面。改变它会播放翻面动画。",
+      "defaultFlipped": "初始显示背面。",
+      "onFlippedChange": "卡片翻面完成时调用。",
+      "turnLabel": "覆盖整张卡片的按钮的无障碍名称。点击按钮、按 Enter 或空格键，或将卡片向左拖过一半即可翻面；悬停或获得焦点时右下角会翘起。",
+      "className": "卡片的类名。请为它设置 aria-label。"
+    },
+    "PostcardBack": {
+      "message": "留言，以钢笔蓝写在左半边。",
+      "signature": "署在留言下方的签名。",
+      "address": "地址各行，写在右半边的横线上。",
+      "postcode": "最多七位数字，填在地址上方的红色邮编格中。",
+      "stamp": "带齿孔邮票中的图片，通常是一个 img。",
+      "value": "印在邮票上的面值。",
+      "postmark": "盖在邮票上的圆形邮戳，带波浪形注销线。"
+    }
+  }
+}

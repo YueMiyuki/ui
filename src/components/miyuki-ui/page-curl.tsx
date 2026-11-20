@@ -494,7 +494,7 @@ export function PageCurl({
         <div
           ref={flapWrap}
           aria-hidden="true"
-          className="pointer-events-none invisible absolute inset-0 drop-shadow-[2px_3px_6px_oklch(0.2_0.04_250/0.28)] dark:drop-shadow-[2px_3px_8px_oklch(0.05_0.02_250/0.6)]"
+          className="pointer-events-none invisible absolute inset-0 drop-shadow-[2px_3px_6px_oklch(0.2_0.04_250/0.28)] dark:drop-shadow-[2px_3px_8px_oklch(0.05_0.02_250/0.6)] ink:drop-shadow-[2px_3px_8px_oklch(0.05_0_0/0.6)]"
         >
           <div
             ref={flap}
@@ -536,7 +536,7 @@ function Paper({ children }: { children: ReactNode }) {
       {children}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 w-5 bg-linear-to-r from-[oklch(0.25_0.05_250/0.05)] to-transparent dark:from-[oklch(0.05_0.02_250/0.3)]"
+        className="pointer-events-none absolute inset-y-0 left-0 w-5 bg-linear-to-r from-[oklch(0.25_0.05_250/0.05)] to-transparent dark:from-[oklch(0.05_0.02_250/0.3)] ink:from-[oklch(0.05_0_0/0.3)]"
       />
     </div>
   );

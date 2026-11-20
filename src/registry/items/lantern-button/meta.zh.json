@@ -1,0 +1,20 @@
+{
+  "source": "6e236576",
+  "name": "灯笼按钮",
+  "description": "带木框的纸灯笼按钮，悬停时从内部亮起，带有火焰般轻微的摇曳。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "LanternButton": {
+      "lit": "保持点亮。否则在悬停、键盘聚焦和按下时亮起。",
+      "color": "光的颜色。灯纸的光从浅淡的中心过渡到这种颜色较深的边缘。",
+      "size": "高度为 32、36 或 44 像素，与 Button 相同。",
+      "iconStart": "标签前的图标。尺寸为 16 像素。",
+      "iconEnd": "标签后的图标。",
+      "isDisabled": "禁用按钮。",
+      "onPress": "通过鼠标、触摸或键盘按下按钮时调用。灯光会短暂变亮。",
+      "className": "额外的类名，通过 cn() 合并。也接受 react-aria-components 中 Button 的其他所有属性。"
+    }
+  }
+}

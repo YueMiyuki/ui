@@ -539,7 +539,7 @@ export function TicketStub({
         "dark:[--miyuki-ticket-stub-paper:color-mix(in_oklab,color-mix(in_oklab,var(--foreground)_91%,var(--background))_93%,var(--brand))] dark:[--miyuki-ticket-stub-ink:var(--primary-foreground)]",
         "[--miyuki-ticket-stub-print:var(--brand)] dark:[--miyuki-ticket-stub-print:color-mix(in_oklab,var(--brand)_62%,var(--background))]",
         "[--miyuki-ticket-stub-rim:oklch(0.42_0.09_250/0.22)] [--miyuki-ticket-stub-stamp:var(--destructive)] dark:[--miyuki-ticket-stub-stamp:color-mix(in_oklab,var(--destructive)_78%,var(--background))]",
-        "[--miyuki-ticket-stub-shade:oklch(0.42_0.09_250/0.16)] dark:[--miyuki-ticket-stub-shade:oklch(0.05_0.02_250/0.6)]",
+        "[--miyuki-ticket-stub-shade:oklch(0.42_0.09_250/0.16)] dark:[--miyuki-ticket-stub-shade:oklch(0.05_0.02_250/0.6)] ink:[--miyuki-ticket-stub-shade:oklch(0.05_0_0/0.6)]",
         className,
       )}
       style={{ filter: shade, ...style }}

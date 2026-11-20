@@ -74,7 +74,11 @@ export function Switch({ children, description, size = "md", className, ...props
                 )}
               >
                 <motion.span
-                  className="absolute rounded-full bg-white shadow-sm"
+                  className={cn(
+                    "absolute rounded-full bg-white shadow-sm",
+                    "ink:transition-[background-color] ink:duration-200",
+                    isSelected && "ink:bg-brand-foreground",
+                  )}
                   style={{ top: s.inset, left: s.inset, height: s.thumb }}
                   initial={false}
                   animate={{ x, width }}

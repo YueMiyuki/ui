@@ -1,0 +1,23 @@
+{
+  "source": "d38c07d0",
+  "name": "计量条",
+  "description": "显示额度已用多少，以水蓝色填充，接近上限时依次变为柚子黄和山茶红。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "Meter": {
+      "label": "轨道上方左侧的标签。",
+      "value": "已用量。",
+      "minValue": "范围的起点。",
+      "maxValue": "范围的终点，即上限。",
+      "description": "轨道下方的一行文字，例如“已用 8.6 GB，共 10 GB”。",
+      "showValue": "在标签右侧显示格式化后的值。",
+      "thresholds": "填充依次变为柚子黄和山茶红的位置，以范围的百分比表示。",
+      "variant": "一条连续的 6 像素轨道，或十个独立的方块。",
+      "formatOptions": "数值的格式。",
+      "valueLabel": "代替格式化值显示的文字。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 Meter 的其他所有属性。"
+    }
+  }
+}

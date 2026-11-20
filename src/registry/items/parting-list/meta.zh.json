@@ -1,0 +1,20 @@
+{
+  "source": "ff43cbe6",
+  "name": "让路列表",
+  "description": "可重新排序的列表：拖着一行穿过列表时，其他行会像波浪一样向两侧分开让路，并在它经过后合拢。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "PartingList": {
+      "items": "按顺序排列的行。每一项都需要一个在重新排序后保持不变的稳定 id（字符串或数字）。",
+      "onReorder": "行被放到新位置时调用一次，传入按新顺序排列的项目。请将它们作为 items 传回。如果没有采用新顺序，各行会滑回原位。",
+      "renderItem": "在抓手旁绘制行的内容。通过指针或键盘移动该行时，dragging 为 true。",
+      "itemLabel": "为行命名，用于它的抓手按钮（“Move Hakuba”）以及移动时的播报（“Hakuba, position 2 of 6”）。",
+      "variant": "分开的卡片，彼此之间留有间距；或同一张卡片内的多行，每行之间以细线分隔。",
+      "aria-label": "列表的名称。使用此属性或 aria-labelledby。",
+      "aria-labelledby": "为列表命名的标题的 id。",
+      "className": "列表外层包装元素的类名。其他属性也会展开到该元素上。"
+    }
+  }
+}

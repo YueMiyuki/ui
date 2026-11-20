@@ -1,0 +1,21 @@
+{
+  "source": "599dff53",
+  "name": "文件上传",
+  "description": "文件拖放区域，逐个检查文件的类型和大小，并将每个文件显示为带上传进度的一行。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "FileUpload": {
+      "accept": "接受的类型：扩展名（如 \".gpx\"）、MIME 类型（如 \"image/png\"）或 \"image/*\"。其他文件会显示为失败的一行，并注明原因。",
+      "maxSize": "单个文件的最大字节数。超出的文件会显示为失败的一行。",
+      "multiple": "允许一次选择多个文件。为 false 时，新文件会替换列表。",
+      "upload": "发送一个文件，并以 0 到 1 报告进度。返回被拒绝的 Promise 时，该行标记为失败并显示你的错误信息；移除该行时 signal 会中止。省略时模拟上传进度。",
+      "onChange": "每当列表变化时调用，参数为所有行（name、size、status、progress、error、file）。",
+      "defaultItems": "初始显示的行，用于之前已发送的文件。",
+      "hint": "替换列出接受类型和大小限制的那行弱化文字。",
+      "isDisabled": "禁止拖放和选择文件，并使组件变暗。",
+      "className": "根元素的额外类名。"
+    }
+  }
+}

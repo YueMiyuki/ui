@@ -312,7 +312,7 @@ export function TanzakuLine({ breeze = 0.3, className, children, ...props }: Tan
       className={cn(
         "relative isolate",
         "[--miyuki-tanzaku-card-cord:color-mix(in_oklab,var(--foreground)_62%,var(--warning))]",
-        "[--miyuki-tanzaku-card-shade:oklch(0.42_0.09_250/0.2)] dark:[--miyuki-tanzaku-card-shade:oklch(0.05_0.02_250/0.62)]",
+        "[--miyuki-tanzaku-card-shade:oklch(0.42_0.09_250/0.2)] dark:[--miyuki-tanzaku-card-shade:oklch(0.05_0.02_250/0.62)] ink:[--miyuki-tanzaku-card-shade:oklch(0.05_0_0/0.62)]",
         className,
       )}
       style={{ paddingTop: CORD, ...props.style }}
@@ -425,7 +425,7 @@ export function Tanzaku({
             "relative isolate flex h-60 w-14 justify-center overflow-clip rounded-[2px] outline-none sm:w-[68px]",
             "bg-[color-mix(in_oklab,var(--miyuki-tanzaku-card-tint)_26%,var(--card))] text-foreground",
             "dark:bg-[color-mix(in_oklab,var(--miyuki-tanzaku-card-tint)_30%,color-mix(in_oklab,var(--foreground)_86%,var(--background)))] dark:text-primary-foreground",
-            "[--miyuki-tanzaku-card-shadow:oklch(0.42_0.09_250/0.5)] dark:[--miyuki-tanzaku-card-shadow:oklch(0.05_0.02_250/0.55)]",
+            "[--miyuki-tanzaku-card-shadow:oklch(0.42_0.09_250/0.5)] dark:[--miyuki-tanzaku-card-shadow:oklch(0.05_0.02_250/0.55)] ink:[--miyuki-tanzaku-card-shadow:oklch(0.05_0_0/0.55)]",
             "shadow-[0_1px_1px_var(--miyuki-tanzaku-card-shade),0_10px_18px_-8px_var(--miyuki-tanzaku-card-shade)]",
             "focus-visible:ring-[3px] focus-visible:ring-ring",
             TONES[tone],
@@ -461,7 +461,7 @@ export function Tanzaku({
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute top-[6px] left-1/2 size-[6px] -translate-x-1/2 rounded-full bg-background shadow-[inset_0_1px_1.5px_oklch(0.2_0.04_250/0.45)]"
+            className="pointer-events-none absolute top-[6px] left-1/2 size-[6px] -translate-x-1/2 rounded-full bg-background shadow-[inset_0_1px_1.5px_oklch(0.2_0.04_250/0.45)] ink:shadow-[inset_0_1px_1.5px_oklch(0.2_0_0/0.45)]"
           />
           <div
             className={cn(

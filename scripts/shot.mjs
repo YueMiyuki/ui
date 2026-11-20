@@ -27,7 +27,7 @@ WebKit screenshots flatten 3D transforms and leave out backdrop-filter; add
 MIYUKI_COMPOSITED=1 to take the last frame of a video instead (1x, no --full).
 
 Options
-  --theme light|dark|both   theme to shoot (default both)
+  --theme light|dark|ink|both   theme to shoot (default both: light and dark)
   --size 1200x800           viewport size (default 1200x800)
   --wait 1200               extra milliseconds to wait after the network is idle
   --scale 1                 device pixel ratio (default 1)
@@ -98,7 +98,7 @@ function parseArgs(argv) {
         opts.targets.push(arg);
     }
   }
-  if (!["light", "dark", "both"].includes(opts.theme)) fail(`--theme must be light, dark or both`);
+  if (!["light", "dark", "ink", "both"].includes(opts.theme)) fail(`--theme must be light, dark, ink or both`);
   const size = opts.size.match(/^(\d+)x(\d+)$/);
   if (!size) fail(`--size must look like 1200x800`);
   opts.viewport = { width: Number(size[1]), height: Number(size[2]) };
@@ -149,7 +149,7 @@ try {
       const context = await browser.newContext(
         contextOptions({
           viewport: opts.viewport,
-          colorScheme: theme,
+          colorScheme: theme === "ink" ? "dark" : theme,
           deviceScaleFactor: opts.scale > 0 ? opts.scale : 1,
         }),
       );

@@ -1,0 +1,45 @@
+{
+  "source": "c236fa4b",
+  "name": "组合框",
+  "description": "输入时筛选列表的文本输入框，并保留你选中的选项。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "ComboBox": {
+      "label": "输入框上方的标签。",
+      "description": "输入框下方的帮助文字。输入框无效时由错误信息取代。",
+      "errorMessage": "输入框无效时显示在其下方，带有警示图标。",
+      "placeholder": "输入框为空时显示的提示。",
+      "size": "输入框高度为 32、36 或 44 像素，与 Input 一致。",
+      "defaultItems": "动态列表的选项，会按输入内容筛选。用以函数形式传入的 children 渲染每一项。",
+      "items": "由你自行筛选的选项（受控），例如来自服务器的数据。",
+      "children": "ComboBoxItem 元素，或为 items 中每一项渲染一个元素的函数。",
+      "emptyState": "输入内容没有任何匹配项时在列表中显示。",
+      "allowsCustomValue": "将不匹配任何选项的输入文字保留为值。",
+      "allowsEmptyCollection": "没有匹配项时保持列表打开并显示空状态。设为 false 则改为关闭列表。",
+      "menuTrigger": "打开列表的方式：输入文字、输入框获得焦点，或只能通过下拉箭头按钮。",
+      "value": "选中选项的 id（受控）。非受控时使用 defaultValue。",
+      "onChange": "选中的选项改变时调用。",
+      "inputValue": "输入的文字（受控）。非受控时使用 defaultInputValue。",
+      "onInputChange": "文字变化时调用。",
+      "isDisabled": "禁用输入框，并将其不透明度降到 50%。",
+      "isInvalid": "显示山茶红边框和错误信息。",
+      "className": "根元素的额外类名。也接受 react-aria-components 中 ComboBox 的其他所有属性。"
+    },
+    "ComboBoxItem": {
+      "id": "在 value 中用于识别该选项。",
+      "children": "标签。",
+      "textValue": "与输入内容进行匹配并写入输入框的纯文本。children 为字符串时取自 children。",
+      "description": "标签下方的第二行弱化文字。",
+      "icon": "标签前 16 像素的图标。",
+      "avatar": "标签前圆形头像的图片地址。",
+      "isDisabled": "禁用该选项。"
+    },
+    "ComboBoxSection": {
+      "title": "分组上方的标题。",
+      "items": "动态分组的选项。",
+      "children": "该分组中的 ComboBoxItem 元素。"
+    }
+  }
+}

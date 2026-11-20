@@ -1,0 +1,16 @@
+{
+  "source": "820711d4",
+  "name": "山屋预订",
+  "description": "山间小屋的三步预订卡片：在范围日历上选择住宿夜晚，选择住客和餐食，然后确认；分项明细随选择实时更新，预订完成后会盖上小屋印章。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "HutBooking": {
+      "hut": "小屋：{ name, region, altitude（米）, image?, currency?（ISO 代码，默认 \"JPY\"）, prices: { bunk, child?, dinner, breakfast, lunch }, open?: { start, end }（营业季的 ISO 日期）, booked?: string[]（已满夜晚的 ISO 日期，显示为删除线）, cancelDays?（到达前多少天截止免费取消，默认 3） }。价格按每人每晚计算；未提供 child 时使用 bunk 的价格。",
+      "defaultValue": "初始选择：{ start, end（ISO 日期）, adults（默认 2）, children（默认 0）, dinner（默认 true）, breakfast（默认 true）, lunch（默认 false）, guest }。点击“Make another booking”后会回到这些值。",
+      "onConfirm": "确认预订时调用，参数为 { reference, hut, start, end, nights, adults, children, meals, guest, lines, total }。lines 是明细中显示的分项价格列表。",
+      "className": "卡片的类名。其他 section 属性会透传。宽度小于约 640 像素时，明细会移到步骤下方。"
+    }
+  }
+}

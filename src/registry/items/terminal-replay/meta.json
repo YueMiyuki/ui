@@ -2,7 +2,10 @@
   "name": "Terminal Replay",
   "category": "cards",
   "description": "A terminal window that types out commands after a prompt and prints their output line by line.",
-  "preview": { "layout": "center", "height": 460 },
+  "preview": {
+    "layout": "center",
+    "height": 460
+  },
   "props": [
     {
       "component": "TerminalReplay",
@@ -12,7 +15,12 @@
           "type": "{ type: \"command\" | \"output\"; text: string; tone?: \"default\" | \"muted\" | \"brand\" | \"success\" | \"warning\" | \"error\" }[]",
           "description": "The session, in order. Commands are typed after the prompt with a light syntax tint; output lines appear whole, in their tone."
         },
-        { "name": "prompt", "type": "string", "default": "\"~ $\"", "description": "Text shown before each command." },
+        {
+          "name": "prompt",
+          "type": "string",
+          "default": "\"~ $\"",
+          "description": "Text shown before each command."
+        },
         {
           "name": "title",
           "type": "string",
@@ -48,6 +56,12 @@
           "type": "boolean",
           "default": "false",
           "description": "Plays a faint synthesised tick for each typed character."
+        },
+        {
+          "name": "startFrom",
+          "type": "number",
+          "default": "0",
+          "description": "Lines before this index show at once and typing starts from there. Lines added later are typed as they arrive."
         },
         {
           "name": "className",

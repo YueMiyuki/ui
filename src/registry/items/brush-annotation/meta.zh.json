@@ -1,0 +1,19 @@
+{
+  "source": "3f612bba",
+  "name": "笔刷批注",
+  "description": "覆盖在行内文字上的手绘墨迹标记：下划线、双下划线、圈注、删除线、括注和高亮。",
+  "demos": {
+    "default": "田野笔记",
+    "kinds": "标记类型"
+  },
+  "props": {
+    "BrushAnnotation": {
+      "kind": "标记类型。每种都是一笔实心笔触，落笔、加粗，再以枯笔收尾，并按手写的顺序绘制。underline、double、strike 和 highlight 会沿文字换行后的每一行绘制；circle 圈住每一行；bracket 在第一个词前开启、在最后一个词后闭合。highlight 是文字后方一道宽而浅的涂抹。",
+      "color": "墨迹颜色。可以是任意 CSS 颜色或变量；用于订正时可使用 var(--destructive)。highlight 会将其淡化到四分之一浓度。",
+      "show": "变为 true 时绘制标记，变为 false 时将其抹去。不设置时，在文字滚动进入视口时绘制一次。",
+      "delay": "画笔开始前等待的毫秒数，用于按阅读顺序标记多段文字。",
+      "children": "要标记的行内内容。highlight 时包裹在 mark 中，strike 时包裹在 s 中，其他情况包裹在 span 中。",
+      "className": "外层 span 的类名。其他 span 属性会透传。"
+    }
+  }
+}

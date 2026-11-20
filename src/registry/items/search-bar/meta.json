@@ -1,0 +1,327 @@
+{
+  "name": "Search Bar",
+  "category": "inputs",
+  "description": "A search box that shows results as you type, from a local list or a server, and makes the wait visible.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Local list"
+    },
+    {
+      "name": "async",
+      "title": "From a server"
+    },
+    {
+      "name": "dialog",
+      "title": "Search dialog"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 460,
+    "thumb": false,
+    "thumbClick": "label"
+  },
+  "props": [
+    {
+      "component": "SearchBar",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The query, when you control it. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "default": "\"\"",
+          "description": "The starting query when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(query: string) => void",
+          "description": "Called on every change to the query. Start your search here."
+        },
+        {
+          "name": "results",
+          "type": "SearchBarItem[] | SearchBarSection[] | null",
+          "description": "What the current search found. null or absent means nothing has been searched yet; an empty array means a finished search found nothing. Rows keep showing until new results replace them, so stale rows stay usable while the next search runs. Each SearchBarItem has an id and a title (a string is highlighted), and may have textValue (plain text when the title is not a string), description (muted, two lines at most), meta (at the end of the title line), icon (16 pixels), href (makes the row a link) and depth (1 indents a match inside the item above it, under a guide line). A SearchBarSection is { id, title?, items }."
+        },
+        {
+          "name": "suggestions",
+          "type": "SearchBarItem[] | SearchBarSection[]",
+          "description": "Shown while the query is empty, such as quick links or recent searches. Give a section a title to label them."
+        },
+        {
+          "name": "filter",
+          "type": "\"contains\" | ((item: SearchBarItem, query: string) => boolean)",
+          "description": "Filters results inside the component, for local lists. \"contains\" keeps items whose title or description contains every word of the query, ignoring case and accents, and ranks them: title equal to the query, title starting with it, a word in the title starting with it, title containing it, then the rest, keeping list order within each tier. Leave it out for server results, which are shown as given."
+        },
+        {
+          "name": "isLoading",
+          "type": "boolean",
+          "default": "false",
+          "description": "A search is in flight. After pendingDelay the lens turns into a spinning ring, a current runs along the field's edge, stale rows dim to 55% and, with nothing to show, three placeholder rows appear."
+        },
+        {
+          "name": "error",
+          "type": "ReactNode",
+          "description": "The last search failed. true shows \"Search failed.\"; anything else is shown as the message. Stale results stay below the error, which names the query they belong to."
+        },
+        {
+          "name": "onRetry",
+          "type": "() => void",
+          "description": "Adds a \"Try again\" button to the error. Enter also retries when no row is showing."
+        },
+        {
+          "name": "onSelect",
+          "type": "(item: SearchBarItem) => void",
+          "description": "An item was chosen with Enter or a click. Items with href are links as well; wrap the app in react-aria-components' RouterProvider for client routing."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Search…\"",
+          "description": "Hint shown while the field is empty."
+        },
+        {
+          "name": "emptyState",
+          "type": "ReactNode | ((query: string) => ReactNode)",
+          "description": "Replaces the message shown when a finished search found nothing. The function receives the query that found nothing."
+        },
+        {
+          "name": "highlight",
+          "type": "boolean",
+          "default": "true",
+          "description": "Marks every word of the query inside string titles and descriptions, ignoring case and accents."
+        },
+        {
+          "name": "pendingDelay",
+          "type": "number",
+          "default": "150",
+          "description": "Milliseconds isLoading must stay true before any working cue shows, so a fast answer shows nothing but its results."
+        },
+        {
+          "name": "pendingMinimum",
+          "type": "number",
+          "default": "400",
+          "description": "Once the lens and the current line have appeared, they stay at least this many milliseconds. When results have arrived and this time has passed, the line fades out within 200 ms and the ring closes back into the lens, so the cue never flashes and never outlasts the results."
+        },
+        {
+          "name": "strings",
+          "type": "Partial<SearchBarStrings>",
+          "description": "Replaces the built-in phrases, for other languages: searching (\"Searching…\"), results(count) (\"14 results\"), noResults, empty(query) (\"No results for “…”\"), emptyHint, failed (\"Search failed.\"), staleNotice(query), retry (\"Try again\"), clear (\"Clear search\"), navigate, open and close (the dialog's key hints), resultsLabel and suggestionsLabel (names of the list)."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Search\"",
+          "description": "Accessible name for the field when there is no visible label."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Field height 32, 36 or 44 pixels."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Label above the field."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Help text under the field."
+        },
+        {
+          "name": "shortcut",
+          "type": "string",
+          "description": "A key hint at the end of the empty field, such as \"/\" or \"⌘K\". Pressing it anywhere on the page focuses the field. A bare key is ignored while another field has focus."
+        },
+        {
+          "name": "panelClassName",
+          "type": "string",
+          "description": "Extra classes for the results panel. It is as wide as the field by default."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables the field."
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "default": "false",
+          "description": "Focuses the field on mount."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Name of the input when the field is part of a form."
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Id of the root element."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLDivElement>",
+          "description": "The root element."
+        }
+      ]
+    },
+    {
+      "component": "SearchDialog",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The query, when you control it. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "default": "\"\"",
+          "description": "The starting query when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(query: string) => void",
+          "description": "Called on every change to the query. Start your search here."
+        },
+        {
+          "name": "results",
+          "type": "SearchBarItem[] | SearchBarSection[] | null",
+          "description": "What the current search found. null or absent means nothing has been searched yet; an empty array means a finished search found nothing. Rows keep showing until new results replace them, so stale rows stay usable while the next search runs. Each SearchBarItem has an id and a title (a string is highlighted), and may have textValue (plain text when the title is not a string), description (muted, two lines at most), meta (at the end of the title line), icon (16 pixels), href (makes the row a link) and depth (1 indents a match inside the item above it, under a guide line). A SearchBarSection is { id, title?, items }."
+        },
+        {
+          "name": "suggestions",
+          "type": "SearchBarItem[] | SearchBarSection[]",
+          "description": "Shown while the query is empty, such as quick links or recent searches. Give a section a title to label them."
+        },
+        {
+          "name": "filter",
+          "type": "\"contains\" | ((item: SearchBarItem, query: string) => boolean)",
+          "description": "Filters results inside the component, for local lists. \"contains\" keeps items whose title or description contains every word of the query, ignoring case and accents, and ranks them: title equal to the query, title starting with it, a word in the title starting with it, title containing it, then the rest, keeping list order within each tier. Leave it out for server results, which are shown as given."
+        },
+        {
+          "name": "isLoading",
+          "type": "boolean",
+          "default": "false",
+          "description": "A search is in flight. After pendingDelay the lens turns into a spinning ring, a current runs along the field's edge, stale rows dim to 55% and, with nothing to show, three placeholder rows appear."
+        },
+        {
+          "name": "error",
+          "type": "ReactNode",
+          "description": "The last search failed. true shows \"Search failed.\"; anything else is shown as the message. Stale results stay below the error, which names the query they belong to."
+        },
+        {
+          "name": "onRetry",
+          "type": "() => void",
+          "description": "Adds a \"Try again\" button to the error. Enter also retries when no row is showing."
+        },
+        {
+          "name": "onSelect",
+          "type": "(item: SearchBarItem) => void",
+          "description": "An item was chosen with Enter or a click. Items with href are links as well; wrap the app in react-aria-components' RouterProvider for client routing."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Search…\"",
+          "description": "Hint shown while the field is empty."
+        },
+        {
+          "name": "emptyState",
+          "type": "ReactNode | ((query: string) => ReactNode)",
+          "description": "Replaces the message shown when a finished search found nothing. The function receives the query that found nothing."
+        },
+        {
+          "name": "highlight",
+          "type": "boolean",
+          "default": "true",
+          "description": "Marks every word of the query inside string titles and descriptions, ignoring case and accents."
+        },
+        {
+          "name": "pendingDelay",
+          "type": "number",
+          "default": "150",
+          "description": "Milliseconds isLoading must stay true before any working cue shows, so a fast answer shows nothing but its results."
+        },
+        {
+          "name": "pendingMinimum",
+          "type": "number",
+          "default": "400",
+          "description": "Once the lens and the current line have appeared, they stay at least this many milliseconds. When results have arrived and this time has passed, the line fades out within 200 ms and the ring closes back into the lens, so the cue never flashes and never outlasts the results."
+        },
+        {
+          "name": "strings",
+          "type": "Partial<SearchBarStrings>",
+          "description": "Replaces the built-in phrases, for other languages: searching (\"Searching…\"), results(count) (\"14 results\"), noResults, empty(query) (\"No results for “…”\"), emptyHint, failed (\"Search failed.\"), staleNotice(query), retry (\"Try again\"), clear (\"Clear search\"), navigate, open and close (the dialog's key hints), resultsLabel and suggestionsLabel (names of the list)."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Search\"",
+          "description": "Accessible name for the field when there is no visible label."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the root."
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Whether the dialog is open, when you control it. Inside a DialogTrigger the trigger controls it."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Whether the dialog starts open when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(isOpen: boolean) => void",
+          "description": "Called when the dialog opens or closes."
+        },
+        {
+          "name": "shortcut",
+          "type": "string | null",
+          "default": "\"k\"",
+          "description": "Key that toggles the dialog with ⌘ or Ctrl held. null turns it off, for when something else already owns the shortcut."
+        },
+        {
+          "name": "backdropBlur",
+          "type": "boolean",
+          "default": "false",
+          "description": "Blurs the page behind the scrim. Off by default because the browser redraws the blur on every frame while anything behind it moves."
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "description": "Extra content at the start of the footer, before the status."
+        },
+        {
+          "name": "overlayClassName",
+          "type": "string",
+          "description": "Extra classes for the scrim."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLDivElement>",
+          "description": "The dialog panel."
+        }
+      ]
+    }
+  ]
+}

@@ -4,10 +4,13 @@ import { ChevronDown } from "lucide-react";
 import { AnimatePresence, LayoutGroup, motion, type Transition, useReducedMotion } from "motion/react";
 import { type ComponentProps, type CSSProperties, type ReactNode, useEffect, useId, useState } from "react";
 import { IconButton } from "@/components/miyuki-ui/icon-button";
+import { MorphPath } from "@/components/miyuki-ui/path-morph";
 import { ProgressRing } from "@/components/miyuki-ui/progress";
 import { cn } from "@/lib/utils";
 
 export type RunStepStatus = "done" | "running" | "pending";
+
+export type RunOutcome = "running" | "done" | "stopped";
 
 export interface RunStep {
   id: string;
@@ -21,6 +24,9 @@ export interface RunChecklistProps extends Omit<ComponentProps<"section">, "titl
   defaultExpanded?: boolean;
   expanded?: boolean;
   onExpandedChange?: (expanded: boolean) => void;
+  summary?: ReactNode;
+  strikeDone?: boolean;
+  outcome?: RunOutcome;
 }
 
 const SETTLE: Transition = { type: "spring", stiffness: 420, damping: 34 };
@@ -123,6 +129,70 @@ function StepMark({ status }: { status: RunStepStatus }) {
   );
 }
 
+const MARK_R = 8.75;
+const at = (v: number) => Math.round(v * 100) / 100;
+
+function arcPath(fraction: number) {
+  const sweep = Math.max(0.08, Math.min(1, fraction)) * 359.9;
+  const pieces = Math.max(1, Math.ceil(sweep / 90));
+  const step = sweep / pieces;
+  let d = `M10 ${at(10 - MARK_R)}`;
+  for (let i = 0; i < pieces; i++) {
+    const a = ((-90 + i * step) * Math.PI) / 180;
+    const b = ((-90 + (i + 1) * step) * Math.PI) / 180;
+    const k = (4 / 3) * Math.tan((b - a) / 4);
+    d += `C${at(10 + MARK_R * (Math.cos(a) - k * Math.sin(a)))} ${at(10 + MARK_R * (Math.sin(a) + k * Math.cos(a)))} ${at(10 + MARK_R * (Math.cos(b) + k * Math.sin(b)))} ${at(10 + MARK_R * (Math.sin(b) - k * Math.cos(b)))} ${at(10 + MARK_R * Math.cos(b))} ${at(10 + MARK_R * Math.sin(b))}`;
+  }
+  return d;
+}
+
+const checkPath = "M6.4 10.3L8.8 12.7L13.6 7.5";
+const stopPath = "M8.5 8.5L11.5 8.5L11.5 11.5L8.5 11.5Z";
+
+function OutcomeMark({ outcome, progress }: { outcome: RunOutcome; progress: number }) {
+  const reduce = useReducedMotion();
+  const done = outcome === "done";
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-hidden="true"
+      className={cn(
+        "size-5 shrink-0 transition-colors duration-300 ease-settle",
+        done ? "text-success" : outcome === "stopped" ? "text-muted-foreground" : "text-brand",
+      )}
+    >
+      <circle cx="10" cy="10" r={MARK_R} strokeWidth="2.5" className="stroke-current opacity-20" />
+      <MorphPath
+        d={outcome === "stopped" ? stopPath : arcPath(done ? 1 : progress)}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={outcome === "stopped" ? 3 : 2.5}
+      />
+      <motion.path
+        d={checkPath}
+        stroke="currentColor"
+        strokeWidth="2.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        initial={false}
+        animate={{ pathLength: done ? 1 : 0, opacity: done ? 1 : 0 }}
+        transition={
+          reduce
+            ? { duration: 0 }
+            : done
+              ? {
+                  pathLength: { duration: 0.26, delay: 0.18, ease: [0.22, 1, 0.36, 1] },
+                  opacity: { duration: 0, delay: 0.18 },
+                }
+              : { duration: 0.1 }
+        }
+      />
+    </svg>
+  );
+}
+
 const statusText: Record<RunStepStatus, string> = {
   done: "done",
   running: "in progress",
@@ -135,6 +205,9 @@ export function RunChecklist({
   defaultExpanded = true,
   expanded,
   onExpandedChange,
+  summary,
+  strikeDone = false,
+  outcome,
   className,
   ...props
 }: RunChecklistProps) {
@@ -168,12 +241,16 @@ export function RunChecklist({
         {keyframes}
       </style>
       <header className="flex items-center gap-3 py-2.5 ps-4 pe-2.5">
-        <ProgressRing
-          size="sm"
-          value={total ? (finished / total) * 100 : 0}
-          aria-label="Steps finished"
-          className={cn("transition-colors duration-300", complete && "text-success")}
-        />
+        {outcome ? (
+          <OutcomeMark outcome={outcome} progress={total ? finished / total : 0} />
+        ) : (
+          <ProgressRing
+            size="sm"
+            value={total ? (finished / total) * 100 : 0}
+            aria-label="Steps finished"
+            className={cn("transition-colors duration-300", complete && "text-success")}
+          />
+        )}
         <div className="flex min-w-0 flex-1 items-baseline gap-2 text-sm leading-5">
           {title != null && <h3 className="min-w-0 truncate font-medium text-foreground">{title}</h3>}
           <p
@@ -181,9 +258,10 @@ export function RunChecklist({
             className={cn(
               "shrink-0 tabular-nums",
               title != null ? "text-muted-foreground" : "font-medium text-foreground",
+              summary != null && "min-w-0 shrink truncate",
             )}
           >
-            {complete ? "Done" : `${left} ${left === 1 ? "step" : "steps"} left`}
+            {summary ?? (complete ? "Done" : `${left} ${left === 1 ? "step" : "steps"} left`)}
           </p>
         </div>
         <IconButton
@@ -228,7 +306,8 @@ export function RunChecklist({
                 {steps.map((step) => {
                   const running = step.status === "running";
                   const k = pending.indexOf(step);
-                  const opacity = fade && k > 0 ? Math.max(0.32, 1 - k * 0.2) : 1;
+                  const idle = outcome === "stopped" && step.status === "pending";
+                  const opacity = idle ? 0.55 : fade && k > 0 ? Math.max(0.32, 1 - k * 0.2) : 1;
                   return (
                     <li
                       key={step.id}
@@ -251,7 +330,10 @@ export function RunChecklist({
                         className={cn(
                           "relative min-w-0 flex-1 truncate",
                           step.status === "done" && "text-muted-foreground",
-                          step.status === "pending" && "text-foreground",
+                          step.status === "done" &&
+                            strikeDone &&
+                            "line-through decoration-muted-foreground/60 decoration-1 opacity-70",
+                          step.status === "pending" && (idle ? "text-muted-foreground" : "text-foreground"),
                           running &&
                             "bg-clip-text text-transparent motion-safe:animate-[miyuki-run-checklist-shine_2.6s_cubic-bezier(0.45,0.05,0.25,1)_infinite] motion-reduce:bg-none motion-reduce:text-foreground",
                         )}

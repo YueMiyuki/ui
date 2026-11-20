@@ -1,0 +1,24 @@
+{
+  "source": "ef4a9026",
+  "name": "上下文用量",
+  "description": "按类别显示智能体上下文窗口的使用量，以及距离套餐用量上限还有多远。",
+  "demos": {
+    "default": "默认",
+    "near-limit": "接近上限"
+  },
+  "props": {
+    "ContextMeter": {
+      "context": "已用的 token 数和窗口大小。每个分段代表一个类别，未指定颜色时按色板顺序着色（水蓝色、海沫绿、紫藤色、梅红、柚子黄）。悬停在分段上时显示其名称和大小。",
+      "limits": "套餐上限，每项一行。resetsIn 显示在“Resets”一词之后，例如“in 2 h 46 min”或“Tuesday 15:00”。value 为已用百分比。",
+      "warnAt": "上限的进度条和数字变为柚子黄时的百分比。",
+      "criticalAt": "上限的进度条和数字变为山茶红时的百分比。",
+      "className": "卡片的额外类名。其他属性会传给根 section 元素。"
+    },
+    "PlanLimitList": {
+      "limits": "单独的套餐上限行，与 ContextMeter 中的样式相同，适合放在设置或账单页面。resetsIn 显示在“Resets”一词之后；value 为已用百分比。",
+      "warnAt": "上限的进度条和数字变为柚子黄时的百分比。",
+      "criticalAt": "上限的进度条和数字变为山茶红时的百分比。",
+      "className": "列表的额外类名。其他属性会传给根 ul 元素。"
+    }
+  }
+}

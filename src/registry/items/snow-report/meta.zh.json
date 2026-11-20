@@ -1,0 +1,14 @@
+{
+  "source": "01782456",
+  "name": "雪况报告",
+  "description": "滑雪场的晨间雪况报告，突出显示新雪量，数字逐渐累加，缆车和雪道开放情况以计量条显示，并附有预报员的说明。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "SnowReport": {
+      "report": "报告数据：{ resort, date, time, title?, status?, new24, new7, base, summit, baseAltitude?, summitAltitude?, temperature: { summit, base }, wind: { speed, direction }, lifts: { open, total }, runs: { open, total }, note?, forecaster?: { name, role?, avatar? }, next? }。积雪深度单位为厘米，温度单位为 °C，风速单位为 km/h，风向为 \"NW\" 这样的罗盘方位（指风的来向；箭头指向风吹去的方向）。title 默认为 \"Morning report\"，status 在卡片头部显示为胶囊标签，next 是显示在预报员旁边的一句简短说明，例如“下次报告时间 12:00”。24 小时新雪量以大字号显示在量雪尺旁；卡片进入视口时，每个数字都会累加一次，缆车和雪道计量条随之填满。开启“减少动态效果”时，直接显示最终数值。",
+      "className": "卡片的类名。其他 article 属性会透传。"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+---
+title: 字体
+description: 组件读取的三个字体工具类，以及本站如何加载 Geist。
+---
+
+组件从不自行加载字体。它们使用三个 Tailwind 字体工具类，因此会沿用你项目中已有的字体。
+
+| 工具类 | 变量 | 用途 |
+| --- | --- | --- |
+| `font-sans` | `--font-sans` | 所有界面文字 |
+| `font-display` | `--font-display` | 展示文字：首屏大标题和大号数字 |
+| `font-mono` | `--font-mono` | 代码和键盘快捷键 |
+
+`font-sans` 和 `font-mono` 由 Tailwind 自带。`font-display` 随 `base` 注册表项提供，在你为它选定字体之前，会回退到系统无衬线字体栈。
+
+## 本站使用的字体 [#the-fonts-on-this-site]
+
+本站的界面和标题使用 Geist Sans，代码使用 Geist Mono，字标使用 Geist Pixel。这些字体从 `geist` 包加载，它通过 `next/font` 从你自己的域名提供字体文件。
+
+```npm
+npm install geist
+```
+
+```tsx title="app/layout.tsx"
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+然后让主题变量指向它们：
+
+```css title="globals.css"
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+```
+
+## 使用自己的字体 [#your-own-fonts]
+
+用 `next/font` 加载任意字体并为它指定一个 CSS 变量，然后让 `--font-sans`、`--font-display` 或 `--font-mono` 指向该变量。有个性的字体适合用作 `--font-display`；使用时字重设为 600，行距收紧。

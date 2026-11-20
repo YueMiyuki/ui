@@ -1,0 +1,33 @@
+{
+  "source": "bf797a7c",
+  "name": "撰写框",
+  "description": "撰写消息或评论的输入框，带有 Markdown 格式、提及、附件和发送按钮。",
+  "demos": {
+    "default": "在讨论串中回复",
+    "attachments": "附件"
+  },
+  "props": {
+    "Composer": {
+      "value": "文本内容（受控）。",
+      "defaultValue": "初始文本（非受控）。",
+      "onChange": "每次编辑时调用，包括设置格式和插入提及。",
+      "files": "已附加的文件（受控）。每一项为 { id, name, size, type?, src?, file? }：size 以字节为单位，src 是图片缩略图的地址；文件由用户选择时，file 为所选的 File 对象。",
+      "defaultFiles": "初始文件（非受控）。",
+      "onFilesChange": "附加、拖入或移除文件时调用。",
+      "placeholder": "文本为空时显示的提示文字。",
+      "onSubmit": "发送时调用。如果返回 promise，发送按钮会显示加载指示器，直到它完成；promise 兑现时清空文本和文件，被拒绝时保留。",
+      "submitOn": "按 Enter 发送、Shift+Enter 换行，或按 Command/Ctrl+Enter 发送、Enter 换行。输入法正在输入、文字尚未上屏时不会发送。",
+      "isPending": "自行控制发送状态。会覆盖由返回的 promise 驱动的状态。",
+      "isDisabled": "禁用文本、工具和发送，并将输入框的不透明度降到 50%。",
+      "maxLength": "允许的最大字符数。在发送按钮旁显示计数，接近上限时变为柚子黄，达到上限时变为山茶红。",
+      "minRows": "为空时显示的文本行数。",
+      "maxRows": "文本增高到这一行数后开始滚动。",
+      "tools": "工具栏按钮，按此顺序排列。bold、italic 和 link 会用 Markdown 语法包裹选中的文字（也可使用 Command/Ctrl+B、I 和 K）。不包含 attach 时，也无法拖入文件。",
+      "mentions": "可以被提及的人。输入 @ 和字母会在输入框上方打开匹配列表；上下方向键移动，Enter 或 Tab 插入 \"@Name \"，Escape 关闭列表。不设置时会隐藏提及工具。",
+      "accept": "允许的文件类型，写成 MIME 类型（image/*）或扩展名（.pdf）。同时适用于文件选择器和拖入的文件。",
+      "maxFiles": "一次最多可附加的文件数。超出的文件会被忽略，达到上限时附件工具会被禁用。",
+      "aria-label": "文本区域的无障碍名称。",
+      "className": "输入框的额外类名。其他属性会透传到它上面。"
+    }
+  }
+}

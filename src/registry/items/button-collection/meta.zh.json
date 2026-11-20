@@ -1,0 +1,19 @@
+{
+  "source": "7decb328",
+  "name": "按钮合集",
+  "description": "一个组件中的十二种按钮样式，从上浮的墨色按钮到可以按下的键帽。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "EffectButton": {
+      "effect": "按钮样式。lift：上浮 2 像素的墨色按钮。fill：从底部注满水蓝色的描边按钮。draw：一条水蓝色线条沿边框自行描绘一圈。frost：覆盖在模糊背景上的玻璃。ripple：从按下的位置扩散出一圈波纹。sheen：悬停时一道光带扫过。underline：带滑动下划线的文字按钮。reveal：标签移开时滑入一个箭头。keycap：可以按下的键帽。halo：柔和的水蓝色光环向外脉动。swap：标签向上滚动为 altLabel。march：虚线边框，虚线沿边框移动。",
+      "children": "标签，可带 16 像素的图标。",
+      "altLabel": "用于 swap：悬停时滚入的标签。默认为 children。它对辅助技术隐藏，因此无障碍名称仍是第一个标签。",
+      "size": "高度为 32、36 或 44 像素，与 Button 相同。",
+      "isDisabled": "禁用按钮。",
+      "onPress": "通过鼠标、触摸或键盘按下按钮时调用。",
+      "className": "额外的类名，通过 cn() 合并。也接受 react-aria-components 中 Button 的其他所有属性。draw 和 march 效果沿标准的 10 像素圆角描绘；如果修改了圆角，请将 --miyuki-button-collection-radius 设为相同的值。"
+    }
+  }
+}

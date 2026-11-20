@@ -1,0 +1,18 @@
+{
+  "source": "d7a30e77",
+  "name": "来源记录",
+  "description": "智能体在调研过程中打开过的来源记录，在查询内容下方逐条出现。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "SourceTrail": {
+      "query": "智能体搜索的内容，以引号括起显示在头部。",
+      "sources": "按打开顺序排列的页面。每个页面带一个字母方块，颜色由其域名决定。带 href 的来源是一个链接。",
+      "defaultExpanded": "初始时是否显示来源（非受控）。折叠时，头部显示前几个方块和总数。",
+      "expanded": "是否显示来源（受控）。",
+      "onExpandedChange": "按下头部时调用。",
+      "className": "区块的额外类名。其他属性会传给根 section 元素。"
+    }
+  }
+}

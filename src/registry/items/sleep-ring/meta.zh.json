@@ -1,0 +1,22 @@
+{
+  "source": "758cdbf7",
+  "name": "睡眠圆环",
+  "description": "以圆环展示的睡眠评分，每个睡眠阶段占一段，中间是大号数字，下方每个阶段占一行。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "SleepRing": {
+      "score": "满分 100 的评分。圆环按该比例扫过一周中的相应部分，其余部分为浅色轨道。",
+      "stages": "每个阶段的时长。每个阶段占圆环的一段和下方的一行，大小按其在整晚中的占比确定。未指定颜色时使用图表色板。",
+      "rating": "数字上方的评语。默认 85 分及以上为 Excellent，70 分及以上为 Good，50 分及以上为 Fair，低于 50 分为 Poor。",
+      "formatDuration": "格式化各阶段的时长。默认格式为“1 h 42 m”。",
+      "size": "圆环直径，单位为像素。卡片较窄时会缩小以适应。",
+      "thickness": "圆环的粗细。",
+      "summary": "供读屏软件读取的图表内容说明。省略时自动生成。",
+      "action": "卡片头部右侧的控件，例如来自 @/components/miyuki-ui/lib/chart 的 PeriodStepper，用于切换周。",
+      "label": "卡片顶部的弱化小标签。",
+      "className": "卡片的类名。也接受 value、delta、caption、note、footer 以及 div 的其他所有属性。"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source": "18794c25",
+  "name": "卡片标签页",
+  "description": "面板为一叠卡片的标签页，选择某个标签页会把它的卡片移到最前面。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "CardTabs": {
+      "tabs": "每个标签页一项。content 会成为卡片堆中的一张卡片；请为它设置自己的高度和背景。",
+      "defaultValue": "初始位于最前面的标签页（非受控）。默认为第一个标签页。",
+      "value": "位于最前面的标签页（受控）。",
+      "onValueChange": "选择另一个标签页时调用。",
+      "aria-label": "供辅助技术读取的标签页列表名称。",
+      "keyboardActivation": "方向键是立即把卡片移到前面，还是只移动焦点，直到按下 Enter 或 Space。",
+      "className": "根元素的类名，例如最大宽度。也接受 react-aria-components 中 Tabs 的其他所有属性。"
+    }
+  }
+}

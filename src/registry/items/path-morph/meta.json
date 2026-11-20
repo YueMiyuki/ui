@@ -33,7 +33,7 @@
           "name": "filled",
           "type": "boolean",
           "default": "false",
-          "description": "Fill every path as well as stroking it. A single path can be filled with { d, fill: true }."
+          "description": "Fill every path as well as stroking it. A single path can be filled with { d, fill: true }, and drawn without its stroke with { d, stroke: false }."
         },
         {
           "name": "label",
@@ -133,6 +133,11 @@
           "name": "sunMoon",
           "type": "sun | moon",
           "description": "The disc opens into a crescent; the rays draw back onto its rim."
+        },
+        {
+          "name": "sunMoonDisc",
+          "type": "sun | moon | disc",
+          "description": "Sun, crescent moon and a solid new moon in a thin ring. The crescent closes into the ring while the solid disc grows from its centre."
         },
         { "name": "chevron", "type": "down | up | left | right", "description": "Turns the short way round." },
         { "name": "arrow", "type": "right | down | up-right", "description": "Turns the short way round." },

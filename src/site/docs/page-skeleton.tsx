@@ -4,17 +4,19 @@ import { usePathname } from "next/navigation";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/miyuki-ui/skeleton";
 import { cn } from "@/lib/utils";
-import { type Section, sectionHref } from "@/site/docs/urls";
+import { type Section, sectionPath } from "@/site/docs/urls";
+import { stripLocale } from "@/site/i18n/href";
 
 type Shape = { kind: "gallery"; section: Section } | { kind: "item" } | { kind: "prose" };
 
 const sections: Section[] = ["components", "templates"];
 
 function shapeOf(pathname: string): Shape {
+  const path = stripLocale(pathname);
   for (const section of sections) {
-    const href = sectionHref(section);
-    if (pathname === href) return { kind: "gallery", section };
-    if (pathname.startsWith(`${href}/`)) return { kind: "item" };
+    const href = sectionPath(section);
+    if (path === href) return { kind: "gallery", section };
+    if (path.startsWith(`${href}/`)) return { kind: "item" };
   }
   return { kind: "prose" };
 }

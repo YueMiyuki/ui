@@ -1,0 +1,25 @@
+{
+  "source": "9037ac4d",
+  "name": "骨架屏",
+  "description": "带缓慢光带的加载占位块，以及将占位块模糊过渡为真实内容的显现效果。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "Skeleton": {
+      "className": "尺寸和形状，例如 h-4 w-32 或 rounded-lg。屏幕上所有骨架屏的光带同步扫过。接受 div 的所有属性。"
+    },
+    "SkeletonText": {
+      "lines": "行数。最后一行较短。",
+      "lineClassName": "每一行的类名，例如设置不同的高度。"
+    },
+    "SkeletonCircle": {
+      "size": "直径，单位为像素。"
+    },
+    "SkeletonReveal": {
+      "loading": "为 true 时显示骨架屏。变为 false 时，骨架屏在同一个盒子内模糊淡出，内容同时模糊淡入，历时 320 毫秒。",
+      "skeleton": "占位块，形状与内容一致，切换时不会产生位移。",
+      "children": "真实内容。加载期间保持挂载，但处于 inert 状态且隐藏。"
+    }
+  }
+}

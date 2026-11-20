@@ -114,17 +114,17 @@ const THEME = [
   "[--miyuki-emaki-scroll-light:oklch(1_0_0)]",
   "[--miyuki-emaki-scroll-wood:oklch(0.5_0.062_56)]",
   "[--miyuki-emaki-scroll-drop:oklch(0.42_0.09_250)]",
-  "dark:[--miyuki-emaki-scroll-paper:oklch(0.35_0.016_248)]",
-  "dark:[--miyuki-emaki-scroll-cool:oklch(0.33_0.024_244)]",
-  "dark:[--miyuki-emaki-scroll-back:oklch(0.41_0.016_248)]",
-  "dark:[--miyuki-emaki-scroll-tint:oklch(0.42_0.02_244)]",
+  "dark:[--miyuki-emaki-scroll-paper:oklch(0.35_0.016_248)] ink:[--miyuki-emaki-scroll-paper:oklch(0.35_0_0)]",
+  "dark:[--miyuki-emaki-scroll-cool:oklch(0.33_0.024_244)] ink:[--miyuki-emaki-scroll-cool:oklch(0.33_0_0)]",
+  "dark:[--miyuki-emaki-scroll-back:oklch(0.41_0.016_248)] ink:[--miyuki-emaki-scroll-back:oklch(0.41_0_0)]",
+  "dark:[--miyuki-emaki-scroll-tint:oklch(0.42_0.02_244)] ink:[--miyuki-emaki-scroll-tint:oklch(0.42_0_0)]",
   "dark:[--miyuki-emaki-scroll-ink:oklch(0.95_0.012_82)]",
   "dark:[--miyuki-emaki-scroll-ink-soft:oklch(0.82_0.016_78)]",
   "dark:[--miyuki-emaki-scroll-edge:oklch(0.9_0.02_80/0.13)]",
-  "dark:[--miyuki-emaki-scroll-shade:oklch(0.1_0.02_250/0.78)]",
+  "dark:[--miyuki-emaki-scroll-shade:oklch(0.1_0.02_250/0.78)] ink:[--miyuki-emaki-scroll-shade:oklch(0.1_0_0/0.78)]",
   "dark:[--miyuki-emaki-scroll-light:oklch(0.94_0.03_82/0.5)]",
   "dark:[--miyuki-emaki-scroll-wood:oklch(0.44_0.05_56)]",
-  "dark:[--miyuki-emaki-scroll-drop:oklch(0.06_0.02_250)]",
+  "dark:[--miyuki-emaki-scroll-drop:oklch(0.06_0.02_250)] ink:[--miyuki-emaki-scroll-drop:oklch(0.06_0_0)]",
 ].join(" ");
 
 const STOPS: [string, number, number][] = [

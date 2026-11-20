@@ -1,0 +1,51 @@
+{
+  "source": "7ec8e6ba",
+  "name": "右键菜单",
+  "description": "在右键单击的位置打开的菜单，也可用键盘按 Shift+F10 打开，支持图标、快捷键和子菜单。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "ContextMenu": {
+      "children": "打开菜单的区域。在区域内右键单击或长按，或在区域内任何获得焦点的元素上按 Shift+F10 或 Menu 键，即可打开菜单。",
+      "menu": "ContextMenuItem、ContextMenuSection、ContextMenuSeparator 和 ContextMenuSubmenu 元素。",
+      "aria-label": "供辅助技术使用的菜单名称，例如“文件操作”。",
+      "onAction": "选中某一项时调用，包括子菜单中的项。",
+      "onOpenChange": "菜单打开或关闭时调用。",
+      "isDisabled": "保留浏览器自带的右键菜单。",
+      "disabledKeys": "不可选择的项。",
+      "menuClassName": "浮动面板的类名，例如宽度。浮动面板最窄 200 像素。",
+      "className": "包裹该区域的元素的类名。也接受 div 的其他所有属性。菜单打开期间，包裹元素带有 data-open。"
+    },
+    "ContextMenuItem": {
+      "children": "标签。",
+      "id": "在 onAction 中用于识别该项。",
+      "icon": "标签前 16 像素的图标。",
+      "description": "标签下方的一行文字。",
+      "shortcut": "行末的按键提示，例如“⌘D”。",
+      "tone": "destructive 将该行显示为山茶红，高亮为浅山茶红。",
+      "onAction": "选中该项时调用。",
+      "isDisabled": "禁用该项。"
+    },
+    "ContextMenuSubmenu": {
+      "label": "打开子菜单的那一项的标签。",
+      "children": "子菜单中的项。",
+      "icon": "标签前 16 像素的图标。",
+      "id": "用于识别打开子菜单的那一项。",
+      "delay": "悬停多少毫秒后打开。按右方向键会立即打开。",
+      "isDisabled": "禁用子菜单。",
+      "aria-label": "子菜单的无障碍名称。标签为字符串时默认取标签。",
+      "menuClassName": "子菜单浮动面板的类名。"
+    },
+    "ContextMenuSection": {
+      "title": "分组上方的小标题。",
+      "children": "分组中的项。",
+      "selectionMode": "允许选择该分组中的项。选中的项显示圆点（single）或对勾（multiple）。",
+      "selectedKeys": "该分组中选中的项（受控）。",
+      "onSelectionChange": "选中项改变时调用。"
+    },
+    "ContextMenuSeparator": {
+      "className": "分隔细线的额外类名。"
+    }
+  }
+}

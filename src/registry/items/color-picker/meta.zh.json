@@ -1,0 +1,31 @@
+{
+  "source": "c61ece38",
+  "name": "颜色选择器",
+  "description": "在饱和度与亮度区域中凭肉眼选色，也可以输入十六进制值，或从取自主题的预设中选择。",
+  "demos": {
+    "default": "在弹出层中",
+    "inline": "内嵌，带不透明度"
+  },
+  "props": {
+    "ColorPicker": {
+      "label": "触发器上方的标签。",
+      "description": "触发器下方的帮助文字。",
+      "value": "颜色（受控）：十六进制、rgb() 或 hsl() 字符串，或 Color。",
+      "defaultValue": "非受控时的初始颜色。",
+      "onChange": "颜色变化时调用。color.toString(\"hex\") 可得到十六进制字符串。",
+      "presets": "控件下方的色块，可以是任意 CSS 颜色。var(--chart-2) 这样的主题变量会按当前主题解析为十六进制值。传入 [] 则不显示。",
+      "showAlpha": "添加不透明度滑块。触发器随后会在十六进制值旁显示不透明度。",
+      "isDisabled": "禁用触发器，并将其不透明度降到 50%。",
+      "className": "根元素的额外类名。"
+    },
+    "ColorPickerPanel": {
+      "label": "面板上方的标题，同时作为该组的无障碍名称。",
+      "value": "颜色（受控）。",
+      "defaultValue": "非受控时的初始颜色。",
+      "onChange": "颜色变化时调用。",
+      "presets": "控件下方的色块。传入 [] 则不显示。",
+      "showAlpha": "添加不透明度滑块。",
+      "className": "根元素的额外类名。"
+    }
+  }
+}

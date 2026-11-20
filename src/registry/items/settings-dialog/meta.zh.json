@@ -1,0 +1,24 @@
+{
+  "source": "87f3ea1e",
+  "name": "设置对话框",
+  "description": "集中在一个对话框中的设置：一列带滑动高亮的分区，以及所选分区的一行行控件。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "SettingsDialog": {
+      "isOpen": "打开状态（受控）。",
+      "onOpenChange": "对话框打开或关闭时调用，包括通过关闭按钮、Escape 键或遮罩层关闭。",
+      "section": "显示的分区（受控）。非受控时使用 defaultSection。",
+      "defaultSection": "非受控时最先显示的分区。",
+      "onSectionChange": "通过点击或方向键选择其他分区时调用。",
+      "defaultSettings": "控件的初始值：workspaceName、language、timeZone、units、theme、mapStyle、compact、clock24、reduceMotion、avalancheBulletins、stormWarnings、mentions、morningSummary、weeklyReport、integrations。",
+      "onSettingChange": "任一控件改变时，以键名和新值为参数调用。",
+      "plan": "覆盖套餐卡片和账单行的内容：name、price、interval、renews、usageLabel、usage、limit、resets、billingEmail、paymentMethod、invoices，以及 image（显示在卡片顶角并逐渐淡出）。",
+      "onUpgrade": "点击套餐卡片上的 Upgrade 按钮时调用。",
+      "onExport": "点击 General 分区下的 Export 按钮时调用。",
+      "isDismissable": "点击遮罩层时关闭。",
+      "className": "对话框面板的类名。面板宽 720 像素、高 560 像素，在小屏幕上会更小。"
+    }
+  }
+}

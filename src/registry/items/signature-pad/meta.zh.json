@@ -1,0 +1,20 @@
+{
+  "source": "91340259",
+  "name": "签名板",
+  "description": "一块用毛笔签名的纸面：放慢时墨迹变粗，加快时变细，每一笔的起笔处会略微晕开。“Type instead”开关让无法使用指针的人也能输入自己的名字，名字以手写体显示。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "SignaturePad": {
+      "label": "纸面上方的标签。",
+      "onChange": "每完成一笔、每次“Undo”和“Clear”之后，以及切换“Type instead”时调用。每一笔是一个由 { x, y, time, pressure? } 组成的数组，坐标为相对纸面左上角的 CSS 像素。用输入的名字代替手绘签名时，调用时传入的笔画为空。",
+      "onNameChange": "输入的名字改变时调用，传入去掉首尾空白的名字；关闭“Type instead”时传入空字符串。开关打开时，在横线上输入的名字就是签名；它使用系统自带的手写字体显示，toDataURL() 也会绘制它。",
+      "color": "墨迹颜色。可以是任意 CSS 颜色或主题变量；主题切换时会重新读取。",
+      "height": "纸面高度，单位为像素。宽度填满容器。",
+      "isDisabled": "使签名板变暗并忽略输入。",
+      "ref": "toDataURL(type?, quality?) 以两倍尺寸返回透明背景上单独的墨迹（或输入的名字）；另外还提供 clear()、undo()、isEmpty()、strokes() 和 name()。",
+      "className": "根元素的额外类名。其他 div 属性会透传。"
+    }
+  }
+}

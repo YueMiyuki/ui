@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import type { PreviewLayout } from "@/registry/schema";
 import { DemoMount } from "@/site/demo-mount";
+import type { SiteTheme } from "@/site/theme";
 
 export function DemoSurface({
   slug,
@@ -33,6 +34,6 @@ export function DemoSurface({
   );
 }
 
-export function previewUrl(slug: string, demo: string, theme?: "light" | "dark") {
+export function previewUrl(slug: string, demo: string, theme?: SiteTheme) {
   return `/preview/${slug}/${demo}${theme ? `?theme=${theme}` : ""}`;
 }

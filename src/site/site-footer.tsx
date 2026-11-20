@@ -5,6 +5,12 @@ import { cn } from "@/lib/utils";
 import { source } from "@/site/docs/source";
 import { categoryHref, docsHref, GITHUB_URL, sectionHref } from "@/site/docs/urls";
 import { HomeLink } from "@/site/home-link";
+import type { Locale } from "@/site/i18n/config";
+import type { Dictionary } from "@/site/i18n/dictionaries";
+import { format } from "@/site/i18n/format";
+import { localizeItem } from "@/site/i18n/items";
+import { getI18n } from "@/site/i18n/server";
+import { LanguageSwitch } from "@/site/language-switch";
 import { catalogueCounts, categoryGroups, items } from "@/site/registry";
 import { ThemeToggle } from "@/site/theme-toggle";
 
@@ -16,20 +22,20 @@ const templatePicks = ["resort-status", "field-journal", "studio-ledger", "kanba
 const linkClass =
   "-mx-1 inline-flex rounded-sm px-1 py-1 text-sm text-muted-foreground outline-none transition-colors duration-150 hover:text-foreground focus-visible:text-foreground focus-visible:ring-[3px] data-[aim]:text-foreground focus-visible:ring-ring";
 
-function guideLinks(): FooterLink[] {
+function guideLinks(locale: Locale): FooterLink[] {
   const guides = new Set(
     source
-      .getPages()
+      .getPages(locale)
       .filter((page) => page.type === "docs")
       .map((page) => page.url),
   );
-  return flattenTree(source.getPageTree().children)
+  return flattenTree(source.getPageTree(locale).children)
     .filter((node) => guides.has(node.url))
     .map((node) => ({ href: node.url, label: node.name }));
 }
 
-function componentLinks(): FooterLink[] {
-  const groups = categoryGroups().filter((group) => group.id !== "templates" && group.id !== "foundations");
+function componentLinks(locale: Locale, t: Dictionary): FooterLink[] {
+  const groups = categoryGroups(locale).filter((group) => group.id !== "templates" && group.id !== "foundations");
   const largest = new Set(
     [...groups]
       .sort((a, b) => b.items.length - a.items.length)
@@ -39,34 +45,36 @@ function componentLinks(): FooterLink[] {
   return [
     ...groups
       .filter((group) => largest.has(group.id))
-      .map((group) => ({ href: categoryHref(group.id), label: group.label })),
-    { href: sectionHref("components"), label: "All components" },
+      .map((group) => ({ href: categoryHref(group.id, locale), label: group.label })),
+    { href: sectionHref("components", locale), label: t.footer.allComponents },
   ];
 }
 
-function templateLinks(): FooterLink[] {
+function templateLinks(locale: Locale, t: Dictionary): FooterLink[] {
   const templates = items.filter((item) => item.category === "templates");
   const picks = templatePicks
     .map((slug) => templates.find((item) => item.slug === slug))
     .filter((item) => item != null);
   return [
-    ...[...new Set([...picks, ...templates])].slice(0, 5).map((item) => ({ href: docsHref(item), label: item.name })),
-    { href: sectionHref("templates"), label: "All templates" },
+    ...[...new Set([...picks, ...templates])]
+      .slice(0, 5)
+      .map((item) => ({ href: docsHref(item, locale), label: localizeItem(item, locale).name })),
+    { href: sectionHref("templates", locale), label: t.footer.allTemplates },
   ];
 }
 
-function columns(): FooterColumn[] {
+function columns(locale: Locale, t: Dictionary): FooterColumn[] {
   const templates = items.some((item) => item.category === "templates");
   return [
-    { title: "Get started", links: guideLinks() },
-    { title: "Components", links: componentLinks() },
-    ...(templates ? [{ title: "Templates", links: templateLinks() }] : []),
+    { title: t.footer.getStarted, links: guideLinks(locale) },
+    { title: t.footer.components, links: componentLinks(locale, t) },
+    ...(templates ? [{ title: t.footer.templates, links: templateLinks(locale, t) }] : []),
     {
-      title: "Project",
+      title: t.footer.project,
       links: [
-        { href: GITHUB_URL, label: "GitHub", kind: "external" },
-        { href: `${GITHUB_URL}/issues`, label: "Issues", kind: "external" },
-        { href: "/r/registry.json", label: "Registry index", kind: "file" },
+        { href: GITHUB_URL, label: t.footer.github, kind: "external" },
+        { href: `${GITHUB_URL}/issues`, label: t.footer.issues, kind: "external" },
+        { href: "/r/registry.json", label: t.footer.registryIndex, kind: "file" },
       ],
     },
   ];
@@ -119,28 +127,28 @@ function GitHubLink({ className }: { className?: string }) {
   );
 }
 
-function Counts({ className }: { className?: string }) {
+function Counts({ t, className }: { t: Dictionary; className?: string }) {
   const { components, templates } = catalogueCounts();
+  const number = (count: number) => (
+    <span className="font-pixel text-[17px] leading-none text-foreground">{count}</span>
+  );
   return (
     <p className={cn("flex items-baseline gap-x-2.5 whitespace-nowrap tabular-nums", className)}>
-      <span>
-        <span className="font-pixel text-[17px] leading-none text-foreground">{components}</span> components
-      </span>
+      <span>{format(t.footer.componentCount, { count: number(components) })}</span>
       {templates > 0 ? (
         <>
           <span aria-hidden="true" className="text-muted-foreground/50">
             ·
           </span>
-          <span>
-            <span className="font-pixel text-[17px] leading-none text-foreground">{templates}</span> templates
-          </span>
+          <span>{format(t.footer.templateCount, { count: number(templates) })}</span>
         </>
       ) : null}
     </p>
   );
 }
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const { locale, t } = await getI18n();
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-[1240px] px-6 pt-16 pb-8 lg:px-10 lg:pt-20">
@@ -148,16 +156,17 @@ export function SiteFooter() {
           <div className="xl:col-span-4">
             <HomeLink />
             <p className="mt-4 max-w-[21.5rem] text-sm leading-relaxed text-balance text-muted-foreground">
-              React components for Next.js and Tailwind&nbsp;CSS that you copy into your project and own.
+              {t.footer.tagline}
             </p>
             <div className="mt-5 flex items-center gap-1">
               <GitHubLink className="-ml-2" />
               <span aria-hidden="true" className="mx-1 h-4 w-px bg-border" />
               <ThemeToggle className="size-8" />
+              <LanguageSwitch className="h-8" />
             </div>
           </div>
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 xl:col-span-8">
-            {columns().map((column) => (
+          <nav aria-label={t.footer.nav} className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 xl:col-span-8">
+            {columns(locale, t).map((column) => (
               <div key={column.title} className="min-w-0">
                 <h2 className="text-sm font-medium text-foreground">{column.title}</h2>
                 <ul className="mt-3 space-y-1">
@@ -172,11 +181,11 @@ export function SiteFooter() {
           </nav>
         </div>
         <div className="mt-16 flex flex-col gap-3 border-t border-border pt-6 text-[13px] text-muted-foreground lg:flex-row lg:items-center lg:justify-between lg:gap-8">
-          <p>Built with Next.js, Tailwind CSS, React Aria and Motion, and set in Geist.</p>
+          <p>{t.footer.builtWith}</p>
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 whitespace-nowrap lg:justify-end">
-            <Counts />
+            <Counts t={t} />
             <a href="#top" className={cn(linkClass, "text-[13px]")}>
-              Back to top
+              {t.footer.backToTop}
             </a>
           </div>
         </div>
@@ -185,12 +194,13 @@ export function SiteFooter() {
   );
 }
 
-export function DocsFooter() {
+export async function DocsFooter() {
+  const { t } = await getI18n();
   return (
     <footer className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-border pt-6 text-[13px] text-muted-foreground">
       <HomeLink />
       <GitHubLink />
-      <Counts className="sm:ml-auto" />
+      <Counts t={t} className="sm:ml-auto" />
     </footer>
   );
 }

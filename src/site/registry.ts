@@ -1,6 +1,10 @@
+import { inkThumbs } from "@/registry/__generated__/ink-thumbs";
 import { items } from "@/registry/__generated__/items";
 import { thumbs } from "@/registry/__generated__/thumbs";
 import { CATEGORIES, type Category, type RegistryItem } from "@/registry/schema";
+import type { Locale } from "@/site/i18n/config";
+import { dictionaries } from "@/site/i18n/dictionaries";
+import { localizeItem, sortByName } from "@/site/i18n/items";
 
 export { items };
 
@@ -25,6 +29,7 @@ export interface ItemSummary {
   firstDemo: string;
   demos: string[];
   picture: string | null;
+  inkPicture: string | null;
 }
 
 export interface CategoryGroup {
@@ -34,16 +39,18 @@ export interface CategoryGroup {
   items: ItemSummary[];
 }
 
-export function summarize(item: RegistryItem): ItemSummary {
+export function summarize(item: RegistryItem, locale: Locale): ItemSummary {
+  const localized = localizeItem(item, locale);
   return {
     slug: item.slug,
-    name: item.name,
-    description: item.description,
+    name: localized.name,
+    description: localized.description,
     category: item.category,
     preview: item.preview,
     firstDemo: item.demos[0]?.name ?? "default",
     demos: item.demos.map((demo) => demo.name),
     picture: thumbs[item.slug] ?? null,
+    inkPicture: inkThumbs[item.slug] ?? null,
   };
 }
 
@@ -51,12 +58,16 @@ export function getItem(slug: string): RegistryItem | undefined {
   return items.find((item) => item.slug === slug);
 }
 
-export function categoryGroups(): CategoryGroup[] {
+export function categoryGroups(locale: Locale): CategoryGroup[] {
+  const names = dictionaries[locale].categories;
   return CATEGORIES.map((c) => ({
     id: c.id,
-    label: c.label,
-    blurb: c.blurb,
-    items: items.filter((item) => item.category === c.id).map(summarize),
+    label: names[c.id].label,
+    blurb: names[c.id].blurb,
+    items: sortByName(
+      items.filter((item) => item.category === c.id).map((item) => summarize(item, locale)),
+      locale,
+    ),
   })).filter((group) => group.items.length > 0);
 }
 

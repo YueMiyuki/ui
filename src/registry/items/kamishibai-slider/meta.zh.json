@@ -1,0 +1,18 @@
+{
+  "source": "3707e33a",
+  "name": "纸剧场",
+  "description": "纸剧场：画片装在门扇向后折开的木框中，每张画片向侧面抽出，露出下一张。",
+  "demos": {
+    "default": "默认"
+  },
+  "props": {
+    "KamishibaiSlider": {
+      "slides": "画片，按顺序排列。caption 显示在木框下方；alt 描述画面。",
+      "index": "当前显示的画片（受控）。",
+      "defaultIndex": "初始显示的画片（非受控）。",
+      "onIndexChange": "通过按钮或方向键切换到另一张画片时调用。前进时，前面的画片向右抽出；后退时，上一张画片滑入并盖在当前画片上。",
+      "aria-label": "幻灯片放映的无障碍名称。木框可以获得焦点，用左右方向键以及 Home 和 End 键浏览画片。",
+      "className": "根元素的类名，最大宽度为 38rem。也接受 section 的其他所有属性。"
+    }
+  }
+}

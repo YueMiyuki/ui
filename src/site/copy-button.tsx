@@ -4,11 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "react-aria-components";
 import { MorphIcon, morphIcons } from "@/components/miyuki-ui/path-morph";
 import { cn } from "@/lib/utils";
+import { useDictionary } from "@/site/i18n/context";
 import { iconButtonClass } from "@/site/icon-button";
 
 export function CopyButton({
   text,
-  label = "Copy",
+  label,
   className,
 }: {
   text: string | ((target: Element) => string | undefined);
@@ -17,6 +18,7 @@ export function CopyButton({
 }) {
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const t = useDictionary().common;
 
   useEffect(() => () => clearTimeout(timer.current), []);
 
@@ -35,7 +37,7 @@ export function CopyButton({
 
   return (
     <Button
-      aria-label={copied ? "Copied" : label}
+      aria-label={copied ? t.copied : (label ?? t.copy)}
       onPress={(event) => copy(event.target)}
       className={iconButtonClass(
         cn(copied && "text-brand-strong hover:text-brand-strong data-[hovered]:text-brand-strong", className),
