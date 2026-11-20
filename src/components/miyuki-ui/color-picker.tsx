@@ -214,9 +214,11 @@ export function ColorPickerPanel({
 
 const keyframes = `
 @keyframes miyuki-color-picker-in {
-  from { opacity: 0; transform: translateY(calc(var(--miyuki-color-picker-dir, -1) * var(--miyuki-color-picker-dist, 4px))); }
+  from { opacity: 0; transform: translateY(calc(var(--miyuki-color-picker-dir, -1) * 4px)) scale(0.96); }
 }
-@keyframes miyuki-color-picker-out { to { opacity: 0; } }
+@keyframes miyuki-color-picker-out { to { opacity: 0; transform: scale(0.98); } }
+@keyframes miyuki-color-picker-fade-in { from { opacity: 0; } }
+@keyframes miyuki-color-picker-fade-out { to { opacity: 0; } }
 `;
 
 export interface ColorPickerProps extends SharedProps {
@@ -287,9 +289,13 @@ export function ColorPicker({
                 offset={6}
                 className={cn(
                   "overflow-y-auto overscroll-contain rounded-xl border border-border bg-popover p-4 text-popover-foreground shadow-lg outline-none",
-                  "data-[placement=top]:[--miyuki-color-picker-dir:1] motion-reduce:[--miyuki-color-picker-dist:0px]",
+                  "[--miyuki-color-picker-ox:19px] [&[dir=rtl]]:[--miyuki-color-picker-ox:calc(100%_-_19px)]",
+                  "origin-[var(--miyuki-color-picker-ox)_var(--miyuki-color-picker-oy,0px)] data-[placement=top]:[--miyuki-color-picker-oy:100%]",
+                  "data-[placement=top]:[--miyuki-color-picker-dir:1]",
                   "data-[entering]:animate-[miyuki-color-picker-in_200ms_cubic-bezier(0.22,1,0.36,1)]",
-                  "data-[exiting]:animate-[miyuki-color-picker-out_120ms_ease-out_forwards]",
+                  "data-[exiting]:animate-[miyuki-color-picker-out_120ms_ease-in_forwards]",
+                  "motion-reduce:data-[entering]:animate-[miyuki-color-picker-fade-in_120ms_ease-out]",
+                  "motion-reduce:data-[exiting]:animate-[miyuki-color-picker-fade-out_100ms_ease-in_forwards]",
                 )}
               >
                 <Dialog

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { DemoSurface, previewUrl } from "@/site/demo-surface";
+import { LAND_EVENT } from "@/site/intent";
 import type { ItemSummary } from "@/site/registry";
 import { ThumbFrame } from "@/site/thumb-frame";
 import { thumbSize } from "@/site/thumb-size";
@@ -62,6 +63,7 @@ function AlwaysLive({ item }: { item: ItemSummary }) {
 }
 
 const REST_MS = 120;
+const LAND_MS = 60;
 const REST_PX = 6;
 const SCROLL_QUIET_MS = 300;
 const FADE_OUT_MS = 160;
@@ -98,6 +100,7 @@ function HoverLive({ item }: { item: ItemSummary }) {
     let y = 0;
     let hovering = false;
     let focused = false;
+    let landed = false;
 
     const start = () => {
       window.clearTimeout(leaveTimer);
@@ -144,7 +147,7 @@ function HoverLive({ item }: { item: ItemSummary }) {
       rest();
     };
     const onMove = (event: PointerEvent) => {
-      if (!usable(event) || !hovering) return;
+      if (!usable(event) || !hovering || landed) return;
       if (Math.hypot(event.clientX - x, event.clientY - y) < REST_PX) return;
       x = event.clientX;
       y = event.clientY;
@@ -153,7 +156,14 @@ function HoverLive({ item }: { item: ItemSummary }) {
     const onLeave = (event: PointerEvent) => {
       if (!usable(event)) return;
       hovering = false;
+      landed = false;
       stop();
+    };
+    const onLand = () => {
+      if (!hovering || reduced.matches || performance.now() - lastScroll < SCROLL_QUIET_MS) return;
+      landed = true;
+      window.clearTimeout(restTimer);
+      restTimer = window.setTimeout(settle, LAND_MS);
     };
     const onFocusIn = (event: FocusEvent) => {
       if (!(event.target instanceof Element) || !event.target.matches(":focus-visible")) return;
@@ -169,6 +179,7 @@ function HoverLive({ item }: { item: ItemSummary }) {
     tile.addEventListener("pointerenter", onEnter);
     tile.addEventListener("pointermove", onMove);
     tile.addEventListener("pointerleave", onLeave);
+    tile.addEventListener(LAND_EVENT, onLand);
     tile.addEventListener("focusin", onFocusIn);
     tile.addEventListener("focusout", onFocusOut);
     return () => {
@@ -177,6 +188,7 @@ function HoverLive({ item }: { item: ItemSummary }) {
       tile.removeEventListener("pointerenter", onEnter);
       tile.removeEventListener("pointermove", onMove);
       tile.removeEventListener("pointerleave", onLeave);
+      tile.removeEventListener(LAND_EVENT, onLand);
       tile.removeEventListener("focusin", onFocusIn);
       tile.removeEventListener("focusout", onFocusOut);
     };

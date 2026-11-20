@@ -1,0 +1,128 @@
+{
+  "name": "Pointer Intent",
+  "category": "cursor",
+  "description": "Reads the pointer's speed and direction to start hover a moment early, to predict which target it is heading for, and to tell when it is settling on one.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "list",
+      "title": "In a list"
+    },
+    {
+      "name": "hover",
+      "title": "Hover that starts early"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 460
+  },
+  "props": [
+    {
+      "component": "PointerIntent",
+      "props": [
+        {
+          "name": "selector",
+          "type": "string",
+          "default": "\"[data-intent-target]\"",
+          "description": "Which elements inside the box count as targets. Any CSS selector, such as \"a[href]\" or \"button\". Targets are marked with two attributes, so they need no React state: data-aim for hover styles and data-intent for prediction."
+        },
+        {
+          "name": "onAim",
+          "type": "(element: Element) => void",
+          "description": "Called when an element becomes the aim: the target the pointer is over, or will be over within a few frames. It carries data-aim until onAimEnd, one element at a time. Style data-[aim]: where you would style hover: and the hover state starts before the pointer arrives. It is the earliest signal, so it is also the place to start cheap warm-up such as a prefetch; it will sometimes touch a neighbour the pointer never reaches."
+        },
+        {
+          "name": "onAimEnd",
+          "type": "(element: Element) => void",
+          "description": "Called when the element stops being the aim."
+        },
+        {
+          "name": "onIntent",
+          "type": "(element: Element, detail: { source: \"pointer\" | \"hover\" | \"focus\" | \"touch\" }) => void",
+          "description": "Called when the engine expects the pointer to stop on an element. The source is \"pointer\" when that is judged before the pointer reaches it, \"hover\" when the pointer is on it and settling, \"focus\" for keyboard focus and \"touch\" for a touch. A target judged early gets a second call with \"hover\" if the pointer then settles on it. The element carries data-intent with the same value until onIntentEnd. It is later and steadier than the aim: wait for \"hover\" before starting anything that should not flicker, such as playing a preview."
+        },
+        {
+          "name": "onIntentEnd",
+          "type": "(element: Element) => void",
+          "description": "Called when the element stops being the expected target."
+        },
+        {
+          "name": "lead",
+          "type": "number",
+          "default": "50",
+          "description": "How far ahead of the pointer the aim runs, in milliseconds of travel at the present speed. Larger values start hover earlier and touch more targets the pointer never reaches."
+        },
+        {
+          "name": "horizon",
+          "type": "number",
+          "default": "100",
+          "description": "How far ahead the destination forecast looks, in milliseconds of travel at the present speed."
+        },
+        {
+          "name": "dwell",
+          "type": "number",
+          "default": "40",
+          "description": "How much evidence a target needs before onIntent fires, as the time it takes at full confidence, in milliseconds. It also sets how long the pointer must look like it is stopping before the source becomes \"hover\". Larger values mean fewer wrong guesses and later intents."
+        },
+        {
+          "name": "minSpeed",
+          "type": "number",
+          "default": "80",
+          "description": "Below this speed, in pixels a second, nothing is forecast."
+        },
+        {
+          "name": "maxReach",
+          "type": "number",
+          "default": "480",
+          "description": "The furthest the forecast may land from the pointer, in pixels."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Turns prediction off and ends the current intent."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, a relative div. Other div props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "IntentTrace",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the line and the ring. Any CSS colour or token."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the overlay, an svg that fills the PointerIntent box and draws a line from the pointer to its aim, with a ring that tightens on a target. Place it inside PointerIntent."
+        }
+      ]
+    },
+    {
+      "component": "usePointerIntent",
+      "props": [
+        {
+          "name": "root",
+          "type": "RefObject<Element | null>",
+          "description": "Watch only inside this element. Leave it out to watch the whole document."
+        },
+        {
+          "name": "options",
+          "type": "PointerIntentOptions",
+          "description": "The same selector, onAim, onAimEnd, onIntent, onIntentEnd, lead, horizon, dwell, minSpeed, maxReach and disabled as PointerIntent."
+        }
+      ]
+    }
+  ]
+}

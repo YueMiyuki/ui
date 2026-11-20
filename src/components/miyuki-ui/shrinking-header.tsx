@@ -181,7 +181,7 @@ export function ShrinkingHeader({
               exit={{ opacity: 0, y: reduce ? 0 : -4, transition: { duration: 0.12 } }}
               transition={reduce ? { duration: 0.12 } : SETTLE}
               className={cn(
-                "absolute inset-x-3 top-full mt-2 origin-top rounded-2xl border border-border bg-popover p-2 text-popover-foreground shadow-lg lg:hidden",
+                "absolute inset-x-3 top-full mt-2 origin-[calc(100%_-_28px)_0] rtl:origin-[28px_0] rounded-2xl border border-border bg-popover p-2 text-popover-foreground shadow-lg lg:hidden",
                 "group-data-[scrolled]/bar:inset-x-0",
               )}
             >

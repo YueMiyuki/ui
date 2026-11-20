@@ -1,0 +1,175 @@
+{
+  "name": "Type loaders",
+  "category": "display",
+  "description": "Six small loading indicators made of text in the current colour: a word typing itself, a speech bubble, rolling letters, a selection, a paragraph and a seconds counter.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "sizes",
+      "title": "Sizes and colour"
+    },
+    {
+      "name": "text",
+      "title": "Your own words"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 340
+  },
+  "props": [
+    {
+      "component": "TypingLoader",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "The word that types itself behind a caret, holds, and is deleted again. Its full width is kept so nothing around it moves."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Line height in pixels. The monospaced text is set at about 0.6 of it."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "text",
+          "description": "Text for screen readers. The loader has role=\"status\"; the visible letters are hidden from them."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "BubbleLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Three dots rise and brighten in turn inside a speech bubble."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "LetterRollLoader",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "The letters that roll up through a window one letter wide. Spaces are skipped."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Line height in pixels. The letters are set at about 0.6 of it."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "text",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "SelectionLoader",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "default": "\"Text\"",
+          "description": "A short word. A caret sweeps across it and leaves a selection behind, then the selection closes again."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Line height in pixels. The word is set at about 0.6 of it."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "ParagraphLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A run of light crosses three lines of a paragraph, top to bottom."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "SecondsLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Line height in pixels. Two digits count the seconds since it appeared, rolling up as they change, and wrap at 60."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

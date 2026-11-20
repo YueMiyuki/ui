@@ -41,12 +41,16 @@ function Placeholder({ item }: { item: ItemSummary }) {
 export function ComponentTile({ item }: { item: ItemSummary }) {
   return (
     <div data-thumb-tile="" className="group relative">
-      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border bg-muted/40 transition-[border-color,box-shadow] duration-200 ease-settle group-hover:border-border-strong group-hover:shadow-md group-has-[a:focus-visible]:ring-[3px] group-has-[a:focus-visible]:ring-ring">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border bg-muted/40 transition-[border-color,box-shadow] duration-200 ease-settle group-hover:border-border-strong group-hover:shadow-md group-has-[a[data-aim]]:border-border-strong group-has-[a[data-aim]]:shadow-md group-has-[a:focus-visible]:ring-[3px] group-has-[a:focus-visible]:ring-ring">
         {item.picture ? <Picture slug={item.slug} version={item.picture} /> : <Placeholder item={item} />}
         {item.preview.thumb ? <LiveThumb item={item} /> : null}
       </div>
       <h3 className="mt-3.5 text-[15px] leading-snug font-semibold text-foreground">
-        <Link href={docsHref(item)} className="outline-none after:absolute after:inset-0 after:rounded-2xl">
+        <Link
+          href={docsHref(item)}
+          data-thumb-demo={item.preview.thumb && !item.preview.iframe ? `${item.slug}/${item.firstDemo}` : undefined}
+          className="outline-none after:absolute after:inset-0 after:rounded-2xl"
+        >
           {item.name}
         </Link>
       </h3>

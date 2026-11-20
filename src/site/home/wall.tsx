@@ -17,7 +17,7 @@ function Row({ items, reverse = false }: { items: ItemSummary[]; reverse?: boole
           <div
             key={`${item.slug}-${index}`}
             aria-hidden={copy || undefined}
-            className="group/tile relative h-[212px] w-[340px] shrink-0 overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-[box-shadow,border-color] duration-200 ease-settle hover:border-border-strong hover:shadow-md has-[a:focus-visible]:ring-[3px] has-[a:focus-visible]:ring-ring"
+            className="group/tile relative h-[212px] w-[340px] shrink-0 overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-[box-shadow,border-color] duration-200 ease-settle hover:border-border-strong hover:shadow-md has-[a:focus-visible]:ring-[3px] has-[a[data-aim]]:border-border-strong has-[a[data-aim]]:shadow-md has-[a:focus-visible]:ring-ring"
           >
             <LiveThumb item={item} play="always" />
             <Link
@@ -25,7 +25,7 @@ function Row({ items, reverse = false }: { items: ItemSummary[]; reverse?: boole
               tabIndex={copy ? -1 : undefined}
               className="group/link absolute inset-0 rounded-2xl outline-none"
             >
-              <span className="absolute bottom-3 left-3 rounded-md border border-border bg-popover px-2 py-1 text-xs font-medium text-foreground opacity-0 shadow-sm transition-opacity duration-200 group-hover/tile:opacity-100 group-focus-visible/link:opacity-100">
+              <span className="absolute bottom-3 left-3 rounded-md border border-border bg-popover px-2 py-1 text-xs font-medium text-foreground opacity-0 shadow-sm transition-opacity duration-200 group-hover/tile:opacity-100 group-focus-visible/link:opacity-100 group-data-[aim]/link:opacity-100">
                 {item.name}
               </span>
             </Link>

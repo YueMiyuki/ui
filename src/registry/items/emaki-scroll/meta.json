@@ -1,0 +1,73 @@
+{
+  "name": "Emaki Scroll",
+  "category": "scroll",
+  "original": true,
+  "description": "A picture scroll on two wooden rollers that winds from one roller to the other as the page scrolls.",
+  "preview": { "layout": "fill", "height": 640, "iframe": true },
+  "props": [
+    {
+      "component": "EmakiScroll",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The panels of the scroll, usually EmakiPanel elements, in reading order. Each takes an equal share of the paper."
+        },
+        {
+          "name": "direction",
+          "type": "\"rtl\" | \"ltr\"",
+          "default": "\"rtl\"",
+          "description": "Reading direction. With rtl the first panel starts at the right and the paper travels right as the page scrolls down; ltr mirrors the scroll, its shading and its panels."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "360",
+          "description": "Height of the paper in pixels. It is reduced on narrow screens and on short windows so the whole scroll fits."
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "default": "80",
+          "description": "Page scroll distance per panel, in viewport heights. The section is one screen taller than the panels need, and its inner stage sticks to the top of the window."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the outer section. Other section props, such as aria-labelledby, are passed through."
+        }
+      ]
+    },
+    {
+      "component": "EmakiPanel",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "The panel's heading, set vertically in a narrow column at the side where the panel begins. It is also named in the progress note under the scroll."
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "description": "The picture, mounted on the paper with a margin around it."
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Text alternative for the picture."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "A line or two of text under the picture."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the panel's article element. Other article props are passed through."
+        }
+      ]
+    }
+  ]
+}

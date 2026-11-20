@@ -1,0 +1,60 @@
+{
+  "name": "Murmuration",
+  "category": "backgrounds",
+  "original": true,
+  "description": "A flock of several hundred birds that moves as one body, stretching, folding and turning across the frame.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "Murmuration",
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "700",
+          "description": "Number of birds in a 960 by 480 frame. Smaller and larger frames scale it with their area, from 0.45 to 1.3 times."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--foreground)\"",
+          "description": "Colour of the birds. Any CSS colour or variable; it is read again when the theme changes."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the whole flight: the birds, the turns and the slow sweep across the frame."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "When true the pointer parts the flock like a falcon passing through, and a click startles it."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "\"murmuration\"",
+          "description": "Picks where the flock starts and how it is shaped. The same seed gives the same flight."
+        },
+        {
+          "name": "focus",
+          "type": "[x: number, y: number]",
+          "default": "[0.62, 0.66]",
+          "description": "Centre of the wide figure of eight the flock sweeps round, as fractions of the width and height. Move it away from your headline."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the flock. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content above the sky. Clicks on links, buttons and fields stay with them; clicks elsewhere startle the flock."
+        }
+      ]
+    }
+  ]
+}

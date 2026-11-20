@@ -1,0 +1,153 @@
+{
+  "name": "Object loaders",
+  "category": "display",
+  "description": "Six small loading indicators drawn as everyday things in the current colour: a steaming tea cup, a paper plane, a ringing bell, a sun that turns into a moon, a monitor pulse and a padlock.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "sizes",
+      "title": "Sizes and colour"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 340
+  },
+  "props": [
+    {
+      "component": "CupLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Steam rises from a tea cup in three wisps."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "PlaneLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A paper plane bobs in place as streaks slip past behind it."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "BellLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A bell swings, rings twice and comes to rest."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "SkyLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A sun draws in its rays and becomes a crescent moon, then turns back."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "PulseLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A bright run travels along a monitor trace."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "LockLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A padlock's shackle lifts, swings open, then drops and clicks shut."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

@@ -38,7 +38,7 @@ function Links({ pathname, className }: { pathname: string | null; className?: s
               href={link.href}
               aria-current={current ? "page" : undefined}
               className={cn(
-                "inline-flex h-8 items-center rounded-md px-2.5 text-sm text-muted-foreground outline-none transition-colors duration-150 hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring",
+                "inline-flex h-8 items-center rounded-md px-2.5 text-sm text-muted-foreground outline-none transition-colors duration-150 hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring data-[aim]:text-foreground",
                 current && "text-foreground",
               )}
             >
@@ -166,8 +166,8 @@ function HomeMenu() {
                     onClick={() => setOpen(false)}
                     aria-current={current ? "page" : undefined}
                     className={cn(
-                      "flex items-center rounded-md px-2.5 py-2 text-sm text-foreground outline-none transition-colors hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring",
-                      current && "bg-brand-soft font-medium hover:bg-brand-soft",
+                      "flex items-center rounded-md px-2.5 py-2 text-sm text-foreground outline-none transition-colors hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring data-[aim]:bg-accent",
+                      current && "bg-brand-soft font-medium hover:bg-brand-soft data-[aim]:bg-brand-soft",
                     )}
                   >
                     {link.label}

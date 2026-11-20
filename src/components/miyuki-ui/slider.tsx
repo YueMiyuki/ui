@@ -130,7 +130,7 @@ export function Slider<T extends number | number[]>({
                         {isDragging && (
                           <span className="pointer-events-none absolute bottom-full left-1/2 mb-2.5 -translate-x-1/2">
                             <motion.span
-                              className="block rounded-md bg-primary px-1.5 py-0.5 text-xs whitespace-nowrap text-primary-foreground tabular-nums shadow-sm"
+                              className="block origin-bottom rounded-md bg-primary px-1.5 py-0.5 text-xs whitespace-nowrap text-primary-foreground tabular-nums shadow-sm"
                               initial={reduce ? { opacity: 0 } : { opacity: 0, y: 4, scale: 0.96 }}
                               animate={{ opacity: 1, y: 0, scale: 1, transition: reduce ? { duration: 0.12 } : SETTLE }}
                               exit={{ opacity: 0, y: reduce ? 0 : 2, transition: { duration: 0.12, ease: "easeOut" } }}

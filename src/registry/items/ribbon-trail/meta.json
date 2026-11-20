@@ -1,0 +1,53 @@
+{
+  "name": "Ribbon Trail",
+  "category": "cursor",
+  "original": true,
+  "description": "Inside its area the pointer draws a ribbon of silk that follows it, turns over as it curves, and comes to rest.",
+  "preview": { "layout": "center", "height": 460, "settle": 4200 },
+  "props": [
+    {
+      "component": "RibbonTrail",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the face of the ribbon. Any CSS colour or token. At night the ribbon also gives off a faint glow in this colour."
+        },
+        {
+          "name": "underside",
+          "type": "string",
+          "description": "Colour of the underside, seen where the ribbon has turned over. Defaults to a pale tint of color."
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "default": "280",
+          "description": "Length of the ribbon in pixels."
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "default": "14",
+          "description": "Width of the ribbon at the head in pixels. It tapers to a point at the tail and narrows where it twists."
+        },
+        {
+          "name": "gravity",
+          "type": "number",
+          "default": "0.15",
+          "description": "How strongly the ribbon is pulled down. It hangs from the pointer when the pointer stops, and falls away when the pointer leaves. 0 lets it float."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The content of the area. The ribbon is drawn above it and never takes the pointer, so links, buttons and text selection work as usual."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and sets the size of the area. It allows vertical scrolling by touch, so a sideways drag draws and an upward or downward one scrolls the page; add touch-none to draw in every direction. Other div props, including ref, are passed through."
+        }
+      ]
+    }
+  ]
+}

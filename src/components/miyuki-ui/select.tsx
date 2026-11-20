@@ -44,16 +44,22 @@ function triggerBox({ hovered, active, invalid }: { hovered: boolean; active: bo
 
 const keyframes = `
 @keyframes miyuki-select-in {
-  from { opacity: 0; transform: translateY(calc(var(--miyuki-select-dir, -1) * var(--miyuki-select-dist, 4px))); }
+  from { opacity: 0; transform: translateY(calc(var(--miyuki-select-dir, -1) * 4px)) scale(0.96); }
 }
-@keyframes miyuki-select-out { to { opacity: 0; } }
+@keyframes miyuki-select-out { to { opacity: 0; transform: scale(0.98); } }
+@keyframes miyuki-select-fade-in { from { opacity: 0; } }
+@keyframes miyuki-select-fade-out { to { opacity: 0; } }
 `;
 
 const popoverStyles = cn(
   "flex min-w-(--trigger-width) flex-col overflow-hidden rounded-xl border border-border bg-popover text-popover-foreground shadow-lg outline-none",
-  "data-[placement=top]:[--miyuki-select-dir:1] motion-reduce:[--miyuki-select-dist:0px]",
+  "[--miyuki-select-ox:min(calc(var(--trigger-width)/2),100%)] [&[dir=rtl]]:[--miyuki-select-ox:calc(100%_-_min(calc(var(--trigger-width)/2),100%))]",
+  "origin-[var(--miyuki-select-ox)_var(--miyuki-select-oy,0px)] data-[placement=top]:[--miyuki-select-oy:100%]",
+  "data-[placement=top]:[--miyuki-select-dir:1]",
   "data-[entering]:animate-[miyuki-select-in_200ms_cubic-bezier(0.22,1,0.36,1)]",
-  "data-[exiting]:animate-[miyuki-select-out_120ms_ease-out_forwards]",
+  "data-[exiting]:animate-[miyuki-select-out_120ms_ease-in_forwards]",
+  "motion-reduce:data-[entering]:animate-[miyuki-select-fade-in_120ms_ease-out]",
+  "motion-reduce:data-[exiting]:animate-[miyuki-select-fade-out_100ms_ease-in_forwards]",
 );
 
 const TriggerContext = createContext(false);

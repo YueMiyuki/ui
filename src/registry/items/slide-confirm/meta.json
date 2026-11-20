@@ -1,0 +1,64 @@
+{
+  "name": "Slide Confirm",
+  "category": "buttons",
+  "original": true,
+  "description": "A slide-to-confirm control: drag the handle across and water follows it; let go early and it drains back, reach the end and it commits.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "destructive", "title": "Destructive" }],
+  "preview": { "layout": "center", "height": 360 },
+  "props": [
+    {
+      "component": "SlideConfirm",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Slide to confirm\"",
+          "description": "Text centred in the track. It is also the accessible name and the value text before confirming. Long labels truncate with an ellipsis rather than run under the handle."
+        },
+        {
+          "name": "confirmedLabel",
+          "type": "string",
+          "default": "\"Confirmed\"",
+          "description": "Text the label cross-fades to once the handle reaches the end. It becomes the value text and is announced politely when the confirmation settles."
+        },
+        {
+          "name": "onConfirm",
+          "type": "() => unknown",
+          "description": "Called once when the handle reaches the end, by dragging, by End, or by Enter or Space on the handle. Return a promise to keep the water swelling and a spinner ring round the check while it is pending; if it rejects, the water drains back, the check turns back into the arrow and the handle flushes camellia for a moment."
+        },
+        {
+          "name": "tone",
+          "type": "\"brand\" | \"destructive\"",
+          "default": "\"brand\"",
+          "description": "Colour of the water: water blue, or camellia for deletions and cancellations."
+        },
+        {
+          "name": "resetKey",
+          "type": "string | number",
+          "description": "Change it to return the control to the start: the water drains and the check turns back into the arrow. After confirming, the control ignores input until it is reset."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disables dragging and the keyboard, and dims the control."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<SlideConfirmHandle>",
+          "description": "Exposes reset(), which does the same as changing resetKey."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Accessible name for the slider when it should differ from label."
+        },
+        {
+          "name": "className",
+          "type": "string | ((values) => string)",
+          "description": "Classes for the root, which fills the width of its container. The track is 48 pixels tall. Arrow keys move the handle in steps of ten percent, Home sends it back, End completes. Under reduced motion the water edge is flat and still, returns are short fades and the arrow fades into the check."
+        }
+      ]
+    }
+  ]
+}

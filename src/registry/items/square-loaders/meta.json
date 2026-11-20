@@ -1,0 +1,153 @@
+{
+  "name": "Square loaders",
+  "category": "display",
+  "description": "Six small loading indicators built from squares: a tumbling block, sliding tiles, a square that rounds into a circle, nested frames, a spiral of cells and a turning card.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "sizes",
+      "title": "Sizes and colour"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 340
+  },
+  "props": [
+    {
+      "component": "TumbleLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A solid square tips over a quarter turn at a time."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "ShuffleLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Three tiles on a two by two board slide into the gap one at a time."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "RoundingLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A square outline rounds into a circle and back while it turns."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "NestLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Three nested square outlines turn a quarter in turn, inside first."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "SpiralLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Light walks round a three by three grid of cells and into the centre."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "FlipLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A card turns over on one axis and then the other, solid on one face and outlined on the other."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

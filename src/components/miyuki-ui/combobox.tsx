@@ -32,9 +32,11 @@ const padEnd: Record<ComboBoxSize, string> = { sm: "pe-8", md: "pe-9", lg: "pe-1
 
 const keyframes = `
 @keyframes miyuki-combobox-in {
-  from { opacity: 0; transform: translateY(calc(var(--miyuki-combobox-dir, -1) * var(--miyuki-combobox-dist, 4px))); }
+  from { opacity: 0; transform: translateY(calc(var(--miyuki-combobox-dir, -1) * 4px)) scale(0.96); }
 }
-@keyframes miyuki-combobox-out { to { opacity: 0; } }
+@keyframes miyuki-combobox-out { to { opacity: 0; transform: scale(0.98); } }
+@keyframes miyuki-combobox-fade-in { from { opacity: 0; } }
+@keyframes miyuki-combobox-fade-out { to { opacity: 0; } }
 `;
 
 export const ComboBoxItem = SelectItem;
@@ -144,9 +146,13 @@ export function ComboBox<T extends object = object>({
             offset={6}
             className={cn(
               "flex min-w-(--trigger-width) flex-col overflow-hidden rounded-xl border border-border bg-popover text-popover-foreground shadow-lg outline-none",
-              "data-[placement=top]:[--miyuki-combobox-dir:1] motion-reduce:[--miyuki-combobox-dist:0px]",
+              "[--miyuki-combobox-ox:min(calc(var(--trigger-width)/2),100%)] [&[dir=rtl]]:[--miyuki-combobox-ox:calc(100%_-_min(calc(var(--trigger-width)/2),100%))]",
+              "origin-[var(--miyuki-combobox-ox)_var(--miyuki-combobox-oy,0px)] data-[placement=top]:[--miyuki-combobox-oy:100%]",
+              "data-[placement=top]:[--miyuki-combobox-dir:1]",
               "data-[entering]:animate-[miyuki-combobox-in_200ms_cubic-bezier(0.22,1,0.36,1)]",
-              "data-[exiting]:animate-[miyuki-combobox-out_120ms_ease-out_forwards]",
+              "data-[exiting]:animate-[miyuki-combobox-out_120ms_ease-in_forwards]",
+              "motion-reduce:data-[entering]:animate-[miyuki-combobox-fade-in_120ms_ease-out]",
+              "motion-reduce:data-[exiting]:animate-[miyuki-combobox-fade-out_100ms_ease-in_forwards]",
             )}
           >
             <ListBox

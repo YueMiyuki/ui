@@ -1,0 +1,56 @@
+{
+  "name": "Parting List",
+  "category": "layout",
+  "original": true,
+  "description": "A list you reorder by carrying a row through it while the other rows part round it in a wave and close behind it.",
+  "preview": { "layout": "center", "height": 640 },
+  "props": [
+    {
+      "component": "PartingList",
+      "props": [
+        {
+          "name": "items",
+          "type": "T[]",
+          "description": "The rows, in order. Each needs a stable id (a string or a number) that survives reordering."
+        },
+        {
+          "name": "onReorder",
+          "type": "(items: T[]) => void",
+          "description": "Called once when a row is dropped in a new place, with the items in their new order. Pass them back as items. If the new order is not taken up, the rows glide back."
+        },
+        {
+          "name": "renderItem",
+          "type": "(item: T, state: { dragging: boolean }) => ReactNode",
+          "description": "Draws a row's content beside its grip. dragging is true while the row is carried by pointer or keyboard."
+        },
+        {
+          "name": "itemLabel",
+          "type": "(item: T) => string",
+          "default": "the item's label, name or title, else its id",
+          "description": "Names a row for its grip button (\"Move Hakuba\") and for the announcements made as it moves (\"Hakuba, position 2 of 6\")."
+        },
+        {
+          "name": "variant",
+          "type": "\"cards\" | \"divided\"",
+          "default": "\"cards\"",
+          "description": "Separate cards with a gap between them, or rows inside one card with a hairline between each."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "description": "Names the list. Use this or aria-labelledby."
+        },
+        {
+          "name": "aria-labelledby",
+          "type": "string",
+          "description": "The id of a heading that names the list."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the wrapper around the list. Other props are spread onto it too."
+        }
+      ]
+    }
+  ]
+}

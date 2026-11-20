@@ -285,12 +285,12 @@ export function Index({ groups }: { groups: { id: string; label: string; blurb: 
                 className="group flex items-baseline gap-4 rounded-sm py-4 outline-none focus-visible:ring-[3px] focus-visible:ring-ring"
               >
                 <span className="min-w-0 flex-1">
-                  <span className="block text-base font-medium text-foreground transition-transform duration-200 ease-settle group-hover:translate-x-1">
+                  <span className="block text-base font-medium text-foreground transition-transform duration-200 ease-settle group-hover:translate-x-1 group-data-[aim]:translate-x-1">
                     {group.label}
                   </span>
                   <span className="mt-0.5 block text-sm text-pretty text-muted-foreground">{group.blurb}</span>
                 </span>
-                <span className="font-pixel text-xl text-muted-foreground tabular-nums transition-colors duration-200 group-hover:text-brand-strong">
+                <span className="font-pixel text-xl text-muted-foreground tabular-nums transition-colors duration-200 group-hover:text-brand-strong group-data-[aim]:text-brand-strong">
                   {group.count}
                 </span>
               </Link>

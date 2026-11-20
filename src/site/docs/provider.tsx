@@ -1,6 +1,7 @@
 import { RootProvider } from "fumadocs-ui/provider/next";
 import type { ReactNode } from "react";
 import { DOCS_HOME, sectionHref } from "@/site/docs/urls";
+import { SiteIntent } from "@/site/intent";
 
 const settle = "cubic-bezier(0.22,1,0.36,1)";
 
@@ -37,6 +38,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
       <style href="miyuki-site-transitions" precedence="miyuki">
         {transitions}
       </style>
+      <SiteIntent />
       {children}
     </RootProvider>
   );

@@ -1,0 +1,55 @@
+{
+  "name": "Moon Jellies",
+  "category": "backgrounds",
+  "original": true,
+  "description": "Moon jellyfish pulsing slowly up through still water, glowing at night and painted like watercolour by day.",
+  "preview": { "layout": "fill", "height": 520 },
+  "demos": [{ "name": "default", "title": "Night" }, { "name": "day", "title": "Day" }],
+  "props": [
+    {
+      "component": "MoonJellies",
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "7",
+          "description": "Number of jellies, spread over three depths. Far ones are smaller, fainter and slower. Up to 16."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"var(--brand)\", \"var(--chart-3)\", \"var(--chart-2)\"]",
+          "description": "Colours the bells are tinted with, most common first. Each jelly blends one with the next. Any CSS colours or tokens."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for time: the pulse, the swimming, the current and the falling marine snow."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "When true, jellies near the pointer turn away and take an extra pulse, and pressing the water outside links, buttons and fields sends out a pressure ring that stirs the tentacles."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "\"tide\"",
+          "description": "Seed for the sizes, colours and starting places of the jellies. The same seed gives the same water."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the water. The component paints no background; place it on a dark surface for the night look. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the jellies."
+        }
+      ]
+    }
+  ]
+}

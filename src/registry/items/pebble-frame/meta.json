@@ -1,0 +1,67 @@
+{
+  "name": "Pebble Frame",
+  "category": "media",
+  "original": true,
+  "description": "A frame that holds a picture in a smooth pebble outline which drifts slowly, pulls round on hover and wobbles like jelly when pressed.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "avatars", "title": "Avatars" }],
+  "preview": { "layout": "center", "height": 460 },
+  "props": [
+    {
+      "component": "PebbleFrame",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "What the pebble holds: an image, a video, an avatar, or a link or button around one. Direct children are stretched to fill the frame, and images and videos are cropped to cover it. Put a link or button inside the frame rather than around it, so its focus ring can follow the outline."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "1",
+          "description": "Picks the pebble's shape and the course of its drift. Frames with different seeds drift independently. The first frame, rendered on the server, already has this shape."
+        },
+        {
+          "name": "wobble",
+          "type": "number",
+          "default": "0.5",
+          "description": "How far from a circle the outline wanders, from 0 (a circle) to 1 (long, uneven stones). The outline stays smooth and convex at every value."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the drift. At 1 the stone changes character over about 12 seconds; 0 holds the current shape while hover and press still respond."
+        },
+        {
+          "name": "ring",
+          "type": "boolean",
+          "default": "false",
+          "description": "Draws the outline as a hairline over the picture. It takes `color` on hover and focus."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "Hover and keyboard focus pull the outline into a circle that swells by 3% while the picture sinks by 4%; a press squashes it toward the pointer and it rings on release. Off, the frame only drifts. Keyboard focus on a child always shows a ring along the outline."
+        },
+        {
+          "name": "shadow",
+          "type": "boolean",
+          "default": "false",
+          "description": "Adds a soft ground shadow under the stone that follows its lowest edge."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "The colour the `ring` hairline turns on hover and focus."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the frame. It is a square 192px wide by default; set a width (it keeps its square shape) or a size of your own. In a frame that is not square the outline stretches with it, and hover pulls it into the inscribed oval."
+        }
+      ]
+    }
+  ]
+}

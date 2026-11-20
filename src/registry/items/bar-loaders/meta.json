@@ -1,0 +1,153 @@
+{
+  "name": "Bar loaders",
+  "category": "display",
+  "description": "Six small loading indicators made of straight strokes in the current colour: an equalizer, a sweep, a slide, a stack, a cross and a charging cell.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "sizes",
+      "title": "Sizes and colour"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 340
+  },
+  "props": [
+    {
+      "component": "EqualizerLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Five bars rise and fall about the midline, each on its own beat, like a sound level."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "SweepLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A swell crosses a row of nine fine ticks from left to right."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "SlideLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A run of water lengthens as it crosses a hairline channel and gathers to a bead at the end."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "StackLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Three lines of different lengths pass their lengths down the stack."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "CrossLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A plus turns an eighth of a turn into a cross, rests, and turns on."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "ChargeLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Four cells fill a battery one by one, hold, and drain together."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

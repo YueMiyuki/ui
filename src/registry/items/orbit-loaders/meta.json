@@ -1,0 +1,153 @@
+{
+  "name": "Orbit loaders",
+  "category": "display",
+  "description": "Six small loading indicators that go round, drawn in the current colour: a ringed planet, two chasing comets, turning arcs, an atom, a breathing ring and a swell of beads.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "sizes",
+      "title": "Sizes and colour"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 340
+  },
+  "props": [
+    {
+      "component": "PlanetLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A moon runs round a tilted ring, passing in front of the planet and behind it."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. The loader has role=\"status\"."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "ChaseLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Two comets with fading tails chase each other round a circle."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "ArcsLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Three concentric arcs turn at different speeds, the middle one against the others."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "AtomLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Three electrons run along tilted orbits round a nucleus."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "RingLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. An arc grows from a bead to three quarters of a faint ring and shrinks again while it turns."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "BeadsLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A swell runs round eight beads, the lead bead largest and those behind fading."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

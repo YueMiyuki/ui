@@ -1,0 +1,56 @@
+{
+  "name": "Hanging Mobile",
+  "category": "display",
+  "original": true,
+  "description": "A balanced mobile of wire arms and paper pieces that turns slowly in the air and stirs when the pointer passes through it.",
+  "demos": [{ "name": "default", "title": "Default" }, { "name": "people", "title": "People" }],
+  "preview": { "layout": "center", "height": 500 },
+  "props": [
+    {
+      "component": "HangingMobile",
+      "props": [
+        {
+          "name": "items",
+          "type": "HangingMobileItem",
+          "default": "a seven-piece mobile",
+          "description": "The tree to hang. An arm is { left, right }, each side holding a piece or another arm. A piece is { node?, shape?, color?, weight? }: node is any content (it turns up to about 60° and never shows its back), otherwise a paper shape (\"disc\", \"drop\", \"leaf\", \"crescent\" or \"crystal\") in color, default a palette colour. weight defaults to 1 and sets both the paper's area and where each arm's thread is tied, so that every arm balances. Keep it to three levels of arms."
+        },
+        {
+          "name": "breeze",
+          "type": "number",
+          "default": "0.4",
+          "description": "How hard the air moves the mobile, from 0 (still air) to 1. At 0 it comes to rest and only the pointer moves it."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "Moving the pointer through the mobile pushes the arms it passes and sets nearby pieces swinging."
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "default": "560",
+          "description": "Largest width in pixels. In a narrower container the whole mobile scales down and keeps its proportions."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "420",
+          "description": "Height in pixels at full width. Arm lengths and threads are fitted to width and height."
+        },
+        {
+          "name": "seed",
+          "type": "number | string",
+          "default": "\"hanging-mobile\"",
+          "description": "Seed for thread lengths, resting angles and the pattern of the breeze."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root element."
+        }
+      ]
+    }
+  ]
+}

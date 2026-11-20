@@ -15,8 +15,9 @@ const keyframes = `
 @keyframes miyuki-tooltip-in {
   from { opacity: 0; transform: translate(var(--miyuki-tooltip-x, 0), var(--miyuki-tooltip-y, 0)) scale(0.96); }
 }
-@keyframes miyuki-tooltip-out { to { opacity: 0; } }
+@keyframes miyuki-tooltip-out { to { opacity: 0; transform: scale(0.98); } }
 @keyframes miyuki-tooltip-fade-in { from { opacity: 0; } }
+@keyframes miyuki-tooltip-fade-out { to { opacity: 0; } }
 `;
 
 export interface TooltipTriggerProps extends TooltipTriggerComponentProps {
@@ -61,6 +62,7 @@ export function Tooltip({
             "data-[entering]:animate-[miyuki-tooltip-in_160ms_cubic-bezier(0.22,1,0.36,1)]",
             "data-[exiting]:animate-[miyuki-tooltip-out_100ms_ease-in_forwards]",
             "motion-reduce:data-[entering]:animate-[miyuki-tooltip-fade-in_100ms_ease-out]",
+            "motion-reduce:data-[exiting]:animate-[miyuki-tooltip-fade-out_100ms_ease-in_forwards]",
             cls,
           ),
         )}

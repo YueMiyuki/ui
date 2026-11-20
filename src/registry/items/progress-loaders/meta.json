@@ -1,0 +1,224 @@
+{
+  "name": "Progress loaders",
+  "category": "display",
+  "description": "Six small indicators that show an amount, drawn in the current colour: spokes, a count, a capsule, a pie, steps and a ring that ends in a check.",
+  "demos": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "sizes",
+      "title": "Sizes and colour"
+    },
+    {
+      "name": "value",
+      "title": "With a value"
+    }
+  ],
+  "preview": {
+    "layout": "center",
+    "height": 340,
+    "settle": 3500
+  },
+  "props": [
+    {
+      "component": "SpokesLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. Twelve spokes light in turn clockwise from twelve o'clock."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. Without value the loader has role=\"status\"; with value it is the progress bar's accessible name."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Amount from 0 to 100. With it the loader shows that amount, follows changes with a 200ms settle and has role=\"progressbar\". Without it the loader fills, holds and starts again."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "2.8",
+          "description": "Seconds for one fill when looping. The hold and fade that follow scale with it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "CountLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Height in pixels; the width follows three digits. The amount as a number over a line that fills from the left."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. Without value the loader has role=\"status\"; with value it is the progress bar's accessible name."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Amount from 0 to 100. With it the loader shows that amount, follows changes with a 200ms settle and has role=\"progressbar\". Without it the loader fills, holds and starts again."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "2.8",
+          "description": "Seconds for one fill when looping. The hold and fade that follow scale with it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "CapsuleLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A solid capsule grows from a bead to fill its track."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. Without value the loader has role=\"status\"; with value it is the progress bar's accessible name."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Amount from 0 to 100. With it the loader shows that amount, follows changes with a 200ms settle and has role=\"progressbar\". Without it the loader fills, holds and starts again."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "2.8",
+          "description": "Seconds for one fill when looping. The hold and fade that follow scale with it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "PieLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A wedge sweeps clockwise from twelve o'clock to a full disc."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. Without value the loader has role=\"status\"; with value it is the progress bar's accessible name."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Amount from 0 to 100. With it the loader shows that amount, follows changes with a 200ms settle and has role=\"progressbar\". Without it the loader fills, holds and starts again."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "2.8",
+          "description": "Seconds for one fill when looping. The hold and fade that follow scale with it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "StepsLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Height in pixels; the width is one and a half times the height. Four rings on a line fill in turn."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. Without value the loader has role=\"status\"; with value it is the progress bar's accessible name."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Amount from 0 to 100. With it the loader shows that amount, follows changes with a 200ms settle and has role=\"progressbar\". Without it the loader fills, holds and starts again."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "2.8",
+          "description": "Seconds for one fill when looping. The hold and fade that follow scale with it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    },
+    {
+      "component": "CheckLoader",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Width and height in pixels. A ring draws itself clockwise, and a check draws inside it at 100."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text for screen readers. Without value the loader has role=\"status\"; with value it is the progress bar's accessible name."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Amount from 0 to 100. With it the loader shows that amount, follows changes with a 200ms settle and has role=\"progressbar\". Without it the loader fills, holds and starts again."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "2.8",
+          "description": "Seconds for one fill when looping. The hold and fade that follow scale with it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes. The colour is currentColor, water by default. Other span props are passed through."
+        }
+      ]
+    }
+  ]
+}

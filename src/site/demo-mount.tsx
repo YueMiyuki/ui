@@ -17,6 +17,15 @@ const lazyDemos: Record<string, ComponentType> = Object.fromEntries(
   Object.entries(demoLoaders).map(([key, load]) => [key, lazy(load)]),
 );
 
+const preloaded = new Set<string>();
+
+export function preloadDemo(id: string) {
+  const load = demoLoaders[id];
+  if (!load || preloaded.has(id)) return;
+  preloaded.add(id);
+  load().catch(() => preloaded.delete(id));
+}
+
 function MissingDemo({ id }: { id: string }): ReactNode {
   throw new Error(`There is no demo "${id}". Run pnpm registry, or check the slug and demo name.`);
 }

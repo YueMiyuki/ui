@@ -98,6 +98,7 @@
         "src/components/miyuki-ui/drifting-clouds.tsx",
         "src/components/miyuki-ui/frost-glass.tsx",
         "src/components/miyuki-ui/lake-freeze.tsx",
+        "src/components/miyuki-ui/silk-folds.tsx",
         "src/components/miyuki-ui/still-water.tsx",
         "src/components/miyuki-ui/two-tone-print.tsx",
         "src/components/miyuki-ui/voice-orb.tsx"

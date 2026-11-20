@@ -14,7 +14,7 @@ type FooterColumn = { title: string; links: FooterLink[] };
 const templatePicks = ["resort-status", "field-journal", "studio-ledger", "kanban-board", "coding-assistant"];
 
 const linkClass =
-  "-mx-1 inline-flex rounded-sm px-1 py-1 text-sm text-muted-foreground outline-none transition-colors duration-150 hover:text-foreground focus-visible:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring";
+  "-mx-1 inline-flex rounded-sm px-1 py-1 text-sm text-muted-foreground outline-none transition-colors duration-150 hover:text-foreground focus-visible:text-foreground focus-visible:ring-[3px] data-[aim]:text-foreground focus-visible:ring-ring";
 
 function guideLinks(): FooterLink[] {
   const guides = new Set(

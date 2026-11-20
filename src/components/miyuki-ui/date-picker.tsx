@@ -25,16 +25,22 @@ import { cn } from "@/lib/utils";
 
 const keyframes = `
 @keyframes miyuki-date-picker-in {
-  from { opacity: 0; transform: translateY(calc(var(--miyuki-date-picker-dir, -1) * var(--miyuki-date-picker-dist, 4px))); }
+  from { opacity: 0; transform: translateY(calc(var(--miyuki-date-picker-dir, -1) * 4px)) scale(0.96); }
 }
-@keyframes miyuki-date-picker-out { to { opacity: 0; } }
+@keyframes miyuki-date-picker-out { to { opacity: 0; transform: scale(0.98); } }
+@keyframes miyuki-date-picker-fade-in { from { opacity: 0; } }
+@keyframes miyuki-date-picker-fade-out { to { opacity: 0; } }
 `;
 
 const popoverStyles = cn(
   "overflow-y-auto overscroll-contain rounded-xl border border-border bg-popover p-1 text-popover-foreground shadow-lg outline-none",
-  "data-[placement=top]:[--miyuki-date-picker-dir:1] motion-reduce:[--miyuki-date-picker-dist:0px]",
+  "[--miyuki-date-picker-ox:min(calc(var(--trigger-width)_-_19px),100%)] [&[dir=rtl]]:[--miyuki-date-picker-ox:calc(100%_-_min(calc(var(--trigger-width)_-_19px),100%))]",
+  "origin-[var(--miyuki-date-picker-ox)_var(--miyuki-date-picker-oy,0px)] data-[placement=top]:[--miyuki-date-picker-oy:100%]",
+  "data-[placement=top]:[--miyuki-date-picker-dir:1]",
   "data-[entering]:animate-[miyuki-date-picker-in_200ms_cubic-bezier(0.22,1,0.36,1)]",
-  "data-[exiting]:animate-[miyuki-date-picker-out_120ms_ease-out_forwards]",
+  "data-[exiting]:animate-[miyuki-date-picker-out_120ms_ease-in_forwards]",
+  "motion-reduce:data-[entering]:animate-[miyuki-date-picker-fade-in_120ms_ease-out]",
+  "motion-reduce:data-[exiting]:animate-[miyuki-date-picker-fade-out_100ms_ease-in_forwards]",
 );
 
 function fieldBox({ hovered, active, invalid }: { hovered: boolean; active: boolean; invalid: boolean }) {

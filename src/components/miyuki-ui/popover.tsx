@@ -16,11 +16,33 @@ import { cn } from "@/lib/utils";
 
 const keyframes = `
 @keyframes miyuki-popover-in {
-  from { opacity: 0; transform: translate(var(--miyuki-popover-x, 0), var(--miyuki-popover-y, 0)) scale(0.97); }
+  from { opacity: 0; transform: translate(var(--miyuki-popover-x, 0), var(--miyuki-popover-y, 0)) scale(0.96); }
 }
-@keyframes miyuki-popover-out { to { opacity: 0; } }
+@keyframes miyuki-popover-out { to { opacity: 0; transform: scale(0.98); } }
 @keyframes miyuki-popover-fade-in { from { opacity: 0; } }
+@keyframes miyuki-popover-fade-out { to { opacity: 0; } }
 `;
+
+const alignedOrigin = {
+  start:
+    "[--miyuki-popover-ox:min(calc(var(--trigger-width)/2),100%)] [&[dir=rtl]]:[--miyuki-popover-ox:calc(100%_-_min(calc(var(--trigger-width)/2),100%))]",
+  end: "[--miyuki-popover-ox:calc(100%_-_min(calc(var(--trigger-width)/2),100%))] [&[dir=rtl]]:[--miyuki-popover-ox:min(calc(var(--trigger-width)/2),100%)]",
+  left: "[--miyuki-popover-ox:min(calc(var(--trigger-width)/2),100%)]",
+  right: "[--miyuki-popover-ox:calc(100%_-_min(calc(var(--trigger-width)/2),100%))]",
+};
+
+function originStyles(placement: string) {
+  const [side, align = ""] = placement.split(" ");
+  if (
+    (side === "top" || side === "bottom") &&
+    (align === "start" || align === "end" || align === "left" || align === "right")
+  )
+    return cn(
+      alignedOrigin[align],
+      "origin-[var(--miyuki-popover-ox)_var(--miyuki-popover-oy,0px)] data-[placement=top]:[--miyuki-popover-oy:100%]",
+    );
+  return "origin-(--trigger-anchor-point)";
+}
 
 export function PopoverTrigger(props: DialogTriggerProps) {
   return <DialogTrigger {...props} />;
@@ -52,12 +74,13 @@ export function Popover({
         className={composeRenderProps(className, (cls) =>
           cn(
             "w-max max-w-[min(320px,calc(100vw-24px))] rounded-xl border border-border bg-popover p-4 text-sm text-popover-foreground shadow-lg outline-none",
-            "origin-(--trigger-anchor-point)",
+            originStyles(placement),
             "data-[placement=top]:[--miyuki-popover-y:4px] data-[placement=bottom]:[--miyuki-popover-y:-4px]",
             "data-[placement=left]:[--miyuki-popover-x:4px] data-[placement=right]:[--miyuki-popover-x:-4px]",
             "data-[entering]:animate-[miyuki-popover-in_200ms_cubic-bezier(0.22,1,0.36,1)]",
             "data-[exiting]:animate-[miyuki-popover-out_120ms_ease-in_forwards]",
             "motion-reduce:data-[entering]:animate-[miyuki-popover-fade-in_120ms_ease-out]",
+            "motion-reduce:data-[exiting]:animate-[miyuki-popover-fade-out_100ms_ease-in_forwards]",
             cls,
           ),
         )}

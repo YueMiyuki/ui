@@ -1,0 +1,54 @@
+{
+  "name": "Silk Folds",
+  "category": "backgrounds",
+  "original": true,
+  "description": "A length of silk lying in slow folds behind your content, drawn by a WebGL fragment shader; the pointer lifts the cloth beneath it.",
+  "preview": { "layout": "fill", "height": 480 },
+  "props": [
+    {
+      "component": "SilkFolds",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the silk. It is mixed toward the background: pale by day, deep satin at night. Any CSS colour or token."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for how fast the folds travel and breathe. 0 holds them still; changes ease in."
+        },
+        {
+          "name": "scale",
+          "type": "number",
+          "default": "1",
+          "description": "Size of the folds. 2 makes them twice as wide."
+        },
+        {
+          "name": "depth",
+          "type": "number",
+          "default": "1",
+          "description": "Contrast of the folds, from 0 (flat cloth) to about 2 (deep, sharply lit folds)."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "Lift the cloth under the pointer, even through content. The bump trails the pointer and sinks away when it leaves."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Classes for the root, which is relative and clips the silk. Other div props are passed through."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content rendered above the silk. It stays selectable and clickable."
+        }
+      ]
+    }
+  ]
+}

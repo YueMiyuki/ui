@@ -29,11 +29,33 @@ export type DropdownIndicator = "check" | "dot";
 
 const keyframes = `
 @keyframes miyuki-dropdown-in {
-  from { opacity: 0; transform: translate(var(--miyuki-dropdown-x, 0), var(--miyuki-dropdown-y, 0)) scale(0.97); }
+  from { opacity: 0; transform: translate(var(--miyuki-dropdown-x, 0), var(--miyuki-dropdown-y, 0)) scale(0.96); }
 }
-@keyframes miyuki-dropdown-out { to { opacity: 0; } }
+@keyframes miyuki-dropdown-out { to { opacity: 0; transform: scale(0.98); } }
 @keyframes miyuki-dropdown-fade-in { from { opacity: 0; } }
+@keyframes miyuki-dropdown-fade-out { to { opacity: 0; } }
 `;
+
+const alignedOrigin = {
+  start:
+    "[--miyuki-dropdown-ox:min(calc(var(--trigger-width)/2),100%)] [&[dir=rtl]]:[--miyuki-dropdown-ox:calc(100%_-_min(calc(var(--trigger-width)/2),100%))]",
+  end: "[--miyuki-dropdown-ox:calc(100%_-_min(calc(var(--trigger-width)/2),100%))] [&[dir=rtl]]:[--miyuki-dropdown-ox:min(calc(var(--trigger-width)/2),100%)]",
+  left: "[--miyuki-dropdown-ox:min(calc(var(--trigger-width)/2),100%)]",
+  right: "[--miyuki-dropdown-ox:calc(100%_-_min(calc(var(--trigger-width)/2),100%))]",
+};
+
+function originStyles(placement: string) {
+  const [side, align = ""] = placement.split(" ");
+  if (
+    (side === "top" || side === "bottom") &&
+    (align === "start" || align === "end" || align === "left" || align === "right")
+  )
+    return cn(
+      alignedOrigin[align],
+      "origin-[var(--miyuki-dropdown-ox)_var(--miyuki-dropdown-oy,0px)] data-[placement=top]:[--miyuki-dropdown-oy:100%]",
+    );
+  return "origin-(--trigger-anchor-point)";
+}
 
 export const dropdownSurfaceStyles =
   "rounded-xl border border-border bg-popover text-popover-foreground shadow-lg outline-none";
@@ -114,18 +136,23 @@ export function DropdownMenu<T extends object>({
         crossOffset={crossOffset ?? (isSubmenu ? -5 : undefined)}
         shouldFlip={shouldFlip}
         isNonModal={isNonModal}
-        className={cn(
-          dropdownSurfaceStyles,
-          "flex max-w-[min(320px,calc(100vw-24px))] flex-col overflow-hidden",
-          isSubmenu ? "min-w-[200px]" : "min-w-[max(200px,var(--trigger-width))]",
-          "origin-(--trigger-anchor-point)",
-          "data-[placement=top]:[--miyuki-dropdown-y:4px] data-[placement=bottom]:[--miyuki-dropdown-y:-4px]",
-          "data-[placement=left]:[--miyuki-dropdown-x:4px] data-[placement=right]:[--miyuki-dropdown-x:-4px]",
-          "data-[entering]:animate-[miyuki-dropdown-in_180ms_cubic-bezier(0.22,1,0.36,1)]",
-          "data-[exiting]:animate-[miyuki-dropdown-out_100ms_ease-in_forwards]",
-          "motion-reduce:data-[entering]:animate-[miyuki-dropdown-fade-in_100ms_ease-out]",
-          popoverClassName,
-        )}
+        className={({ trigger }) =>
+          cn(
+            dropdownSurfaceStyles,
+            "flex max-w-[min(320px,calc(100vw-24px))] flex-col overflow-hidden",
+            isSubmenu ? "min-w-[200px]" : "min-w-[max(200px,var(--trigger-width))]",
+            trigger === "ContextMenu"
+              ? "origin-(--trigger-anchor-point)"
+              : originStyles(placement ?? (isSubmenu ? "end top" : "bottom start")),
+            "data-[placement=top]:[--miyuki-dropdown-y:4px] data-[placement=bottom]:[--miyuki-dropdown-y:-4px]",
+            "data-[placement=left]:[--miyuki-dropdown-x:4px] data-[placement=right]:[--miyuki-dropdown-x:-4px]",
+            "data-[entering]:animate-[miyuki-dropdown-in_180ms_cubic-bezier(0.22,1,0.36,1)]",
+            "data-[exiting]:animate-[miyuki-dropdown-out_100ms_ease-in_forwards]",
+            "motion-reduce:data-[entering]:animate-[miyuki-dropdown-fade-in_100ms_ease-out]",
+            "motion-reduce:data-[exiting]:animate-[miyuki-dropdown-fade-out_100ms_ease-in_forwards]",
+            popoverClassName,
+          )
+        }
       >
         <IndicatorContext value={indicator ?? null}>
           <Menu

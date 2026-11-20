@@ -1,0 +1,59 @@
+{
+  "name": "Koto Strings",
+  "category": "labs",
+  "original": true,
+  "description": "A panel of thirteen strings you strum with the pointer, each vibrating as a real string does and, if sound is on, playing a soft synthesised pluck.",
+  "preview": { "layout": "center", "height": 440, "settle": 2000 },
+  "props": [
+    {
+      "component": "KotoStrings",
+      "props": [
+        {
+          "name": "strings",
+          "type": "number",
+          "default": "13",
+          "description": "How many strings cross the panel, from 1 to 25. They thicken slightly from the top string to the bottom one, and the bottom string is the lowest note."
+        },
+        {
+          "name": "sound",
+          "type": "boolean",
+          "default": "false",
+          "description": "Play a quiet plucked note for each pluck, synthesised on the spot and tuned to a hirajoshi scale from D4 at the bottom string upward. Sound only starts after the visitor has interacted with the page, and no audio context is made while it is off."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"var(--brand)\"",
+          "description": "Colour of the vibration envelope, the glow at night and the keyboard marker. Any CSS colour or variable."
+        },
+        {
+          "name": "decay",
+          "type": "number",
+          "default": "1.8",
+          "description": "Seconds a plucked string takes to come to rest. Higher modes die away sooner than the fundamental. The sound rings for about as long."
+        },
+        {
+          "name": "onPluck",
+          "type": "(index: number, strength: number) => void",
+          "description": "Called once for every pluck with the string's index (0 is the top string) and a strength from 0 to 1. Faster crossings pluck harder."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<KotoStringsHandle>",
+          "description": "Gives pluck(index, strength?) to pluck one string, and strum({ direction, at, duration, strength }) to sweep across them all, through the same motion as the pointer."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Strings\"",
+          "description": "Accessible name of the panel, which is a vertical toolbar with one button per string. Tab reaches it once; the arrow keys, Home and End move between strings, and Space or Enter plucks."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes for the panel. It is h-80 and full width by default. Also accepts every other prop of a div."
+        }
+      ]
+    }
+  ]
+}
